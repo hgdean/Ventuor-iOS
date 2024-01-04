@@ -18,6 +18,7 @@
 		133AF0812B4722F5005557D9 /* IntroItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0802B4722F5005557D9 /* IntroItem.swift */; };
 		133AF0832B47233E005557D9 /* IntroScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0822B47233E005557D9 /* IntroScreens.swift */; };
 		133AF0862B47254F005557D9 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0852B47254F005557D9 /* SplashView.swift */; };
+		133AF0882B472879005557D9 /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0872B472878005557D9 /* RootScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		133AF0802B4722F5005557D9 /* IntroItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroItem.swift; sourceTree = "<group>"; };
 		133AF0822B47233E005557D9 /* IntroScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreens.swift; sourceTree = "<group>"; };
 		133AF0852B47254F005557D9 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		133AF0872B472878005557D9 /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				133AF06A2B4710FE005557D9 /* Assets.xcassets */,
 				133AF06C2B4710FE005557D9 /* Preview Content */,
 				133AF0742B47212A005557D9 /* Auth.swift */,
+				133AF0872B472878005557D9 /* RootScreen.swift */,
 			);
 			path = Ventuor;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				133AF0692B4710FA005557D9 /* ContentView.swift in Sources */,
 				133AF07A2B472196005557D9 /* KeychainWrapperSubscript.swift in Sources */,
 				133AF0672B4710FA005557D9 /* VentuorApp.swift in Sources */,
+				133AF0882B472879005557D9 /* RootScreen.swift in Sources */,
 				133AF07C2B472196005557D9 /* KeychainWrapper.swift in Sources */,
 				133AF0832B47233E005557D9 /* IntroScreens.swift in Sources */,
 				133AF07B2B472196005557D9 /* KeychainItemAccessibility.swift in Sources */,

@@ -18,6 +18,8 @@ struct ContentView: View {
         if self.isSplashScreenActive {
             SplashView(isSplashScreenActive: $isSplashScreenActive)
         } else {
+            RootScreen(showIntroScreens: !auth.loggedIn)
+                .environmentObject(Auth.shared)
         }
     }
 }

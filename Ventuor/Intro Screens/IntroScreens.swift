@@ -15,18 +15,18 @@ struct IntroScreens: View {
     private let dotAppearance = UIPageControl.appearance()
 
     @State var introItems: [IntroItem] = [
-        .init(title: "Request Pickup",
-             subTitle: "Tell us who you're sending it to, what you're sending and when is best to pickup the package and we will pick it up at the most convenient time",
+        .init(title: "Publishing System",
+             subTitle: "Promote, Broadcast, and Showcase Your Places' Activities, Status, and Pertinent Information. The On-The-Go App For Everyone & Every Place. Mobile Publishing System for Place Owners and Managers. Common & Consistent User Interface",
               buttonText: "Next"
               // lottieView: .init(name: "Animation - 1703964330877", bundle: .main)
              ),
-        .init(title: "Track Delivery",
-             subTitle: "The best part starts when our courier is on the way to your location of the courier",
+        .init(title: "Digital Business Card",
+             subTitle: "Think of it as your mobile business card that is always up-to-date and in everyone's pocket. Make it easy for your visitors to look you up and reach you.",
               buttonText: "Next"
               // lottieView: .init(name: "Animation - 1703260081956", bundle: .main)
              ),
-        .init(title: "Receive Package",
-             subTitle: "The journey ends when your package gets to it's location. Get notified immediately that your package has been received at its intended location",
+        .init(title: "Everything Location Guide",
+             subTitle: "The Ventuor system is designed to be the all-in-one solution for all location based activities. A portal for your digital presence.",
               buttonText: "Login"
               // lottieView: .init(name: "Animation - 1703259689848-1", bundle: .main)
              ),
@@ -61,7 +61,6 @@ struct IntroScreens: View {
                                 playAnimation()
                             }
                             .opacity(isLastSlide ? 0 : 1)
-                            //.foregroundColor(Color("ventuor-blue"))
                         }
                         .animation(.easeInOut, value: currentIndex)
                         .tint(Color.ventuorBlue)
