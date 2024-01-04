@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct VentuorApp: App {
+    @EnvironmentObject var auth: Auth
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(Auth.shared)
         }
     }
 }

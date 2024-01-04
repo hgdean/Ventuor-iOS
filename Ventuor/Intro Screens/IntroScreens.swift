@@ -1,0 +1,196 @@
+//
+//  IntroScreens.swift
+//  Ventuor
+//
+//  Created by H Sam Dean on 12/29/23.
+//
+
+// https://www.youtube.com/watch?v=QKol0WQpoOs
+
+import SwiftUI
+// import Lottie
+
+struct IntroScreens: View {
+    @Binding var showIntroScreens: Bool
+    private let dotAppearance = UIPageControl.appearance()
+
+    @State var introItems: [IntroItem] = [
+        .init(title: "Request Pickup",
+             subTitle: "Tell us who you're sending it to, what you're sending and when is best to pickup the package and we will pick it up at the most convenient time",
+              buttonText: "Next"
+              // lottieView: .init(name: "Animation - 1703964330877", bundle: .main)
+             ),
+        .init(title: "Track Delivery",
+             subTitle: "The best part starts when our courier is on the way to your location of the courier",
+              buttonText: "Next"
+              // lottieView: .init(name: "Animation - 1703260081956", bundle: .main)
+             ),
+        .init(title: "Receive Package",
+             subTitle: "The journey ends when your package gets to it's location. Get notified immediately that your package has been received at its intended location",
+              buttonText: "Login"
+              // lottieView: .init(name: "Animation - 1703259689848-1", bundle: .main)
+             ),
+    ]
+    
+    // Mark: Current Slide Index
+    @State var currentIndex: Int = 0
+
+    var body: some View {
+        GeometryReader {
+            let size = $0.size
+            
+            HStack(spacing: 0) {
+                ForEach($introItems) { $item in
+                    let isLastSlide = (currentIndex == introItems.count - 1)
+                    VStack {
+                        // Mark: Top Navigator Bar
+                        HStack {
+                            Button("Back") {
+                                if currentIndex > 0 {
+                                    currentIndex -= 1
+                                    playAnimation()
+                                }
+                            }
+                            .opacity(currentIndex > 0 ? 1 : 0)
+                            //.foregroundColor(Color("ventuor-blue"))
+
+                            Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
+                            
+                            Button("Skip") {
+                                currentIndex = introItems.count - 1
+                                playAnimation()
+                            }
+                            .opacity(isLastSlide ? 0 : 1)
+                            //.foregroundColor(Color("ventuor-blue"))
+                        }
+                        .animation(.easeInOut, value: currentIndex)
+                        .tint(Color.ventuorBlue)
+                        .fontWeight(.bold)
+                        
+                        // Mark: Movable Slides
+                        VStack(spacing: 15) {
+                            let offset = -CGFloat(currentIndex) * size.width
+                            
+                            // Mark: Resizable LottieView
+                            ResizableLottieView(introItem: $item)
+                                .frame(height: size.width)
+                                .onAppear {
+                                    // Mark: Initially playing first slide of animation
+                                    if currentIndex == indexOf(item) {
+//                                        item.lottieView.play(toProgress: 0.7)
+                                    }
+                                }
+                                .offset(x: offset)
+                                .animation(.easeInOut(duration: 0.5), value: currentIndex)
+                            
+                            Text(item.title)
+                                .foregroundColor(Color("ventuor-blue"))
+                                .font(.title.bold())
+                                .offset(x: offset)
+                                .animation(.easeInOut(duration: 0.5).delay(0.1), value: currentIndex)
+
+                            Text(item.subTitle)
+                                .font(.system(size: 14))
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 15)
+                                .foregroundColor(.gray)
+                                .offset(x: offset)
+                                .animation(.easeInOut(duration: 0.5).delay(0.2), value: currentIndex)
+                        }
+                        
+                        Spacer(minLength: 0)
+                        
+                        // Mark: Next / Login Button
+                        VStack(spacing: 15) {
+                            Text(isLastSlide ? "Get Started" : "Next")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding(.vertical, isLastSlide ? 13 : 12)
+                                .frame(maxWidth: .infinity)
+                                .background() {
+                                    Capsule().fill(Color("ventuor-blue"))
+                                }
+                                .padding(.horizontal, isLastSlide ? 30 : 100)
+                                .onTapGesture {
+                                    // Mark: Updating to next index
+                                    if currentIndex < introItems.count - 1 {
+                                        // Mark: Pausing previous animiation
+//                                        let currentProgress = introItems[currentIndex].lottieView.currentProgress
+//                                        introItems[currentIndex].lottieView.currentProgress = (currentProgress == 0 ? 0.7 : currentProgress)
+                                        currentIndex += 1
+                                        // Mark: Play next animation from start
+                                        playAnimation()
+                                    }
+                                    else {
+                                        showIntroScreens.toggle()
+                                    }
+                                }
+                            
+                            HStack {
+                                Text("Terms of Service")
+                                Text("Privacy Policy")
+                            }
+                            .font(.caption2)
+                            .underline(true, color: .primary)
+                            .offset(y: 5)
+                        }
+                        
+                        
+                    }
+                    .animation(.easeInOut, value: isLastSlide)
+                    .padding(15)
+                    .frame(width: size.width, height: size.height)
+                }
+            }
+            .frame(width: size.width * CGFloat(introItems.count), alignment: .leading)
+        }
+    }
+    
+    func playAnimation() {
+//        introItems[currentIndex].lottieView.currentProgress = 0
+//        introItems[currentIndex].lottieView.play(toProgress: 0.9)
+    }
+    
+    // Mark: Retreiving Index of the item in the array
+    func indexOf(_ item: IntroItem) -> Int {
+        if let index = introItems.firstIndex(of: item) {
+            return index
+        }
+        return 0
+    }
+}
+
+// Mark: Resizable Lottie View without Backgroun
+struct ResizableLottieView: UIViewRepresentable {
+    @Binding var introItem: IntroItem
+    
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView()
+        view.backgroundColor = .clear
+        setupLottieView(view)
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
+        
+    }
+    
+    func setupLottieView(_ to: UIView) {
+//        let lottieView = introItem.lottieView
+//        lottieView.backgroundColor = .clear
+//        lottieView.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        // Mark: Applying constraints
+//        let constraints = [
+//            lottieView.widthAnchor.constraint(equalTo: to.widthAnchor),
+//            lottieView.heightAnchor.constraint(equalTo: to.heightAnchor),
+//        ]
+//        to.addSubview(lottieView)
+//        to.addConstraints(constraints)
+    }
+}
+
+#Preview {
+    IntroScreens(showIntroScreens: .constant(false))
+}
+
