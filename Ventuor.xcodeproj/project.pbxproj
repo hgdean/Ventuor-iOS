@@ -11,6 +11,10 @@
 		133AF0692B4710FA005557D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0682B4710FA005557D9 /* ContentView.swift */; };
 		133AF06B2B4710FE005557D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 133AF06A2B4710FE005557D9 /* Assets.xcassets */; };
 		133AF06E2B4710FE005557D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 133AF06D2B4710FE005557D9 /* Preview Assets.xcassets */; };
+		133AF0752B47212A005557D9 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0742B47212A005557D9 /* Auth.swift */; };
+		133AF07A2B472196005557D9 /* KeychainWrapperSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0772B472195005557D9 /* KeychainWrapperSubscript.swift */; };
+		133AF07B2B472196005557D9 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0782B472196005557D9 /* KeychainItemAccessibility.swift */; };
+		133AF07C2B472196005557D9 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0792B472196005557D9 /* KeychainWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,11 @@
 		133AF0682B4710FA005557D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		133AF06A2B4710FE005557D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		133AF06D2B4710FE005557D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		133AF0742B47212A005557D9 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		133AF0772B472195005557D9 /* KeychainWrapperSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapperSubscript.swift; sourceTree = "<group>"; };
+		133AF0782B472196005557D9 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		133AF0792B472196005557D9 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		133AF07D2B4721AD005557D9 /* SwiftKeychainWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftKeychainWrapper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +60,12 @@
 		133AF0652B4710FA005557D9 /* Ventuor */ = {
 			isa = PBXGroup;
 			children = (
+				133AF0762B472144005557D9 /* KeychainWrapper */,
 				133AF0662B4710FA005557D9 /* VentuorApp.swift */,
 				133AF0682B4710FA005557D9 /* ContentView.swift */,
 				133AF06A2B4710FE005557D9 /* Assets.xcassets */,
 				133AF06C2B4710FE005557D9 /* Preview Content */,
+				133AF0742B47212A005557D9 /* Auth.swift */,
 			);
 			path = Ventuor;
 			sourceTree = "<group>";
@@ -65,6 +76,17 @@
 				133AF06D2B4710FE005557D9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		133AF0762B472144005557D9 /* KeychainWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				133AF07D2B4721AD005557D9 /* SwiftKeychainWrapper.h */,
+				133AF0782B472196005557D9 /* KeychainItemAccessibility.swift */,
+				133AF0792B472196005557D9 /* KeychainWrapper.swift */,
+				133AF0772B472195005557D9 /* KeychainWrapperSubscript.swift */,
+			);
+			path = KeychainWrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +160,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				133AF0692B4710FA005557D9 /* ContentView.swift in Sources */,
+				133AF07A2B472196005557D9 /* KeychainWrapperSubscript.swift in Sources */,
 				133AF0672B4710FA005557D9 /* VentuorApp.swift in Sources */,
+				133AF07C2B472196005557D9 /* KeychainWrapper.swift in Sources */,
+				133AF07B2B472196005557D9 /* KeychainItemAccessibility.swift in Sources */,
+				133AF0752B47212A005557D9 /* Auth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
