@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct RootScreen: View {
-    @EnvironmentObject var auth: Auth
     @State var showIntroScreens: Bool
 
     init(showIntroScreens: Bool) {
@@ -17,6 +16,11 @@ struct RootScreen: View {
     var body: some View {
         NavigationView() {
             if !showIntroScreens {
+                if Auth.shared.loggedIn {
+                    HomeScreen()
+                } else {
+                    LandingView()
+                }
             }
         }
         .fullScreenCover(isPresented: $showIntroScreens, content: {

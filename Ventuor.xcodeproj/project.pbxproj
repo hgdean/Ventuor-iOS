@@ -19,6 +19,9 @@
 		133AF0832B47233E005557D9 /* IntroScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0822B47233E005557D9 /* IntroScreens.swift */; };
 		133AF0862B47254F005557D9 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0852B47254F005557D9 /* SplashView.swift */; };
 		133AF0882B472879005557D9 /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0872B472878005557D9 /* RootScreen.swift */; };
+		133AF08A2B4730D5005557D9 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0892B4730D5005557D9 /* HomeScreen.swift */; };
+		133AF08C2B473125005557D9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF08B2B473125005557D9 /* HomeViewModel.swift */; };
+		133AF08F2B474E35005557D9 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF08E2B474E35005557D9 /* LandingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		133AF0822B47233E005557D9 /* IntroScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreens.swift; sourceTree = "<group>"; };
 		133AF0852B47254F005557D9 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		133AF0872B472878005557D9 /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
+		133AF0892B4730D5005557D9 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		133AF08B2B473125005557D9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		133AF08E2B474E35005557D9 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,7 @@
 		133AF0652B4710FA005557D9 /* Ventuor */ = {
 			isa = PBXGroup;
 			children = (
+				133AF08D2B474E17005557D9 /* Onboarding */,
 				133AF0842B47253A005557D9 /* Splash Screens */,
 				133AF07E2B4722A6005557D9 /* Intro Screens */,
 				133AF0762B472144005557D9 /* KeychainWrapper */,
@@ -77,6 +84,8 @@
 				133AF06C2B4710FE005557D9 /* Preview Content */,
 				133AF0742B47212A005557D9 /* Auth.swift */,
 				133AF0872B472878005557D9 /* RootScreen.swift */,
+				133AF0892B4730D5005557D9 /* HomeScreen.swift */,
+				133AF08B2B473125005557D9 /* HomeViewModel.swift */,
 			);
 			path = Ventuor;
 			sourceTree = "<group>";
@@ -123,6 +132,14 @@
 				133AF0852B47254F005557D9 /* SplashView.swift */,
 			);
 			path = "Splash Screens";
+			sourceTree = "<group>";
+		};
+		133AF08D2B474E17005557D9 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				133AF08E2B474E35005557D9 /* LandingView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,11 +213,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				133AF0692B4710FA005557D9 /* ContentView.swift in Sources */,
+				133AF08F2B474E35005557D9 /* LandingView.swift in Sources */,
 				133AF07A2B472196005557D9 /* KeychainWrapperSubscript.swift in Sources */,
 				133AF0672B4710FA005557D9 /* VentuorApp.swift in Sources */,
 				133AF0882B472879005557D9 /* RootScreen.swift in Sources */,
+				133AF08A2B4730D5005557D9 /* HomeScreen.swift in Sources */,
 				133AF07C2B472196005557D9 /* KeychainWrapper.swift in Sources */,
 				133AF0832B47233E005557D9 /* IntroScreens.swift in Sources */,
+				133AF08C2B473125005557D9 /* HomeViewModel.swift in Sources */,
 				133AF07B2B472196005557D9 /* KeychainItemAccessibility.swift in Sources */,
 				133AF0812B4722F5005557D9 /* IntroItem.swift in Sources */,
 				133AF0752B47212A005557D9 /* Auth.swift in Sources */,

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var auth: Auth
     @State var isSplashScreenActive: Bool = true
 
     init() {
@@ -18,7 +17,7 @@ struct ContentView: View {
         if self.isSplashScreenActive {
             SplashView(isSplashScreenActive: $isSplashScreenActive)
         } else {
-            RootScreen(showIntroScreens: !auth.loggedIn)
+            RootScreen(showIntroScreens: !Auth.shared.loggedIn)
                 .environmentObject(Auth.shared)
         }
     }
