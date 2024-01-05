@@ -22,6 +22,19 @@
 		133AF08A2B4730D5005557D9 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0892B4730D5005557D9 /* HomeScreen.swift */; };
 		133AF08C2B473125005557D9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF08B2B473125005557D9 /* HomeViewModel.swift */; };
 		133AF08F2B474E35005557D9 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF08E2B474E35005557D9 /* LandingView.swift */; };
+		133AF0912B4760FA005557D9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0902B4760FA005557D9 /* LoginView.swift */; };
+		133AF0932B47610F005557D9 /* SignupFullname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0922B47610F005557D9 /* SignupFullname.swift */; };
+		133AF0992B47613F005557D9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0952B47613F005557D9 /* LoginViewModel.swift */; };
+		133AF09A2B47613F005557D9 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0962B47613F005557D9 /* LoginRequest.swift */; };
+		133AF09B2B47613F005557D9 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0972B47613F005557D9 /* SignupViewModel.swift */; };
+		133AF09C2B47613F005557D9 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0982B47613F005557D9 /* LoginResponse.swift */; };
+		133AF0A22B4761B2005557D9 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF09E2B4761B1005557D9 /* Services.swift */; };
+		133AF0A32B4761B2005557D9 /* Web.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF09F2B4761B1005557D9 /* Web.swift */; };
+		133AF0A82B4762D7005557D9 /* OnboardingInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0A72B4762D7005557D9 /* OnboardingInputView.swift */; };
+		133AF0AA2B476334005557D9 /* SignupEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0A92B476334005557D9 /* SignupEmail.swift */; };
+		133AF0AC2B476349005557D9 /* SignupPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0AB2B476349005557D9 /* SignupPassword.swift */; };
+		133AF0AE2B47636A005557D9 /* SignupConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0AD2B47636A005557D9 /* SignupConfirmation.swift */; };
+		133AF0B52B484EE5005557D9 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0B42B484EE5005557D9 /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +55,22 @@
 		133AF0892B4730D5005557D9 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		133AF08B2B473125005557D9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		133AF08E2B474E35005557D9 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		133AF0902B4760FA005557D9 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		133AF0922B47610F005557D9 /* SignupFullname.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupFullname.swift; sourceTree = "<group>"; };
+		133AF0952B47613F005557D9 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		133AF0962B47613F005557D9 /* LoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		133AF0972B47613F005557D9 /* SignupViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		133AF0982B47613F005557D9 /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		133AF09E2B4761B1005557D9 /* Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		133AF09F2B4761B1005557D9 /* Web.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web.swift; sourceTree = "<group>"; };
+		133AF0A72B4762D7005557D9 /* OnboardingInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingInputView.swift; sourceTree = "<group>"; };
+		133AF0A92B476334005557D9 /* SignupEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupEmail.swift; sourceTree = "<group>"; };
+		133AF0AB2B476349005557D9 /* SignupPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupPassword.swift; sourceTree = "<group>"; };
+		133AF0AD2B47636A005557D9 /* SignupConfirmation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupConfirmation.swift; sourceTree = "<group>"; };
+		133AF0B12B48444D005557D9 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		133AF0B22B4844C9005557D9 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		133AF0B32B484E65005557D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		133AF0B42B484EE5005557D9 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +87,9 @@
 		133AF05A2B4710FA005557D9 = {
 			isa = PBXGroup;
 			children = (
+				133AF0B42B484EE5005557D9 /* Configuration.swift */,
+				133AF0B22B4844C9005557D9 /* Production.xcconfig */,
+				133AF0B12B48444D005557D9 /* Development.xcconfig */,
 				133AF0652B4710FA005557D9 /* Ventuor */,
 				133AF0642B4710FA005557D9 /* Products */,
 			);
@@ -74,6 +106,8 @@
 		133AF0652B4710FA005557D9 /* Ventuor */ = {
 			isa = PBXGroup;
 			children = (
+				133AF0B32B484E65005557D9 /* Info.plist */,
+				133AF09D2B4761B1005557D9 /* Legacy Auth and Services */,
 				133AF08D2B474E17005557D9 /* Onboarding */,
 				133AF0842B47253A005557D9 /* Splash Screens */,
 				133AF07E2B4722A6005557D9 /* Intro Screens */,
@@ -137,9 +171,44 @@
 		133AF08D2B474E17005557D9 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				133AF0A62B4762D7005557D9 /* Components */,
+				133AF0942B47613F005557D9 /* Model */,
 				133AF08E2B474E35005557D9 /* LandingView.swift */,
+				133AF0902B4760FA005557D9 /* LoginView.swift */,
+				133AF0922B47610F005557D9 /* SignupFullname.swift */,
+				133AF0A92B476334005557D9 /* SignupEmail.swift */,
+				133AF0AB2B476349005557D9 /* SignupPassword.swift */,
+				133AF0AD2B47636A005557D9 /* SignupConfirmation.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		133AF0942B47613F005557D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				133AF0962B47613F005557D9 /* LoginRequest.swift */,
+				133AF0982B47613F005557D9 /* LoginResponse.swift */,
+				133AF0952B47613F005557D9 /* LoginViewModel.swift */,
+				133AF0972B47613F005557D9 /* SignupViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		133AF09D2B4761B1005557D9 /* Legacy Auth and Services */ = {
+			isa = PBXGroup;
+			children = (
+				133AF09E2B4761B1005557D9 /* Services.swift */,
+				133AF09F2B4761B1005557D9 /* Web.swift */,
+			);
+			path = "Legacy Auth and Services";
+			sourceTree = "<group>";
+		};
+		133AF0A62B4762D7005557D9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				133AF0A72B4762D7005557D9 /* OnboardingInputView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,16 +281,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				133AF0AA2B476334005557D9 /* SignupEmail.swift in Sources */,
+				133AF09B2B47613F005557D9 /* SignupViewModel.swift in Sources */,
 				133AF0692B4710FA005557D9 /* ContentView.swift in Sources */,
+				133AF09A2B47613F005557D9 /* LoginRequest.swift in Sources */,
+				133AF0932B47610F005557D9 /* SignupFullname.swift in Sources */,
 				133AF08F2B474E35005557D9 /* LandingView.swift in Sources */,
+				133AF0A22B4761B2005557D9 /* Services.swift in Sources */,
+				133AF0A32B4761B2005557D9 /* Web.swift in Sources */,
 				133AF07A2B472196005557D9 /* KeychainWrapperSubscript.swift in Sources */,
+				133AF09C2B47613F005557D9 /* LoginResponse.swift in Sources */,
+				133AF0992B47613F005557D9 /* LoginViewModel.swift in Sources */,
 				133AF0672B4710FA005557D9 /* VentuorApp.swift in Sources */,
 				133AF0882B472879005557D9 /* RootScreen.swift in Sources */,
 				133AF08A2B4730D5005557D9 /* HomeScreen.swift in Sources */,
+				133AF0AE2B47636A005557D9 /* SignupConfirmation.swift in Sources */,
 				133AF07C2B472196005557D9 /* KeychainWrapper.swift in Sources */,
 				133AF0832B47233E005557D9 /* IntroScreens.swift in Sources */,
+				133AF0AC2B476349005557D9 /* SignupPassword.swift in Sources */,
+				133AF0912B4760FA005557D9 /* LoginView.swift in Sources */,
 				133AF08C2B473125005557D9 /* HomeViewModel.swift in Sources */,
+				133AF0B52B484EE5005557D9 /* Configuration.swift in Sources */,
 				133AF07B2B472196005557D9 /* KeychainItemAccessibility.swift in Sources */,
+				133AF0A82B4762D7005557D9 /* OnboardingInputView.swift in Sources */,
 				133AF0812B4722F5005557D9 /* IntroItem.swift in Sources */,
 				133AF0752B47212A005557D9 /* Auth.swift in Sources */,
 				133AF0862B47254F005557D9 /* SplashView.swift in Sources */,
@@ -233,6 +315,7 @@
 /* Begin XCBuildConfiguration section */
 		133AF06F2B4710FE005557D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 133AF0B12B48444D005557D9 /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -288,6 +371,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -296,6 +380,7 @@
 		};
 		133AF0702B4710FE005557D9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 133AF0B22B4844C9005557D9 /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -344,6 +429,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
@@ -361,6 +447,7 @@
 				DEVELOPMENT_TEAM = CFVBF94NY7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Ventuor/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -371,6 +458,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ventuorglobal.Ventuor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -390,6 +478,7 @@
 				DEVELOPMENT_TEAM = CFVBF94NY7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Ventuor/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -400,6 +489,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ventuorglobal.Ventuor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

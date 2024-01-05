@@ -37,7 +37,7 @@ class Web {
             fatalError("network status out of sync")
         }
     }
-    
+
     let VERB_GET = "GET"
     let VERB_POST  = "POST"
     

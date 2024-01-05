@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "3FE473DE-832A-4983-B125-AFEDDC238990"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B8D1C0E8-0056-4E72-BFAD-29F672C7A9E8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Onboarding/Model/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "loginServiceCallback(_:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "951C32F9-EF7D-420A-944E-52A93BA34994"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Legacy Auth and Services/Web.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "req(_:verb:data:cb:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB200129-4BA0-4622-8E27-DD6AEA084EE3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Legacy Auth and Services/Services.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "login(_:password:cb:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AB200129-4BA0-4622-8E27-DD6AEA084EE3 - 2a17deba26c1467a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.Services.login(_: Swift.String, password: Swift.String, cb: (Swift.Optional&lt;Foundation.Data&gt;, Swift.String, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Legacy%20Auth%20and%20Services/Services.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "AB200129-4BA0-4622-8E27-DD6AEA084EE3 - 700d2ba83f68cd66"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.Services.login(_: Swift.String, password: Swift.String, cb: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Legacy%20Auth%20and%20Services/Services.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "248">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7491C546-0D4F-40E3-B01D-BF2C543B728E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Onboarding/Model/SignupViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "validationEmailCallback(_:error:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7491C546-0D4F-40E3-B01D-BF2C543B728E - 9a6f473137ce376b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.SignupViewModel.validationEmailCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/Model/SignupViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "526">
+               </Location>
+               <Location
+                  uuid = "7491C546-0D4F-40E3-B01D-BF2C543B728E - 9a6f473137ce370a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.SignupViewModel.validationEmailCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/Model/SignupViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "118">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81AF1D36-BD19-4B9A-BDC0-94EEC3E4E09B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Onboarding/Model/SignupViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "validationCallback(_:error:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "81AF1D36-BD19-4B9A-BDC0-94EEC3E4E09B - b47019adb74362a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.SignupViewModel.validationCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/Model/SignupViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "166">
+               </Location>
+               <Location
+                  uuid = "81AF1D36-BD19-4B9A-BDC0-94EEC3E4E09B - b47019adb74362a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.SignupViewModel.validationCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/Model/SignupViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2DFC898E-18CA-4A73-888E-726FDA55C831"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Onboarding/Model/SignupViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "signUpServiceCallback(data:error:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2DFC898E-18CA-4A73-888E-726FDA55C831 - dfd9fe0e2508d20b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.SignupViewModel.signUpServiceCallback(data: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/Model/SignupViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "287">
+               </Location>
+               <Location
+                  uuid = "2DFC898E-18CA-4A73-888E-726FDA55C831 - dfd9fe0e2508d228"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.SignupViewModel.signUpServiceCallback(data: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/Model/SignupViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "206">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

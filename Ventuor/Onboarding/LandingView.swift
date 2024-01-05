@@ -39,7 +39,7 @@ struct LandingView: View {
                     .padding(.bottom, 80)
                 
                 NavigationLink {
-                    // SignupFullname(navFromLandingScreen: true)
+                    SignupFullname(navFromLandingScreen: true)
                     //.navigationBarBackButtonHidden(false)
                 } label: {
                     HStack {
@@ -68,10 +68,10 @@ struct LandingView: View {
 //                )
 //                .background(Color("ventuor-blue"))
 //                .cornerRadius(13)
-                
+
                 NavigationLink {
                     // advanceToLogin.toggle()
-                    // LoginView(navFromLandingScreen: true)
+                    LoginView(navFromLandingScreen: true)
                     //                        .navigationBarBackButtonHidden(false)
                 } label: {
                     HStack {
@@ -106,13 +106,6 @@ struct LandingView: View {
 //                .cornerRadius(13)
             }
         }
-        .navigationDestination(isPresented: $goodToAdvance, destination: {
-//            if advanceToLogin {
-//                LoginView(navFromLandingScreen: true)
-//            } else {
-//                SignupFullname(navFromLandingScreen: true)
-//            }
-        })
     }
 
     func setGoodToAdvance(advanceToLogin: Bool) {
