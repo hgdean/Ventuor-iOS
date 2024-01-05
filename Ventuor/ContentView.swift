@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var auth: Auth
     @State var isSplashScreenActive: Bool = true
 
     init() {

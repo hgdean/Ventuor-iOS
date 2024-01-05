@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RootScreen: View {
+    @EnvironmentObject var auth: Auth
     @State var showIntroScreens: Bool
 
     init(showIntroScreens: Bool) {
