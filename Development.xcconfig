@@ -1,0 +1,12 @@
+//
+//  Development.xcconfig
+//  Ventuor
+//
+//  Created by H Sam Dean on 1/5/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Development.xcconfig
+BASE_URL = 192.168.1.28:8080

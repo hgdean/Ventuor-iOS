@@ -1,0 +1,12 @@
+//
+//  Production.xcconfig
+//  Ventuor
+//
+//  Created by H Sam Dean on 1/5/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Production.xcconfig
+BASE_URL = api.ventuor.com
