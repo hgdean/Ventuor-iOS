@@ -8,7 +8,6 @@
 // https://www.youtube.com/watch?v=QKol0WQpoOs
 
 import SwiftUI
-// import Lottie
 
 struct IntroItem: Identifiable, Equatable {
     static func == (lhs: IntroItem, rhs: IntroItem) -> Bool {
@@ -19,5 +18,5 @@ struct IntroItem: Identifiable, Equatable {
     var title: String
     var subTitle: String
     var buttonText: String
-//    var lottieView: LottieAnimationView = .init()
+    var imageUrl: String
 }

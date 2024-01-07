@@ -10,7 +10,7 @@ import SwiftUI
 struct SignupEmail: View {
     @State private var email: String = ""
     @ObservedObject var signupViewModel: SignupViewModel
-    
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -57,16 +57,19 @@ struct SignupEmail: View {
                 .padding(.top, 30)
                 
                 Spacer()
-                
+            }
+            .errorAlert(error: $signupViewModel.error)
+            .alert(item: $signupViewModel.message) { message in
+                return Alert(
+                    title: Text(message.title),
+                    message: Text(message.message),
+                    dismissButton: .cancel()
+                )
             }
         }
         .navigationDestination(isPresented: $signupViewModel.isSignupEmailValid, destination: {
             SignupPassword(signupViewModel: signupViewModel)
         })
-    }
-    
-    func onEmailCheckComplete() {
-        
     }
 }
 

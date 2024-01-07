@@ -14,8 +14,8 @@
             filePath = "Ventuor/Onboarding/Model/LoginViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "loginServiceCallback(_:error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,40 +94,55 @@
             filePath = "Ventuor/Onboarding/Model/SignupViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "validationEmailCallback(_:error:)"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "validateEmailCallback(_:error:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "7491C546-0D4F-40E3-B01D-BF2C543B728E - 9a6f473137ce376b"
+                  uuid = "7491C546-0D4F-40E3-B01D-BF2C543B728E - 249f5f1167b74c20"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Ventuor.SignupViewModel.validationEmailCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  symbolName = "Ventuor.SignupViewModel.validateEmailCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
                   moduleName = "Ventuor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/Model/SignupViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "526">
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "352">
                </Location>
                <Location
-                  uuid = "7491C546-0D4F-40E3-B01D-BF2C543B728E - 9a6f473137ce370a"
+                  uuid = "7491C546-0D4F-40E3-B01D-BF2C543B728E - 249f5f1167b74c20"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Ventuor.SignupViewModel.validationEmailCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  symbolName = "Ventuor.SignupViewModel.validateEmailCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
                   moduleName = "Ventuor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/Model/SignupViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "118">
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "7491C546-0D4F-40E3-B01D-BF2C543B728E - 249f5f1167b74c20"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.SignupViewModel.validateEmailCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/Model/SignupViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "243">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -142,42 +157,10 @@
             filePath = "Ventuor/Onboarding/Model/SignupViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "validationCallback(_:error:)"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "validateSignupCallback(_:error:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "81AF1D36-BD19-4B9A-BDC0-94EEC3E4E09B - b47019adb74362a9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Ventuor.SignupViewModel.validationCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
-                  moduleName = "Ventuor"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/Model/SignupViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "166">
-               </Location>
-               <Location
-                  uuid = "81AF1D36-BD19-4B9A-BDC0-94EEC3E4E09B - b47019adb74362a9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Ventuor.SignupViewModel.validationCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
-                  moduleName = "Ventuor"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/Model/SignupViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "112">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -190,40 +173,104 @@
             filePath = "Ventuor/Onboarding/Model/SignupViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "signUpServiceCallback(data:error:)"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "validateSignupCallback(_:error:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "175ABDC4-4CE1-4821-AC27-AB1A2A0888D8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Onboarding/LandingView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "body"
+            landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "2DFC898E-18CA-4A73-888E-726FDA55C831 - dfd9fe0e2508d20b"
+                  uuid = "175ABDC4-4CE1-4821-AC27-AB1A2A0888D8 - 759498dfb1a17b63"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Ventuor.SignupViewModel.signUpServiceCallback(data: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Button&lt;SwiftUI.Text&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.alert(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, content: () -&gt; SwiftUI.Alert) -&gt; some&gt;&gt;.0 in Ventuor.LandingView.body.getter : some"
                   moduleName = "Ventuor"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/Model/SignupViewModel.swift"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/LandingView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "121"
-                  endingLineNumber = "121"
-                  offsetFromSymbolStart = "287">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "491">
                </Location>
                <Location
-                  uuid = "2DFC898E-18CA-4A73-888E-726FDA55C831 - dfd9fe0e2508d228"
+                  uuid = "175ABDC4-4CE1-4821-AC27-AB1A2A0888D8 - 525863216f3a4b4a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Ventuor.SignupViewModel.signUpServiceCallback(data: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Button&lt;SwiftUI.Text&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.alert&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Identifiable&gt;(item: SwiftUI.Binding&lt;Swift.Optional&lt;&#x3c4;_1_0&gt;&gt;, content: (&#x3c4;_1_0) -&gt; SwiftUI.Alert) -&gt; some&gt;&gt;.0 in Ventuor.LandingView.body.getter : some"
                   moduleName = "Ventuor"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/Model/SignupViewModel.swift"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/LandingView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "120"
-                  endingLineNumber = "120"
-                  offsetFromSymbolStart = "206">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "178">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE8AB3EC-999A-4289-9A56-0632443E0456"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Onboarding/SignupEmail.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "CE8AB3EC-999A-4289-9A56-0632443E0456 - 1df373bb928b2312"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.alert&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Identifiable&gt;(item: SwiftUI.Binding&lt;Swift.Optional&lt;&#x3c4;_1_0&gt;&gt;, content: (&#x3c4;_1_0) -&gt; SwiftUI.Alert) -&gt; some&gt;&gt;.0 in Ventuor.SignupEmail.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/SignupEmail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "1846">
+               </Location>
+               <Location
+                  uuid = "CE8AB3EC-999A-4289-9A56-0632443E0456 - aa81af187cac5185"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.alert&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Identifiable&gt;(item: SwiftUI.Binding&lt;Swift.Optional&lt;&#x3c4;_1_0&gt;&gt;, content: (&#x3c4;_1_0) -&gt; SwiftUI.Alert) -&gt; some&gt;&gt;.0 in Ventuor.SignupEmail.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Onboarding/SignupEmail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "226">
                </Location>
             </Locations>
          </BreakpointContent>

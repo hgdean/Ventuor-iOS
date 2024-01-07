@@ -11,6 +11,13 @@ struct LandingView: View {
     @State private var advanceToLogin: Bool = false
     @State private var goodToAdvance: Bool = false
 
+    @State private var message: Message? = nil
+
+    struct Message: Identifiable {
+        let id = UUID()
+        let text: String
+    }
+
     init() {
         self._advanceToLogin = State(initialValue: Bool(advanceToLogin))
     }
@@ -18,6 +25,9 @@ struct LandingView: View {
     var body: some View {
         NavigationStack() {
             VStack {
+                Button("Show alert") {
+                    self.message = Message(text: "Hi!")
+                }
                 // image
                 Image("1000x1000 @ 300 res")
                     .resizable()
@@ -52,23 +62,6 @@ struct LandingView: View {
                 .background(Color("ventuor-blue"))
                 .cornerRadius(13)
 
-//                Button(
-//                    action: {
-//                        print("Button for Signup on LandingView page")
-//                        setGoodToAdvance(advanceToLogin: false)
-//                    },
-//                    label: {
-//                        HStack {
-//                            Text("Sign up")
-//                                .fontWeight(.semibold)
-//                        }
-//                        .foregroundColor(Color(.white))
-//                        .frame(width: UIScreen.main.bounds.width - 160, height: 48)
-//                    }
-//                )
-//                .background(Color("ventuor-blue"))
-//                .cornerRadius(13)
-
                 NavigationLink {
                     // advanceToLogin.toggle()
                     LoginView(navFromLandingScreen: true)
@@ -85,29 +78,27 @@ struct LandingView: View {
                 }
                 .background(Color("ventuor-gray"))
                 .cornerRadius(13)
-
-//                Button(
-//                    action: {
-//                        print("Button for Login on LandingView page")
-//                        setGoodToAdvance(advanceToLogin: true)
-//                    },
-//                    label: {
-//                        HStack {
-//                            Text("Login")
-//                                .fontWeight(.semibold)
-//                                .foregroundColor(.ventuorBlue)
-//                            Image(systemName: "arrow.right")
-//                                .foregroundColor(.ventuorBlue)
-//                        }
-//                        .frame(width: UIScreen.main.bounds.width - 160, height: 48)
-//                    }
-//                )
-//                .background(Color("ventuor-gray"))
-//                .cornerRadius(13)
             }
+            .alert(item: $message) { message in
+                Alert(
+                    title: Text(message.text),
+                    dismissButton: .cancel()
+                )
+            }
+//            .actionSheet(isPresented: $showActionSheet) {
+//                        ActionSheet(
+//                            title: Text("Actions"),
+//                            message: Text("Available actions"),
+//                            buttons: [
+//                                .cancel { print(self.showActionSheet) },
+//                                .default(Text("Action")),
+//                                .destructive(Text("Delete"))
+//                            ]
+//                        )
+//                    }
         }
     }
-
+    
     func setGoodToAdvance(advanceToLogin: Bool) {
         self.goodToAdvance = true
         self.advanceToLogin = advanceToLogin

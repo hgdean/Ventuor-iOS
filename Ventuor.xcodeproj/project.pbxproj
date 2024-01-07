@@ -35,6 +35,7 @@
 		133AF0AC2B476349005557D9 /* SignupPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0AB2B476349005557D9 /* SignupPassword.swift */; };
 		133AF0AE2B47636A005557D9 /* SignupConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0AD2B47636A005557D9 /* SignupConfirmation.swift */; };
 		133AF0B52B484EE5005557D9 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0B42B484EE5005557D9 /* Configuration.swift */; };
+		136F858C2B4B39C30089B651 /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F858B2B4B39C30089B651 /* ErrorHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		133AF0B22B4844C9005557D9 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		133AF0B32B484E65005557D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		133AF0B42B484EE5005557D9 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		136F858B2B4B39C30089B651 /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 		133AF08D2B474E17005557D9 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				136F858A2B4B39A80089B651 /* Helpers */,
 				133AF0A62B4762D7005557D9 /* Components */,
 				133AF0942B47613F005557D9 /* Model */,
 				133AF08E2B474E35005557D9 /* LandingView.swift */,
@@ -209,6 +212,14 @@
 				133AF0A72B4762D7005557D9 /* OnboardingInputView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		136F858A2B4B39A80089B651 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				136F858B2B4B39C30089B651 /* ErrorHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +311,7 @@
 				133AF0832B47233E005557D9 /* IntroScreens.swift in Sources */,
 				133AF0AC2B476349005557D9 /* SignupPassword.swift in Sources */,
 				133AF0912B4760FA005557D9 /* LoginView.swift in Sources */,
+				136F858C2B4B39C30089B651 /* ErrorHelper.swift in Sources */,
 				133AF08C2B473125005557D9 /* HomeViewModel.swift in Sources */,
 				133AF0B52B484EE5005557D9 /* Configuration.swift in Sources */,
 				133AF07B2B472196005557D9 /* KeychainItemAccessibility.swift in Sources */,

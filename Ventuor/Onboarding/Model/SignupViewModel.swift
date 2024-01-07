@@ -8,6 +8,45 @@
 import Foundation
 
 class SignupViewModel: ObservableObject {
+    enum Error: LocalizedError {
+        case emailEmpty
+        case passwordEmpty
+        case confirmationCodeEmpty
+
+        var errorDescription: String? {
+            switch self {
+            case .emailEmpty:
+                return "Email empty"
+            case .passwordEmpty:
+                return "Password empty"
+            case .confirmationCodeEmpty:
+                return "Confimation code empty"
+            }
+        }
+
+        var recoverySuggestion: String? {
+            switch self {
+            case .emailEmpty:
+                return "Enter an email address to signup"
+            case .passwordEmpty:
+                return "Enter a password. It cannot be blank."
+            case .confirmationCodeEmpty:
+                return "Enter the 5 digit confirmation code sent to your email"
+            }
+        }
+    }
+
+    @Published var message: Message? = nil
+
+    struct Message: Identifiable {
+        let id = UUID()
+        let title: String
+        let message: String
+    }
+
+    @Published var title: String = ""
+    @Published var error: Swift.Error?
+    
 
     @Published var fullname: String = ""
     @Published var email: String = ""
@@ -15,6 +54,7 @@ class SignupViewModel: ObservableObject {
     @Published var confirmationCode: String = ""
 
     @Published var isSignupEmailValid: Bool = false
+    @Published var isSignupValid: Bool = false
 
     static var sample = SignupViewModel()
 
@@ -22,8 +62,12 @@ class SignupViewModel: ObservableObject {
         print(fullname)
         print(email)
 
-        let services = Services(baseURL: API.baseURL + "/mobile/mobileFindEmailExists")
-        services.mobileFindEmailExists(email, cb: validateEmailCallback)
+        if email.isEmpty {
+            error = Error.emailEmpty
+        } else {
+            let services = Services(baseURL: API.baseURL + "/mobile/mobileFindEmailExists")
+            services.mobileFindEmailExists(email, cb: validateEmailCallback)
+        }
     }
 
     func validateSignup() {
@@ -31,8 +75,12 @@ class SignupViewModel: ObservableObject {
         print(email)
         print(password)
         
-        let services = Services(baseURL: API.baseURL + "/mobile/mobileSendEmailForSignUp")
-        services.sendEmailForSignUp(email, phone: "", cb: validateSignupCallback)
+        if password.isEmpty {
+            error = Error.passwordEmpty
+        } else {
+            let services = Services(baseURL: API.baseURL + "/mobile/mobileSendEmailForSignUp")
+            services.sendEmailForSignUp(email, phone: "", cb: validateSignupCallback)
+        }
     }
 
     func validateSignupConfirmationCode() {
@@ -41,82 +89,88 @@ class SignupViewModel: ObservableObject {
         print(password)
         print(confirmationCode)
 
-        let services = Services(baseURL: API.baseURL + "/mobile/mobileValidateAndEmailSignUpVentuorMobileUser")
-        services.mobileValidateAndEmailSignUpVentuorMobileUser(email, 
-                                                               fullName: fullname,
-                                                               password: password,
-                                                               userCode: confirmationCode,
-                                                               cb: validateSignupConfirmationCodeCallback)
+        if confirmationCode.isEmpty {
+            error = Error.confirmationCodeEmpty
+        } else {
+            let services = Services(baseURL: API.baseURL + "/mobile/mobileValidateAndEmailSignUpVentuorMobileUser")
+            services.mobileValidateAndEmailSignUpVentuorMobileUser(email,
+                                                                   fullName: fullname,
+                                                                   password: password,
+                                                                   userCode: confirmationCode,
+                                                                   cb: validateSignupConfirmationCodeCallback)
+        }
     }
     
     fileprivate func validateEmailCallback(_ data: Data?, error: NSError?) -> Void {
         if (error != nil) {
             print(error!.localizedDescription)
-            // Utils.showMessage(error!.localizedDescription, withTitle: "Something went wrong")
+            message = Message(title: "Something went wrong", message: error!.localizedDescription)
             return
         }
 
         print(String(data: data!, encoding: .utf8)!)
         
         // {"result":null,"error":{"errorMessage":"This email is already registered on our system. If it belongs to you please try to login. Otherwise, please enter a different email."}}
-        
         //{"result":{"resultCode":0,"resultMessage":"Email doesn't exist"},"error":null}
-        
-        isSignupEmailValid = true
-        
-//        if let errorMessage = json?["error"]["errorMessage"].string
-//        {
-//            Utils.showMessage(errorMessage, withTitle: "Signup Email Address")
-//            return
-//        }
-//        
-//        Action.executeAction([
-//            "type": "PushScreenAction",
-//            "options":
-//                [
-//                    "fullName": fullName,
-//                    "email": emailField.text!,
-//                    "screen": "app-signup-password"
-//            ]
-//        ])
+
+        if (data != nil) {
+            
+            do {
+                let response = try JSONDecoder().decode(SignupEmailCheckResponse.self, from: data!)
+                print(response)
+                print(response.result ?? "")
+                print(response.error?.errorMessage ?? "")
+                let errorMessage = response.error?.errorMessage ?? ""
+
+                if errorMessage == "" {
+                    isSignupEmailValid = true
+                }
+                else {
+                    message = Message(title: "Signup Error", message: errorMessage)
+                }
+            }
+            catch {
+                print("Exception in JSONDecoder()")
+            }
+        }
     }
     
     func validateSignupCallback(_ data: Data?, error: NSError?) {
         if (error != nil) {
-            // Utils.showMessage(error!.localizedDescription, withTitle: "Something went wrong")
+            message = Message(title: "Something went wrong", message: error!.localizedDescription)
             return
         }
-        
+
         print(String(data: data!, encoding: .utf8)!)
 
-//        if let errorMessage = json?["error"]["errorMessage"].string
-//        {
-//            Utils.showMessage(errorMessage, withTitle: "Validation failed")
-//            return
-//        }
-//
-//        let emailResponse = json?["result"]["email"].string
-//        let phoneResponse = json?["result"]["phone"].string
-//        
-//        if (emailResponse != nil || phoneResponse != nil)
-//        {
-//            Action.executeAction([
-//                "type": "PushScreenAction",
-//                "options":
-//                [
-//                    "fullName": fullName,
-//                    "email": email,
-//                    "phoneNumber": phoneNumber,
-//                    "countryCode": countryCode,
-//                    "password": passwordField.text ?? "",
-//                    "screen": "app-signup-confirmation"
-//                ]
-//            ])
-//        }
+        if (data != nil) {
+            
+            do {
+                let response = try JSONDecoder().decode(PhoneAndEmailServerResponse.self, from: data!)
+                print(response)
+                print(response.result ?? "")
+                print(response.error?.errorMessage ?? "")
+                let errorMessage = response.error?.errorMessage ?? ""
+
+                if errorMessage == "" {
+                    isSignupValid = true
+                }
+                else {
+                    message = Message(title: "Validation failed", message: errorMessage)
+                }
+            }
+            catch {
+                print("Exception in JSONDecoder()")
+            }
+        }
     }
     
     private func validateSignupConfirmationCodeCallback(data: Data?, error: NSError?) -> Void {
-        
+        if (error != nil) {
+            message = Message(title: "Something went wrong", message: error!.localizedDescription)
+            return
+        }
+
         var authToken: String? = nil
         var userKey: String? = nil
 
@@ -130,7 +184,8 @@ class SignupViewModel: ObservableObject {
                 print(response.result?.userKey ?? "")
                 print(response.result?.authenticationToken ?? "")
                 print(response.error?.errorMessage ?? "")
-                
+                let errorMessage = response.error?.errorMessage ?? ""
+
                 authToken = response.result?.authenticationToken
                 userKey = response.result?.userKey
                             
@@ -141,47 +196,18 @@ class SignupViewModel: ObservableObject {
                         refreshToken: userKey!
                     )
                 } else {
-                    // let errorMessage = response.error?.errorMessage
-                    // Utils.showMessage(errorMessage!, withTitle: "Login")
+                    message = Message(title: "Signup Confirmation", message: errorMessage)
                 }
             } catch {
             }
         } else if (error != nil) {
             if (error?.code == 401) {
-                // Utils.showMessage("Signup attempt failed.", withTitle: "Signup")
+                message = Message(title: "Signup Confirmation", message: "Signup failed.")
             } else {
-                // Utils.showMessage(error!.localizedDescription, withTitle: "Something went wrong")
+                message = Message(title: "Something went wrong", message: error!.localizedDescription)
             }
         } else {
-            // Utils.showMessage("Signup attempt failed.", withTitle: "Login")
+            message = Message(title: "Signup Confirmation", message: "Signup failed.")
         }
-
-//        if (json != nil) {
-//            
-//            authToken = json!["result"]["authenticationToken"].string
-//            userKey = json!["result"]["userKey"].string
-//            
-//            if(authToken != nil) {
-//                AuthInfo.token = authToken!
-//                AuthInfo.userKey = userKey!
-//                AuthInfo.userName = email
-//                
-//                ScreenManager.instance.buildAppInterface()
-//                
-//            } else {
-//                let errorMessage = json!["error"]["errorMessage"].string
-//                Utils.showMessage(errorMessage!, withTitle: "Signup Confirmation")
-//            }
-//            
-//        } else if (error != nil) {
-//            if (error?.code == 401) {
-//                Utils.showMessage("Signup failed.", withTitle: "Signup Confirmation")
-//            } else {
-//                Utils.showMessage(error!.localizedDescription, withTitle: "Something went wrong")
-//            }
-//        } else {
-//            Utils.showMessage("Signup failed.", withTitle: "Signup Confirmation")
-//        }
-//        controller.hideLoadingIndicator()
     }
 }

@@ -59,6 +59,14 @@ struct SignupPassword: View {
                 
                 Spacer()
             }
+            .errorAlert(error: $signupViewModel.error)
+            .alert(item: $signupViewModel.message) { message in
+                return Alert(
+                    title: Text(message.title),
+                    message: Text(message.message),
+                    dismissButton: .cancel()
+                )
+            }
         }
         .navigationDestination(isPresented: $goodToAdvance, destination: {
             SignupConfirmation(signupViewModel: signupViewModel)
