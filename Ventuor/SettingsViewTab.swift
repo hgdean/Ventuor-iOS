@@ -1,24 +1,18 @@
 //
-//  HomeScreen.swift
+//  SettingsViewTab.swift
 //  Ventuor
 //
-//  Created by H Sam Dean on 1/4/24.
+//  Created by H Sam Dean on 1/9/24.
 //
 
 import SwiftUI
 
-struct HomeScreen: View {
-    
+struct SettingsViewTab: View {
     @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
     
     var body: some View {
-        VStack {
-            Spacer()
-            
-            Text("Welcome!")
-                .font(.system(size: 24, weight: .bold, design: .default))
-            
-            Spacer()
+        VStack() {
+            Text("Tab Content Settings")
             
             Button(
                 action: viewModel.logout,
@@ -29,13 +23,13 @@ struct HomeScreen: View {
                         .foregroundColor(Color.white)
                         .background(Color.red)
                         .cornerRadius(10)
+                        .padding(30)
                 }
             )
         }
-        .padding(30)
     }
 }
 
 #Preview {
-    HomeScreen()
+    SettingsViewTab()
 }

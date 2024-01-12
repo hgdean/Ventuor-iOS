@@ -193,7 +193,7 @@ class SignupViewModel: ObservableObject {
                     // The new Auth in this tutorial
                     Auth.shared.setCredentials(
                         accessToken: authToken!,
-                        refreshToken: userKey!
+                        userKey: userKey!
                     )
                 } else {
                     message = Message(title: "Signup Confirmation", message: errorMessage)

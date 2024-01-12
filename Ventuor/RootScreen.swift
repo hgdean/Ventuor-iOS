@@ -18,7 +18,7 @@ struct RootScreen: View {
         NavigationView() {
             if !showIntroScreens {
                 if Auth.shared.loggedIn {
-                    HomeScreen()
+                    TabViewScreen()
                 } else {
                     LandingView()
                 }

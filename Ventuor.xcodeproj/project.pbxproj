@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1303E95C2B4DB82900DC9B75 /* HomeViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1303E95B2B4DB82900DC9B75 /* HomeViewTab.swift */; };
+		1303E95E2B4DB90500DC9B75 /* ProfileViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1303E95D2B4DB90500DC9B75 /* ProfileViewTab.swift */; };
+		1303E9602B4DB91700DC9B75 /* SettingsViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1303E95F2B4DB91700DC9B75 /* SettingsViewTab.swift */; };
+		1303E9622B4DB92600DC9B75 /* SearchViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1303E9612B4DB92600DC9B75 /* SearchViewTab.swift */; };
+		1303E9642B4EDE6100DC9B75 /* VentuorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1303E9632B4EDE6100DC9B75 /* VentuorView.swift */; };
+		1303E9662B5039F700DC9B75 /* VentuorHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1303E9652B5039F700DC9B75 /* VentuorHours.swift */; };
+		131F6E382B50693B00F81D50 /* VentuorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131F6E372B50693B00F81D50 /* VentuorData.swift */; };
+		131F6E3A2B50700D00F81D50 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131F6E392B50700D00F81D50 /* Utils.swift */; };
+		131F6E3C2B5073B600F81D50 /* VentuorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131F6E3B2B5073B600F81D50 /* VentuorViewModel.swift */; };
 		133AF0672B4710FA005557D9 /* VentuorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0662B4710FA005557D9 /* VentuorApp.swift */; };
 		133AF0692B4710FA005557D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0682B4710FA005557D9 /* ContentView.swift */; };
 		133AF06B2B4710FE005557D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 133AF06A2B4710FE005557D9 /* Assets.xcassets */; };
@@ -19,7 +28,7 @@
 		133AF0832B47233E005557D9 /* IntroScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0822B47233E005557D9 /* IntroScreens.swift */; };
 		133AF0862B47254F005557D9 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0852B47254F005557D9 /* SplashView.swift */; };
 		133AF0882B472879005557D9 /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0872B472878005557D9 /* RootScreen.swift */; };
-		133AF08A2B4730D5005557D9 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0892B4730D5005557D9 /* HomeScreen.swift */; };
+		133AF08A2B4730D5005557D9 /* TabViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0892B4730D5005557D9 /* TabViewScreen.swift */; };
 		133AF08C2B473125005557D9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF08B2B473125005557D9 /* HomeViewModel.swift */; };
 		133AF08F2B474E35005557D9 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF08E2B474E35005557D9 /* LandingView.swift */; };
 		133AF0912B4760FA005557D9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0902B4760FA005557D9 /* LoginView.swift */; };
@@ -36,9 +45,27 @@
 		133AF0AE2B47636A005557D9 /* SignupConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0AD2B47636A005557D9 /* SignupConfirmation.swift */; };
 		133AF0B52B484EE5005557D9 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0B42B484EE5005557D9 /* Configuration.swift */; };
 		136F858C2B4B39C30089B651 /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F858B2B4B39C30089B651 /* ErrorHelper.swift */; };
+		136F858F2B4C95EB0089B651 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F858E2B4C95EB0089B651 /* Home.swift */; };
+		136F85912B4C965B0089B651 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F85902B4C965B0089B651 /* CustomTabBar.swift */; };
+		136F85932B4CA4870089B651 /* TabCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F85922B4CA4870089B651 /* TabCurve.swift */; };
+		13F8EAF02B50BC8300BABF60 /* SettingsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EAEF2B50BC8300BABF60 /* SettingsInfo.swift */; };
+		13F8EAF22B50BD9400BABF60 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EAF12B50BD9400BABF60 /* LocationDataManager.swift */; };
+		13F8EAF42B51CDA100BABF60 /* VentuorGenericSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EAF32B51CDA100BABF60 /* VentuorGenericSheet.swift */; };
+		13F8EAF82B51CF0200BABF60 /* HTMLRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EAF72B51CF0200BABF60 /* HTMLRender.swift */; };
+		13F8EAFA2B51DD6200BABF60 /* VentuorNavButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EAF92B51DD6200BABF60 /* VentuorNavButtonView.swift */; };
+		13F8EAFC2B51E4E200BABF60 /* VentuorSaveFollowButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EAFB2B51E4E200BABF60 /* VentuorSaveFollowButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1303E95B2B4DB82900DC9B75 /* HomeViewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTab.swift; sourceTree = "<group>"; };
+		1303E95D2B4DB90500DC9B75 /* ProfileViewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTab.swift; sourceTree = "<group>"; };
+		1303E95F2B4DB91700DC9B75 /* SettingsViewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewTab.swift; sourceTree = "<group>"; };
+		1303E9612B4DB92600DC9B75 /* SearchViewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTab.swift; sourceTree = "<group>"; };
+		1303E9632B4EDE6100DC9B75 /* VentuorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorView.swift; sourceTree = "<group>"; };
+		1303E9652B5039F700DC9B75 /* VentuorHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorHours.swift; sourceTree = "<group>"; };
+		131F6E372B50693B00F81D50 /* VentuorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorData.swift; sourceTree = "<group>"; };
+		131F6E392B50700D00F81D50 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		131F6E3B2B5073B600F81D50 /* VentuorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorViewModel.swift; sourceTree = "<group>"; };
 		133AF0632B4710FA005557D9 /* Ventuor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ventuor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		133AF0662B4710FA005557D9 /* VentuorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorApp.swift; sourceTree = "<group>"; };
 		133AF0682B4710FA005557D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,7 +80,7 @@
 		133AF0822B47233E005557D9 /* IntroScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreens.swift; sourceTree = "<group>"; };
 		133AF0852B47254F005557D9 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		133AF0872B472878005557D9 /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
-		133AF0892B4730D5005557D9 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		133AF0892B4730D5005557D9 /* TabViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewScreen.swift; sourceTree = "<group>"; };
 		133AF08B2B473125005557D9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		133AF08E2B474E35005557D9 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		133AF0902B4760FA005557D9 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -73,6 +100,15 @@
 		133AF0B32B484E65005557D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		133AF0B42B484EE5005557D9 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		136F858B2B4B39C30089B651 /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
+		136F858E2B4C95EB0089B651 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		136F85902B4C965B0089B651 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		136F85922B4CA4870089B651 /* TabCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCurve.swift; sourceTree = "<group>"; };
+		13F8EAEF2B50BC8300BABF60 /* SettingsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInfo.swift; sourceTree = "<group>"; };
+		13F8EAF12B50BD9400BABF60 /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
+		13F8EAF32B51CDA100BABF60 /* VentuorGenericSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorGenericSheet.swift; sourceTree = "<group>"; };
+		13F8EAF72B51CF0200BABF60 /* HTMLRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLRender.swift; sourceTree = "<group>"; };
+		13F8EAF92B51DD6200BABF60 /* VentuorNavButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorNavButtonView.swift; sourceTree = "<group>"; };
+		13F8EAFB2B51E4E200BABF60 /* VentuorSaveFollowButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorSaveFollowButtons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +144,8 @@
 		133AF0652B4710FA005557D9 /* Ventuor */ = {
 			isa = PBXGroup;
 			children = (
+				13F8EAEE2B50BC6600BABF60 /* Settings */,
+				136F858D2B4C95DB0089B651 /* Shared */,
 				133AF0B32B484E65005557D9 /* Info.plist */,
 				133AF09D2B4761B1005557D9 /* Legacy Auth and Services */,
 				133AF08D2B474E17005557D9 /* Onboarding */,
@@ -119,9 +157,15 @@
 				133AF06A2B4710FE005557D9 /* Assets.xcassets */,
 				133AF06C2B4710FE005557D9 /* Preview Content */,
 				133AF0742B47212A005557D9 /* Auth.swift */,
+				13F8EAF52B51CDAB00BABF60 /* Ventuor Components */,
 				133AF0872B472878005557D9 /* RootScreen.swift */,
-				133AF0892B4730D5005557D9 /* HomeScreen.swift */,
+				133AF0892B4730D5005557D9 /* TabViewScreen.swift */,
 				133AF08B2B473125005557D9 /* HomeViewModel.swift */,
+				1303E95B2B4DB82900DC9B75 /* HomeViewTab.swift */,
+				1303E95D2B4DB90500DC9B75 /* ProfileViewTab.swift */,
+				1303E95F2B4DB91700DC9B75 /* SettingsViewTab.swift */,
+				1303E9612B4DB92600DC9B75 /* SearchViewTab.swift */,
+				1303E9632B4EDE6100DC9B75 /* VentuorView.swift */,
 			);
 			path = Ventuor;
 			sourceTree = "<group>";
@@ -202,6 +246,7 @@
 			children = (
 				133AF09E2B4761B1005557D9 /* Services.swift */,
 				133AF09F2B4761B1005557D9 /* Web.swift */,
+				131F6E392B50700D00F81D50 /* Utils.swift */,
 			);
 			path = "Legacy Auth and Services";
 			sourceTree = "<group>";
@@ -220,6 +265,47 @@
 				136F858B2B4B39C30089B651 /* ErrorHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		136F858D2B4C95DB0089B651 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				136F858E2B4C95EB0089B651 /* Home.swift */,
+				136F85902B4C965B0089B651 /* CustomTabBar.swift */,
+				136F85922B4CA4870089B651 /* TabCurve.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		13F8EAEE2B50BC6600BABF60 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				13F8EAEF2B50BC8300BABF60 /* SettingsInfo.swift */,
+				13F8EAF12B50BD9400BABF60 /* LocationDataManager.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		13F8EAF52B51CDAB00BABF60 /* Ventuor Components */ = {
+			isa = PBXGroup;
+			children = (
+				13F8EAF62B51CDDF00BABF60 /* Model */,
+				1303E9652B5039F700DC9B75 /* VentuorHours.swift */,
+				13F8EAF32B51CDA100BABF60 /* VentuorGenericSheet.swift */,
+				13F8EAF72B51CF0200BABF60 /* HTMLRender.swift */,
+				13F8EAF92B51DD6200BABF60 /* VentuorNavButtonView.swift */,
+				13F8EAFB2B51E4E200BABF60 /* VentuorSaveFollowButtons.swift */,
+			);
+			path = "Ventuor Components";
+			sourceTree = "<group>";
+		};
+		13F8EAF62B51CDDF00BABF60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				131F6E372B50693B00F81D50 /* VentuorData.swift */,
+				131F6E3B2B5073B600F81D50 /* VentuorViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,33 +378,51 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				131F6E3C2B5073B600F81D50 /* VentuorViewModel.swift in Sources */,
+				1303E9622B4DB92600DC9B75 /* SearchViewTab.swift in Sources */,
 				133AF0AA2B476334005557D9 /* SignupEmail.swift in Sources */,
 				133AF09B2B47613F005557D9 /* SignupViewModel.swift in Sources */,
 				133AF0692B4710FA005557D9 /* ContentView.swift in Sources */,
 				133AF09A2B47613F005557D9 /* LoginRequest.swift in Sources */,
 				133AF0932B47610F005557D9 /* SignupFullname.swift in Sources */,
+				13F8EAF22B50BD9400BABF60 /* LocationDataManager.swift in Sources */,
 				133AF08F2B474E35005557D9 /* LandingView.swift in Sources */,
+				13F8EAF42B51CDA100BABF60 /* VentuorGenericSheet.swift in Sources */,
+				13F8EAFA2B51DD6200BABF60 /* VentuorNavButtonView.swift in Sources */,
+				136F858F2B4C95EB0089B651 /* Home.swift in Sources */,
 				133AF0A22B4761B2005557D9 /* Services.swift in Sources */,
 				133AF0A32B4761B2005557D9 /* Web.swift in Sources */,
 				133AF07A2B472196005557D9 /* KeychainWrapperSubscript.swift in Sources */,
 				133AF09C2B47613F005557D9 /* LoginResponse.swift in Sources */,
+				1303E9602B4DB91700DC9B75 /* SettingsViewTab.swift in Sources */,
+				1303E95C2B4DB82900DC9B75 /* HomeViewTab.swift in Sources */,
 				133AF0992B47613F005557D9 /* LoginViewModel.swift in Sources */,
 				133AF0672B4710FA005557D9 /* VentuorApp.swift in Sources */,
 				133AF0882B472879005557D9 /* RootScreen.swift in Sources */,
-				133AF08A2B4730D5005557D9 /* HomeScreen.swift in Sources */,
+				131F6E3A2B50700D00F81D50 /* Utils.swift in Sources */,
+				133AF08A2B4730D5005557D9 /* TabViewScreen.swift in Sources */,
 				133AF0AE2B47636A005557D9 /* SignupConfirmation.swift in Sources */,
 				133AF07C2B472196005557D9 /* KeychainWrapper.swift in Sources */,
+				1303E95E2B4DB90500DC9B75 /* ProfileViewTab.swift in Sources */,
+				13F8EAF82B51CF0200BABF60 /* HTMLRender.swift in Sources */,
 				133AF0832B47233E005557D9 /* IntroScreens.swift in Sources */,
 				133AF0AC2B476349005557D9 /* SignupPassword.swift in Sources */,
+				136F85932B4CA4870089B651 /* TabCurve.swift in Sources */,
+				13F8EAFC2B51E4E200BABF60 /* VentuorSaveFollowButtons.swift in Sources */,
+				13F8EAF02B50BC8300BABF60 /* SettingsInfo.swift in Sources */,
 				133AF0912B4760FA005557D9 /* LoginView.swift in Sources */,
+				1303E9662B5039F700DC9B75 /* VentuorHours.swift in Sources */,
 				136F858C2B4B39C30089B651 /* ErrorHelper.swift in Sources */,
 				133AF08C2B473125005557D9 /* HomeViewModel.swift in Sources */,
 				133AF0B52B484EE5005557D9 /* Configuration.swift in Sources */,
 				133AF07B2B472196005557D9 /* KeychainItemAccessibility.swift in Sources */,
 				133AF0A82B4762D7005557D9 /* OnboardingInputView.swift in Sources */,
+				131F6E382B50693B00F81D50 /* VentuorData.swift in Sources */,
 				133AF0812B4722F5005557D9 /* IntroItem.swift in Sources */,
 				133AF0752B47212A005557D9 /* Auth.swift in Sources */,
 				133AF0862B47254F005557D9 /* SplashView.swift in Sources */,
+				1303E9642B4EDE6100DC9B75 /* VentuorView.swift in Sources */,
+				136F85912B4C965B0089B651 /* CustomTabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -437,7 +541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
