@@ -9,7 +9,7 @@ import WebKit
 import SwiftUI
 
 struct HTMLRender: UIViewRepresentable {
-  @Binding var html: String
+  var html: String
    
   func makeUIView(context: Context) -> WKWebView {
     return WKWebView()

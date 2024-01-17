@@ -49,7 +49,9 @@ class VentuorViewModel: ObservableObject {
         let long = locationDataManager.locationManager.location?.coordinate.longitude ?? 0
          
         let services = Services(baseURL: API.baseURL + "/mobile/getVentuor")
-        services.getVentuorData(ventuorKey: "d1b46350-624e-11e6-bb57-fd029049b7d6", lat: lat, long: long, cb: cb)
+//        services.getVentuorData(ventuorKey: "d1b46350-624e-11e6-bb57-fd029049b7d6", lat: lat, long: long, cb: cb)  // Apple Store Summerset
+        services.getVentuorData(ventuorKey: "99b2fdc0-60cf-11e6-a287-631cdc10fbc8", lat: lat, long: long, cb: cb)    // Potbelly
+//        services.getVentuorData(ventuorKey: "5433d4d0-dc31-11e6-a287-631cdc10fbc8", lat: lat, long: long, cb: cb)  // Riker Lumber
     }
 
     fileprivate func cb(_ data: Data?, error: NSError?) -> Void {
@@ -65,7 +67,6 @@ class VentuorViewModel: ObservableObject {
             
         } catch {
         }
-
     }
     
 }

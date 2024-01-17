@@ -746,5 +746,180 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B4D950D9-9C6F-4200-A30D-748BEE6F0EDD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Ventuor Components/Model/VentuorViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "cb(_:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "56CCA8B1-B30B-426A-B66A-5E3AD78F2777"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Ventuor Components/VentuorAppItem.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "56CCA8B1-B30B-426A-B66A-5E3AD78F2777 - 700057832e20042b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Ventuor.VentuorAppItem.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Ventuor%20Components/VentuorAppItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "536">
+               </Location>
+               <Location
+                  uuid = "56CCA8B1-B30B-426A-B66A-5E3AD78F2777 - 700057832e20042b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Ventuor.VentuorAppItem.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Ventuor%20Components/VentuorAppItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "512">
+               </Location>
+               <Location
+                  uuid = "56CCA8B1-B30B-426A-B66A-5E3AD78F2777 - 700057832e20042b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Ventuor.VentuorAppItem.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Ventuor%20Components/VentuorAppItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "644">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E15A1B7C-7454-4A8B-8B53-2C877CD9D7F2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Ventuor Components/VentuorAppItem.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "E15A1B7C-7454-4A8B-8B53-2C877CD9D7F2 - 700057832e20040a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Ventuor.VentuorAppItem.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Ventuor%20Components/VentuorAppItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "368">
+               </Location>
+               <Location
+                  uuid = "E15A1B7C-7454-4A8B-8B53-2C877CD9D7F2 - 700057832e200238"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Ventuor.VentuorAppItem.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/Ventuor%20Components/VentuorAppItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "368">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5132F19-9A01-48F4-B505-90DB73278358"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/VentuorView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "D5132F19-9A01-48F4-B505-90DB73278358 - ee2e330cee555f85"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; SwiftUI.TupleView&lt;(Ventuor.VentuorCallItem, Swift.Optional&lt;Ventuor.VentuorHoursItem&gt;, Swift.Optional&lt;Ventuor.VentuorDeptHoursItem&gt;, &lt;&lt;opaque return type of SwiftUI.View.border(width: CoreGraphics.CGFloat, edges: Swift.Array&lt;SwiftUI.Edge&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.border(width: CoreGraphics.CGFloat, edges: Swift.Array&lt;SwiftUI.Edge&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Ventuor.VentuorCallItem, Swift.Optional&lt;Ventuor.VentuorHoursItem&gt;, Swift.Optional&lt;Ventuor.VentuorDeptHoursItem&gt;, &lt;&lt;opaque return type of SwiftUI.View.border(width: CoreGraphics.CGFloat, edges: Swift.Array&lt;SwiftUI.Edge&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;Ventuor.VentuorWebsiteItem&gt;, Swift.Optional&lt;Ventuor.VentuorFacebookItem&gt;, Swift.Optional&lt;Ventuor.VentuorFacebookItem&gt;, Swift.Optional&lt;Ventuor.VentuorFacebookItem&gt;, Swift.Optional&lt;Ventuor.VentuorAppItem&gt;)&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.border(width: CoreGraphics.CGFloat, edges: Swift.Array&lt;SwiftUI.Edge&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Ventuor.VentuorCallItem, Swift.Optional&lt;Ventuor.VentuorHoursItem&gt;, Swift.Optional&lt;Ventuor.VentuorDeptHoursItem&gt;, &lt;&lt;opaque return type of SwiftUI.View.border(width: CoreGraphics.CGFloat, edges: Swift.Array&lt;SwiftUI.Edge&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;Ventuor.VentuorWebsiteItem&gt;, Swift.Optional&lt;Ventuor.VentuorFacebookItem&gt;, Swift.Optional&lt;Ventuor.VentuorFacebookItem&gt;, Swift.Optional&lt;Ventuor.VentuorFacebookItem&gt;, Swift.Optional&lt;Ventuor.VentuorAppItem&gt;)&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0)&gt;&gt; in Ventuor.VentuorView.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/VentuorView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "1900">
+               </Location>
+               <Location
+                  uuid = "D5132F19-9A01-48F4-B505-90DB73278358 - 1e8228e59ae25d70"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; SwiftUI.TupleView&lt;(Ventuor.VentuorCallItem, Swift.Optional&lt;Ventuor.VentuorHoursItem&gt;, Swift.Optional&lt;Ventuor.VentuorDeptHoursItem&gt;, &lt;&lt;opaque return type of SwiftUI.View.border(width: CoreGraphics.CGFloat, edges: Swift.Array&lt;SwiftUI.Edge&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.border(width: CoreGraphics.CGFloat, edges: Swift.Array&lt;SwiftUI.Edge&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Ventuor.VentuorCallItem, Swift.Optional&lt;Ventuor.VentuorHoursItem&gt;, Swift.Optional&lt;Ventuor.VentuorDeptHoursItem&gt;, &lt;&lt;opaque return type of SwiftUI.View.border(width: CoreGraphics.CGFloat, edges: Swift.Array&lt;SwiftUI.Edge&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;Ventuor.VentuorWebsiteItem&gt;, Swift.Optional&lt;Ventuor.VentuorFacebookItem&gt;, Swift.Optional&lt;Ventuor.VentuorFacebookItem&gt;, Swift.Optional&lt;Ventuor.VentuorFacebookItem&gt;, Swift.Optional&lt;Ventuor.VentuorAppItem&gt;)&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, Swift.Optional&lt;Ventuor.VentuorPagesItem&gt;)&gt; in closure #1 () -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.border(width: CoreGraphics.CGFloat, edges: Swift.Array&lt;SwiftUI.Edge&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Ventuor.VentuorCallItem, Swift.Optional&lt;Ventuor.VentuorHoursItem&gt;, Swift.Optional&lt;Ventuor.VentuorDeptHoursItem&gt;, &lt;&lt;opaque return type of SwiftUI.View.border(width: CoreGraphics.CGFloat, edges: Swift.Array&lt;SwiftUI.Edge&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;Ventuor.VentuorWebsiteItem&gt;, Swift.Optional&lt;Ventuor.VentuorFacebookItem&gt;, Swift.Optional&lt;Ventuor.VentuorFacebookItem&gt;, Swift.Optional&lt;Ventuor.VentuorFacebookItem&gt;, Swift.Optional&lt;Ventuor.VentuorAppItem&gt;)&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, Swift.Optional&lt;Ventuor.VentuorPagesItem&gt;)&gt;&gt; in Ventuor.VentuorView.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsamdean/myprojects/github/Ventuor-iOS/Ventuor/VentuorView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "1900">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

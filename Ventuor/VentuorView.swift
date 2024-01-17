@@ -29,12 +29,14 @@ struct EdgeBorder: Shape {
     }
 }
 struct VentuorView: View {
-    @State var showHoursSheet = false
     @State var showParkingSheet = false
     @State var showDoorStepSheet = false
     
-    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+    @State var showHoursSheet = false
+    @State var showDeptHoursSheet: DepartmentHours? = nil
 
+    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+    
     init() {
         ventuorViewModel.getVentuorData()
     }
@@ -80,17 +82,9 @@ struct VentuorView: View {
                             
                             Spacer()
                         }
-                        HStack() {
-                            Image("ventuor-open-rectangle")
-                                .resizable()
-                                //.scaledToFit()
-                                .frame(width: 40, height: 18)
-                            Text(ventuorViewModel.ventuorData?.statusMessage ?? "")
-                                .foregroundColor(.ventuorOpenGreen)
-                                .fontWeight(.medium)
-                                .font(.caption2)
-                                .padding(0)
-                        }
+                        
+                        VentuorTitleOpenClosedStatus(status: ventuorViewModel.ventuorData?.status ?? "", statusMessage: ventuorViewModel.ventuorData?.statusMessage ?? "")
+                        
                     }
                     .padding(10)
                     .overlay(alignment: .topTrailing, content: {
@@ -105,59 +99,47 @@ struct VentuorView: View {
                 VStack(alignment: .leading) {
                     HStack(spacing: 12) {
 
-                            VStack(spacing: 7) {
-                                Image("mapW")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 28, height: 28)
-                                Text("MAP")
-                                    .foregroundColor(.ventuorGray)
-                                    .font(.footnote)
-                                    .padding(.bottom, -8)
-                            }
-                            .frame(width: 73, height: 70)
-                            .background(Color.ventuorBlue)
-                            .cornerRadius(10)
+                        VentuorMapsItem()
 
-                            VStack(spacing: 7) {
-                                Image("driveW")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 28, height: 28)
-                                Text(ventuorViewModel.ventuorData?.distance ?? "")
-                                    .foregroundColor(.ventuorGray)
-                                    .font(.footnote)
-                                    .padding(.bottom, -8)
-                            }
-                            .frame(width: 73, height: 70)
-                            .background(Color.ventuorBlue)
-                            .cornerRadius(10)
+                        VStack(spacing: 7) {
+                            Image("driveW")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 28, height: 28)
+                            Text(ventuorViewModel.ventuorData?.distance ?? "")
+                                .foregroundColor(.ventuorGray)
+                                .font(.footnote)
+                                .padding(.bottom, -8)
+                        }
+                        .frame(width: 73, height: 70)
+                        .background(Color.ventuorBlue)
+                        .cornerRadius(10)
  
                         if ventuorViewModel.ventuorData?.parking != "" {
-                                Button(action: {
-                                    showParkingSheet = true
-                                }, label: {
-                                    VentuorNavButtonView(imageName: "parkW", buttonText: "PARK")
+                            Button(action: {
+                                showParkingSheet = true
+                            }, label: {
+                                VentuorNavButtonView(imageName: "parkW", buttonText: "PARK")
                                     .sheet(isPresented: $showParkingSheet) {
-                                        VentuorGenericSheet(title: "Parking", html: Utils().webMetaViewPort + (ventuorViewModel.ventuorData?.parking ?? ""))
+                                        VentuorGenericSheet(title: "Parking", html: ventuorViewModel.ventuorData?.parking ?? "")
                                             .presentationDetents([.height(400), .medium, .large])
                                             .presentationDragIndicator(.automatic)
                                     }
-                                })
-                            }
+                            })
+                        }
                         
                         if ventuorViewModel.ventuorData?.doorStep != "" {
-                                Button(action: {
-                                    showDoorStepSheet = true
-                                }, label: {
-                                    VentuorNavButtonView(imageName: "walkW", buttonText: "DOOR")
+                            Button(action: {
+                                showDoorStepSheet = true
+                            }, label: {
+                                VentuorNavButtonView(imageName: "walkW", buttonText: "DOOR")
                                     .sheet(isPresented: $showDoorStepSheet) {
-                                        VentuorGenericSheet(title: "Door Step", html: Utils().webMetaViewPort + (ventuorViewModel.ventuorData?.doorStep ?? ""))
+                                        VentuorGenericSheet(title: "Door Step", html: ventuorViewModel.ventuorData?.doorStep ?? "")
                                             .presentationDetents([.height(400), .medium, .large])
                                             .presentationDragIndicator(.automatic)
                                     }
-                                })
-                            }
+                            })
+                        }
                                 
                         Spacer()
                     }
@@ -176,65 +158,17 @@ struct VentuorView: View {
                 }
                 
                 VStack(alignment: .leading, spacing: 0) {
-                    
-                    HStack(spacing: 20) {
-                        Image("call")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 25, height: 25)
+                    VentuorCallItem(phone: ventuorViewModel.ventuorData?.phone ?? "", imageName: "call", countrycode: ventuorViewModel.ventuorData?.countrycode ?? "")
 
-                        let phone = "Call:  " + (ventuorViewModel.ventuorData?.countrycode ?? "") + " " + (ventuorViewModel.ventuorData?.phone ?? "")
-                        Text(phone)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        Image(systemName: "chevron.right.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .padding([.top, .bottom], 20)
-                            .foregroundColor(.ventuorBlue)
-                            .opacity(0.3)
-                            .frame(width: 20)
+                    if ((ventuorViewModel.ventuorData?.showHours) != nil && (ventuorViewModel.ventuorData?.showHours == true)) {
+                        VentuorHoursItem(status: ventuorViewModel.ventuorData?.status ?? "", showHoursSheet: showHoursSheet, hoursSplMsg: ventuorViewModel.ventuorData?.hoursSplMsg ?? "", hours: ventuorViewModel.ventuorData?.hours ?? "")
                     }
-                    .padding([.leading, .trailing], 15)
-                    // .border(width: 1, edges: [.top, .bottom], color: .ventuorGray)
-                    .border(width: 1, edges: [.bottom], color: .ventuorGray)
 
-                    Button(action: {
-                        showHoursSheet = true
-                    }, label: {
-                        HStack(spacing: 20) {
-                            Image("open")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 25, height: 25)
-                            
-                            VStack(alignment: .leading) {
-                                Text("Hours")
-                                Text(ventuorViewModel.ventuorData?.hoursSplMsg ?? "")
-                                    .fontWeight(.medium)
-                                    .font(.caption)
-                                    .foregroundColor(.ventuorOpenGreen)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                            Image(systemName: "chevron.right.circle")
-                                .resizable()
-                                .scaledToFit()
-                                .padding([.top, .bottom], 20)
-                                .foregroundColor(.ventuorBlue)
-                                .opacity(0.3)
-                                .frame(width: 20)
-                        }
-                        .padding([.leading, .trailing], 15)
-                        // .border(width: 1, edges: [.top, .bottom], color: .ventuorGray)
-                        .border(width: 1, edges: [.bottom], color: .ventuorGray)
-                        .sheet(isPresented: $showHoursSheet) {
-                            VentuorHours(hoursHtml: ventuorViewModel.ventuorData?.hours ?? "")
-                                .presentationDetents([.height(500), .medium, .large])
-                                .presentationDragIndicator(.automatic)
-                        }
-                    })
-
+                    let departmentHoursCount = ventuorViewModel.ventuorData?.departmentHours?.count ?? 0
+                    if departmentHoursCount > 0 {
+                        VentuorDeptHoursItem(departmentHours: (ventuorViewModel.ventuorData?.departmentHours)!)
+                    }
+                    
                     HStack(spacing: 20) {
                         Image(systemName: "bitcoinsign.circle")
                             .resizable()
@@ -261,7 +195,6 @@ struct VentuorView: View {
                             .frame(width: 20)
                     }
                     .padding([.leading, .trailing], 15)
-    //                .border(width: 1, edges: [.top, .bottom], color: .ventuorGray)
                     .border(width: 1, edges: [.bottom], color: .ventuorGray)
 
                 }
@@ -279,47 +212,38 @@ struct VentuorView: View {
                     .padding([.leading, .trailing], 13)
                 }
 
-                VStack(alignment: .center, spacing: 0) {
-                    HStack(alignment: .center) {
-                        HStack(spacing: 20) {
-                            Image("browse")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 25, height: 25)
-                                .foregroundColor(.ventuorBlue)
-
-                            VStack(alignment: .leading, spacing: 0) {
-                                Text("website")
-                                    .fontWeight(.light)
-                                    .font(.caption)
-                                    .foregroundColor(.ventuorBlue)
-                                    .opacity(0.6)
-                                Text(ventuorViewModel.ventuorData?.webSiteUrl ?? "")
-                                    .fontWeight(.light)
-                                    .font(.system(size: 15))
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                            Image(systemName: "chevron.right.circle")
-                                .resizable()
-                                .scaledToFit()
-                                .padding([.top, .bottom], 20)
-                                .foregroundColor(.ventuorBlue)
-                                .opacity(0.3)
-                                .frame(width: 20)
-                        }
-                        .padding([.leading, .trailing], 15)
-        //                .border(width: 1, edges: [.top, .bottom], color: .ventuorGray)
-                        .border(width: 1, edges: [.bottom], color: .ventuorGray)
+                VStack(alignment: .leading, spacing: 0) {
+                    let url = ventuorViewModel.ventuorData?.webSiteUrl ?? ""
+                    if url != "" {
+                        VentuorWebsiteItem(urlName: "https://", imageName: "browse", name: ventuorViewModel.ventuorData?.webSiteUrl ?? "", text: "website")
                     }
 
+                    let twitter = ventuorViewModel.ventuorData?.twitterHandle ?? ""
+                    if twitter != "" {
+                        VentuorFacebookItem(urlName: "twitter://", imageName: "twitter", name: ventuorViewModel.ventuorData?.twitterHandle ?? "", text: "Twitter")
+                    }
+
+                    let youtube = ventuorViewModel.ventuorData?.youtubeChannel ?? ""
+                    if youtube != "" {
+                        VentuorFacebookItem(urlName: "youtube://", imageName: "youtube", name: ventuorViewModel.ventuorData?.youtubeChannel ?? "", text: "YouTube Channel")
+                    }
+
+                    let facebook = ventuorViewModel.ventuorData?.facebook ?? ""
+                    if facebook != "" {
+                        VentuorFacebookItem(urlName: "fb://", imageName: "facebook", name: ventuorViewModel.ventuorData?.facebook ?? "", text: "Facebook Page")
+                    }
+
+                    let app = ventuorViewModel.ventuorData?.appName ?? ""
+                    if app != "" {
+                        VentuorAppItem(urlName: ventuorViewModel.ventuorData?.appUrl ?? "comgooglemaps://", imageName: "app", name: ventuorViewModel.ventuorData?.appName ?? "", text: "iOS App", appStoreUrl: ventuorViewModel.ventuorData?.appStoreUrl ?? "")
+                    }
                 }
+
                 
                 HStack(alignment: .center, spacing: 40) {
                     VStack(alignment: .center, spacing: 14) {
                         Button(action: {
                         }, label: {
-                            
                             Image(systemName: "plus.message.fill")
                                 .font(.system(size: 25, weight: .semibold))
                                 .foregroundColor(Color("ventuor-orange"))
@@ -371,6 +295,12 @@ struct VentuorView: View {
                     .padding([.leading, .trailing], 13)
                 }
                 .padding(16)
+                
+                let pagesCount = ventuorViewModel.ventuorData?.pages?.count ?? 0
+                if pagesCount > 0 {
+                    VentuorPagesItem(pages: (ventuorViewModel.ventuorData?.pages)!)
+                }
+
             }
         }
 

@@ -95,3 +95,13 @@ struct DepartmentHoursJSON: Codable {
     var statusMessage: String?
     var content: String?
 }
+
+struct DepartmentHours: Identifiable {
+    var id: Int
+    var deptHours: DepartmentHoursJSON? = nil
+}
+
+struct Pages: Identifiable {
+    var id: Int
+    var page: PageVO? = nil
+}
