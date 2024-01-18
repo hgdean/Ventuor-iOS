@@ -17,7 +17,7 @@ struct Ventuor: Codable {
     var result: VentuorResult?
     var error: ServerResponseError?
 }
-struct VentuorData: Codable {
+struct VentuorData: Codable {           // VentuorJSON
     var owner: Bool?
     var ventuorKey: String?
     var ventuorName: String?

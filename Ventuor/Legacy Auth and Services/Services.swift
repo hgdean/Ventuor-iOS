@@ -101,11 +101,6 @@ class Services : Web {
         let date = Date()
         
         let isMiles = SettingsInfo.isMilesKM == 1
-//        if SettingsInfo.isMilesKM == 1 {
-//            isMiles = true
-//        } else {
-//            isMiles = false
-//        }
         
         let userKey: String = Auth.shared.getUserKey() ?? ""
         
@@ -131,4 +126,52 @@ class Services : Web {
         self.post("/mobile/getVentuor", data: jsonData, cb: cb)
     }
 
+    func getSearchData(searchCategory: String, searchTerm: String, lat: Double, long: Double, pageNumber: Int, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+//        var lastUpdatedLocation = LocationManager.instance.lastUpdate
+//        
+//        if lastUpdatedLocation == nil
+//        {
+//            print("getSearchData() No Location Coordinates!", terminator: "")
+//            lastUpdatedLocation = CLLocationCoordinate2D()
+//            lastUpdatedLocation?.latitude = 0
+//            lastUpdatedLocation?.longitude = 0
+//        }
+        
+        let category = searchCategory
+        let searchTerm = searchTerm
+        
+        let isMiles = SettingsInfo.isMilesKM == 1
+        
+        Utils.getLocaleCountryName(latitude: lat, longitude: long) { country in
+            let date = Date()
+            let userKey: String = Auth.shared.getUserKey() ?? ""
+
+            // https://stackoverflow.com/questions/70841197/access-data-of-of-struct-swift
+            let json: [String: Any] = [
+                "requestName": "getVentuorListForSearch",
+                "requestParam": [
+                    "latitude": lat,
+                    "longitude": long,
+                    "country": country ?? "",
+                    "category": category,
+                    "searchTerm": searchTerm,
+                    "userKey": userKey,
+                    "maxDistance": 25000,
+                    "isMiles": isMiles,
+                    "date": Utils.getCurrentDate(date),
+                    "day": Utils.getCurrentDay(date),
+                    "time": Utils.getCurrentTime(date),
+                    "pageNumber": pageNumber
+                ]
+            ]
+            let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+            print(json)
+            print(String(data: jsonData!, encoding: .utf8)!)
+
+            self.post("/mobile/getVentuorListForSearch", data: jsonData, cb: cb)
+        }
+    }
 }

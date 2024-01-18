@@ -245,5 +245,5 @@ struct VentuorHoursSheet: View {
 }
 
 #Preview {
-    VentuorView()
+    VentuorView(ventuorKey: "")
 }

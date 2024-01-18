@@ -28,7 +28,10 @@ struct EdgeBorder: Shape {
         }.reduce(into: Path()) { $0.addPath($1) }
     }
 }
+
 struct VentuorView: View {
+    var ventuorKey: String
+
     @State var showParkingSheet = false
     @State var showDoorStepSheet = false
     
@@ -37,8 +40,9 @@ struct VentuorView: View {
 
     @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
     
-    init() {
-        ventuorViewModel.getVentuorData()
+    init(ventuorKey: String) {
+        self.ventuorKey = ventuorKey
+        ventuorViewModel.getVentuorData(ventuorKey: ventuorKey)
     }
     var body: some View {
         ScrollView() {
@@ -308,5 +312,5 @@ struct VentuorView: View {
 }
 
 #Preview {
-    VentuorView()
+    VentuorView(ventuorKey: "")
 }

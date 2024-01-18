@@ -259,6 +259,35 @@ class Utils
             cb(country)
         }
     }
+    
+    class func getLocaleCountryName(latitude: Double, longitude: Double, cb: @escaping (_ country: String?) -> Void) {
+        //Fetch from settings.
+        let locale = Locale.current
+        let countryCode = (locale as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String
+        var country = (locale as NSLocale).displayName(forKey: NSLocale.Key.countryCode, value: countryCode)!
+        
+        if latitude != 0 && longitude != 0 {
+            let geoCoder = CLGeocoder()
+            let location = CLLocation(latitude: latitude, longitude: longitude)
+            geoCoder.reverseGeocodeLocation(location) {
+                (placemarks, error) -> Void in
+                
+                let placeArray = placemarks as [CLPlacemark]?
+                
+                // Place details
+                var placeMark: CLPlacemark!
+                placeMark = placeArray?[0]
+                
+                // Country
+                if let countryName = placeMark.country as? NSString {
+                    country = countryName as String
+                }
+                cb(country)
+            }
+        } else {
+            cb(country)
+        }
+    }
 }
 
 extension UIColor
