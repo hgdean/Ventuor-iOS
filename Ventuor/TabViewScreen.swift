@@ -9,19 +9,21 @@ import SwiftUI
 
 struct TabViewScreen: View {
     @State private var tabSelection = 1
-    @State var selectedTab: String = "house"
-    
+    @State private var activeTab : Tab = .home
+
     var body: some View {
         TabView(selection: $tabSelection) {
-            HomeViewTab().tag(1)
+            HomeViewTab(tabSelection: $tabSelection, activeTab: $activeTab).tag(1)
+                .toolbar(.hidden, for: .tabBar)
             ProfileViewTab().tag(2)
+                .toolbar(.hidden, for: .tabBar)
             SettingsViewTab().tag(3)
+                .toolbar(.hidden, for: .tabBar)
             SearchViewTab().tag(4)
+                .toolbar(.hidden, for: .tabBar)
         }
         .overlay(alignment: .bottom) {
-            CustomTabBar(selectedTab: $selectedTab, tabSelection: $tabSelection)
-                .background()
-                .opacity(1)
+            CustomTabBar(tabSelection: $tabSelection)
         }
     }
 }

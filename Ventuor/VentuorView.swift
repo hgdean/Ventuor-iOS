@@ -30,7 +30,6 @@ struct EdgeBorder: Shape {
 }
 
 struct VentuorView: View {
-    var ventuorKey: String
 
     @State var showParkingSheet = false
     @State var showDoorStepSheet = false
@@ -38,19 +37,15 @@ struct VentuorView: View {
     @State var showHoursSheet = false
     @State var showDeptHoursSheet: DepartmentHours? = nil
 
-    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+    @ObservedObject var ventuorViewModel: VentuorViewModel
     
-    init(ventuorKey: String) {
-        self.ventuorKey = ventuorKey
-        ventuorViewModel.getVentuorData(ventuorKey: ventuorKey)
-    }
     var body: some View {
         ScrollView() {
             VStack() {
                 VStack() {
                     VStack(alignment: .leading, spacing: 8) {                         // Main header name / info
                         
-                        if let timeframeStatusMessage = ventuorViewModel.ventuorData?.timeframeStatusMessage {
+                        if let timeframeStatusMessage = ventuorViewModel.ventuor?.result?.ventuor?.timeframeStatusMessage {
                             Text(timeframeStatusMessage)
                                 .foregroundColor(.ventuorEndedRed)
                                 .fontWeight(.bold)
@@ -59,23 +54,23 @@ struct VentuorView: View {
                         }
                         
                         HStack() {
-                            Image(ventuorViewModel.ventuorData?.icon ?? "missing")
+                            Image(ventuorViewModel.ventuor?.result?.ventuor?.icon ?? "missing")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 70, height: 70)
                                 .padding(0)
                             
                             VStack(alignment: .leading, spacing: 2) {
-                                Text(ventuorViewModel.ventuorData?.title ?? "")
+                                Text(ventuorViewModel.ventuor?.result?.ventuor?.title ?? "")
                                     .fontWeight(.thin)
                                     .font(.title)
                                     .padding(0)
-                                Text(ventuorViewModel.ventuorData?.subTitle1 ?? "")
+                                Text(ventuorViewModel.ventuor?.result?.ventuor?.subTitle1 ?? "")
                                     .padding(.top, -3)
                                     .padding(.bottom, 2)
                                     .font(.caption)
                                     .fontWeight(.medium)
-                                Text(ventuorViewModel.ventuorData?.subTitle2 ?? "")
+                                Text(ventuorViewModel.ventuor?.result?.ventuor?.subTitle2 ?? "")
                                     .fontWeight(.light)
                                     .font(.system(size: 12))
                                     .foregroundColor(.gray)
@@ -83,19 +78,21 @@ struct VentuorView: View {
                             }
                             .padding(.leading, 5)
                             .background(.white)
+                            .lineLimit(1)
                             
                             Spacer()
                         }
                         
-                        VentuorTitleOpenClosedStatus(status: ventuorViewModel.ventuorData?.status ?? "", statusMessage: ventuorViewModel.ventuorData?.statusMessage ?? "")
+                        VentuorTitleOpenClosedStatus(status: ventuorViewModel.ventuor?.result?.ventuor?.status ?? "", statusMessage: ventuorViewModel.ventuor?.result?.ventuor?.statusMessage ?? "",
+                            timeframeStatus: ventuorViewModel.ventuor?.result?.ventuor?.timeframeStatus ?? ""
+                            )
                         
                     }
                     .padding(10)
                     .overlay(alignment: .topTrailing, content: {
-                        Image(.ventuorBannerNew)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60)
+                        VentuorTimeframeBanner(
+                            timeframeStatus: ventuorViewModel.ventuor?.result?.ventuor?.timeframeStatus ?? "",
+                            timeframeStatusMessage: ventuorViewModel.ventuor?.result?.ventuor?.timeframeStatusMessage ?? "")
                     })
                     .border(width: 1, edges: [.top, .bottom], color: .ventuorGray)
                 }
@@ -110,7 +107,7 @@ struct VentuorView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 28, height: 28)
-                            Text(ventuorViewModel.ventuorData?.distance ?? "")
+                            Text(ventuorViewModel.ventuor?.result?.ventuor?.distance ?? "")
                                 .foregroundColor(.ventuorGray)
                                 .font(.footnote)
                                 .padding(.bottom, -8)
@@ -119,26 +116,26 @@ struct VentuorView: View {
                         .background(Color.ventuorBlue)
                         .cornerRadius(10)
  
-                        if ventuorViewModel.ventuorData?.parking != "" {
+                        if ventuorViewModel.ventuor?.result?.ventuor?.parking != "" {
                             Button(action: {
                                 showParkingSheet = true
                             }, label: {
                                 VentuorNavButtonView(imageName: "parkW", buttonText: "PARK")
                                     .sheet(isPresented: $showParkingSheet) {
-                                        VentuorGenericSheet(title: "Parking", html: ventuorViewModel.ventuorData?.parking ?? "")
+                                        VentuorGenericSheet(title: "Parking", html: ventuorViewModel.ventuor?.result?.ventuor?.parking ?? "")
                                             .presentationDetents([.height(400), .medium, .large])
                                             .presentationDragIndicator(.automatic)
                                     }
                             })
                         }
                         
-                        if ventuorViewModel.ventuorData?.doorStep != "" {
+                        if ventuorViewModel.ventuor?.result?.ventuor?.doorStep != "" {
                             Button(action: {
                                 showDoorStepSheet = true
                             }, label: {
                                 VentuorNavButtonView(imageName: "walkW", buttonText: "DOOR")
                                     .sheet(isPresented: $showDoorStepSheet) {
-                                        VentuorGenericSheet(title: "Door Step", html: ventuorViewModel.ventuorData?.doorStep ?? "")
+                                        VentuorGenericSheet(title: "Door Step", html: ventuorViewModel.ventuor?.result?.ventuor?.doorStep ?? "")
                                             .presentationDetents([.height(400), .medium, .large])
                                             .presentationDragIndicator(.automatic)
                                     }
@@ -150,7 +147,7 @@ struct VentuorView: View {
                     .padding(.leading, 18)
 
                     HStack() {
-                        Text(ventuorViewModel.ventuorData?.address ?? "")
+                        Text(ventuorViewModel.ventuor?.result?.ventuor?.address ?? "")
                             .padding(5)
                             .font(.footnote)
                     }
@@ -159,18 +156,19 @@ struct VentuorView: View {
                     .zIndex(-1)
                     .padding(.top, -50)
                     .shadow(radius: 5)
+                    .lineLimit(1)
                 }
                 
                 VStack(alignment: .leading, spacing: 0) {
-                    VentuorCallItem(phone: ventuorViewModel.ventuorData?.phone ?? "", imageName: "call", countrycode: ventuorViewModel.ventuorData?.countrycode ?? "")
+                    VentuorCallItem(phone: ventuorViewModel.ventuor?.result?.ventuor?.phone ?? "", imageName: "call", countrycode: ventuorViewModel.ventuor?.result?.ventuor?.countrycode ?? "")
 
-                    if ((ventuorViewModel.ventuorData?.showHours) != nil && (ventuorViewModel.ventuorData?.showHours == true)) {
-                        VentuorHoursItem(status: ventuorViewModel.ventuorData?.status ?? "", showHoursSheet: showHoursSheet, hoursSplMsg: ventuorViewModel.ventuorData?.hoursSplMsg ?? "", hours: ventuorViewModel.ventuorData?.hours ?? "")
+                    if ((ventuorViewModel.ventuor?.result?.ventuor?.showHours) != nil && (ventuorViewModel.ventuor?.result?.ventuor?.showHours == true)) {
+                        VentuorHoursItem(status: ventuorViewModel.ventuor?.result?.ventuor?.status ?? "", showHoursSheet: showHoursSheet, hoursSplMsg: ventuorViewModel.ventuor?.result?.ventuor?.hoursSplMsg ?? "", hours: ventuorViewModel.ventuor?.result?.ventuor?.hours ?? "")
                     }
 
-                    let departmentHoursCount = ventuorViewModel.ventuorData?.departmentHours?.count ?? 0
+                    let departmentHoursCount = ventuorViewModel.ventuor?.result?.ventuor?.departmentHours?.count ?? 0
                     if departmentHoursCount > 0 {
-                        VentuorDeptHoursItem(departmentHours: (ventuorViewModel.ventuorData?.departmentHours)!)
+                        VentuorDeptHoursItem(departmentHours: (ventuorViewModel.ventuor?.result?.ventuor?.departmentHours)!)
                     }
                     
                     HStack(spacing: 20) {
@@ -181,7 +179,7 @@ struct VentuorView: View {
                             .foregroundColor(.ventuorBlue)
 
                         VStack(alignment: .leading) {
-                            Text(ventuorViewModel.ventuorData?.payments ?? "Bitcoin, cash, VISA, MasterCard")
+                            Text(ventuorViewModel.ventuor?.result?.ventuor?.payments ?? "Bitcoin, cash, VISA, MasterCard")
                             Text("Payment types excepted")
                                 .fontWeight(.light)
                                 .font(.caption)
@@ -205,41 +203,41 @@ struct VentuorView: View {
                 
                 VStack(alignment: .center) {
                     HStack(alignment: .center) {
-                        VentuorSaveFollowButtons(imageName: "save", buttonText: "SAVE", selected: false)
+                        VentuorSaveFollowButtons(imageName: "save", buttonText: "SAVE", selected: false, ventuorViewModel: ventuorViewModel)
                         Spacer()
-                        VentuorSaveFollowButtons(imageName: "check-in", buttonText: "CHECK-IN", selected: false)
+                        VentuorSaveFollowButtons(imageName: "check-in", buttonText: "CHECK-IN", selected: false, ventuorViewModel: ventuorViewModel)
                         Spacer()
-                        VentuorSaveFollowButtons(imageName: "follow", buttonText: "FOLLOW", selected: false)
+                        VentuorSaveFollowButtons(imageName: "follow", buttonText: "FOLLOW", selected: false, ventuorViewModel: ventuorViewModel)
                         Spacer()
-                        VentuorSaveFollowButtons(imageName: "share", buttonText: "SHARE", selected: false)
+                        VentuorSaveFollowButtons(imageName: "share", buttonText: "SHARE", selected: false, ventuorViewModel: ventuorViewModel)
                     }
                     .padding([.leading, .trailing], 13)
                 }
 
                 VStack(alignment: .leading, spacing: 0) {
-                    let url = ventuorViewModel.ventuorData?.webSiteUrl ?? ""
+                    let url = ventuorViewModel.ventuor?.result?.ventuor?.webSiteUrl ?? ""
                     if url != "" {
-                        VentuorWebsiteItem(urlName: "https://", imageName: "browse", name: ventuorViewModel.ventuorData?.webSiteUrl ?? "", text: "website")
+                        VentuorWebsiteItem(urlName: "https://", imageName: "browse", name: ventuorViewModel.ventuor?.result?.ventuor?.webSiteUrl ?? "", text: "website")
                     }
 
-                    let twitter = ventuorViewModel.ventuorData?.twitterHandle ?? ""
+                    let twitter = ventuorViewModel.ventuor?.result?.ventuor?.twitterHandle ?? ""
                     if twitter != "" {
-                        VentuorFacebookItem(urlName: "twitter://", imageName: "twitter", name: ventuorViewModel.ventuorData?.twitterHandle ?? "", text: "Twitter")
+                        VentuorFacebookItem(urlName: "twitter://", imageName: "twitter", name: ventuorViewModel.ventuor?.result?.ventuor?.twitterHandle ?? "", text: "Twitter")
                     }
 
-                    let youtube = ventuorViewModel.ventuorData?.youtubeChannel ?? ""
+                    let youtube = ventuorViewModel.ventuor?.result?.ventuor?.youtubeChannel ?? ""
                     if youtube != "" {
-                        VentuorFacebookItem(urlName: "youtube://", imageName: "youtube", name: ventuorViewModel.ventuorData?.youtubeChannel ?? "", text: "YouTube Channel")
+                        VentuorFacebookItem(urlName: "youtube://", imageName: "youtube", name: ventuorViewModel.ventuor?.result?.ventuor?.youtubeChannel ?? "", text: "YouTube Channel")
                     }
 
-                    let facebook = ventuorViewModel.ventuorData?.facebook ?? ""
+                    let facebook = ventuorViewModel.ventuor?.result?.ventuor?.facebook ?? ""
                     if facebook != "" {
-                        VentuorFacebookItem(urlName: "fb://", imageName: "facebook", name: ventuorViewModel.ventuorData?.facebook ?? "", text: "Facebook Page")
+                        VentuorFacebookItem(urlName: "fb://", imageName: "facebook", name: ventuorViewModel.ventuor?.result?.ventuor?.facebook ?? "", text: "Facebook Page")
                     }
 
-                    let app = ventuorViewModel.ventuorData?.appName ?? ""
+                    let app = ventuorViewModel.ventuor?.result?.ventuor?.appName ?? ""
                     if app != "" {
-                        VentuorAppItem(urlName: ventuorViewModel.ventuorData?.appUrl ?? "comgooglemaps://", imageName: "app", name: ventuorViewModel.ventuorData?.appName ?? "", text: "iOS App", appStoreUrl: ventuorViewModel.ventuorData?.appStoreUrl ?? "")
+                        VentuorAppItem(urlName: ventuorViewModel.ventuor?.result?.ventuor?.appUrl ?? "comgooglemaps://", imageName: "app", name: ventuorViewModel.ventuor?.result?.ventuor?.appName ?? "", text: "iOS App", appStoreUrl: ventuorViewModel.ventuor?.result?.ventuor?.appStoreUrl ?? "")
                     }
                 }
 
@@ -300,17 +298,18 @@ struct VentuorView: View {
                 }
                 .padding(16)
                 
-                let pagesCount = ventuorViewModel.ventuorData?.pages?.count ?? 0
+                let pagesCount = ventuorViewModel.ventuor?.result?.ventuor?.pages?.count ?? 0
                 if pagesCount > 0 {
-                    VentuorPagesItem(pages: (ventuorViewModel.ventuorData?.pages)!)
+                    VentuorPagesItem(pages: (ventuorViewModel.ventuor?.result?.ventuor?.pages)!)
                 }
 
             }
+            .padding(.bottom, 70)
         }
 
     }
 }
 
 #Preview {
-    VentuorView(ventuorKey: "")
+    VentuorView(ventuorViewModel: VentuorViewModel.sample)
 }

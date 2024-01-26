@@ -14,5 +14,7 @@
 		<string>comgooglemaps</string>
 		<string>waze</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Ventuor requires your location to work properly.</string>
 </dict>
 </plist>

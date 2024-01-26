@@ -8,6 +8,10 @@
 import Foundation
 
 class SignupViewModel: ObservableObject {
+    
+    // This error handler are used for errors that are initiated locally. Meaning,
+    // the error are UI/User instigated. So the type and message are defined here.
+    @Published var error: Swift.Error?
     enum Error: LocalizedError {
         case emailEmpty
         case passwordEmpty
@@ -36,8 +40,9 @@ class SignupViewModel: ObservableObject {
         }
     }
 
+    // This is used for error message popups that occurr on the server side.
+    // The error messages come from the server, and this is used to display those
     @Published var message: Message? = nil
-
     struct Message: Identifiable {
         let id = UUID()
         let title: String
@@ -45,8 +50,6 @@ class SignupViewModel: ObservableObject {
     }
 
     @Published var title: String = ""
-    @Published var error: Swift.Error?
-    
 
     @Published var fullname: String = ""
     @Published var email: String = ""

@@ -85,19 +85,51 @@ class Services : Web {
         self.post("/mobile/mobileValidateAndEmailSignUpVentuorMobileUser", data: jsonData, cb: cb)
     }
 
-    func getVentuorData(ventuorKey: String, lat: Double, long: Double, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+    func getUserProfile(_ cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+        let json: [String: Any] = [
+            "requestName": "getProfile",
+            "requestParam":
+                [
+                    "userKey": userKey
+                ]
+            ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/getProfile", data: jsonData, cb: cb)
+    }
+
+    func getVentuorState(_ ventuorKey: String, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        let json: [String: Any] = [
+            "requestName": "getVentuorState",
+            "requestParam": [
+                "ventuorKey": ventuorKey
+                ]
+            ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/getVentuorState", data: jsonData, cb: cb)
+    }
+
+    func getVentuorData(ventuorKey: String, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
         self.authToken = Auth.shared.getAccessToken() ?? ""
         
-//        var lastUpdatedLocation = LocationManager.instance.lastUpdate
-//
-//        if lastUpdatedLocation == nil
-//        {
-//            print("getVentuorData() No Location Coordinates!", terminator: "")
-            var lastUpdatedLocation = CLLocationCoordinate2D()
-            lastUpdatedLocation.latitude = 0
-            lastUpdatedLocation.longitude = 0
-//        }
-        
+        var lastUpdatedLocation = CLLocationCoordinate2D()
+        let lat = lastUpdatedLocation.latitude
+        let long = lastUpdatedLocation.longitude
+
         let date = Date()
         
         let isMiles = SettingsInfo.isMilesKM == 1
@@ -126,19 +158,13 @@ class Services : Web {
         self.post("/mobile/getVentuor", data: jsonData, cb: cb)
     }
 
-    func getSearchData(searchCategory: String, searchTerm: String, lat: Double, long: Double, pageNumber: Int, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+    func getSearchData(searchCategory: String, searchTerm: String, pageNumber: Int, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
         self.authToken = Auth.shared.getAccessToken() ?? ""
 
-//        var lastUpdatedLocation = LocationManager.instance.lastUpdate
-//        
-//        if lastUpdatedLocation == nil
-//        {
-//            print("getSearchData() No Location Coordinates!", terminator: "")
-//            lastUpdatedLocation = CLLocationCoordinate2D()
-//            lastUpdatedLocation?.latitude = 0
-//            lastUpdatedLocation?.longitude = 0
-//        }
-        
+        let locationDataManager = LocationDataManager()
+        let lat = locationDataManager.locationManager.location?.coordinate.latitude ?? 0
+        let long = locationDataManager.locationManager.location?.coordinate.longitude ?? 0
+
         let category = searchCategory
         let searchTerm = searchTerm
         
@@ -173,5 +199,272 @@ class Services : Web {
 
             self.post("/mobile/getVentuorListForSearch", data: jsonData, cb: cb)
         }
+    }
+    
+    func getMobileNearbyVentuorsList(pageNumber: Int, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        let locationDataManager = LocationDataManager()
+        let lat = locationDataManager.locationManager.location?.coordinate.latitude ?? 0
+        let long = locationDataManager.locationManager.location?.coordinate.longitude ?? 0
+        
+        let isMiles = SettingsInfo.isMilesKM == 1
+
+        Utils.getLocaleCountryName(latitude: lat, longitude: long) { country in
+            let date = Date()
+            let userKey: String = Auth.shared.getUserKey() ?? ""
+
+            // https://stackoverflow.com/questions/70841197/access-data-of-of-struct-swift
+            let json: [String: Any] = [
+                "requestName": "getMobileNearbyVentuorsList",
+                "requestParam": [
+                    "latitude": lat,
+                    "longitude": long,
+                    "country": country ?? "",
+                    "category": "",
+                    "searchTerm": "",
+                    "userKey": userKey,
+                    "maxDistance": 5000,
+                    "isMiles": isMiles,
+                    "date": Utils.getCurrentDate(date),
+                    "day": Utils.getCurrentDay(date),
+                    "time": Utils.getCurrentTime(date),
+                    "pageNumber": pageNumber
+                ]
+            ]
+            let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+            print(json)
+            print(String(data: jsonData!, encoding: .utf8)!)
+
+            self.post("/mobile/getMobileNearbyVentuorsList", data: jsonData, cb: cb)
+        }
+    }
+
+    func getVentuorListInTestMode(cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        let date = Date()
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+
+        // https://stackoverflow.com/questions/70841197/access-data-of-of-struct-swift
+        let json: [String: Any] = [
+            "requestName": "getVentuorListInTestMode",
+            "requestParam": [
+                "userKey": userKey,
+                "date": Utils.getCurrentDate(date),
+                "day": Utils.getCurrentDay(date),
+                "time": Utils.getCurrentTime(date)
+                ]
+            ]
+
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/getVentuorListInTestMode", data: jsonData, cb: cb)
+    }
+    
+    func getVentuorListInLiveMode(cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        let date = Date()
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+        // https://stackoverflow.com/questions/70841197/access-data-of-of-struct-swift
+        let json: [String: Any] = [
+            "requestName": "getVentuorListInLiveMode",
+            "requestParam": [
+                "userKey": userKey,
+                "date": Utils.getCurrentDate(date),
+                "day": Utils.getCurrentDay(date),
+                "time": Utils.getCurrentTime(date)
+                ]
+            ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/getVentuorListInLiveMode", data: jsonData, cb: cb)
+    }
+    
+    func getSavedVentuors(cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+        let json: [String: Any] = [
+            "requestName": "getSavedVentuors",
+            "requestParam": [
+                "userKey": userKey
+            ]
+        ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/getSavedVentuors", data: jsonData, cb: cb)
+    }
+    
+    func getFollowingVentuors(cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+        let json: [String: Any] = [
+            "requestName": "getFollowingVentuors",
+            "requestParam": [
+                    "userKey": userKey
+                ]
+            ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/getFollowingVentuors", data: jsonData, cb: cb)
+    }
+
+    func saveVentuor(_ ventuorKey: String, title: String, subtitle1: String, iconLocation: String, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+        let json: [String: Any] = [
+            "requestName": "saveVentuor",
+            "requestParam":
+                [
+                    "userKey": userKey,
+                    "ventuorKey": ventuorKey,
+                    "title": title,
+                    "subtitle1": subtitle1,
+                    "iconLocation": iconLocation
+                ]
+            ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/saveVentuor", data: jsonData, cb: cb)
+    }
+    
+    func unSaveVentuor(_ ventuorKey: String, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+        let json: [String: Any] = [
+            "requestName": "unSaveVentuor",
+            "requestParam":
+                [
+                    "userKey": userKey,
+                    "ventuorKey": ventuorKey
+                ]
+            ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/unSaveVentuor", data: jsonData, cb: cb)
+    }
+    
+    func isUserSavedVentuor(_ ventuorKey: String, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+        let json: [String: Any] = [
+            "requestName": "isUserSavedVentuor",
+            "requestParam":
+                [
+                    "userKey": userKey,
+                    "ventuorKey": ventuorKey
+                ]
+        ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/isUserSavedVentuor", data: jsonData, cb: cb)
+    }
+    
+    func followVentuor(_ ventuorKey: String, title: String, subtitle1: String, iconLocation: String, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+        let json: [String: Any] = [
+            "requestName": "followVentuor",
+            "requestParam":
+                [
+                    "userKey": userKey,
+                    "ventuorKey": ventuorKey,
+                    "title": title,
+                    "subtitle1": subtitle1,
+                    "iconLocation": iconLocation
+                ]
+            ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/followVentuor", data: jsonData, cb: cb)
+    }
+    
+    func unFollowVentuor(_ ventuorKey: String, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+        let json: [String: Any] = [
+            "requestName": "unFollowVentuor",
+            "requestParam":
+                [
+                    "userKey": userKey,
+                    "ventuorKey": ventuorKey
+                ]
+            ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/unFollowVentuor", data: jsonData, cb: cb)
+    }
+    
+    func isUserFollowingVentuor(_ ventuorKey: String, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+        let json: [String: Any] = [
+            "requestName": "isUserFollowingVentuor",
+            "requestParam":
+                [
+                    "userKey": userKey,
+                    "ventuorKey": ventuorKey
+                ]
+        ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/isUserFollowingVentuor", data: jsonData, cb: cb)
     }
 }

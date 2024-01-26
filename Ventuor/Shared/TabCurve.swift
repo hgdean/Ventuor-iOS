@@ -46,7 +46,3 @@ struct TabCurve: Shape {
         }
     }
 }
-
-#Preview {
-    Home(selectedTab: .constant("house"))
-}

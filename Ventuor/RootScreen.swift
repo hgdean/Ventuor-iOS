@@ -10,24 +10,21 @@ import SwiftUI
 struct RootScreen: View {
     @EnvironmentObject var auth: Auth
     @State var showIntroScreens: Bool
-
-    init(showIntroScreens: Bool) {
-        self._showIntroScreens = State(initialValue: Bool(showIntroScreens))
-    }
+    @AppStorage("shouldShowIntroScreens") var shouldShowIntroScreens: Bool = true
+    
     var body: some View {
-        NavigationView() {
-            if !showIntroScreens {
+        VStack() {
+//            if !shouldShowIntroScreens {
                 if Auth.shared.loggedIn {
-                    TabViewScreen()
+                    MainTabView()
                 } else {
                     LandingView()
                 }
-            }
+//            }
         }
-        .fullScreenCover(isPresented: $showIntroScreens, content: {
-            IntroScreens(showIntroScreens: $showIntroScreens)
+        .fullScreenCover(isPresented: $shouldShowIntroScreens, content: {
+            IntroScreens(showIntroScreens: $shouldShowIntroScreens)
         })
-
     }
 }
 

@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct VentuorState: Codable {
+    var result: ServerResponseResult?
+    var error: ServerResponseError?
+}
 struct VentuorResult: Codable {
     var resultCode: Int?
     var resultMessage: String?
@@ -104,4 +108,9 @@ struct DepartmentHours: Identifiable {
 struct Pages: Identifiable {
     var id: Int
     var page: PageVO? = nil
+}
+
+struct VentuorStateObj: Identifiable {
+    var id: Int
+    var ventuorKey: String? = nil
 }

@@ -9,19 +9,17 @@ import Foundation
 
 class VentuorListModel: ObservableObject {
     
-    var ventuorList: VentuorList? = nil
-    
-    @Published var ventuorListData: [VentuorData]? = nil
-    
+    @Published var ventuorList: VentuorList? = nil
+    @Published var displayStatusMessage: String? = nil
+
     static var sample = VentuorListModel()
 
     func getVentuorListData() {
-        let locationDataManager = LocationDataManager()
-        let lat = locationDataManager.locationManager.location?.coordinate.latitude ?? 0
-        let long = locationDataManager.locationManager.location?.coordinate.longitude ?? 0
-
+        ventuorList = nil
+        displayStatusMessage = "Loading..."
         let services = Services(baseURL: API.baseURL + "/mobile/getVentuorListForSearch")
-        services.getSearchData(searchCategory: "Desserts & Sweets", searchTerm: "", lat: lat, long: long, pageNumber: 1, cb: cb)
+        services.getSearchData(searchCategory: "Desserts & Sweets", searchTerm: "", pageNumber: 1, cb: cb)
+        displayStatusMessage = "Processing..."
     }
 
     fileprivate func cb(_ data: Data?, error: NSError?) -> Void {
@@ -31,10 +29,7 @@ class VentuorListModel: ObservableObject {
         do {
             let response = try JSONDecoder().decode(VentuorList.self, from: data!)
             print(response)
-            
             ventuorList = response
-            ventuorListData = ventuorList?.result?.ventuors
-            
         } catch {
         }
     }
