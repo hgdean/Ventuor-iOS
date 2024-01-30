@@ -9,4 +9,4 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 // Production.xcconfig
-BASE_URL = api.ventuor.com
+BASE_URL = app.ventuor.com
