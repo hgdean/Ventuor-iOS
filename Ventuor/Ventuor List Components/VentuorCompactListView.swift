@@ -1,13 +1,12 @@
 //
-//  VentuorListView.swift
+//  VentuorCompactListView.swift
 //  Ventuor
 //
-//  Created by H Sam Dean on 1/17/24.
+//  Created by Sam Dean on 2/1/24.
 //
-
 import SwiftUI
 
-struct VentuorListView: View {
+struct VentuorCompactListView: View {
     var title: String
     @ObservedObject var homeViewModel: HomeViewModel
     @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
@@ -94,5 +93,5 @@ struct VentuorListView: View {
 }
 
 #Preview {
-    VentuorListView(title: "Test", homeViewModel: HomeViewModel.sample)
+    VentuorCompactListView(title: "Test", homeViewModel: HomeViewModel.sample)
 }

@@ -93,6 +93,11 @@ struct ImageFileVO: Codable {
     var caption: String?
 }
 
+struct Photos: Identifiable {
+    var id: Int
+    var photo: ImageFileVO? = nil
+}
+
 struct DepartmentHoursJSON: Codable {
     var name: String?
     var status: String?
@@ -113,4 +118,63 @@ struct Pages: Identifiable {
 struct VentuorStateObj: Identifiable {
     var id: Int
     var ventuorKey: String? = nil
+}
+
+struct GetVentuorLogoResponseResult: Codable {
+    var result: VentuorLogo?
+    var error: ServerResponseError?
+}
+struct VentuorLogo: Codable {
+    var resultCode: Int?
+    var resultMessage: String?
+    var image: String?
+    var ventuorKey: String?
+    var fileName: String?
+    var fileType: String?
+    var fileCaption: String?
+    var id: String?
+}
+
+struct MobileGetVentuorPhotoResponseResult: Codable {
+    var result: VentuorPhoto?
+    var error: ServerResponseError?
+}
+struct VentuorPhoto: Codable {
+    var resultCode: Int?
+    var resultMessage: String?
+    var photo: String?
+}
+
+struct MobileGetSavedVentuorsResponseResult: Codable {
+    var result: SavedVentuors?
+    var error: ServerResponseError?
+}
+struct SavedVentuors: Codable {
+    var resultCode: Int?
+    var resultMessage: String?
+    var template: String?
+    var savedVentuors: [SavedVentuor]?
+}
+struct SavedVentuor: Codable {
+    var icon: String?
+    var title: String?
+    var subTitle1: String?
+    var ventuorKey: String?
+}
+
+struct MobileGetFollowingVentuorsResponseResult: Codable {
+    var result: FollowingVentuors?
+    var error: ServerResponseError?
+}
+struct FollowingVentuors: Codable {
+    var resultCode: Int?
+    var resultMessage: String?
+    var template: String?
+    var followingVentuors: [FollowingVentuor]?
+}
+struct FollowingVentuor: Codable {
+    var icon: String?
+    var title: String?
+    var subTitle1: String?
+    var ventuorKey: String?
 }

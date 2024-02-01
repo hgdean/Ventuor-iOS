@@ -28,7 +28,7 @@
 		133AF0832B47233E005557D9 /* IntroScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0822B47233E005557D9 /* IntroScreens.swift */; };
 		133AF0862B47254F005557D9 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0852B47254F005557D9 /* SplashView.swift */; };
 		133AF0882B472879005557D9 /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0872B472878005557D9 /* RootScreen.swift */; };
-		133AF08A2B4730D5005557D9 /* TabViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0892B4730D5005557D9 /* TabViewScreen.swift */; };
+		133AF08A2B4730D5005557D9 /* MainTabView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0892B4730D5005557D9 /* MainTabView2.swift */; };
 		133AF08C2B473125005557D9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF08B2B473125005557D9 /* HomeViewModel.swift */; };
 		133AF08F2B474E35005557D9 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF08E2B474E35005557D9 /* LandingView.swift */; };
 		133AF0912B4760FA005557D9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AF0902B4760FA005557D9 /* LoginView.swift */; };
@@ -48,7 +48,7 @@
 		13565A2B2B586D2A00780A8B /* VentuorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13565A2A2B586D2A00780A8B /* VentuorListView.swift */; };
 		13565A2D2B58763500780A8B /* VentuorListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13565A2C2B58763500780A8B /* VentuorListData.swift */; };
 		136F858C2B4B39C30089B651 /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F858B2B4B39C30089B651 /* ErrorHelper.swift */; };
-		136F858F2B4C95EB0089B651 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F858E2B4C95EB0089B651 /* Home.swift */; };
+		136F858F2B4C95EB0089B651 /* MainTabView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F858E2B4C95EB0089B651 /* MainTabView3.swift */; };
 		136F85912B4C965B0089B651 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F85902B4C965B0089B651 /* CustomTabBar.swift */; };
 		136F85932B4CA4870089B651 /* TabCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F85922B4CA4870089B651 /* TabCurve.swift */; };
 		13C623BE2B56D8A80041B75C /* VentuorAppItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C623BD2B56D8A80041B75C /* VentuorAppItem.swift */; };
@@ -60,7 +60,7 @@
 		13F8EAF42B51CDA100BABF60 /* VentuorGenericSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EAF32B51CDA100BABF60 /* VentuorGenericSheet.swift */; };
 		13F8EAF82B51CF0200BABF60 /* HTMLRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EAF72B51CF0200BABF60 /* HTMLRender.swift */; };
 		13F8EAFA2B51DD6200BABF60 /* VentuorNavButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EAF92B51DD6200BABF60 /* VentuorNavButtonView.swift */; };
-		13F8EAFC2B51E4E200BABF60 /* VentuorSaveFollowButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EAFB2B51E4E200BABF60 /* VentuorSaveFollowButtons.swift */; };
+		13F8EAFC2B51E4E200BABF60 /* VentuorSaveButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EAFB2B51E4E200BABF60 /* VentuorSaveButtons.swift */; };
 		13F8EAFE2B532B1D00BABF60 /* VentuorCallItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EAFD2B532B1D00BABF60 /* VentuorCallItem.swift */; };
 		13F8EB002B53333B00BABF60 /* VentuorFacebookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EAFF2B53333B00BABF60 /* VentuorFacebookItem.swift */; };
 		13F8EB022B53347500BABF60 /* VentuorYouTubeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EB012B53347500BABF60 /* VentuorYouTubeItem.swift */; };
@@ -68,6 +68,9 @@
 		13F8EB062B53388500BABF60 /* VentuorWebsiteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EB052B53388500BABF60 /* VentuorWebsiteItem.swift */; };
 		13F8EB272B562D0000BABF60 /* VentuorHoursItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EB262B562D0000BABF60 /* VentuorHoursItem.swift */; };
 		13F8EB292B562F7C00BABF60 /* VentuorDeptHoursItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8EB282B562F7C00BABF60 /* VentuorDeptHoursItem.swift */; };
+		A059CAEC2B6878DF002C6996 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A059CAEB2B6878DF002C6996 /* RemoteImage.swift */; };
+		A059CB482B6AC1EA002C6996 /* RemotePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A059CB472B6AC1EA002C6996 /* RemotePhoto.swift */; };
+		A059CB4A2B6AC964002C6996 /* VentuorPhotoHGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A059CB492B6AC964002C6996 /* VentuorPhotoHGrid.swift */; };
 		A070ED132B5A022700C9AED3 /* VentuorNearby.swift in Sources */ = {isa = PBXBuildFile; fileRef = A070ED122B5A022700C9AED3 /* VentuorNearby.swift */; };
 		A070ED152B5B537A00C9AED3 /* VentuorSearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A070ED142B5B537A00C9AED3 /* VentuorSearchItem.swift */; };
 		A070ED172B5C52E900C9AED3 /* VentuorRecentItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = A070ED162B5C52E900C9AED3 /* VentuorRecentItems.swift */; };
@@ -76,9 +79,18 @@
 		A070ED1D2B5C53C100C9AED3 /* VentuorRecentSearches.swift in Sources */ = {isa = PBXBuildFile; fileRef = A070ED1C2B5C53C100C9AED3 /* VentuorRecentSearches.swift */; };
 		A070ED1F2B5C53DF00C9AED3 /* VentuorAdministration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A070ED1E2B5C53DF00C9AED3 /* VentuorAdministration.swift */; };
 		A070ED212B5C54C700C9AED3 /* VentuorAdminLandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A070ED202B5C54C700C9AED3 /* VentuorAdminLandingPage.swift */; };
+		A078D8BC2B643F7C003850E4 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078D8BB2B643F7C003850E4 /* UserProfile.swift */; };
+		A078D8BE2B6463F6003850E4 /* VentuorFollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078D8BD2B6463F6003850E4 /* VentuorFollowButton.swift */; };
+		A078D8C02B64640B003850E4 /* VentuorCheckinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078D8BF2B64640B003850E4 /* VentuorCheckinButton.swift */; };
+		A078D8C22B646424003850E4 /* VentuorShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078D8C12B646424003850E4 /* VentuorShareButton.swift */; };
 		A0CA0B732B61A07D005DC8AD /* TimeframeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA0B722B61A07D005DC8AD /* TimeframeStatus.swift */; };
 		A0CA0B752B61AE9F005DC8AD /* VentuorTimeframeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA0B742B61AE9F005DC8AD /* VentuorTimeframeBanner.swift */; };
 		A0CA0B772B61BC5D005DC8AD /* VentuorTitleOpenClosedTimeframeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA0B762B61BC5D005DC8AD /* VentuorTitleOpenClosedTimeframeStatus.swift */; };
+		A0ED23A52B6AF20300912CDB /* VentuorSelectedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED23A42B6AF20300912CDB /* VentuorSelectedPhotoView.swift */; };
+		A0ED23A72B6BE2F300912CDB /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED23A62B6BE2F300912CDB /* TabBarView.swift */; };
+		A0ED23A92B6BE34100912CDB /* CircleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED23A82B6BE34100912CDB /* CircleAnimation.swift */; };
+		A0ED23AB2B6BEA9D00912CDB /* MainTabView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED23AA2B6BEA9D00912CDB /* MainTabView4.swift */; };
+		A0ED23AF2B6C577C00912CDB /* VentuorCompactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED23AE2B6C577C00912CDB /* VentuorCompactListView.swift */; };
 		A0FF87DA2B61603900271F5B /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF87D92B61603900271F5B /* Tab.swift */; };
 		A0FF87DC2B6163EC00271F5B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF87DB2B6163EC00271F5B /* MainTabView.swift */; };
 /* End PBXBuildFile section */
@@ -107,7 +119,7 @@
 		133AF0822B47233E005557D9 /* IntroScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreens.swift; sourceTree = "<group>"; };
 		133AF0852B47254F005557D9 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		133AF0872B472878005557D9 /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
-		133AF0892B4730D5005557D9 /* TabViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewScreen.swift; sourceTree = "<group>"; };
+		133AF0892B4730D5005557D9 /* MainTabView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView2.swift; sourceTree = "<group>"; };
 		133AF08B2B473125005557D9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		133AF08E2B474E35005557D9 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		133AF0902B4760FA005557D9 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -130,7 +142,7 @@
 		13565A2A2B586D2A00780A8B /* VentuorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorListView.swift; sourceTree = "<group>"; };
 		13565A2C2B58763500780A8B /* VentuorListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorListData.swift; sourceTree = "<group>"; };
 		136F858B2B4B39C30089B651 /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
-		136F858E2B4C95EB0089B651 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		136F858E2B4C95EB0089B651 /* MainTabView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView3.swift; sourceTree = "<group>"; };
 		136F85902B4C965B0089B651 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		136F85922B4CA4870089B651 /* TabCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCurve.swift; sourceTree = "<group>"; };
 		13C623BD2B56D8A80041B75C /* VentuorAppItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorAppItem.swift; sourceTree = "<group>"; };
@@ -142,7 +154,7 @@
 		13F8EAF32B51CDA100BABF60 /* VentuorGenericSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorGenericSheet.swift; sourceTree = "<group>"; };
 		13F8EAF72B51CF0200BABF60 /* HTMLRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLRender.swift; sourceTree = "<group>"; };
 		13F8EAF92B51DD6200BABF60 /* VentuorNavButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorNavButtonView.swift; sourceTree = "<group>"; };
-		13F8EAFB2B51E4E200BABF60 /* VentuorSaveFollowButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorSaveFollowButtons.swift; sourceTree = "<group>"; };
+		13F8EAFB2B51E4E200BABF60 /* VentuorSaveButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorSaveButtons.swift; sourceTree = "<group>"; };
 		13F8EAFD2B532B1D00BABF60 /* VentuorCallItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorCallItem.swift; sourceTree = "<group>"; };
 		13F8EAFF2B53333B00BABF60 /* VentuorFacebookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorFacebookItem.swift; sourceTree = "<group>"; };
 		13F8EB012B53347500BABF60 /* VentuorYouTubeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorYouTubeItem.swift; sourceTree = "<group>"; };
@@ -150,6 +162,9 @@
 		13F8EB052B53388500BABF60 /* VentuorWebsiteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorWebsiteItem.swift; sourceTree = "<group>"; };
 		13F8EB262B562D0000BABF60 /* VentuorHoursItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorHoursItem.swift; sourceTree = "<group>"; };
 		13F8EB282B562F7C00BABF60 /* VentuorDeptHoursItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorDeptHoursItem.swift; sourceTree = "<group>"; };
+		A059CAEB2B6878DF002C6996 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		A059CB472B6AC1EA002C6996 /* RemotePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePhoto.swift; sourceTree = "<group>"; };
+		A059CB492B6AC964002C6996 /* VentuorPhotoHGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorPhotoHGrid.swift; sourceTree = "<group>"; };
 		A070ED122B5A022700C9AED3 /* VentuorNearby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorNearby.swift; sourceTree = "<group>"; };
 		A070ED142B5B537A00C9AED3 /* VentuorSearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorSearchItem.swift; sourceTree = "<group>"; };
 		A070ED162B5C52E900C9AED3 /* VentuorRecentItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorRecentItems.swift; sourceTree = "<group>"; };
@@ -158,9 +173,18 @@
 		A070ED1C2B5C53C100C9AED3 /* VentuorRecentSearches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorRecentSearches.swift; sourceTree = "<group>"; };
 		A070ED1E2B5C53DF00C9AED3 /* VentuorAdministration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorAdministration.swift; sourceTree = "<group>"; };
 		A070ED202B5C54C700C9AED3 /* VentuorAdminLandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorAdminLandingPage.swift; sourceTree = "<group>"; };
+		A078D8BB2B643F7C003850E4 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		A078D8BD2B6463F6003850E4 /* VentuorFollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorFollowButton.swift; sourceTree = "<group>"; };
+		A078D8BF2B64640B003850E4 /* VentuorCheckinButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorCheckinButton.swift; sourceTree = "<group>"; };
+		A078D8C12B646424003850E4 /* VentuorShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorShareButton.swift; sourceTree = "<group>"; };
 		A0CA0B722B61A07D005DC8AD /* TimeframeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeframeStatus.swift; sourceTree = "<group>"; };
 		A0CA0B742B61AE9F005DC8AD /* VentuorTimeframeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorTimeframeBanner.swift; sourceTree = "<group>"; };
 		A0CA0B762B61BC5D005DC8AD /* VentuorTitleOpenClosedTimeframeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorTitleOpenClosedTimeframeStatus.swift; sourceTree = "<group>"; };
+		A0ED23A42B6AF20300912CDB /* VentuorSelectedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorSelectedPhotoView.swift; sourceTree = "<group>"; };
+		A0ED23A62B6BE2F300912CDB /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		A0ED23A82B6BE34100912CDB /* CircleAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleAnimation.swift; sourceTree = "<group>"; };
+		A0ED23AA2B6BEA9D00912CDB /* MainTabView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView4.swift; sourceTree = "<group>"; };
+		A0ED23AE2B6C577C00912CDB /* VentuorCompactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorCompactListView.swift; sourceTree = "<group>"; };
 		A0FF87D92B61603900271F5B /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		A0FF87DB2B6163EC00271F5B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,6 +222,8 @@
 		133AF0652B4710FA005557D9 /* Ventuor */ = {
 			isa = PBXGroup;
 			children = (
+				A059CAEA2B6878C7002C6996 /* Remote Image */,
+				A078D8BA2B643F3F003850E4 /* UserProfile */,
 				13F8EAEE2B50BC6600BABF60 /* Settings */,
 				136F858D2B4C95DB0089B651 /* Shared */,
 				133AF0B32B484E65005557D9 /* Info.plist */,
@@ -214,7 +240,9 @@
 				133AF0682B4710FA005557D9 /* ContentView.swift */,
 				133AF0872B472878005557D9 /* RootScreen.swift */,
 				A0FF87DB2B6163EC00271F5B /* MainTabView.swift */,
-				133AF0892B4730D5005557D9 /* TabViewScreen.swift */,
+				133AF0892B4730D5005557D9 /* MainTabView2.swift */,
+				136F858E2B4C95EB0089B651 /* MainTabView3.swift */,
+				A0ED23AA2B6BEA9D00912CDB /* MainTabView4.swift */,
 				1303E95B2B4DB82900DC9B75 /* HomeViewTab.swift */,
 				1303E95D2B4DB90500DC9B75 /* ProfileViewTab.swift */,
 				1303E95F2B4DB91700DC9B75 /* SettingsViewTab.swift */,
@@ -320,6 +348,7 @@
 			children = (
 				13565A272B578ADE00780A8B /* Model */,
 				13565A2A2B586D2A00780A8B /* VentuorListView.swift */,
+				A0ED23AE2B6C577C00912CDB /* VentuorCompactListView.swift */,
 			);
 			path = "Ventuor List Components";
 			sourceTree = "<group>";
@@ -344,11 +373,12 @@
 		136F858D2B4C95DB0089B651 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				136F858E2B4C95EB0089B651 /* Home.swift */,
 				136F85902B4C965B0089B651 /* CustomTabBar.swift */,
 				136F85922B4CA4870089B651 /* TabCurve.swift */,
 				A0FF87D92B61603900271F5B /* Tab.swift */,
 				A0CA0B722B61A07D005DC8AD /* TimeframeStatus.swift */,
+				A0ED23A82B6BE34100912CDB /* CircleAnimation.swift */,
+				A0ED23A62B6BE2F300912CDB /* TabBarView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -370,7 +400,10 @@
 				13F8EAF32B51CDA100BABF60 /* VentuorGenericSheet.swift */,
 				13F8EAF72B51CF0200BABF60 /* HTMLRender.swift */,
 				13F8EAF92B51DD6200BABF60 /* VentuorNavButtonView.swift */,
-				13F8EAFB2B51E4E200BABF60 /* VentuorSaveFollowButtons.swift */,
+				13F8EAFB2B51E4E200BABF60 /* VentuorSaveButtons.swift */,
+				A078D8BF2B64640B003850E4 /* VentuorCheckinButton.swift */,
+				A078D8BD2B6463F6003850E4 /* VentuorFollowButton.swift */,
+				A078D8C12B646424003850E4 /* VentuorShareButton.swift */,
 				13F8EAFD2B532B1D00BABF60 /* VentuorCallItem.swift */,
 				13F8EAFF2B53333B00BABF60 /* VentuorFacebookItem.swift */,
 				13F8EB012B53347500BABF60 /* VentuorYouTubeItem.swift */,
@@ -384,6 +417,8 @@
 				13C623C32B574BD00041B75C /* VentuorPagesItem.swift */,
 				A0CA0B742B61AE9F005DC8AD /* VentuorTimeframeBanner.swift */,
 				A0CA0B762B61BC5D005DC8AD /* VentuorTitleOpenClosedTimeframeStatus.swift */,
+				A059CB492B6AC964002C6996 /* VentuorPhotoHGrid.swift */,
+				A0ED23A42B6AF20300912CDB /* VentuorSelectedPhotoView.swift */,
 			);
 			path = "Ventuor Components";
 			sourceTree = "<group>";
@@ -395,6 +430,15 @@
 				131F6E3B2B5073B600F81D50 /* VentuorViewModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A059CAEA2B6878C7002C6996 /* Remote Image */ = {
+			isa = PBXGroup;
+			children = (
+				A059CAEB2B6878DF002C6996 /* RemoteImage.swift */,
+				A059CB472B6AC1EA002C6996 /* RemotePhoto.swift */,
+			);
+			path = "Remote Image";
 			sourceTree = "<group>";
 		};
 		A070ED112B5A01E600C9AED3 /* Home Components */ = {
@@ -411,6 +455,14 @@
 				A070ED202B5C54C700C9AED3 /* VentuorAdminLandingPage.swift */,
 			);
 			path = "Home Components";
+			sourceTree = "<group>";
+		};
+		A078D8BA2B643F3F003850E4 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				A078D8BB2B643F7C003850E4 /* UserProfile.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,17 +547,21 @@
 				133AF09A2B47613F005557D9 /* LoginRequest.swift in Sources */,
 				133AF0932B47610F005557D9 /* SignupFullname.swift in Sources */,
 				13F8EAF22B50BD9400BABF60 /* LocationDataManager.swift in Sources */,
+				A078D8BE2B6463F6003850E4 /* VentuorFollowButton.swift in Sources */,
+				A078D8BC2B643F7C003850E4 /* UserProfile.swift in Sources */,
 				133AF08F2B474E35005557D9 /* LandingView.swift in Sources */,
 				13F8EAF42B51CDA100BABF60 /* VentuorGenericSheet.swift in Sources */,
 				A070ED1D2B5C53C100C9AED3 /* VentuorRecentSearches.swift in Sources */,
+				A059CB4A2B6AC964002C6996 /* VentuorPhotoHGrid.swift in Sources */,
 				13F8EAFA2B51DD6200BABF60 /* VentuorNavButtonView.swift in Sources */,
 				A070ED132B5A022700C9AED3 /* VentuorNearby.swift in Sources */,
-				136F858F2B4C95EB0089B651 /* Home.swift in Sources */,
+				136F858F2B4C95EB0089B651 /* MainTabView3.swift in Sources */,
 				133AF0A22B4761B2005557D9 /* Services.swift in Sources */,
 				133AF0A32B4761B2005557D9 /* Web.swift in Sources */,
 				133AF07A2B472196005557D9 /* KeychainWrapperSubscript.swift in Sources */,
 				A0CA0B752B61AE9F005DC8AD /* VentuorTimeframeBanner.swift in Sources */,
 				A070ED172B5C52E900C9AED3 /* VentuorRecentItems.swift in Sources */,
+				A0ED23A52B6AF20300912CDB /* VentuorSelectedPhotoView.swift in Sources */,
 				A070ED1F2B5C53DF00C9AED3 /* VentuorAdministration.swift in Sources */,
 				133AF09C2B47613F005557D9 /* LoginResponse.swift in Sources */,
 				1303E9602B4DB91700DC9B75 /* SettingsViewTab.swift in Sources */,
@@ -516,7 +572,7 @@
 				133AF0882B472879005557D9 /* RootScreen.swift in Sources */,
 				131F6E3A2B50700D00F81D50 /* Utils.swift in Sources */,
 				A070ED1B2B5C538700C9AED3 /* VentuorFollowingItems.swift in Sources */,
-				133AF08A2B4730D5005557D9 /* TabViewScreen.swift in Sources */,
+				133AF08A2B4730D5005557D9 /* MainTabView2.swift in Sources */,
 				133AF0AE2B47636A005557D9 /* SignupConfirmation.swift in Sources */,
 				13F8EB002B53333B00BABF60 /* VentuorFacebookItem.swift in Sources */,
 				A070ED152B5B537A00C9AED3 /* VentuorSearchItem.swift in Sources */,
@@ -525,13 +581,18 @@
 				1303E95E2B4DB90500DC9B75 /* ProfileViewTab.swift in Sources */,
 				13F8EB042B53377C00BABF60 /* VentuorTwitterItem.swift in Sources */,
 				13F8EAF82B51CF0200BABF60 /* HTMLRender.swift in Sources */,
+				A059CAEC2B6878DF002C6996 /* RemoteImage.swift in Sources */,
 				133AF0832B47233E005557D9 /* IntroScreens.swift in Sources */,
 				133AF0AC2B476349005557D9 /* SignupPassword.swift in Sources */,
 				136F85932B4CA4870089B651 /* TabCurve.swift in Sources */,
-				13F8EAFC2B51E4E200BABF60 /* VentuorSaveFollowButtons.swift in Sources */,
+				13F8EAFC2B51E4E200BABF60 /* VentuorSaveButtons.swift in Sources */,
 				13F8EAF02B50BC8300BABF60 /* SettingsInfo.swift in Sources */,
+				A0ED23AF2B6C577C00912CDB /* VentuorCompactListView.swift in Sources */,
+				A078D8C22B646424003850E4 /* VentuorShareButton.swift in Sources */,
 				13565A2D2B58763500780A8B /* VentuorListData.swift in Sources */,
 				133AF0912B4760FA005557D9 /* LoginView.swift in Sources */,
+				A0ED23AB2B6BEA9D00912CDB /* MainTabView4.swift in Sources */,
+				A0ED23A72B6BE2F300912CDB /* TabBarView.swift in Sources */,
 				1303E9662B5039F700DC9B75 /* VentuorHoursSheet.swift in Sources */,
 				136F858C2B4B39C30089B651 /* ErrorHelper.swift in Sources */,
 				133AF08C2B473125005557D9 /* HomeViewModel.swift in Sources */,
@@ -544,8 +605,11 @@
 				A0CA0B732B61A07D005DC8AD /* TimeframeStatus.swift in Sources */,
 				131F6E382B50693B00F81D50 /* VentuorData.swift in Sources */,
 				13C623C22B57105A0041B75C /* VentuorTitleOpenClosedStatus.swift in Sources */,
+				A078D8C02B64640B003850E4 /* VentuorCheckinButton.swift in Sources */,
 				A070ED212B5C54C700C9AED3 /* VentuorAdminLandingPage.swift in Sources */,
 				13F8EB292B562F7C00BABF60 /* VentuorDeptHoursItem.swift in Sources */,
+				A059CB482B6AC1EA002C6996 /* RemotePhoto.swift in Sources */,
+				A0ED23A92B6BE34100912CDB /* CircleAnimation.swift in Sources */,
 				133AF0812B4722F5005557D9 /* IntroItem.swift in Sources */,
 				133AF0752B47212A005557D9 /* Auth.swift in Sources */,
 				133AF0862B47254F005557D9 /* SplashView.swift in Sources */,

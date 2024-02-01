@@ -11,6 +11,9 @@ class HomeViewModel: ObservableObject {
     @Published var ventuorList: VentuorList? = nil
     @Published var displayStatusMessage: String? = nil
 
+    @Published var savedVentuors: MobileGetSavedVentuorsResponseResult? = nil
+    @Published var followingVentuors: MobileGetFollowingVentuorsResponseResult? = nil
+
     static var sample = HomeViewModel()
 
     func initialize() {
@@ -68,14 +71,41 @@ class HomeViewModel: ObservableObject {
     func getUsersSavedVentuors() {
         initialize()
         let services = Services(baseURL: API.baseURL + "/mobile/getSavedVentuors")
-        services.getSavedVentuors(cb: cbVentuorList)
+        services.getSavedVentuors(cb: cbSavedVentuorList)
+    }
+    fileprivate func cbSavedVentuorList(_ data: Data?, error: NSError?) -> Void {
+        prepare()
+        print(String(data: data!, encoding: .utf8)!)
+        do {
+            let response = try JSONDecoder().decode(MobileGetSavedVentuorsResponseResult.self, from: data!)
+            print(response)
+            
+            savedVentuors = response
+            ready(ventuors: ventuorList?.result?.ventuors ?? [])
+        } catch {
+        }
+        
     }
 
     func getUsersFollowingVentuors() {
         initialize()
         let services = Services(baseURL: API.baseURL + "/mobile/getFollowingVentuors")
-        services.getFollowingVentuors(cb: cbVentuorList)
+        services.getFollowingVentuors(cb: cbFollowingVentuorList)
     }
+    fileprivate func cbFollowingVentuorList(_ data: Data?, error: NSError?) -> Void {
+        prepare()
+        print(String(data: data!, encoding: .utf8)!)
+        do {
+            let response = try JSONDecoder().decode(MobileGetFollowingVentuorsResponseResult.self, from: data!)
+            print(response)
+            
+            followingVentuors = response
+            ready(ventuors: ventuorList?.result?.ventuors ?? [])
+        } catch {
+        }
+        
+    }
+
 
     func logout() {
         Auth.shared.logout()

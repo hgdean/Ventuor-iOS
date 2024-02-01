@@ -68,7 +68,7 @@ struct CustomTabBar: View {
 }
 
 #Preview {
-    Home(showIntroScreens: true)
+    MainTabView3(showIntroScreens: true)
 }
 
 struct TabBarButton2: View {

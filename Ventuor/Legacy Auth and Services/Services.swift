@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 class Services : Web {
 
@@ -126,7 +127,7 @@ class Services : Web {
     func getVentuorData(ventuorKey: String, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
         self.authToken = Auth.shared.getAccessToken() ?? ""
         
-        var lastUpdatedLocation = CLLocationCoordinate2D()
+        let lastUpdatedLocation = CLLocationCoordinate2D()
         let lat = lastUpdatedLocation.latitude
         let long = lastUpdatedLocation.longitude
 
@@ -156,6 +157,46 @@ class Services : Web {
         print(String(data: jsonData!, encoding: .utf8)!)
 
         self.post("/mobile/getVentuor", data: jsonData, cb: cb)
+    }
+
+    func getVentuorLogoByVentuorKey(_ ventuorKey: String, liveMode: Bool, cb: @escaping (_ data: Data?, _ error: NSError?) -> Void) {
+        
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        // https://stackoverflow.com/questions/70841197/access-data-of-of-struct-swift
+        let json: [String: Any] = [
+            "requestName": "getVentuorLogoByVentuorKey",
+            "requestParam":
+            [
+                "ventuorKey": ventuorKey,
+                "liveMode": liveMode
+            ]
+        ]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        self.post("/mobile/getVentuorLogoByVentuorKey", data: jsonData, cb: cb)
+    }
+
+    func getMobileVentuorPhoto(_ ventuorKey: String, liveMode: Bool, imageLocation: String, imageType: String,
+                               cb: @escaping (_ data: Data?, _ error: NSError?) -> Void) {
+        
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+
+        // https://stackoverflow.com/questions/70841197/access-data-of-of-struct-swift
+        let json: [String: Any] = [
+            "requestName": "getMobileVentuorPhoto",
+            "requestParam":
+                [
+                    "ventuorKey": ventuorKey,
+                    "imageLocation": imageLocation,
+                    "imageType": imageType,
+                    "liveMode": liveMode
+                ]
+            ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+
+        self.post("/mobile/getMobileVentuorPhoto", data: jsonData, cb: cb)
     }
 
     func getSearchData(searchCategory: String, searchTerm: String, pageNumber: Int, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
@@ -467,4 +508,5 @@ class Services : Web {
 
         self.post("/mobile/isUserFollowingVentuor", data: jsonData, cb: cb)
     }
+    
 }

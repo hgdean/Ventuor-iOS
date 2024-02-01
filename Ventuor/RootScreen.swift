@@ -16,7 +16,10 @@ struct RootScreen: View {
         VStack() {
 //            if !shouldShowIntroScreens {
                 if Auth.shared.loggedIn {
-                    MainTabView()
+                    //MainTabView()
+                    // MainTabView2()
+                    // MainTabView3(showIntroScreens: false)
+                    MainTabView4()
                 } else {
                     LandingView()
                 }

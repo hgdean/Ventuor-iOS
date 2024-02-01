@@ -12,6 +12,7 @@ enum Tab: String, CaseIterable {
     case profile = "Profile"
     case settings = "Settings"
     case search = "Search"
+    case admin = "Admin"
     
     var systemImage: String {
         switch self {
@@ -23,6 +24,8 @@ enum Tab: String, CaseIterable {
             return "gearshape"
         case .search:
             return "magnifyingglass.circle"
+        case .admin:
+            return "archivebox" // building.2.crop.circle storefront.circle folder.badge.gearshape
         }
     }
     

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum ErrorVentuorState: LocalizedError {
     case LIVE
@@ -59,13 +60,22 @@ enum ErrorVentuorState: LocalizedError {
 class VentuorViewModel: ObservableObject {
     
     var ventuorKey: String = ""
+    var liveMode: Bool = true
+    
     @Published var ventuor: Ventuor? = nil
+    
+    var userProfile: UserProfile? = nil
     
     static var sample = VentuorViewModel()
     
     @Published var ventuorStateLive: Bool = false
     @Published var errorVentuorState: Swift.Error?
+    @Published var isVentuorSavedByUser: Bool = false
+    @Published var isVentuorFollowedByUser: Bool = false
+    @Published var isVentuorCheckedinByUser: Bool = false
 
+    @Published var logo: UIImage?
+    
     func whichState(item: String) -> ErrorVentuorState {
         switch item {
         case "LIVE":
@@ -106,14 +116,30 @@ class VentuorViewModel: ObservableObject {
         }
     }
     
-    func getVentuorData() {
-        ventuor?.result?.ventuor = nil
-        let services = Services(baseURL: API.baseURL + "/mobile/getVentuor")
+    func getUserProfile() {
+        let services = Services(baseURL: API.baseURL + "/mobile/getProfile")
         services.getUserProfile(cbGetUserProfile)
-        services.getVentuorData(ventuorKey: ventuorKey, cb: cb)
     }
     fileprivate func cbGetUserProfile(_ data: Data?, error: NSError?) -> Void {
         print(String(data: data!, encoding: .utf8)!)
+
+        do {
+            let response = try JSONDecoder().decode(UserProfile.self, from: data!)
+            print(response)
+
+            userProfile = response
+            updateVentuorSavedByUser()
+            updateVentuorFollowedByUser()
+            updateVentuorCheckinByUser()
+        } catch {
+        }
+    }
+
+    func getVentuorData() {
+        ventuor?.result?.ventuor = nil
+        logo = nil
+        let services = Services(baseURL: API.baseURL + "/mobile/getVentuor")
+        services.getVentuorData(ventuorKey: ventuorKey, cb: cb)
     }
     fileprivate func cb(_ data: Data?, error: NSError?) -> Void {
         
@@ -124,6 +150,7 @@ class VentuorViewModel: ObservableObject {
             print(response)
 
             ventuor = response
+            getUserProfile()
         } catch {
         }
     }
@@ -134,18 +161,18 @@ class VentuorViewModel: ObservableObject {
     }
     
     fileprivate func cbSaveVentuor(_ data: Data?, error: NSError?) -> Void {
-        
         print(String(data: data!, encoding: .utf8)!)
+        getUserProfile()
     }
     
-    func unsaveVentuor(ventuorKey: String) {
+    func unSaveVentuor(ventuorKey: String) {
         let services = Services(baseURL: API.baseURL + "/mobile/unSaveVentuor")
         services.unSaveVentuor(ventuorKey, cb: cbUnsaveVentuor)
     }
     
     fileprivate func cbUnsaveVentuor(_ data: Data?, error: NSError?) -> Void {
-        
         print(String(data: data!, encoding: .utf8)!)
+        getUserProfile()
     }
     
     func followVentuor(ventuorKey: String, title: String, subtitle1: String, iconLocation: String) {
@@ -154,17 +181,41 @@ class VentuorViewModel: ObservableObject {
     }
     
     fileprivate func cbFollowVentuor(_ data: Data?, error: NSError?) -> Void {
-        
         print(String(data: data!, encoding: .utf8)!)
+        getUserProfile()
     }
     
-    func unFollowVentuor(ventuorKey: String, title: String, subtitle1: String, iconLocation: String) {
+    func unFollowVentuor(ventuorKey: String) {
         let services = Services(baseURL: API.baseURL + "/mobile/unFollowVentuor")
         services.unFollowVentuor(ventuorKey, cb: cbunFollowVentuor)
     }
     
     fileprivate func cbunFollowVentuor(_ data: Data?, error: NSError?) -> Void {
-        
         print(String(data: data!, encoding: .utf8)!)
+        getUserProfile()
+    }
+    
+    func updateVentuorSavedByUser() {
+        let savedVentuors = userProfile?.result?.savedVentuors ?? []
+        for savedVentuor in savedVentuors {
+            if savedVentuor.ventuorKey == ventuorKey {
+                isVentuorSavedByUser = true
+                return
+            }
+        }
+        isVentuorSavedByUser = false
+    }
+    func updateVentuorFollowedByUser() {
+        let followingVentuors = userProfile?.result?.followingVentuors ?? []
+        for followingVentuor in followingVentuors {
+            if followingVentuor.ventuorKey == ventuorKey {
+                isVentuorFollowedByUser = true
+                return
+            }
+        }
+        isVentuorFollowedByUser = false
+    }
+    func updateVentuorCheckinByUser() {
+        isVentuorCheckedinByUser = false
     }
 }

@@ -34,7 +34,7 @@ struct VentuorSavedItems: View {
             })
         }
         .navigationDestination(isPresented: $goodToAdvance, destination: {
-            VentuorListView(title: "Saved", homeViewModel: homeViewModel)
+            VentuorListView(title: "My Saved Ventuors", homeViewModel: homeViewModel)
         })
     }
 }

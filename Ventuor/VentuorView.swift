@@ -42,6 +42,7 @@ struct VentuorView: View {
     var body: some View {
         ScrollView() {
             VStack() {
+                
                 VStack() {
                     VStack(alignment: .leading, spacing: 8) {                         // Main header name / info
                         
@@ -54,11 +55,14 @@ struct VentuorView: View {
                         }
                         
                         HStack() {
-                            Image(ventuorViewModel.ventuor?.result?.ventuor?.icon ?? "missing")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 70, height: 70)
-                                .padding(0)
+                            RemoteLogoImage(
+                                ventuorKey: ventuorViewModel.ventuorKey,
+                                liveMode: ventuorViewModel.liveMode,
+                                placeholderImage: Image(systemName: "photo"),
+                                logoImageDownloader: DefaultLogoImageDownloader(ventuorKey: ventuorViewModel.ventuorKey, liveMode: ventuorViewModel.liveMode))
+                            .scaledToFit()
+                            .frame(width: 70, height: 70)
+                            .padding(0)
                             
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(ventuorViewModel.ventuor?.result?.ventuor?.title ?? "")
@@ -180,6 +184,7 @@ struct VentuorView: View {
 
                         VStack(alignment: .leading) {
                             Text(ventuorViewModel.ventuor?.result?.ventuor?.payments ?? "Bitcoin, cash, VISA, MasterCard")
+                                .lineLimit(1)
                             Text("Payment types excepted")
                                 .fontWeight(.light)
                                 .font(.caption)
@@ -203,13 +208,14 @@ struct VentuorView: View {
                 
                 VStack(alignment: .center) {
                     HStack(alignment: .center) {
-                        VentuorSaveFollowButtons(imageName: "save", buttonText: "SAVE", selected: false, ventuorViewModel: ventuorViewModel)
+                        VentuorSaveButton(ventuorViewModel: ventuorViewModel)
                         Spacer()
-                        VentuorSaveFollowButtons(imageName: "check-in", buttonText: "CHECK-IN", selected: false, ventuorViewModel: ventuorViewModel)
+                        VentuorCheckinButton(ventuorViewModel: ventuorViewModel)
                         Spacer()
-                        VentuorSaveFollowButtons(imageName: "follow", buttonText: "FOLLOW", selected: false, ventuorViewModel: ventuorViewModel)
+                        // arrowshape.zigzag.right.fill
+                        VentuorFollowButton(ventuorViewModel: ventuorViewModel)
                         Spacer()
-                        VentuorSaveFollowButtons(imageName: "share", buttonText: "SHARE", selected: false, ventuorViewModel: ventuorViewModel)
+                        VentuorShareButton(ventuorViewModel: ventuorViewModel)
                     }
                     .padding([.leading, .trailing], 13)
                 }
@@ -301,6 +307,13 @@ struct VentuorView: View {
                 let pagesCount = ventuorViewModel.ventuor?.result?.ventuor?.pages?.count ?? 0
                 if pagesCount > 0 {
                     VentuorPagesItem(pages: (ventuorViewModel.ventuor?.result?.ventuor?.pages)!)
+                }
+                
+                if let photos = ventuorViewModel.ventuor?.result?.ventuor?.photos {
+                    if photos.count > 0 {
+                        VentuorPhotoHGrid(photos: ventuorViewModel.ventuor?.result?.ventuor?.photos ?? [ImageFileVO()],
+                                          ventuor: ventuorViewModel.ventuor?.result?.ventuor ?? VentuorData())
+                    }
                 }
 
             }

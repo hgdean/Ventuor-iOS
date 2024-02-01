@@ -12,7 +12,7 @@ struct VentuorShareButton: View {
     
     var body: some View {
         Button(action: {
-            let ventuor = ventuorViewModel.ventuor?.result?.ventuor
+            // let ventuor = ventuorViewModel.ventuor?.result?.ventuor
         }, label: {
             VStack(spacing: 7) {
                 Image(systemName: "square.and.arrow.up")
