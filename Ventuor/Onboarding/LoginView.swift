@@ -14,6 +14,10 @@ struct LoginView: View {
     @Environment(\.dismiss) var dismiss
 
     @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
+
+    func login() {
+        viewModel.login()
+    }
     
     var body: some View {
         NavigationStack {
@@ -49,7 +53,7 @@ struct LoginView: View {
                 .padding(.top, 12)
                 
                 Button(
-                    action: viewModel.login,
+                    action: login,
                     label: {
                         HStack {
                             Text("Login")

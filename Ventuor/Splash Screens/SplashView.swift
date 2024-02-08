@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SplashView: View {
     @Binding var isSplashScreenActive: Bool
-    
+
     var body: some View {
         VStack(spacing: 0) {
             Image("1000x1000 @ 300 res")

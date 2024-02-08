@@ -34,7 +34,7 @@ struct VentuorFollowingItems: View {
             })
         }
         .navigationDestination(isPresented: $goodToAdvance, destination: {
-            VentuorListView(title: "Following", homeViewModel: homeViewModel)
+            VentuorCompactListView(title: "My Following Ventuors", savedFollowingVentuors: homeViewModel.followingVentuors, homeViewModel: homeViewModel)
         })
     }}
 

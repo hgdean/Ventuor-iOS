@@ -10,6 +10,10 @@ import SwiftUI
 struct SignupConfirmation: View {
     @ObservedObject var signupViewModel: SignupViewModel
 
+    func login() {
+        signupViewModel.validateSignupConfirmationCode()
+    }
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -42,7 +46,7 @@ struct SignupConfirmation: View {
                 Button(
                     action: {
                         print("Button for Confirmation page")
-                        signupViewModel.validateSignupConfirmationCode()
+                        login()
                     },
                     label: {
                         HStack {

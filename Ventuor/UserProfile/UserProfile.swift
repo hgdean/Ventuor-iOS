@@ -51,3 +51,31 @@ struct SaveFollowVentuor: Codable {
     var subTitle1: String?
     var ventuorKey: String?
 }
+
+struct MobileGetSavedVentuorsResponseResult: Codable {
+    var result: SavedVentuors?
+    var error: ServerResponseError?
+}
+struct SavedVentuors: Codable {
+    var resultCode: Int?
+    var resultMessage: String?
+    var template: String?
+    var savedVentuors: [SavedFollowingVentuor]?
+}
+struct SavedFollowingVentuor: Codable {
+    var icon: String?
+    var title: String?
+    var subTitle1: String?
+    var ventuorKey: String?
+}
+
+struct MobileGetFollowingVentuorsResponseResult: Codable {
+    var result: FollowingVentuors?
+    var error: ServerResponseError?
+}
+struct FollowingVentuors: Codable {
+    var resultCode: Int?
+    var resultMessage: String?
+    var template: String?
+    var followingVentuors: [SavedFollowingVentuor]?
+}

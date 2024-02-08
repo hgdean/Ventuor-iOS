@@ -144,37 +144,3 @@ struct VentuorPhoto: Codable {
     var resultMessage: String?
     var photo: String?
 }
-
-struct MobileGetSavedVentuorsResponseResult: Codable {
-    var result: SavedVentuors?
-    var error: ServerResponseError?
-}
-struct SavedVentuors: Codable {
-    var resultCode: Int?
-    var resultMessage: String?
-    var template: String?
-    var savedVentuors: [SavedVentuor]?
-}
-struct SavedVentuor: Codable {
-    var icon: String?
-    var title: String?
-    var subTitle1: String?
-    var ventuorKey: String?
-}
-
-struct MobileGetFollowingVentuorsResponseResult: Codable {
-    var result: FollowingVentuors?
-    var error: ServerResponseError?
-}
-struct FollowingVentuors: Codable {
-    var resultCode: Int?
-    var resultMessage: String?
-    var template: String?
-    var followingVentuors: [FollowingVentuor]?
-}
-struct FollowingVentuor: Codable {
-    var icon: String?
-    var title: String?
-    var subTitle1: String?
-    var ventuorKey: String?
-}

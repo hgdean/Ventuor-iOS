@@ -22,8 +22,8 @@ struct LoginResponseResult: Codable {
     var resultMessage: String?
 }
 struct LoginResponse: Codable {
-    var error: ServerResponseError?
     var result: LoginResponseResult?
+    var error: ServerResponseError?
 }
 
 
@@ -32,8 +32,8 @@ struct SignupEmailCheckResponseResult: Codable {
     var resultMessage: String?
 }
 struct SignupEmailCheckResponse: Codable {
-    var error: ServerResponseError?
     var result: SignupEmailCheckResponseResult?
+    var error: ServerResponseError?
 }
 
 
@@ -45,6 +45,6 @@ struct PhoneAndEmailServiceResponseResult: Codable {
     var resultMessage: String?
 }
 struct PhoneAndEmailServerResponse: Codable {
-    var error: ServerResponseError?
     var result: PhoneAndEmailServiceResponseResult?
+    var error: ServerResponseError?
 }

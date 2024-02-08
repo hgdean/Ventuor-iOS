@@ -5,14 +5,16 @@
 //  Created by H Sam Dean on 1/4/24.
 //
 
-import Foundation
+import SwiftUI
+import SwiftData
 
 class HomeViewModel: ObservableObject {
     @Published var ventuorList: VentuorList? = nil
     @Published var displayStatusMessage: String? = nil
 
-    @Published var savedVentuors: MobileGetSavedVentuorsResponseResult? = nil
-    @Published var followingVentuors: MobileGetFollowingVentuorsResponseResult? = nil
+    @Published var savedVentuors: [SavedFollowingVentuor] = [SavedFollowingVentuor]()
+    @Published var followingVentuors: [SavedFollowingVentuor] = [SavedFollowingVentuor]()
+    @Published var recentVentuors: [RecentVentuor] = [RecentVentuor]()
 
     static var sample = HomeViewModel()
 
@@ -80,11 +82,10 @@ class HomeViewModel: ObservableObject {
             let response = try JSONDecoder().decode(MobileGetSavedVentuorsResponseResult.self, from: data!)
             print(response)
             
-            savedVentuors = response
-            ready(ventuors: ventuorList?.result?.ventuors ?? [])
+            savedVentuors = response.result?.savedVentuors ?? [SavedFollowingVentuor]()
+            isReady(ventuors: savedVentuors)
         } catch {
         }
-        
     }
 
     func getUsersFollowingVentuors() {
@@ -99,13 +100,28 @@ class HomeViewModel: ObservableObject {
             let response = try JSONDecoder().decode(MobileGetFollowingVentuorsResponseResult.self, from: data!)
             print(response)
             
-            followingVentuors = response
-            ready(ventuors: ventuorList?.result?.ventuors ?? [])
+            followingVentuors = response.result?.followingVentuors ?? [SavedFollowingVentuor]()
+            isReady(ventuors: followingVentuors)
         } catch {
         }
-        
     }
 
+    func isReady(ventuors: [SavedFollowingVentuor]) {
+        if ventuors.isEmpty {
+            displayStatusMessage = "No available Ventuors to show"
+        } else {
+            displayStatusMessage = "Ready"
+        }
+    }
+
+    func addToRecentVentuor(context: ModelContext, cachedVentuors: [CachedVentuor], cachedVentuor: CachedVentuor) {
+        for i in 0..<(cachedVentuors.count) {
+            if cachedVentuors[i].ventuorUserKey == Auth.shared.getUserKey()! + ( cachedVentuor.ventuorKey) {
+                context.delete(cachedVentuors[i])
+            }
+        }
+        context.insert(cachedVentuor)
+    }
 
     func logout() {
         Auth.shared.logout()

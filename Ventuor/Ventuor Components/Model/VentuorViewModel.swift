@@ -5,7 +5,7 @@
 //  Created by H Sam Dean on 1/11/24.
 //
 
-import Foundation
+import SwiftUI
 import UIKit
 
 enum ErrorVentuorState: LocalizedError {
@@ -60,6 +60,9 @@ enum ErrorVentuorState: LocalizedError {
 class VentuorViewModel: ObservableObject {
     
     var ventuorKey: String = ""
+    var title: String = ""
+    var subTitle1: String = ""
+    
     var liveMode: Bool = true
     
     @Published var ventuor: Ventuor? = nil
@@ -116,25 +119,6 @@ class VentuorViewModel: ObservableObject {
         }
     }
     
-    func getUserProfile() {
-        let services = Services(baseURL: API.baseURL + "/mobile/getProfile")
-        services.getUserProfile(cbGetUserProfile)
-    }
-    fileprivate func cbGetUserProfile(_ data: Data?, error: NSError?) -> Void {
-        print(String(data: data!, encoding: .utf8)!)
-
-        do {
-            let response = try JSONDecoder().decode(UserProfile.self, from: data!)
-            print(response)
-
-            userProfile = response
-            updateVentuorSavedByUser()
-            updateVentuorFollowedByUser()
-            updateVentuorCheckinByUser()
-        } catch {
-        }
-    }
-
     func getVentuorData() {
         ventuor?.result?.ventuor = nil
         logo = nil
@@ -143,15 +127,24 @@ class VentuorViewModel: ObservableObject {
     }
     fileprivate func cb(_ data: Data?, error: NSError?) -> Void {
         
-        print(String(data: data!, encoding: .utf8)!)
-        
-        do {
-            let response = try JSONDecoder().decode(Ventuor.self, from: data!)
-            print(response)
+        if data != nil {
+            print(String(data: data!, encoding: .utf8)!)
+            
+            do {
+                let response = try JSONDecoder().decode(Ventuor.self, from: data!)
+                print(response)
 
-            ventuor = response
-            getUserProfile()
-        } catch {
+                if let ventuorKey = response.result?.ventuor?.ventuorKey {
+                    self.ventuorKey = ventuorKey
+                    self.title = response.result?.ventuor?.title ?? ""
+                    self.subTitle1 = response.result?.ventuor?.subTitle1 ?? ""
+                }
+                
+                ventuor = response
+
+                //getUserProfile()
+            } catch {
+            }
         }
     }
     
@@ -162,7 +155,7 @@ class VentuorViewModel: ObservableObject {
     
     fileprivate func cbSaveVentuor(_ data: Data?, error: NSError?) -> Void {
         print(String(data: data!, encoding: .utf8)!)
-        getUserProfile()
+        //getUserProfile()
     }
     
     func unSaveVentuor(ventuorKey: String) {
@@ -172,7 +165,7 @@ class VentuorViewModel: ObservableObject {
     
     fileprivate func cbUnsaveVentuor(_ data: Data?, error: NSError?) -> Void {
         print(String(data: data!, encoding: .utf8)!)
-        getUserProfile()
+        //getUserProfile()
     }
     
     func followVentuor(ventuorKey: String, title: String, subtitle1: String, iconLocation: String) {
@@ -182,7 +175,7 @@ class VentuorViewModel: ObservableObject {
     
     fileprivate func cbFollowVentuor(_ data: Data?, error: NSError?) -> Void {
         print(String(data: data!, encoding: .utf8)!)
-        getUserProfile()
+        //getUserProfile()
     }
     
     func unFollowVentuor(ventuorKey: String) {
@@ -192,7 +185,7 @@ class VentuorViewModel: ObservableObject {
     
     fileprivate func cbunFollowVentuor(_ data: Data?, error: NSError?) -> Void {
         print(String(data: data!, encoding: .utf8)!)
-        getUserProfile()
+        //getUserProfile()
     }
     
     func updateVentuorSavedByUser() {

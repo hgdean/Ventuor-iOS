@@ -30,7 +30,7 @@ struct HomeViewTab: View {
                     
                     VentuorAdministration(homeViewModel: homeViewModel)
                     
-                    VentuorRecentItems()
+                    VentuorRecentItems(homeViewModel: homeViewModel)
                     
                     VentuorRecentSearches()
                     

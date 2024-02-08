@@ -27,23 +27,25 @@ class DefaultLogoImageDownloader: LogoImageDownloader {
     
     func downloadLogoImageData(completion: @escaping (Data?) -> Void) {
         let services = Services(baseURL: API.baseURL + "/mobile/getVentuorLogoByVentuorKey")
-        services.getVentuorLogoByVentuorKey(ventuorKey, liveMode: liveMode, cb: {data,error in
-            print(String(data: data!, encoding: .utf8)!)
-            do {
-                let response = try JSONDecoder().decode(GetVentuorLogoResponseResult.self, from: data!)
-                print(response)
-                
-                if let imageString = response.result?.image {
-                    if !imageString.isEmpty {
-                        let idString = response.result?.id
-                        assert(idString != nil && idString!.isEmpty == false, "Unexpected. Should have an id if we have an image!!")
-                        
-                        //base64 string to NSData
-                        let decodedData = Data(base64Encoded: imageString, options: Data.Base64DecodingOptions(rawValue: 0))
-                        completion(decodedData)
+        services.getVentuorLogoByVentuorKey(ventuorKey, liveMode: liveMode, cb: { data, error in
+            if let data = data {
+                print(String(data: data, encoding: .utf8)!)
+                do {
+                    let response = try JSONDecoder().decode(GetVentuorLogoResponseResult.self, from: data)
+                    print(response)
+                    
+                    if let imageString = response.result?.image {
+                        if !imageString.isEmpty {
+                            let idString = response.result?.id
+                            assert(idString != nil && idString!.isEmpty == false, "Unexpected. Should have an id if we have an image!!")
+                            
+                            //base64 string to NSData
+                            let decodedData = Data(base64Encoded: imageString, options: Data.Base64DecodingOptions(rawValue: 0))
+                            completion(decodedData)
+                        }
                     }
+                } catch {
                 }
-            } catch {
             }
         })
     }

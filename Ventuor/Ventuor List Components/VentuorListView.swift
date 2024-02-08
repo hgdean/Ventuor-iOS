@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct VentuorListView: View {
     var title: String
@@ -14,6 +15,9 @@ struct VentuorListView: View {
 
     @State var showVentuorPage: Bool = false
     
+    @Environment(\.modelContext) private var context
+    @Query(sort: \CachedVentuor.updated, order: .reverse) private var recentVentuors: [CachedVentuor]
+
     var body: some View {
         NavigationStack() {
             let listCount = homeViewModel.ventuorList?.result?.ventuors?.count ?? 0
@@ -25,6 +29,17 @@ struct VentuorListView: View {
                         ForEach(0..<listCount, id: \.self) { index in
                             Button(action: {
                                 ventuorViewModel.getVentuorState(ventuorKey: homeViewModel.ventuorList?.result?.ventuors?[index].ventuorKey ?? "")
+                                
+                                
+//                                if let currentCacheUserProfile = getCurrentCacheUserProfile() {
+//                                    let recentVentuor = RecentVentuor(userKey: Auth.shared.getUserKey()!, ventuorKey: homeViewModel.ventuorList?.result?.ventuors?[index].ventuorKey ?? "", title: homeViewModel.ventuorList?.result?.ventuors?[index].title ?? "", subTitle1: homeViewModel.ventuorList?.result?.ventuors?[index].subTitle1 ?? "")
+//                                    currentCacheUserProfile.removeRecentVentuor(ventuorUserKey: recentVentuor.ventuorUserKey)
+//                                    currentCacheUserProfile.addRecentVentuor(recentVentuor: recentVentuor)
+//                                    try! context.save()
+//                                }
+
+                                addToRecentVentuor(index: index)
+                                
                             }, label: {
                                 VStack(alignment: .leading, spacing: 8) {         // Main header name / info
                                                                         
@@ -83,13 +98,20 @@ struct VentuorListView: View {
                     }
                     .padding(.bottom, 70)
                 }
-                .background(Color("ventuor-light-gray"))
+                .background(Color("ventuor-gray"))
             }
         }
         .navigationDestination(isPresented: $ventuorViewModel.ventuorStateLive, destination: {
             VentuorView(ventuorViewModel: ventuorViewModel)
         })
         .navigationTitle(title)
+    }
+    
+    func addToRecentVentuor(index: Int) {
+        let cachedVentuor = CachedVentuor(userKey: Auth.shared.getUserKey()!, ventuorKey: homeViewModel.ventuorList?.result?.ventuors?[index].ventuorKey ?? "", title: homeViewModel.ventuorList?.result?.ventuors?[index].title ?? "", subTitle1: homeViewModel.ventuorList?.result?.ventuors?[index].subTitle1 ?? "")
+        
+        homeViewModel.addToRecentVentuor(context: context, cachedVentuors: recentVentuors,
+                                         cachedVentuor: cachedVentuor)
     }
 }
 
