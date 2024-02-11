@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-// This method is using the CacheUserProfile with RecentVentuors list for the recent ventuors
+// This method is using the UserProfileDataModel with RecentVentuors list for the recent ventuors
 struct VentuorRecentListView2: View {
     var title: String
     @State var recentVentuors: [RecentVentuor]
@@ -18,26 +18,26 @@ struct VentuorRecentListView2: View {
     @State var showVentuorPage: Bool = false
 
     @Environment(\.modelContext) private var context
-    @Query(sort: \CacheUserProfile.userKey) var cacheUserProfiles: [CacheUserProfile]
+    @Query(sort: \UserProfileDataModel.userKey) var userProfileDataModel: [UserProfileDataModel]
 
     var body: some View {
         NavigationStack() {
-            let listCount = cacheUserProfiles.count
+            let listCount = userProfileDataModel.count
             ScrollView() {
                 VStack(spacing: 10) {
                     ForEach(0..<listCount, id: \.self) { index in
-                        if cacheUserProfiles[index].userKey == Auth.shared.getUserKey() {
-                            ForEach(0..<cacheUserProfiles[index].recentVentuors.count, id: \.self) { index2 in
+                        if userProfileDataModel[index].userKey == Auth.shared.getUserKey() {
+                            ForEach(0..<userProfileDataModel[index].recentVentuors.count, id: \.self) { index2 in
                                 Button(action: {
                                     //ventuorViewModel.getVentuorState(ventuorKey: recentVentuors[index].ventuorKey)
                                 }, label: {
                                     VStack(alignment: .leading, spacing: 8) {         // Main header name / info
                                         
                                         HStack() {
-                                            let ventuorKey = cacheUserProfiles[index].recentVentuors[index2].ventuorKey
+                                            let ventuorKey = userProfileDataModel[index].recentVentuors[index2].ventuorKey
                                             let liveMode = false
                                             RemoteLogoImage(
-                                                ventuorKey: cacheUserProfiles[index].recentVentuors[index2].ventuorKey,
+                                                ventuorKey: userProfileDataModel[index].recentVentuors[index2].ventuorKey,
                                                 liveMode: liveMode,
                                                 placeholderImage: Image(systemName: "photo"),
                                                 logoImageDownloader: DefaultLogoImageDownloader(ventuorKey: ventuorKey, liveMode: liveMode))
@@ -46,11 +46,11 @@ struct VentuorRecentListView2: View {
                                             .padding(0)
                                             
                                             VStack(alignment: .leading, spacing: 2) {
-                                                Text(cacheUserProfiles[index].recentVentuors[index2].title)
+                                                Text(userProfileDataModel[index].recentVentuors[index2].title)
                                                     .fontWeight(.regular)
                                                     .font(.title2)
                                                     .padding(0)
-                                                Text(cacheUserProfiles[index].recentVentuors[index2].subTitle1)
+                                                Text(userProfileDataModel[index].recentVentuors[index2].subTitle1)
                                                     .padding(.top, -3)
                                                     .padding(.bottom, 2)
                                                     .font(.caption)
@@ -70,7 +70,7 @@ struct VentuorRecentListView2: View {
                             }
                         }
                     }
-//                    ForEach(cacheUserProfiles) { cacheUserProfile in
+//                    ForEach(userProfileDataModel) { cacheUserProfile in
 //                        if cacheUserProfile.userKey == Auth.shared.getUserKey() {
 //                            ForEach(cacheUserProfile.recentVentuors) { recentVentuor in
 //                                
@@ -107,11 +107,11 @@ struct VentuorRecentListView2: View {
 //            }
         }
     }
-    func getCurrentCacheUserProfile() -> CacheUserProfile? {
-        for i in 0..<(self.cacheUserProfiles.count) {
-            print(cacheUserProfiles[i].userKey)
-            if cacheUserProfiles[i].userKey == Auth.shared.getUserKey() {
-                return cacheUserProfiles[i]
+    func getCurrentCacheUserProfile() -> UserProfileDataModel? {
+        for i in 0..<(self.userProfileDataModel.count) {
+            print(userProfileDataModel[i].userKey)
+            if userProfileDataModel[i].userKey == Auth.shared.getUserKey() {
+                return userProfileDataModel[i]
             }
         }
         return nil

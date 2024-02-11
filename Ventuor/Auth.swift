@@ -12,11 +12,13 @@ class Auth: ObservableObject {
     struct Credentials {
         var accessToken: String?
         var userKey: String?
+        var username: String?
     }
     
     enum KeychainKey: String {
         case accessToken
         case userKey
+        case username
     }
     
     static let shared: Auth = Auth()
@@ -31,14 +33,16 @@ class Auth: ObservableObject {
     func getCredentials() -> Credentials {
         return Credentials(
             accessToken: keychain.string(forKey: KeychainKey.accessToken.rawValue),
-            userKey: keychain.string(forKey: KeychainKey.userKey.rawValue)
+            userKey: keychain.string(forKey: KeychainKey.userKey.rawValue),
+            username: keychain.string(forKey: KeychainKey.username.rawValue)
         )
     }
     
-    func setCredentials(accessToken: String, userKey: String) {
+    func setCredentials(accessToken: String, userKey: String, username: String) {
         keychain.set(accessToken, forKey: KeychainKey.accessToken.rawValue)
         keychain.set(userKey, forKey: KeychainKey.userKey.rawValue)
-        
+        keychain.set(username, forKey: KeychainKey.username.rawValue)
+
         loggedIn = true
     }
     
@@ -54,10 +58,15 @@ class Auth: ObservableObject {
         return getCredentials().userKey
     }
 
+    func getUsername() -> String? {
+        return getCredentials().username
+    }
+
     func logout() {
         KeychainWrapper.standard.removeObject(forKey: KeychainKey.accessToken.rawValue)
         KeychainWrapper.standard.removeObject(forKey: KeychainKey.userKey.rawValue)
-        
+        KeychainWrapper.standard.removeObject(forKey: KeychainKey.username.rawValue)
+
         loggedIn = false
     }
     

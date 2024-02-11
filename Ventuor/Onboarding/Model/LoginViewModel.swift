@@ -37,7 +37,8 @@ class LoginViewModel: ObservableObject {
                     // The new Auth in this tutorial
                     Auth.shared.setCredentials(
                         accessToken: authToken!,
-                        userKey: userKey!
+                        userKey: userKey!,
+                        username: ""
                     )
 //                    ContentManager(baseURL: Settings.baseURL).updatedUserProfile(false)
 //                    ScreenManager.instance.buildAppInterface()

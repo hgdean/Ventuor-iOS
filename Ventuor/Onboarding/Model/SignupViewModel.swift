@@ -117,7 +117,6 @@ class SignupViewModel: ObservableObject {
         //{"result":{"resultCode":0,"resultMessage":"Email doesn't exist"},"error":null}
 
         if (data != nil) {
-            
             do {
                 let response = try JSONDecoder().decode(SignupEmailCheckResponse.self, from: data!)
                 print(response)
@@ -196,7 +195,8 @@ class SignupViewModel: ObservableObject {
                     // The new Auth in this tutorial
                     Auth.shared.setCredentials(
                         accessToken: authToken!,
-                        userKey: userKey!
+                        userKey: userKey!,
+                        username: ""
                     )
                 } else {
                     message = Message(title: "Signup Confirmation", message: errorMessage)

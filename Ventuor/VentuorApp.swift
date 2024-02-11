@@ -11,10 +11,11 @@ import SwiftData
 @main
 struct VentuorApp: App {
     @EnvironmentObject var auth: Auth
-    
+    @EnvironmentObject var userProfileModel: UserProfileModel
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            CacheUserProfile.self, CachedVentuor.self
+            UserProfileDataModel.self, CachedVentuor.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -34,8 +35,9 @@ struct VentuorApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(Auth.shared)
+                .environmentObject(UserProfileModel.shared)
         }
         .modelContainer(sharedModelContainer)
-//        .modelContainer(for: [CacheUserProfile.self, CachedVentuor.self], inMemory: false, isAutosaveEnabled: true)
+//        .modelContainer(for: [UserProfileDataModel.self, CachedVentuor.self], inMemory: false, isAutosaveEnabled: true)
     }
 }

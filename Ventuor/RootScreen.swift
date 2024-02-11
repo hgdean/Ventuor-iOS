@@ -10,27 +10,25 @@ import SwiftData
 
 struct RootScreen: View {
     @EnvironmentObject var auth: Auth
-    @ObservedObject var userProfileModel: UserProfileModel = UserProfileModel()
+    @EnvironmentObject var userProfileModel: UserProfileModel
     
     @State var showIntroScreens: Bool
     @AppStorage("shouldShowIntroScreens") var shouldShowIntroScreens: Bool = true
 
     @Environment(\.modelContext) private var context
-    @Query(sort: \CacheUserProfile.userKey) var cacheUserProfiles: [CacheUserProfile]
+    @Query(sort: \UserProfileDataModel.userKey) var userProfileDataModel: [UserProfileDataModel]
 
     var body: some View {
 
         VStack() {
 //            if !shouldShowIntroScreens {
-                if Auth.shared.loggedIn {
+                if auth.loggedIn {
                     // MainTabView()
                     // MainTabView2()
                     // MainTabView3(showIntroScreens: false)
                     MainTabView4()
-                        .onReceive(userProfileModel.$cachedUserProfile, perform: { item in
-                        })
                         .onAppear() {
-                            userProfileModel.loadUserProfile(cb: cbGetVentuorState)
+                            userProfileModel.loadUserProfile(cb: cbGetUserProfile)
                         }
                 } else {
                     LandingView()
@@ -42,22 +40,20 @@ struct RootScreen: View {
         })
     }
     
-    fileprivate func cbGetVentuorState(data: Data?, error: NSError?) -> Void {
+    fileprivate func cbGetUserProfile(data: Data?, error: NSError?) -> Void {
         print(String(data: data!, encoding: .utf8)!)
         
         do {
-            do {
-                let response = try JSONDecoder().decode(UserProfile.self, from: data!)
-                //print(response)
-                
-                if let profileDetails = response.result?.profileDetails {
-                    let loadedUserProfile = CacheUserProfile(data: profileDetails)
-                    if !loadedUserProfile.userKey.isEmpty {
-                        context.insert(loadedUserProfile)
-                    }
+            let response = try JSONDecoder().decode(UserProfile.self, from: data!)
+            //print(response)
+            
+            if let profileDetails = response.result?.profileDetails {
+                let loadedUserProfile = UserProfileDataModel(data: profileDetails)
+                if !loadedUserProfile.userKey.isEmpty {
+                    context.insert(loadedUserProfile)
                 }
-            } catch {
             }
+        } catch {
         }
     }
 }

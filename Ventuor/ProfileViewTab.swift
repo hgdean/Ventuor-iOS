@@ -9,7 +9,14 @@ import SwiftUI
 
 struct ProfileViewTab: View {
     var body: some View {
-        Text("Tab Content Profile")
+        ScrollView() {
+            VStack(spacing: 0) {
+                NameLink()
+                EmailLink()
+                UsernameLink()
+                PasswordLink()
+            }
+        }
     }
 }
 
