@@ -8,18 +8,33 @@
 import SwiftUI
 
 struct ProfileViewTab: View {
+    @EnvironmentObject var userProfileModel: UserProfileModel
+
     var body: some View {
-        ScrollView() {
-            VStack(spacing: 0) {
-                NameLink()
-                EmailLink()
-                UsernameLink()
-                PasswordLink()
+        NavigationStack() {
+            ScrollView() {
+                VStack(spacing: 25) {
+                    VStack() {
+                        ProfilePhoto()
+                        Text(userProfileModel.userProfileDataModel?.fullname ?? "")
+                            .font(.title)
+                        Text(userProfileModel.userProfileDataModel?.email ?? "")
+                            .font(.subheadline)
+                        Text(userProfileModel.userProfileDataModel?.username ?? "")
+                            .font(.subheadline)
+                    }
+                    VStack(spacing: 0) {
+                        AccountLink()
+                        PreferencesLink()
+                    }
+                }
             }
+            .background(Color(.ventuorLightGray))
         }
     }
 }
 
 #Preview {
     ProfileViewTab()
+        .environmentObject(UserProfileModel.shared)
 }

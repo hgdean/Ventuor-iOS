@@ -133,7 +133,7 @@ class Services : Web {
         
         let date = Date()
         
-        let isMiles = SettingsInfo.isMilesKM == 1
+        let isMiles = SettingsInfo.distanceInMiles
         
         let userKey: String = Auth.shared.getUserKey() ?? ""
         
@@ -209,7 +209,7 @@ class Services : Web {
         let category = searchCategory
         let searchTerm = searchTerm
         
-        let isMiles = SettingsInfo.isMilesKM == 1
+        let isMiles = SettingsInfo.distanceInMiles
         
         Utils.getLocaleCountryName(latitude: lat, longitude: long) { country in
             let date = Date()
@@ -249,7 +249,7 @@ class Services : Web {
         let lat = locationDataManager.locationManager.location?.coordinate.latitude ?? 0
         let long = locationDataManager.locationManager.location?.coordinate.longitude ?? 0
         
-        let isMiles = SettingsInfo.isMilesKM == 1
+        let isMiles = SettingsInfo.distanceInMiles
         
         Utils.getLocaleCountryName(latitude: lat, longitude: long) { country in
             let date = Date()
@@ -598,5 +598,89 @@ class Services : Web {
 
         self.post("/mobile/savePassword", data: jsonData, cb: cb)
     }
-    
+ 
+    func getPhotoForPhotoSettings(cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+        
+        let json: [String: Any] = [
+            "requestName": "getPhotoForPhotoSettings",
+            "requestParam":
+                [
+                    "userKey": userKey
+            ]
+            ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+        
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/getProfilePhotoForSettings", data: jsonData, cb: cb)
+    }
+
+    func saveProfilePhoto(_ base64String: String, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+        
+        let json: [String: Any] = [
+            "requestName": "saveProfilePhoto",
+            "requestParam":
+                [
+                    "userKey": userKey,
+                    "content_type": "image/jpeg",
+                    "photo": base64String
+            ]
+            ]
+
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+        
+        // print(json)
+        // print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/saveProfilePhoto", data: jsonData, cb: cb)
+    }
+
+    func sendEmailForPasswordReset(_ userInput: String, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
+        let json: [String: Any] = [
+            "requestName": "forgotPassword",
+            "requestParam":
+                [
+                    "userInput": userInput
+                ]
+            ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        self.post("/mobile/mobileSendEmailForPassReset", data: jsonData, cb: cb)
+    }
+
+    func resetPasswordAndLogin(_ resetCode: String, newPassword: String, username: String, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
+        self.authToken = ""
+
+        let json: [String: Any] = [
+            "requestName": "forgotPassword",
+            "requestParam":
+                [
+                    "userInput": username,
+                    "password": newPassword,
+                    "userCode": resetCode
+                    
+                ]
+            ]
+
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        
+        self.post("/mobile/mobileValidateAndLoginVentuorUser", data: jsonData, cb: cb)
+    }
+
 }

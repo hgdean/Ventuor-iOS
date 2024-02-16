@@ -13,6 +13,8 @@ struct LoginView: View {
     @State private var password = ""
     @Environment(\.dismiss) var dismiss
 
+    // @State private var needHelpLoggingIn = false
+    
     @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
 
     func login() {
@@ -69,7 +71,8 @@ struct LoginView: View {
                 .cornerRadius(13)
                 .padding(.top, 30)
                 
-                NavigationLink {
+                Button {
+                    viewModel.showUsernameOrEmailPage.toggle()
                 } label: {
                     Text("Need help logging in?")
                         .padding(.top, 20)
@@ -81,7 +84,6 @@ struct LoginView: View {
                 if navFromLandingScreen {
                     NavigationLink {
                         SignupFullname(navFromLandingScreen: false)
-                        //.navigationBarBackButtonHidden(false)
                     } label: {
                         HStack(spacing: 5) {
                             Text("Don't have an account yet?")
@@ -105,6 +107,18 @@ struct LoginView: View {
                     }
                 }
             }
+            .sheet(isPresented: $viewModel.showUsernameOrEmailPage, content: {
+                RequestPasswordReset(viewModel: viewModel)
+                    .presentationDetents([.height(450)])
+                    .presentationDragIndicator(.visible)
+
+            })
+            .sheet(isPresented: $viewModel.showPasswordResetPage, content: {
+                ResetPassword(viewModel: viewModel)
+                    .presentationDetents([.height(450)])
+                    .presentationDragIndicator(.visible)
+
+            })
         }
     }
 }

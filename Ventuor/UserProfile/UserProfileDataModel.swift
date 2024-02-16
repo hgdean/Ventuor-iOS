@@ -13,7 +13,7 @@ class UserProfileDataModel {
     
     @Attribute(.unique) var userKey: String = ""
     
-    var userName: String = ""
+    var username: String = ""
     var fullname: String = ""
     var countrycode: String = ""
     var phone: String = ""
@@ -30,9 +30,9 @@ class UserProfileDataModel {
     
     var recentVentuors: [RecentVentuor] = [RecentVentuor]()
     
-    init(userKey: String, userName: String, fullname: String, countrycode: String, phone: String, email: String, profilePhoto: String, profilePhotoName: String, profilePhotoType: String, roles: [String] = [String](), lastModified: String) {
+    init(userKey: String, username: String, fullname: String, countrycode: String, phone: String, email: String, profilePhoto: String, profilePhotoName: String, profilePhotoType: String, roles: [String] = [String](), lastModified: String) {
         self.userKey = userKey
-        self.userName = userName
+        self.username = username
         self.fullname = fullname
         self.countrycode = countrycode
         self.phone = phone
@@ -48,7 +48,7 @@ class UserProfileDataModel {
     
     init(data: UserProfileDetailsVO) {
         self.userKey = data.userKey ?? ""
-        self.userName = data.userName ?? ""
+        self.username = data.userName ?? ""
         self.fullname = data.fullname ?? ""
         self.countrycode = data.countrycode ?? ""
         self.phone = data.phone ?? ""

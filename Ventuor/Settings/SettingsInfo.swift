@@ -104,13 +104,24 @@ class SettingsInfo {
             UserDefaults.standard.setValue(value, forKey: "recentSCount")
         }
     }
-    static var isMilesKM: Int {
+    
+    static var distanceInMiles: Bool {
         get {
-        return UserDefaults.standard.value(forKey: "isMilesKM") as? Int ?? 1
+            return UserDefaults.standard.value(forKey: "distanceInMiles") as? Bool ?? true
         }
         
         set(value) {
-            UserDefaults.standard.setValue(value, forKey: "isMilesKM")
+            UserDefaults.standard.setValue(value, forKey: "distanceInMiles")
+        }
+    }
+    
+    static var distanceInKilometers: Bool {
+        get {
+            return UserDefaults.standard.value(forKey: "distanceInKilometers") as? Bool ?? false
+        }
+        
+        set(value) {
+            UserDefaults.standard.setValue(value, forKey: "distanceInKilometers")
         }
     }
     

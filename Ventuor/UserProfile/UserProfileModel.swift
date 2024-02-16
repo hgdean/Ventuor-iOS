@@ -10,6 +10,7 @@ import SwiftData
 
 class UserProfileModel: ObservableObject {
     
+    @Published var photo: String = ""
     @Published var fullname: String = ""
     @Published var email: String = ""
     @Published var emailConfirmationCode: String = ""
@@ -30,6 +31,7 @@ class UserProfileModel: ObservableObject {
     @Published var showUsernameProfileSheet: Bool = false
     @Published var showPasswordProfileSheet: Bool = false
 
+    
     func loadUserProfile(cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
         let services = Services(baseURL: API.baseURL + "/mobile/getProfile")
 
@@ -47,6 +49,7 @@ class UserProfileModel: ObservableObject {
                     }
                 }
             } catch {
+                fatalError("Could not create UserProfile: \(error)")
             }
         })
     }
@@ -67,6 +70,7 @@ class UserProfileModel: ObservableObject {
                     }
                 }
             } catch {
+                fatalError("Could not create UserProfile: \(error)")
             }
         })
     }
@@ -90,6 +94,7 @@ class UserProfileModel: ObservableObject {
                 message = Message(title: "Error", message: errorMessage)
             }
         } catch {
+            fatalError("Could not create UserProfileData: \(error)")
         }
     }
     
@@ -281,6 +286,7 @@ class UserProfileModel: ObservableObject {
                     message = Message(title: "Change Password", message: errorMessage)
                 }
             } catch {
+                fatalError("Could not create LoginResponse: \(error)")
             }
         } else if (error != nil) {
             if (error?.code == 401) {
@@ -290,6 +296,34 @@ class UserProfileModel: ObservableObject {
             }
         } else {
             message = Message(title: "Change Password", message: "Password change failed.")
+        }
+    }
+
+    func saveProfilePhoto(base64String: String) {
+        let services = Services(baseURL: API.baseURL + "/mobile/saveProfilePhoto")
+        services.saveProfilePhoto(base64String, cb: validateSaveProfilePhotoCallback)
+    }
+    private func validateSaveProfilePhotoCallback(data: Data?, error: NSError?) -> Void {
+        print(String(data: data ?? Data(), encoding: .utf8)!)
+
+        if data != nil {
+            do {
+                let response = try JSONDecoder().decode(UserProfileData.self, from: data!)
+                
+                refreshUserProfile()
+                showPasswordProfileSheet = false
+            } catch {
+                fatalError("Could not create UserProfileData: \(error)")
+            }
+        } else if (error != nil) {
+            if (error?.code == 401) {
+                Utils.showMessage("An error occurred. Photo not saved.", withTitle: "Photo")
+                message = Message(title: "Photo", message: "An error occurred. Photo not saved.")
+            } else {
+                message = Message(title: "Something went wrong", message: error!.localizedDescription)
+            }
+        } else {
+            message = Message(title: "Photo", message: "An error occurred. Photo not saved.")
         }
     }
 

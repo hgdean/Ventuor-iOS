@@ -16,5 +16,7 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Ventuor requires your location to work properly.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>The app needs to capture your picture for your profile image</string>
 </dict>
 </plist>
