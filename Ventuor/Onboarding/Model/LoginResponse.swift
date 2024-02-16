@@ -8,7 +8,7 @@
 import Foundation
 
 struct ServerResponseError: Codable {
-    var errorMessage: String
+    var errorMessage: String?
 }
 struct ServerResponseResult: Codable {
     var resultCode: Int

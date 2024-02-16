@@ -17,3 +17,17 @@ struct UserProfileDataResult: Codable {
     var template: String?
     var ventuor: VentuorData?
 }
+
+struct MobilePassResetResponse: Codable {
+    var result: MobilePassResetResponseResult?
+    var error: ServerResponseError?
+}
+struct MobilePassResetResponseResult: Codable {
+    var resultCode: Int?
+    var resultMessage: String?
+    var template: String?
+    var userInput: String?
+    var email: String?
+    var phone: String?
+    var userName: String?
+}
