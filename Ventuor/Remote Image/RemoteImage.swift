@@ -45,6 +45,7 @@ class DefaultLogoImageDownloader: LogoImageDownloader {
                         }
                     }
                 } catch {
+                    fatalError("Could not decode GetVentuorLogoResponseResult: \(error)")
                 }
             }
         })

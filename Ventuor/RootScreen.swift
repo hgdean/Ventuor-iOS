@@ -21,19 +21,17 @@ struct RootScreen: View {
     var body: some View {
 
         VStack() {
-//            if !shouldShowIntroScreens {
-                if auth.loggedIn {
-                    // MainTabView()
-                    // MainTabView2()
-                    // MainTabView3(showIntroScreens: false)
-                    MainTabView4()
-                        .onAppear() {
-                            userProfileModel.loadUserProfile(cb: cbGetUserProfile)
-                        }
-                } else {
-                    LandingView()
-                }
-//            }
+            if auth.loggedIn {
+                // MainTabView()
+                // MainTabView2()
+                // MainTabView3(showIntroScreens: false)
+                MainTabView4()
+                    .onAppear() {
+                        userProfileModel.loadUserProfile(cb: cbGetUserProfile)
+                    }
+            } else {
+                LandingView()
+            }
         }
         .fullScreenCover(isPresented: $shouldShowIntroScreens, content: {
             IntroScreens(showIntroScreens: $shouldShowIntroScreens)
@@ -54,11 +52,13 @@ struct RootScreen: View {
                 }
             }
         } catch {
+            fatalError("Could not decode UserProfile: \(error)")
         }
     }
 }
 
 #Preview {
     RootScreen(showIntroScreens: true)
+        .environmentObject(Auth.shared)
 }
 

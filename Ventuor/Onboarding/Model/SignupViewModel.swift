@@ -202,6 +202,7 @@ class SignupViewModel: ObservableObject {
                     message = Message(title: "Signup Confirmation", message: errorMessage)
                 }
             } catch {
+                fatalError("Could not create LoginResponse: \(error)")
             }
         } else if (error != nil) {
             if (error?.code == 401) {

@@ -31,6 +31,7 @@ class VentuorListModel: ObservableObject {
             print(response)
             ventuorList = response
         } catch {
+            fatalError("Could not decode VentuorList: \(error)")
         }
     }
 }

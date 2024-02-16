@@ -46,6 +46,7 @@ class DefaultPhotoDownloader: PhotoDownloader {
                     }
                 }
             } catch {
+                fatalError("Could not decode MobileGetVentuorPhotoResponseResult: \(error)")
             }
         })
     }

@@ -38,6 +38,5 @@ struct VentuorApp: App {
                 .environmentObject(UserProfileModel.shared)
         }
         .modelContainer(sharedModelContainer)
-//        .modelContainer(for: [UserProfileDataModel.self, CachedVentuor.self], inMemory: false, isAutosaveEnabled: true)
     }
 }

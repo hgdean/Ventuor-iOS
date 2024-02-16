@@ -43,6 +43,7 @@ class HomeViewModel: ObservableObject {
             ventuorList = response
             ready(ventuors: ventuorList?.result?.ventuors ?? [])
         } catch {
+            fatalError("Could not decode VentuorList: \(error)")
         }
     }
     
@@ -85,6 +86,7 @@ class HomeViewModel: ObservableObject {
             savedVentuors = response.result?.savedVentuors ?? [SavedFollowingVentuor]()
             isReady(ventuors: savedVentuors)
         } catch {
+            fatalError("Could not decode MobileGetSavedVentuorsResponseResult: \(error)")
         }
     }
 
@@ -103,6 +105,7 @@ class HomeViewModel: ObservableObject {
             followingVentuors = response.result?.followingVentuors ?? [SavedFollowingVentuor]()
             isReady(ventuors: followingVentuors)
         } catch {
+            fatalError("Could not decode MobileGetFollowingVentuorsResponseResult: \(error)")
         }
     }
 

@@ -116,6 +116,7 @@ class VentuorViewModel: ObservableObject {
                 getVentuorData()
             }
         } catch {
+            fatalError("Could not decode VentuorState: \(error)")
         }
     }
     
@@ -144,6 +145,7 @@ class VentuorViewModel: ObservableObject {
 
                 //getUserProfile()
             } catch {
+                fatalError("Could not decode Ventuor: \(error)")
             }
         }
     }

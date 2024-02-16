@@ -85,17 +85,6 @@ struct LandingView: View {
                     dismissButton: .cancel()
                 )
             }
-//            .actionSheet(isPresented: $showActionSheet) {
-//                        ActionSheet(
-//                            title: Text("Actions"),
-//                            message: Text("Available actions"),
-//                            buttons: [
-//                                .cancel { print(self.showActionSheet) },
-//                                .default(Text("Action")),
-//                                .destructive(Text("Delete"))
-//                            ]
-//                        )
-//                    }
         }
     }
     
