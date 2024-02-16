@@ -101,4 +101,5 @@ struct EmailView: View {
 
 #Preview {
     EmailView(isPresented: .constant(true))
+        .environmentObject(UserProfileModel.shared)
 }

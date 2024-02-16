@@ -100,4 +100,5 @@ struct TabItem2: View {
 
 #Preview {
     MainTabView()
+        .environmentObject(UserProfileModel.shared)
 }

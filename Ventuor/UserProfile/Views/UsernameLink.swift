@@ -28,11 +28,12 @@ struct UsernameLink: View {
                         .opacity(0.3)
                         .frame(width: 20)
                 }
-                .padding([.leading, .trailing], 15)
+                .padding([.leading, .trailing], 20)
                 .border(width: 1, edges: [.bottom], color: .ventuorGray)
             })
+            .background(Color(.white))
             .sheet(isPresented: $userProfileModel.showUsernameProfileSheet) {
-                UsernameView(username: userProfileModel.userProfileDataModel?.userName ?? "")
+                UsernameView(username: userProfileModel.userProfileDataModel?.username ?? "")
                     .presentationDragIndicator(.automatic)
             }
     }
@@ -40,5 +41,6 @@ struct UsernameLink: View {
 
 #Preview {
     UsernameLink()
+        .environmentObject(UserProfileModel.shared)
 }
 

@@ -43,6 +43,6 @@ struct HomeViewTab: View {
     }
 }
 
-//#Preview {
-//    HomeViewTab(tabSelection: .constant(4), activeTab: .constant(4))
-//}
+#Preview {
+    HomeViewTab(tabSelection: .constant(4), activeTab: .constant(Tab.home))
+}

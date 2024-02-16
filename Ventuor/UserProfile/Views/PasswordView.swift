@@ -107,4 +107,5 @@ struct PasswordView: View {
 
 #Preview {
     PasswordView()
+        .environmentObject(UserProfileModel.shared)
 }

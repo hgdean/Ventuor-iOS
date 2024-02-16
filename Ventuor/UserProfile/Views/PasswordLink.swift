@@ -28,9 +28,10 @@ struct PasswordLink: View {
                         .opacity(0.3)
                         .frame(width: 20)
                 }
-                .padding([.leading, .trailing], 15)
+                .padding([.leading, .trailing], 20)
                 .border(width: 1, edges: [.bottom], color: .ventuorGray)
             })
+            .background(Color(.white))
             .sheet(isPresented: $userProfileModel.showPasswordProfileSheet) {
                 PasswordView()
                     .presentationDragIndicator(.automatic)
@@ -40,5 +41,6 @@ struct PasswordLink: View {
 
 #Preview {
     PasswordLink()
+        .environmentObject(UserProfileModel.shared)
 }
 

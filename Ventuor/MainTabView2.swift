@@ -30,4 +30,5 @@ struct MainTabView2: View {
 
 #Preview {
     MainTabView2()
+        .environmentObject(UserProfileModel.shared)
 }

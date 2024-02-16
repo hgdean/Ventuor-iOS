@@ -93,4 +93,5 @@ struct UsernameView: View {
 
 #Preview {
     UsernameView(username: "hgdean")
+        .environmentObject(UserProfileModel.shared)
 }

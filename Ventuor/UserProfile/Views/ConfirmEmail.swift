@@ -100,4 +100,5 @@ struct ConfirmEmail: View {
 
 #Preview {
     ConfirmEmail(isPresented: .constant(false))
+        .environmentObject(UserProfileModel.shared)
 }

@@ -28,9 +28,10 @@ struct EmailLink: View {
                         .opacity(0.3)
                         .frame(width: 20)
                 }
-                .padding([.leading, .trailing], 15)
+                .padding([.leading, .trailing], 20)
                 .border(width: 1, edges: [.bottom], color: .ventuorGray)
             })
+            .background(Color(.white))
             .sheet(isPresented: $userProfileModel.showEmailProfileSheet) {
                 EmailView(email: userProfileModel.userProfileDataModel?.email ?? "", 
                           isPresented: $userProfileModel.showEmailProfileSheet)
@@ -41,4 +42,5 @@ struct EmailLink: View {
 
 #Preview {
     EmailLink()
+        .environmentObject(UserProfileModel.shared)
 }

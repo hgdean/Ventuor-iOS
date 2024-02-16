@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct MainTabView4: View {
+    @EnvironmentObject var userProfileModel: UserProfileModel
     @State private var tabSelection = 1
     @State private var activeTab: Tab = .home
-    
+
     @Namespace private var animation
     var body: some View {
             TabView(selection: $activeTab) {
@@ -40,4 +41,5 @@ struct MainTabView4: View {
 
 #Preview {
     MainTabView4()
+        .environmentObject(UserProfileModel.shared)
 }
