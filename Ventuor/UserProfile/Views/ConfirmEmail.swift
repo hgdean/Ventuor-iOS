@@ -12,7 +12,7 @@ struct ConfirmEmail: View {
     @State private var emailConfirmationCode: String = ""
     @Environment(\.dismiss) var dismiss
     @Binding var isPresented: Bool
-    @EnvironmentObject var userProfileModel: UserProfileModel
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
 
     enum FocusField: Hashable {
       case field

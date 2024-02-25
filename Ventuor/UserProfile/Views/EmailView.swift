@@ -13,7 +13,7 @@ struct EmailView: View {
 
     @Environment(\.dismiss) var dismiss
     @State private var showConfirmationSheet = false
-    @EnvironmentObject var userProfileModel: UserProfileModel
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
 
     enum FocusField: Hashable {
       case field

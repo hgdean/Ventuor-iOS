@@ -12,7 +12,7 @@ struct PasswordView: View {
     @State var newPassword: String = ""
     @State var confirmNewPassword: String = ""
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var userProfileModel: UserProfileModel
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
 
     enum FocusField: Hashable {
       case field

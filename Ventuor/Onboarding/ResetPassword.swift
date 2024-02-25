@@ -10,7 +10,7 @@ import SwiftUI
 struct ResetPassword: View {
 
     @State private var emailOrUsername: String = ""
-    @EnvironmentObject var userProfileModel: UserProfileModel
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
 
     @ObservedObject var viewModel: LoginViewModel
 

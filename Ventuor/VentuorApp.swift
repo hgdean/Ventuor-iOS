@@ -11,7 +11,7 @@ import SwiftData
 @main
 struct VentuorApp: App {
     @EnvironmentObject var auth: Auth
-    @EnvironmentObject var userProfileModel: UserProfileModel
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
 
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([

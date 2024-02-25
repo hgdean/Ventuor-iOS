@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileViewTab: View {
-    @EnvironmentObject var userProfileModel: UserProfileModel
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
 
     var body: some View {
         NavigationStack() {

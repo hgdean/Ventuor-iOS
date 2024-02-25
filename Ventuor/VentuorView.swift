@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct VentuorView: View {
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
 
     @State var showParkingSheet = false
     @State var showDoorStepSheet = false

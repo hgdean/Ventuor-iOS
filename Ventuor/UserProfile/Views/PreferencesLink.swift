@@ -13,7 +13,7 @@ enum Metric: String, CaseIterable {
 }
 
 struct PreferencesLink: View {
-    @EnvironmentObject var userProfileModel: UserProfileModel
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
 
     @State var distanceMetric: Metric = SettingsInfo.distanceInMiles ? Metric.miles : Metric.kilometers
 

@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct ProfilePhoto: View {
-    @EnvironmentObject var userProfileModel: UserProfileModel
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
 
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var uiImage: UIImage?

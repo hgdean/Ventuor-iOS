@@ -10,7 +10,7 @@ import SwiftUI
 struct NameView: View {
     @State var fullname: String
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var userProfileModel: UserProfileModel
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
 
     enum FocusField: Hashable {
       case field
