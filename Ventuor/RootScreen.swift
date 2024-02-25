@@ -9,8 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct RootScreen: View {
-    @EnvironmentObject var auth: Auth
-    @EnvironmentObject var userProfileModel: UserProfileModel
+    @EnvironmentObject var auth: Auth // Can only be used in a View
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
     
     @State var showIntroScreens: Bool
     @AppStorage("shouldShowIntroScreens") var shouldShowIntroScreens: Bool = true

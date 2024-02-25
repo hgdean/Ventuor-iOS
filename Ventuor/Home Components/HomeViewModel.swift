@@ -78,15 +78,19 @@ class HomeViewModel: ObservableObject {
     }
     fileprivate func cbSavedVentuorList(_ data: Data?, error: NSError?) -> Void {
         prepare()
-        print(String(data: data!, encoding: .utf8)!)
-        do {
-            let response = try JSONDecoder().decode(MobileGetSavedVentuorsResponseResult.self, from: data!)
-            print(response)
-            
-            savedVentuors = response.result?.savedVentuors ?? [SavedFollowingVentuor]()
-            isReady(ventuors: savedVentuors)
-        } catch {
-            fatalError("Could not decode MobileGetSavedVentuorsResponseResult: \(error)")
+        if data != nil {
+            print(String(data: data!, encoding: .utf8)!)
+            do {
+                let response = try JSONDecoder().decode(MobileGetSavedVentuorsResponseResult.self, from: data!)
+                print(response)
+                
+                savedVentuors = response.result?.savedVentuors ?? [SavedFollowingVentuor]()
+                isReady(ventuors: savedVentuors)
+            } catch {
+                fatalError("Could not decode MobileGetSavedVentuorsResponseResult: \(error)")
+            }
+        } else {
+            print("Error, data returned null in SaveVentuors()")
         }
     }
 
@@ -115,15 +119,6 @@ class HomeViewModel: ObservableObject {
         } else {
             displayStatusMessage = "Ready"
         }
-    }
-
-    func addToRecentVentuor(context: ModelContext, cachedVentuors: [CachedVentuor], cachedVentuor: CachedVentuor) {
-        for i in 0..<(cachedVentuors.count) {
-            if cachedVentuors[i].ventuorUserKey == Auth.shared.getUserKey()! + ( cachedVentuor.ventuorKey) {
-                context.delete(cachedVentuors[i])
-            }
-        }
-        context.insert(cachedVentuor)
     }
 
     func logout() {
