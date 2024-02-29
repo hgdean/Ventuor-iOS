@@ -28,8 +28,9 @@ class UserProfileDataModel {
     // var homeAddress: Address = Address()
     // var workAddress: Address = Address()
     
-    var recentVentuors: [RecentVentuor] = [RecentVentuor]()
-    
+    var savedVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
+    var followingVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
+
     init(userKey: String, username: String, fullname: String, countrycode: String, phone: String, email: String, profilePhoto: String, profilePhotoName: String, profilePhotoType: String, roles: [String] = [String](), lastModified: String) {
         self.userKey = userKey
         self.username = username
@@ -63,46 +64,11 @@ class UserProfileDataModel {
         // self.workAddress = Address(data: data.workAddress ?? UserAddressVO())
     }
     
-    func addRecentVentuor(userKey: String, ventuorKey: String, title: String, subTitle1: String) {
-        recentVentuors.append(RecentVentuor(userKey: userKey, ventuorKey: ventuorKey, title: title, subTitle1: subTitle1))
-        for i in 0..<(recentVentuors.count) {
-            print(recentVentuors[i])
-        }
+    func setSavedVentuors(data: [SaveFollowVentuor]) {
+        self.savedVentuors = data
     }
-    func addRecentVentuor(recentVentuor: RecentVentuor) {
-        recentVentuors.append(recentVentuor)
-        for i in 0..<(recentVentuors.count) {
-            print(recentVentuors[i])
-        }
-    }
-    func removeRecentVentuor(ventuorUserKey: String) {
-        for i in 0..<(recentVentuors.count) {
-            if recentVentuors[i].ventuorUserKey == ventuorUserKey {
-                recentVentuors.remove(at: i)
-                return
-            }
-        }
-    }
-}
-
-final class RecentVentuor: Codable, Identifiable {
-    
-    var ventuorUserKey: String
-    var userKey: String
-    var ventuorKey: String
-    var title: String
-    var subTitle1: String
-    var updated: Date
-
-    // var userProfile: UserProfileDataModel? = nil
-
-    init(userKey: String, ventuorKey: String, title: String, subTitle1: String) {
-        self.ventuorUserKey = userKey + ventuorKey
-        self.userKey = userKey
-        self.ventuorKey = ventuorKey
-        self.title = title
-        self.subTitle1 = subTitle1
-        self.updated = .now
+    func setFollowingVentuors(data: [SaveFollowVentuor]) {
+        self.followingVentuors = data
     }
 }
 
@@ -113,8 +79,6 @@ final class RecentVentuor: Codable, Identifiable {
 //        var state: String = ""
 //        var zipcode: String = ""
 //        var country: String = ""
-//
-//        // var userProfile: UserProfileDataModel? = nil
 //
 //        init(userKey: String = "", streetAddress: String = "", city: String = "", state: String = "", zipcode: String = "", country: String = "") {
 //            self.userKey = userKey

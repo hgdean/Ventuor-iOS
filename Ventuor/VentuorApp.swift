@@ -10,12 +10,14 @@ import SwiftData
 
 @main
 struct VentuorApp: App {
+    @Environment(\.scenePhase) private var scenePhase
+    
     @EnvironmentObject var auth: Auth
     @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
 
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            UserProfileDataModel.self, CachedVentuor.self
+            UserProfileDataModel.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -38,5 +40,13 @@ struct VentuorApp: App {
                 .environmentObject(UserProfileModel.shared)
         }
         .modelContainer(sharedModelContainer)
+        .onChange(of: scenePhase) {
+            if scenePhase == .background {
+                UserProfileModel.shared.saveRecentVentuorsToStorage()
+            }
+            if scenePhase == .active {
+                UserProfileModel.shared.loadRecentVentuorsFromStorage()
+            }
+        }
     }
 }

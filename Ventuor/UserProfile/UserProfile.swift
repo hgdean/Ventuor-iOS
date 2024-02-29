@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct UserProfile: Codable {
-    var result: MobileGetProfileResponse?
+struct MobileGetProfileResponse: Codable {
+    var result: MobileGetProfileResult?
     var error: ServerResponseError?
 }
 
-struct MobileGetProfileResponse: Codable {
+struct MobileGetProfileResult: Codable {
     var resultCode: Int?
     var resultMessage: String?
     var profileDetails: UserProfileDetailsVO?
@@ -60,13 +60,7 @@ struct SavedVentuors: Codable {
     var resultCode: Int?
     var resultMessage: String?
     var template: String?
-    var savedVentuors: [SavedFollowingVentuor]?
-}
-struct SavedFollowingVentuor: Codable {
-    var icon: String?
-    var title: String?
-    var subTitle1: String?
-    var ventuorKey: String?
+    var savedVentuors: [SaveFollowVentuor]?
 }
 
 struct MobileGetFollowingVentuorsResponseResult: Codable {
@@ -77,5 +71,5 @@ struct FollowingVentuors: Codable {
     var resultCode: Int?
     var resultMessage: String?
     var template: String?
-    var followingVentuors: [SavedFollowingVentuor]?
+    var followingVentuors: [SaveFollowVentuor]?
 }

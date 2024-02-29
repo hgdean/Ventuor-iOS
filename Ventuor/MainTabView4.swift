@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView4: View {
-    @EnvironmentObject var userProfileModel: UserProfileModel
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
     @State private var tabSelection = 1
     @State private var activeTab: Tab = .home
 
@@ -19,6 +19,7 @@ struct MainTabView4: View {
                     .tag(Tab.home)
                     // Hiding Native Tab Bar
                     .toolbar(.hidden, for: .tabBar)
+                    .environmentObject(UserProfileModel.shared)
                 ProfileViewTab()
                     .tag(Tab.profile)
                     // Hiding Native Tab Bar

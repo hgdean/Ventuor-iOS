@@ -8,15 +8,14 @@ import SwiftUI
 import SwiftData
 
 struct VentuorCompactListView: View {
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
+
     var title: String
-    var savedFollowingVentuors: [SavedFollowingVentuor]
+    var savedFollowingVentuors: [SaveFollowVentuor]
     @ObservedObject var homeViewModel: HomeViewModel
-    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+    @ObservedObject var ventuorViewModel: VentuorViewModel
 
     @State var showVentuorPage: Bool = false
-    
-    @Environment(\.modelContext) private var context
-    @Query(sort: \CachedVentuor.updated, order: .reverse) private var recentVentuors: [CachedVentuor]
 
     var body: some View {
         NavigationStack() {
@@ -26,9 +25,6 @@ struct VentuorCompactListView: View {
                     ForEach(0..<listCount, id: \.self) { index in
                         Button(action: {
                             ventuorViewModel.getVentuorState(ventuorKey: savedFollowingVentuors[index].ventuorKey ?? "")
-                            
-                            addToRecentVentuor(index: index)
-
                         }, label: {
                             VStack(alignment: .leading, spacing: 8) {         // Main header name / info
                                 
@@ -38,7 +34,7 @@ struct VentuorCompactListView: View {
                                     RemoteLogoImage(
                                         ventuorKey: ventuorKey,
                                         liveMode: liveMode,
-                                        placeholderImage: Image(systemName: "photo"),
+                                        placeholderImage: Image("missing"), // Image(systemName: "photo"),
                                         logoImageDownloader: DefaultLogoImageDownloader(ventuorKey: ventuorKey, liveMode: liveMode))
                                     .scaledToFit()
                                     .frame(width: 60, height: 60)
@@ -82,25 +78,18 @@ struct VentuorCompactListView: View {
         .overlay {
             if savedFollowingVentuors.count == 0 {
                 ContentUnavailableView(label: {
-                    Label("", systemImage: "tray.fill")
+                    Image(systemName: "tray.fill")
                 }, description: {
-                    Text(homeViewModel.displayStatusMessage ?? "")
+                    Text("Nothing to show")
                 }, actions: {
-                    
                 })
                 .frame(width: UIScreen.main.bounds.width)
             }
         }
     }
-    
-    func addToRecentVentuor(index: Int) {
-        let cachedVentuor = CachedVentuor(userKey: Auth.shared.getUserKey()!, ventuorKey: savedFollowingVentuors[index].ventuorKey ?? "", title: savedFollowingVentuors[index].title ?? "", subTitle1: savedFollowingVentuors[index].subTitle1 ?? "")
-
-        homeViewModel.addToRecentVentuor(context: context, cachedVentuors: recentVentuors,
-                                         cachedVentuor: cachedVentuor)
-    }
 }
 
-#Preview {
-    VentuorCompactListView(title: "Test", savedFollowingVentuors: HomeViewModel.sample.savedVentuors, homeViewModel: HomeViewModel.sample)
-}
+//#Preview {
+//    VentuorCompactListView(title: "Test", savedFollowingVentuors: HomeViewModel.sample.savedVentuors, homeViewModel: HomeViewModel.sample, ventuorViewModel: VentuorViewModel.sample)
+//        .environmentObject(UserProfileModel.shared)
+//}

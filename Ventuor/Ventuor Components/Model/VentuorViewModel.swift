@@ -58,7 +58,8 @@ enum ErrorVentuorState: LocalizedError {
 }
 
 class VentuorViewModel: ObservableObject {
-    
+    var userProfileModel: UserProfileModel = UserProfileModel.shared
+
     var ventuorKey: String = ""
     var title: String = ""
     var subTitle1: String = ""
@@ -66,11 +67,9 @@ class VentuorViewModel: ObservableObject {
     var liveMode: Bool = true
     
     @Published var ventuor: Ventuor? = nil
-    
-    var userProfile: UserProfile? = nil
-    
+
     static var sample = VentuorViewModel()
-    
+
     @Published var ventuorStateLive: Bool = false
     @Published var errorVentuorState: Swift.Error?
     @Published var isVentuorSavedByUser: Bool = false
@@ -123,9 +122,14 @@ class VentuorViewModel: ObservableObject {
     func getVentuorData() {
         ventuor?.result?.ventuor = nil
         logo = nil
+        isVentuorSavedByUser = false
+        isVentuorFollowedByUser = false
+        isVentuorCheckedinByUser = false
+
         let services = Services(baseURL: API.baseURL + "/mobile/getVentuor")
         services.getVentuorData(ventuorKey: ventuorKey, cb: cb)
     }
+    
     fileprivate func cb(_ data: Data?, error: NSError?) -> Void {
         
         if data != nil {
@@ -142,12 +146,26 @@ class VentuorViewModel: ObservableObject {
                 }
                 
                 ventuor = response
-
-                //getUserProfile()
+                addToRecentVentuor()
+                updateSavedFollowingButtons()
+                //updateUserProfile()
             } catch {
                 fatalError("Could not decode Ventuor: \(error)")
             }
         }
+    }
+
+    fileprivate func updateSavedFollowingButtons() -> Void {
+        isVentuorSavedByUser = updateVentuorSavedFollowedByUser(userProfileModel.userProfileDataModel?.savedVentuors ?? [])
+        isVentuorFollowedByUser = updateVentuorSavedFollowedByUser(userProfileModel.userProfileDataModel?.followingVentuors ?? [])
+    }
+
+    fileprivate func cbGetUserProfile(data: Data?, error: NSError?) -> Void {
+        updateSavedFollowingButtons()
+    }
+
+    func updateUserProfile() {
+        userProfileModel.loadUserProfile(cb: cbGetUserProfile)
     }
     
     func saveVentuor(ventuorKey: String, title: String, subtitle1: String, iconLocation: String) {
@@ -157,7 +175,7 @@ class VentuorViewModel: ObservableObject {
     
     fileprivate func cbSaveVentuor(_ data: Data?, error: NSError?) -> Void {
         print(String(data: data!, encoding: .utf8)!)
-        //getUserProfile()
+        updateUserProfile()
     }
     
     func unSaveVentuor(ventuorKey: String) {
@@ -167,7 +185,7 @@ class VentuorViewModel: ObservableObject {
     
     fileprivate func cbUnsaveVentuor(_ data: Data?, error: NSError?) -> Void {
         print(String(data: data!, encoding: .utf8)!)
-        //getUserProfile()
+        updateUserProfile()
     }
     
     func followVentuor(ventuorKey: String, title: String, subtitle1: String, iconLocation: String) {
@@ -177,7 +195,7 @@ class VentuorViewModel: ObservableObject {
     
     fileprivate func cbFollowVentuor(_ data: Data?, error: NSError?) -> Void {
         print(String(data: data!, encoding: .utf8)!)
-        //getUserProfile()
+        updateUserProfile()
     }
     
     func unFollowVentuor(ventuorKey: String) {
@@ -187,30 +205,20 @@ class VentuorViewModel: ObservableObject {
     
     fileprivate func cbunFollowVentuor(_ data: Data?, error: NSError?) -> Void {
         print(String(data: data!, encoding: .utf8)!)
-        //getUserProfile()
+        updateUserProfile()
+    }
+
+    func updateVentuorSavedFollowedByUser(_ list: [SaveFollowVentuor]) -> Bool {
+        for item in list {
+            if item.ventuorKey == ventuorKey {
+                return true
+            }
+        }
+        return false
     }
     
-    func updateVentuorSavedByUser() {
-        let savedVentuors = userProfile?.result?.savedVentuors ?? []
-        for savedVentuor in savedVentuors {
-            if savedVentuor.ventuorKey == ventuorKey {
-                isVentuorSavedByUser = true
-                return
-            }
-        }
-        isVentuorSavedByUser = false
+    func addToRecentVentuor() {
+            userProfileModel.addToRecentVentuor(cacheVentuor: CVItem(userKey: Auth.shared.getUserKey()!, ventuorKey: ventuor?.result?.ventuor?.ventuorKey ?? "", title: ventuor?.result?.ventuor?.title ?? "", subTitle1: ventuor?.result?.ventuor?.subTitle1 ?? ""))
     }
-    func updateVentuorFollowedByUser() {
-        let followingVentuors = userProfile?.result?.followingVentuors ?? []
-        for followingVentuor in followingVentuors {
-            if followingVentuor.ventuorKey == ventuorKey {
-                isVentuorFollowedByUser = true
-                return
-            }
-        }
-        isVentuorFollowedByUser = false
-    }
-    func updateVentuorCheckinByUser() {
-        isVentuorCheckedinByUser = false
-    }
+
 }

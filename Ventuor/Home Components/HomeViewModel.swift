@@ -12,9 +12,9 @@ class HomeViewModel: ObservableObject {
     @Published var ventuorList: VentuorList? = nil
     @Published var displayStatusMessage: String? = nil
 
-    @Published var savedVentuors: [SavedFollowingVentuor] = [SavedFollowingVentuor]()
-    @Published var followingVentuors: [SavedFollowingVentuor] = [SavedFollowingVentuor]()
-    @Published var recentVentuors: [RecentVentuor] = [RecentVentuor]()
+    //@Published var savedVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
+    //@Published var followingVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
+    //@Published var recentVentuors: [RecentVentuor] = [RecentVentuor]()
 
     static var sample = HomeViewModel()
 
@@ -35,6 +35,11 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+//    func refreshUserProfile(userProfileModel: UserProfileModel) {
+//        savedVentuors = userProfileModel.userProfileDataModel?.savedVentuors ?? []
+//        followingVentuors = userProfileModel.userProfileDataModel?.followingVentuors ?? []
+//    }
+    
     func jsonDecodeVentuorList(data: Data) {
         do {
             let response = try JSONDecoder().decode(VentuorList.self, from: data)
@@ -54,9 +59,13 @@ class HomeViewModel: ObservableObject {
     }
 
     fileprivate func cbVentuorList(_ data: Data?, error: NSError?) -> Void {
-        prepare()
-        print(String(data: data!, encoding: .utf8)!)
-        jsonDecodeVentuorList(data: data!)
+        if data != nil {
+            prepare()
+            print(String(data: data!, encoding: .utf8)!)
+            jsonDecodeVentuorList(data: data!)
+        } else {
+            print("Error: Data is nil. func cbVentuorList()")
+        }
     }
 
     func getAdminVentuorListInTest() {
@@ -71,49 +80,49 @@ class HomeViewModel: ObservableObject {
         services.getVentuorListInLiveMode(cb: cbVentuorList)
     }
 
-    func getUsersSavedVentuors() {
-        initialize()
-        let services = Services(baseURL: API.baseURL + "/mobile/getSavedVentuors")
-        services.getSavedVentuors(cb: cbSavedVentuorList)
-    }
-    fileprivate func cbSavedVentuorList(_ data: Data?, error: NSError?) -> Void {
-        prepare()
-        if data != nil {
-            print(String(data: data!, encoding: .utf8)!)
-            do {
-                let response = try JSONDecoder().decode(MobileGetSavedVentuorsResponseResult.self, from: data!)
-                print(response)
-                
-                savedVentuors = response.result?.savedVentuors ?? [SavedFollowingVentuor]()
-                isReady(ventuors: savedVentuors)
-            } catch {
-                fatalError("Could not decode MobileGetSavedVentuorsResponseResult: \(error)")
-            }
-        } else {
-            print("Error, data returned null in SaveVentuors()")
-        }
-    }
+//    func getUsersSavedVentuors() {
+//        initialize()
+//        let services = Services(baseURL: API.baseURL + "/mobile/getSavedVentuors")
+//        services.getSavedVentuors(cb: cbSavedVentuorList)
+//    }
+//    fileprivate func cbSavedVentuorList(_ data: Data?, error: NSError?) -> Void {
+//        prepare()
+//        if data != nil {
+//            print(String(data: data!, encoding: .utf8)!)
+//            do {
+//                let response = try JSONDecoder().decode(MobileGetSavedVentuorsResponseResult.self, from: data!)
+//                print(response)
+//                
+//                savedVentuors = response.result?.savedVentuors ?? [SaveFollowVentuor]()
+//                isReady(ventuors: savedVentuors)
+//            } catch {
+//                fatalError("Could not decode MobileGetSavedVentuorsResponseResult: \(error)")
+//            }
+//        } else {
+//            print("Error, data returned null in SaveVentuors()")
+//        }
+//    }
 
-    func getUsersFollowingVentuors() {
-        initialize()
-        let services = Services(baseURL: API.baseURL + "/mobile/getFollowingVentuors")
-        services.getFollowingVentuors(cb: cbFollowingVentuorList)
-    }
-    fileprivate func cbFollowingVentuorList(_ data: Data?, error: NSError?) -> Void {
-        prepare()
-        print(String(data: data!, encoding: .utf8)!)
-        do {
-            let response = try JSONDecoder().decode(MobileGetFollowingVentuorsResponseResult.self, from: data!)
-            print(response)
-            
-            followingVentuors = response.result?.followingVentuors ?? [SavedFollowingVentuor]()
-            isReady(ventuors: followingVentuors)
-        } catch {
-            fatalError("Could not decode MobileGetFollowingVentuorsResponseResult: \(error)")
-        }
-    }
+//    func getUsersFollowingVentuors() {
+//        initialize()
+//        let services = Services(baseURL: API.baseURL + "/mobile/getFollowingVentuors")
+//        services.getFollowingVentuors(cb: cbFollowingVentuorList)
+//    }
+//    fileprivate func cbFollowingVentuorList(_ data: Data?, error: NSError?) -> Void {
+//        prepare()
+//        print(String(data: data!, encoding: .utf8)!)
+//        do {
+//            let response = try JSONDecoder().decode(MobileGetFollowingVentuorsResponseResult.self, from: data!)
+//            print(response)
+//            
+//            followingVentuors = response.result?.followingVentuors ?? [SaveFollowVentuor]()
+//            isReady(ventuors: followingVentuors)
+//        } catch {
+//            fatalError("Could not decode MobileGetFollowingVentuorsResponseResult: \(error)")
+//        }
+//    }
 
-    func isReady(ventuors: [SavedFollowingVentuor]) {
+    func isReady(ventuors: [SaveFollowVentuor]) {
         if ventuors.isEmpty {
             displayStatusMessage = "No available Ventuors to show"
         } else {

@@ -83,7 +83,6 @@
 		A04213802B76CB0E0005790C /* UsernameLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042137F2B76CB0E0005790C /* UsernameLink.swift */; };
 		A04213822B76CB8E0005790C /* UsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04213812B76CB8E0005790C /* UsernameView.swift */; };
 		A04213842B78346E0005790C /* UserProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04213832B78346E0005790C /* UserProfileDataModel.swift */; };
-		A04213862B78351A0005790C /* CachedVentuor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04213852B78351A0005790C /* CachedVentuor.swift */; };
 		A04213882B7844E30005790C /* PasswordLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04213872B7844E30005790C /* PasswordLink.swift */; };
 		A042138A2B7845970005790C /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04213892B7845970005790C /* PasswordView.swift */; };
 		A059CAEC2B6878DF002C6996 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A059CAEB2B6878DF002C6996 /* RemoteImage.swift */; };
@@ -99,7 +98,6 @@
 		A070ED212B5C54C700C9AED3 /* VentuorAdminLandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A070ED202B5C54C700C9AED3 /* VentuorAdminLandingPage.swift */; };
 		A073366E2B72671D00674F52 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073366D2B72671D00674F52 /* UserProfileModel.swift */; };
 		A07336702B73A09500674F52 /* VentuorRecentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073366F2B73A09500674F52 /* VentuorRecentListView.swift */; };
-		A07336722B73FBC000674F52 /* VentuorRecentListView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07336712B73FBC000674F52 /* VentuorRecentListView2.swift */; };
 		A078D8BC2B643F7C003850E4 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078D8BB2B643F7C003850E4 /* UserProfile.swift */; };
 		A078D8BE2B6463F6003850E4 /* VentuorFollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078D8BD2B6463F6003850E4 /* VentuorFollowButton.swift */; };
 		A078D8C02B64640B003850E4 /* VentuorCheckinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078D8BF2B64640B003850E4 /* VentuorCheckinButton.swift */; };
@@ -108,6 +106,8 @@
 		A07D212E2B7FA6660044D4A7 /* PreferencesLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D212D2B7FA6660044D4A7 /* PreferencesLink.swift */; };
 		A07D21302B7FA9AD0044D4A7 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D212F2B7FA9AD0044D4A7 /* AccountView.swift */; };
 		A07D21322B7FB5D20044D4A7 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D21312B7FB5D20044D4A7 /* PreferencesView.swift */; };
+		A07D21A62B87C5830044D4A7 /* TabRecentSavedFollow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D21A52B87C5830044D4A7 /* TabRecentSavedFollow.swift */; };
+		A07D21A82B8824160044D4A7 /* HorizontalViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D21A72B8824160044D4A7 /* HorizontalViewList.swift */; };
 		A0CA0B732B61A07D005DC8AD /* TimeframeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA0B722B61A07D005DC8AD /* TimeframeStatus.swift */; };
 		A0CA0B752B61AE9F005DC8AD /* VentuorTimeframeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA0B742B61AE9F005DC8AD /* VentuorTimeframeBanner.swift */; };
 		A0CA0B772B61BC5D005DC8AD /* VentuorTitleOpenClosedTimeframeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA0B762B61BC5D005DC8AD /* VentuorTitleOpenClosedTimeframeStatus.swift */; };
@@ -202,7 +202,6 @@
 		A042137F2B76CB0E0005790C /* UsernameLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameLink.swift; sourceTree = "<group>"; };
 		A04213812B76CB8E0005790C /* UsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameView.swift; sourceTree = "<group>"; };
 		A04213832B78346E0005790C /* UserProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileDataModel.swift; sourceTree = "<group>"; };
-		A04213852B78351A0005790C /* CachedVentuor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedVentuor.swift; sourceTree = "<group>"; };
 		A04213872B7844E30005790C /* PasswordLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordLink.swift; sourceTree = "<group>"; };
 		A04213892B7845970005790C /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		A059CAEB2B6878DF002C6996 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
@@ -218,7 +217,6 @@
 		A070ED202B5C54C700C9AED3 /* VentuorAdminLandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorAdminLandingPage.swift; sourceTree = "<group>"; };
 		A073366D2B72671D00674F52 /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		A073366F2B73A09500674F52 /* VentuorRecentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorRecentListView.swift; sourceTree = "<group>"; };
-		A07336712B73FBC000674F52 /* VentuorRecentListView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorRecentListView2.swift; sourceTree = "<group>"; };
 		A078D8BB2B643F7C003850E4 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		A078D8BD2B6463F6003850E4 /* VentuorFollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorFollowButton.swift; sourceTree = "<group>"; };
 		A078D8BF2B64640B003850E4 /* VentuorCheckinButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorCheckinButton.swift; sourceTree = "<group>"; };
@@ -227,6 +225,8 @@
 		A07D212D2B7FA6660044D4A7 /* PreferencesLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesLink.swift; sourceTree = "<group>"; };
 		A07D212F2B7FA9AD0044D4A7 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		A07D21312B7FB5D20044D4A7 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		A07D21A52B87C5830044D4A7 /* TabRecentSavedFollow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabRecentSavedFollow.swift; sourceTree = "<group>"; };
+		A07D21A72B8824160044D4A7 /* HorizontalViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalViewList.swift; sourceTree = "<group>"; };
 		A0CA0B722B61A07D005DC8AD /* TimeframeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeframeStatus.swift; sourceTree = "<group>"; };
 		A0CA0B742B61AE9F005DC8AD /* VentuorTimeframeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorTimeframeBanner.swift; sourceTree = "<group>"; };
 		A0CA0B762B61BC5D005DC8AD /* VentuorTitleOpenClosedTimeframeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorTitleOpenClosedTimeframeStatus.swift; sourceTree = "<group>"; };
@@ -402,7 +402,6 @@
 				13565A2A2B586D2A00780A8B /* VentuorListView.swift */,
 				A0ED23AE2B6C577C00912CDB /* VentuorCompactListView.swift */,
 				A073366F2B73A09500674F52 /* VentuorRecentListView.swift */,
-				A07336712B73FBC000674F52 /* VentuorRecentListView2.swift */,
 			);
 			path = "Ventuor List Components";
 			sourceTree = "<group>";
@@ -433,6 +432,7 @@
 				A0CA0B722B61A07D005DC8AD /* TimeframeStatus.swift */,
 				A0ED23A82B6BE34100912CDB /* CircleAnimation.swift */,
 				A0ED23A62B6BE2F300912CDB /* TabBarView.swift */,
+				A07D21A52B87C5830044D4A7 /* TabRecentSavedFollow.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -539,6 +539,7 @@
 				A070ED182B5C534600C9AED3 /* VentuorSavedItems.swift */,
 				A070ED1A2B5C538700C9AED3 /* VentuorFollowingItems.swift */,
 				A070ED202B5C54C700C9AED3 /* VentuorAdminLandingPage.swift */,
+				A07D21A72B8824160044D4A7 /* HorizontalViewList.swift */,
 			);
 			path = "Home Components";
 			sourceTree = "<group>";
@@ -551,7 +552,6 @@
 				A078D8BB2B643F7C003850E4 /* UserProfile.swift */,
 				A073366D2B72671D00674F52 /* UserProfileModel.swift */,
 				A04213832B78346E0005790C /* UserProfileDataModel.swift */,
-				A04213852B78351A0005790C /* CachedVentuor.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -657,7 +657,6 @@
 				A025F2D62B7D3EDF00F59AD0 /* RequestPasswordReset.swift in Sources */,
 				A025F2D02B7A970E00F59AD0 /* LogoffLink2.swift in Sources */,
 				A070ED172B5C52E900C9AED3 /* VentuorRecentItems.swift in Sources */,
-				A07336722B73FBC000674F52 /* VentuorRecentListView2.swift in Sources */,
 				A0ED23A52B6AF20300912CDB /* VentuorSelectedPhotoView.swift in Sources */,
 				A070ED1F2B5C53DF00C9AED3 /* VentuorAdministration.swift in Sources */,
 				133AF09C2B47613F005557D9 /* LoginResponse.swift in Sources */,
@@ -668,12 +667,12 @@
 				133AF0672B4710FA005557D9 /* VentuorApp.swift in Sources */,
 				133AF0882B472879005557D9 /* RootScreen.swift in Sources */,
 				131F6E3A2B50700D00F81D50 /* Utils.swift in Sources */,
+				A07D21A62B87C5830044D4A7 /* TabRecentSavedFollow.swift in Sources */,
 				A070ED1B2B5C538700C9AED3 /* VentuorFollowingItems.swift in Sources */,
 				A04213732B76B21C0005790C /* NameLink.swift in Sources */,
 				A042137A2B76C5BD0005790C /* EmailView.swift in Sources */,
 				A04213842B78346E0005790C /* UserProfileDataModel.swift in Sources */,
 				133AF08A2B4730D5005557D9 /* MainTabView2.swift in Sources */,
-				A04213862B78351A0005790C /* CachedVentuor.swift in Sources */,
 				133AF0AE2B47636A005557D9 /* SignupConfirmation.swift in Sources */,
 				13F8EB002B53333B00BABF60 /* VentuorFacebookItem.swift in Sources */,
 				A070ED152B5B537A00C9AED3 /* VentuorSearchItem.swift in Sources */,
@@ -709,6 +708,7 @@
 				13565A2B2B586D2A00780A8B /* VentuorListView.swift in Sources */,
 				A04213822B76CB8E0005790C /* UsernameView.swift in Sources */,
 				A07D21322B7FB5D20044D4A7 /* PreferencesView.swift in Sources */,
+				A07D21A82B8824160044D4A7 /* HorizontalViewList.swift in Sources */,
 				13C623C42B574BD00041B75C /* VentuorPagesItem.swift in Sources */,
 				133AF07B2B472196005557D9 /* KeychainItemAccessibility.swift in Sources */,
 				A025F2CE2B7A943A00F59AD0 /* LogoffLink.swift in Sources */,

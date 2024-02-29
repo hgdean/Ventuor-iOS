@@ -10,12 +10,12 @@ import SwiftUI
 struct VentuorRecentItems: View {
     @State private var goodToAdvance: Bool = false
     @ObservedObject var homeViewModel: HomeViewModel
-
+    @ObservedObject var ventuorViewModel: VentuorViewModel
+    
     var body: some View {
         NavigationStack() {
             Button(action: {
                 goodToAdvance = true
-                // homeViewModel.getUsersRecentVentuors()
             }, label: {
                 HStack(spacing: 20) {
                     Text("RECENT VENTUORS")
@@ -34,13 +34,12 @@ struct VentuorRecentItems: View {
             })
         }
         .navigationDestination(isPresented: $goodToAdvance, destination: {
-            VentuorRecentListView(title: "My Recent Ventuors", homeViewModel: homeViewModel)
-            //VentuorRecentListView2(title: "My Recent Ventuors", recentVentuors: homeViewModel.recentVentuors, homeViewModel: homeViewModel)
+            VentuorRecentListView(title: "My Recent Ventuors", ventuorViewModel: ventuorViewModel, recentVentuors: CacheVentuor())
         })
     }
 }
 
 
 #Preview {
-    VentuorRecentItems(homeViewModel: HomeViewModel.sample)
+    VentuorRecentItems(homeViewModel: HomeViewModel.sample, ventuorViewModel: VentuorViewModel.sample)
 }

@@ -8,8 +8,55 @@
 import SwiftUI
 import SwiftData
 
+protocol AppStorable: Codable {
+    // So there's a default value when nothing is in app storage
+    init()
+}
+
+extension AppStorable {
+    static func readFromAppStorage(_ data: AppStorage<Data>) -> Self {
+        (try? JSONDecoder().decode(Self.self, from: data.wrappedValue)) ?? Self.init()
+    }
+    static func writeToAppStorage(_ data: AppStorage<Data>, newValue: Self) {
+        data.wrappedValue = (try? JSONEncoder().encode(newValue)) ?? Data()
+    }
+}
+
+final class CacheVentuor: AppStorable {
+    var item: [CVItem] = []
+    
+    func isUsersVentuor(index: Int, userKey: String, ventuorKey: String) -> Bool {
+        return item[index].ventuorUserKey == (userKey + ventuorKey)
+    }
+}
+
+final class CVItem: Codable {
+    
+    var ventuorUserKey: String
+    var userKey: String
+    var ventuorKey: String
+    var title: String
+    var subTitle1: String
+    var updated: Date
+
+    init(userKey: String, ventuorKey: String, title: String, subTitle1: String) {
+        self.ventuorUserKey = userKey + ventuorKey
+        self.userKey = userKey
+        self.ventuorKey = ventuorKey
+        self.title = title
+        self.subTitle1 = subTitle1
+        self.updated = .now
+    }
+}
+
 class UserProfileModel: ObservableObject {
     
+    @AppStorage("recent-ventuor-list") private var recentVentuorList: Data = Data()
+    private(set) var recentVentuorListItems: CacheVentuor {
+        get { CacheVentuor.readFromAppStorage(_recentVentuorList) }
+        set { CacheVentuor.writeToAppStorage(_recentVentuorList, newValue: newValue) }
+    }
+
     @Published var photo: String = ""
     @Published var fullname: String = ""
     @Published var email: String = ""
@@ -21,35 +68,44 @@ class UserProfileModel: ObservableObject {
 
     static let shared: UserProfileModel = UserProfileModel()
 
-    @Published var userProfileDataModel: UserProfileDataModel?
-
-    @Environment(\.modelContext) private var context
-    @Query(sort: \UserProfileDataModel.userKey) var userProfileDataModels: [UserProfileDataModel]
+    var userProfileDataModel: UserProfileDataModel?
 
     @Published var showNameProfileSheet: Bool = false
     @Published var showEmailProfileSheet: Bool = false
     @Published var showUsernameProfileSheet: Bool = false
     @Published var showPasswordProfileSheet: Bool = false
 
+    var userRecentVentuors: CacheVentuor = CacheVentuor()
     
     func loadUserProfile(cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
         let services = Services(baseURL: API.baseURL + "/mobile/getProfile")
 
         services.getUserProfile(cb: { data, error in
-            print(String(data: data!, encoding: .utf8)!)
+            if data != nil {
+                print(String(data: data!, encoding: .utf8)!)
 
-            do {
-                let response = try JSONDecoder().decode(UserProfile.self, from: data!)
-                
-                if let profileDetails = response.result?.profileDetails {
-                    let loadedUserProfile = UserProfileDataModel(data: profileDetails)
-                    if !loadedUserProfile.userKey.isEmpty {
-                        self.userProfileDataModel = loadedUserProfile
-                        cb(data, error)
+                do {
+                    let response = try JSONDecoder().decode(MobileGetProfileResponse.self, from: data!)
+                    
+                    if let profileDetails = response.result?.profileDetails {
+                        let loadedUserProfile = UserProfileDataModel(data: profileDetails)
+                        if let profileSavedVentuors = response.result?.savedVentuors {
+                            loadedUserProfile.setSavedVentuors(data: profileSavedVentuors)
+                        }
+                        if let profileFollowingVentuors = response.result?.followingVentuors {
+                            loadedUserProfile.setFollowingVentuors(data: profileFollowingVentuors)
+                        }
+                        if !loadedUserProfile.userKey.isEmpty {
+                            self.userProfileDataModel = loadedUserProfile
+                            cb(data, error)
+                        }
                     }
+                } catch {
+                    fatalError("Could not create UserProfile: \(error)")
                 }
-            } catch {
-                fatalError("Could not create UserProfile: \(error)")
+            } else {
+                print("loadUserProfile retrived nil in data.")
             }
         })
     }
@@ -61,10 +117,16 @@ class UserProfileModel: ObservableObject {
             print(String(data: data!, encoding: .utf8)!)
 
             do {
-                let response = try JSONDecoder().decode(UserProfile.self, from: data!)
+                let response = try JSONDecoder().decode(MobileGetProfileResponse.self, from: data!)
                 
                 if let profileDetails = response.result?.profileDetails {
                     let loadedUserProfile = UserProfileDataModel(data: profileDetails)
+                    if let profileSavedVentuors = response.result?.savedVentuors {
+                        loadedUserProfile.setSavedVentuors(data: profileSavedVentuors)
+                    }
+                    if let profileFollowingVentuors = response.result?.followingVentuors {
+                        loadedUserProfile.setFollowingVentuors(data: profileFollowingVentuors)
+                    }
                     if !loadedUserProfile.userKey.isEmpty {
                         self.userProfileDataModel = loadedUserProfile
                     }
@@ -327,15 +389,27 @@ class UserProfileModel: ObservableObject {
         }
     }
 
-    func getCurrentCacheUserProfile() -> UserProfileDataModel? {
-        for i in 0..<(self.userProfileDataModels.count) {
-            print(userProfileDataModels[i].userKey)
-            if userProfileDataModels[i].userKey == Auth.shared.getUserKey() {
-                return userProfileDataModels[i]
+    func addToRecentVentuor(cacheVentuor: CVItem) {
+        for i in 0..<(userRecentVentuors.item.count) {
+            if userRecentVentuors.item[i].ventuorUserKey == Auth.shared.getUserKey()! + ( cacheVentuor.ventuorKey) {
+                userRecentVentuors.item.remove(at: i)
+                break
             }
         }
-        return nil
+        userRecentVentuors.item.insert(cacheVentuor, at: 0)
     }
+
+    func saveRecentVentuorsToStorage() {
+        print(userRecentVentuors.item[0].title)
+        self.recentVentuorListItems = self.userRecentVentuors
+    }
+    
+    func loadRecentVentuorsFromStorage() {
+        self.userRecentVentuors = self.recentVentuorListItems
+    }
+    
+    
+    
 
     // This is used for error message popups that occurr on the server side.
     // The error messages come from the server, and this is used to display those

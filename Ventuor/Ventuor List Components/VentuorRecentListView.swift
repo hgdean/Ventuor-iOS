@@ -8,49 +8,48 @@
 import SwiftUI
 import SwiftData
 
-// This method is using the standalone CachedVentuor class for the recent ventuors
+// This method is using the standalone CacheVentuor class for the recent ventuors
 struct VentuorRecentListView: View {
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
+
     var title: String
-    @ObservedObject var homeViewModel: HomeViewModel
-    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+    @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
+    @ObservedObject var ventuorViewModel: VentuorViewModel
 
     @State var showVentuorPage: Bool = false
 
-    @Environment(\.modelContext) private var context
-    @Query(sort: \CachedVentuor.updated, order: .reverse) var cachedVentuors: [CachedVentuor]
-
+    var recentVentuors: CacheVentuor
+    
     var body: some View {
         NavigationStack() {
-            let listCount = cachedVentuors.count
+            let listCount = recentVentuors.item.count
             ScrollView() {
                 VStack(spacing: 10) {
                     ForEach(0..<listCount, id: \.self) { index in
-                        if cachedVentuors[index].userKey == Auth.shared.getUserKey() {
+                        if recentVentuors.item[index].userKey == Auth.shared.getUserKey() {
                             Button(action: {
-                                ventuorViewModel.getVentuorState(ventuorKey: cachedVentuors[index].ventuorKey)
-                                
-                                addToRecentVentuor(index: index)
+                                ventuorViewModel.getVentuorState(ventuorKey: recentVentuors.item[index].ventuorKey)
                             }, label: {
                                 VStack(alignment: .leading, spacing: 8) {         // Main header name / info
                                     
                                     HStack() {
-                                        let ventuorKey = cachedVentuors[index].ventuorKey
+                                        let ventuorKey = recentVentuors.item[index].ventuorKey
                                         let liveMode = false
                                         RemoteLogoImage(
-                                            ventuorKey: cachedVentuors[index].ventuorKey,
+                                            ventuorKey: recentVentuors.item[index].ventuorKey,
                                             liveMode: liveMode,
-                                            placeholderImage: Image(systemName: "photo"),
+                                            placeholderImage: Image("missing"), // Image(systemName: "photo"),
                                             logoImageDownloader: DefaultLogoImageDownloader(ventuorKey: ventuorKey, liveMode: liveMode))
                                         .scaledToFit()
                                         .frame(width: 60, height: 60)
                                         .padding(0)
                                         
                                         VStack(alignment: .leading, spacing: 2) {
-                                            Text(cachedVentuors[index].title)
+                                            Text(recentVentuors.item[index].title)
                                                 .fontWeight(.regular)
                                                 .font(.title2)
                                                 .padding(0)
-                                            Text(cachedVentuors[index].subTitle1)
+                                            Text(recentVentuors.item[index].subTitle1)
                                                 .padding(.top, -3)
                                                 .padding(.bottom, 2)
                                                 .font(.caption)
@@ -81,28 +80,20 @@ struct VentuorRecentListView: View {
         })
         .navigationTitle(title)
         .overlay {
-            if cachedVentuors.count == 0 {
+            if recentVentuors.item.count == 0 {
                 ContentUnavailableView(label: {
-                    Label("", systemImage: "tray.fill")
+                    Image(systemName: "tray.fill")
                 }, description: {
-                    Text(homeViewModel.displayStatusMessage ?? "")
+                    Text("Nothing to show")
                 }, actions: {
-                    
                 })
                 .frame(width: UIScreen.main.bounds.width)
             }
         }
     }
-    
-    func addToRecentVentuor(index: Int) {
-        let cachedVentuor = CachedVentuor(userKey: Auth.shared.getUserKey()!, ventuorKey: cachedVentuors[index].ventuorKey, title: cachedVentuors[index].title, subTitle1: cachedVentuors[index].subTitle1)
-
-        homeViewModel.addToRecentVentuor(context: context, cachedVentuors: cachedVentuors,
-                                         cachedVentuor: cachedVentuor)
-    }
-
 }
 
 #Preview {
-    VentuorRecentListView(title: "Test", homeViewModel: HomeViewModel.sample)
+    VentuorRecentListView(title: "Test", homeViewModel: HomeViewModel.sample, ventuorViewModel: VentuorViewModel.sample, recentVentuors: CacheVentuor())
+        .environmentObject(UserProfileModel.shared)
 }

@@ -93,14 +93,12 @@ class Web {
             if (error == nil) {
                 let statusCode = (response as! HTTPURLResponse).statusCode
                 if statusCode != 200 {
-                    print("")
                     print("Network error: \(statusCode) for path \(path)")
                     
                     if let text = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as String?
                     {
                         print(self.extractErrorMessage(text))
                     }
-                    print("")
 
                     // err = Utils.createNetworkError(statusCode)
                 }

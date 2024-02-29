@@ -29,10 +29,10 @@ class DefaultLogoImageDownloader: LogoImageDownloader {
         let services = Services(baseURL: API.baseURL + "/mobile/getVentuorLogoByVentuorKey")
         services.getVentuorLogoByVentuorKey(ventuorKey, liveMode: liveMode, cb: { data, error in
             if let data = data {
-                print(String(data: data, encoding: .utf8)!)
+                //print(String(data: data, encoding: .utf8)!)
                 do {
                     let response = try JSONDecoder().decode(GetVentuorLogoResponseResult.self, from: data)
-                    print(response)
+                    //print(response)
                     
                     if let imageString = response.result?.image {
                         if !imageString.isEmpty {
@@ -45,7 +45,7 @@ class DefaultLogoImageDownloader: LogoImageDownloader {
                         }
                     }
                 } catch {
-                    fatalError("Could not decode GetVentuorLogoResponseResult: \(error)")
+                    //fatalError("Could not decode GetVentuorLogoResponseResult: \(error)")
                 }
             }
         })

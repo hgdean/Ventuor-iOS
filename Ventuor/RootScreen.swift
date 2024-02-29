@@ -15,9 +15,9 @@ struct RootScreen: View {
     @State var showIntroScreens: Bool
     @AppStorage("shouldShowIntroScreens") var shouldShowIntroScreens: Bool = true
 
-    @Environment(\.modelContext) private var context
-    @Query(sort: \UserProfileDataModel.userKey) var userProfileDataModel: [UserProfileDataModel]
-
+    init(showIntroScreens: Bool) {
+        self.showIntroScreens = showIntroScreens
+    }
     var body: some View {
 
         VStack() {
@@ -39,21 +39,6 @@ struct RootScreen: View {
     }
     
     fileprivate func cbGetUserProfile(data: Data?, error: NSError?) -> Void {
-        print(String(data: data!, encoding: .utf8)!)
-        
-        do {
-            let response = try JSONDecoder().decode(UserProfile.self, from: data!)
-            //print(response)
-            
-            if let profileDetails = response.result?.profileDetails {
-                let loadedUserProfile = UserProfileDataModel(data: profileDetails)
-                if !loadedUserProfile.userKey.isEmpty {
-                    context.insert(loadedUserProfile)
-                }
-            }
-        } catch {
-            fatalError("Could not decode UserProfile: \(error)")
-        }
     }
 }
 

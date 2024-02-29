@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct VentuorView: View {
     @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
@@ -38,7 +39,7 @@ struct VentuorView: View {
                             RemoteLogoImage(
                                 ventuorKey: ventuorViewModel.ventuorKey,
                                 liveMode: ventuorViewModel.liveMode,
-                                placeholderImage: Image(systemName: "photo"),
+                                placeholderImage: Image("missing"), // Image(systemName: "photo"),
                                 logoImageDownloader: DefaultLogoImageDownloader(ventuorKey: ventuorViewModel.ventuorKey, liveMode: ventuorViewModel.liveMode))
                             .scaledToFit()
                             .frame(width: 70, height: 70)
