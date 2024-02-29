@@ -104,7 +104,7 @@ struct HorizontalViewList: View {
                     switch selectedTab {
                     case .recent:
                         if userProfileModel.userRecentVentuors.item.count > 0 {
-                            NavigationLink(destination: VentuorRecentListView(title: "Recent Ventuors", ventuorViewModel: VentuorViewModel(), recentVentuors: userProfileModel.userRecentVentuors), label: {
+                            NavigationLink(destination: VentuorRecentListView(title: "Recent Ventuors", ventuorViewModel: VentuorViewModel()), label: {
                                 Spacer()
                                 Text("See all")
                                     .foregroundColor(Color(.blue))
@@ -139,7 +139,7 @@ struct HorizontalViewList: View {
                 
                 
                 TabView(selection: self.$selectedTab) {
-                    HRecentVentuorList(userProfileModel.userRecentVentuors)
+                    HRecentVentuorList()
                         .tag(TabRecentSavedFollow.recent)
                         .id(TabRecentSavedFollow.recent)
                         .containerRelativeFrame(.horizontal)
@@ -196,7 +196,8 @@ struct HorizontalViewList: View {
     }
     
     @ViewBuilder
-    func HRecentVentuorList(_ list: CacheVentuor) -> some View {
+    func HRecentVentuorList() -> some View {
+        let list = userProfileModel.userRecentVentuors.getUserVentuors(userKey: Auth.shared.getUserKey()!)
         let listCount = list.item.count
         if listCount == 0 {
             ContentUnavailableView(label: {

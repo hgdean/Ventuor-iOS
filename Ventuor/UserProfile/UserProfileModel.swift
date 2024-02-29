@@ -22,7 +22,19 @@ extension AppStorable {
     }
 }
 
-final class CacheVentuor: AppStorable {
+final class RecentVentuor: AppStorable {
+    var item: [String : CacheVentuor] = [:]
+    
+    func getUserVentuors(userKey: String) -> CacheVentuor {
+        if let ventuors = item[userKey] {
+            return ventuors
+        } else {
+            item[userKey] = CacheVentuor()
+            return item[userKey]!
+        }
+    }
+}
+final class CacheVentuor: Codable {
     var item: [CVItem] = []
     
     func isUsersVentuor(index: Int, userKey: String, ventuorKey: String) -> Bool {
@@ -52,9 +64,9 @@ final class CVItem: Codable {
 class UserProfileModel: ObservableObject {
     
     @AppStorage("recent-ventuor-list") private var recentVentuorList: Data = Data()
-    private(set) var recentVentuorListItems: CacheVentuor {
-        get { CacheVentuor.readFromAppStorage(_recentVentuorList) }
-        set { CacheVentuor.writeToAppStorage(_recentVentuorList, newValue: newValue) }
+    private(set) var recentVentuorListItems: RecentVentuor {
+        get { RecentVentuor.readFromAppStorage(_recentVentuorList) }
+        set { RecentVentuor.writeToAppStorage(_recentVentuorList, newValue: newValue) }
     }
 
     @Published var photo: String = ""
@@ -75,14 +87,14 @@ class UserProfileModel: ObservableObject {
     @Published var showUsernameProfileSheet: Bool = false
     @Published var showPasswordProfileSheet: Bool = false
 
-    var userRecentVentuors: CacheVentuor = CacheVentuor()
+    var userRecentVentuors: RecentVentuor = RecentVentuor()
     
     func loadUserProfile(cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
         
         let services = Services(baseURL: API.baseURL + "/mobile/getProfile")
 
         services.getUserProfile(cb: { data, error in
-            if data != nil {
+            if data != nil && data?.count != 0 {
                 print(String(data: data!, encoding: .utf8)!)
 
                 do {
@@ -390,17 +402,18 @@ class UserProfileModel: ObservableObject {
     }
 
     func addToRecentVentuor(cacheVentuor: CVItem) {
-        for i in 0..<(userRecentVentuors.item.count) {
-            if userRecentVentuors.item[i].ventuorUserKey == Auth.shared.getUserKey()! + ( cacheVentuor.ventuorKey) {
-                userRecentVentuors.item.remove(at: i)
+        let recentVentuors = userRecentVentuors.getUserVentuors(userKey: Auth.shared.getUserKey()!)
+        for i in 0..<(recentVentuors.item.count) {
+            if recentVentuors.item[i].ventuorUserKey == Auth.shared.getUserKey()! + ( cacheVentuor.ventuorKey) {
+                recentVentuors.item.remove(at: i)
                 break
             }
         }
-        userRecentVentuors.item.insert(cacheVentuor, at: 0)
+        recentVentuors.item.insert(cacheVentuor, at: 0)
     }
 
     func saveRecentVentuorsToStorage() {
-        print(userRecentVentuors.item[0].title)
+        //self.recentVentuorListItems = CacheVentuor() // To erase the recent ventuors
         self.recentVentuorListItems = self.userRecentVentuors
     }
     

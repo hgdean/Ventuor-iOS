@@ -17,10 +17,9 @@ struct VentuorRecentListView: View {
     @ObservedObject var ventuorViewModel: VentuorViewModel
 
     @State var showVentuorPage: Bool = false
-
-    var recentVentuors: CacheVentuor
     
     var body: some View {
+        let recentVentuors = userProfileModel.userRecentVentuors.getUserVentuors(userKey: Auth.shared.getUserKey()!)
         NavigationStack() {
             let listCount = recentVentuors.item.count
             ScrollView() {
@@ -94,6 +93,6 @@ struct VentuorRecentListView: View {
 }
 
 #Preview {
-    VentuorRecentListView(title: "Test", homeViewModel: HomeViewModel.sample, ventuorViewModel: VentuorViewModel.sample, recentVentuors: CacheVentuor())
+    VentuorRecentListView(title: "Test", homeViewModel: HomeViewModel.sample, ventuorViewModel: VentuorViewModel.sample)
         .environmentObject(UserProfileModel.shared)
 }

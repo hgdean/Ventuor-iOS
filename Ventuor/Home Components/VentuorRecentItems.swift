@@ -34,7 +34,7 @@ struct VentuorRecentItems: View {
             })
         }
         .navigationDestination(isPresented: $goodToAdvance, destination: {
-            VentuorRecentListView(title: "My Recent Ventuors", ventuorViewModel: ventuorViewModel, recentVentuors: CacheVentuor())
+            VentuorRecentListView(title: "My Recent Ventuors", ventuorViewModel: ventuorViewModel)
         })
     }
 }
