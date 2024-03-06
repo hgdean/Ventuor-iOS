@@ -47,7 +47,7 @@ struct TabBarView: View {
             .frame(width: 23.3, height: 23)
         }
         //.frame(maxWidth: UIScreen.main.bounds.width - 40)
-        .frame(height: 73)
+        .frame(height: 70)
         .background(.ultraThickMaterial)
         .cornerRadius(20)
     }
@@ -55,4 +55,5 @@ struct TabBarView: View {
 
 #Preview {
     TabBarView(activeTab: .constant(Tab.home))
+        .environmentObject(UserProfileModel.shared)
 }

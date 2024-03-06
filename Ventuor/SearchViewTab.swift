@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct SearchViewTab: View {
+    @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
+
+    @ObservedObject var searchViewModel: SearchViewModel = SearchViewModel()
+
+    @State var searchText: String = ""
+
     var body: some View {
-        Text("Tab Content Search")
+        NavigationStack() {
+            VStack() {
+                NavigationStack() {
+                    SearchBarView(searchText: $searchViewModel.searchTerm)
+                        .onSubmit {
+                            searchViewModel.getVentuorListData()
+                        }
+                }
+                .navigationDestination(isPresented: $searchViewModel.searchResult, destination: {
+                    VentuorDetailListView(title: "Search Result", ventuors: $searchViewModel.ventuors, displayStatusMessage: $searchViewModel.displayStatusMessage)
+                })
+            }
+        }
     }
 }
 
 #Preview {
-    SearchViewTab()
+    SearchViewTab(searchViewModel: SearchViewModel.sample)
+        .environmentObject(UserProfileModel.shared)
 }

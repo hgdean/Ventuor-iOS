@@ -23,69 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BB9795BB-172E-400C-A3F5-AAD8C6BDAB2B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ventuor/Home Components/VentuorNearby.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "BB9795BB-172E-400C-A3F5-AAD8C6BDAB2B - c92530467f94a535"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Ventuor.VentuorNearby.body.getter : some"
-                  moduleName = "Ventuor"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Home%20Components/VentuorNearby.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "480">
-               </Location>
-               <Location
-                  uuid = "BB9795BB-172E-400C-A3F5-AAD8C6BDAB2B - 52a230b7d85e4556"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; Ventuor.VentuorListView in Ventuor.VentuorNearby.body.getter : some"
-                  moduleName = "Ventuor"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Home%20Components/VentuorNearby.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  uuid = "BB9795BB-172E-400C-A3F5-AAD8C6BDAB2B - c92530467f94a535"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Ventuor.VentuorNearby.body.getter : some"
-                  moduleName = "Ventuor"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Home%20Components/VentuorNearby.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "580">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "952F3571-A95E-4313-8823-24A99DB8E0F5"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -251,8 +188,8 @@
             filePath = "Ventuor/Legacy Auth and Services/Services.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "364"
+            endingLineNumber = "364"
             landmarkName = "getVentuorListInTestMode(cb:)"
             landmarkType = "7">
             <Locations>
@@ -299,8 +236,8 @@
             filePath = "Ventuor/Shared/CustomTabBar.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -315,8 +252,8 @@
             filePath = "Ventuor/Shared/CustomTabBar.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -331,8 +268,8 @@
             filePath = "Ventuor/Shared/CustomTabBar.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -383,6 +320,38 @@
             endingLineNumber = "177"
             landmarkName = "cbSaveVentuor(_:error:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "49063540-F847-4FB5-B01F-1DFC48CDA122 - 2b3ae987dd6ea1ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.VentuorViewModel.cbSaveVentuor(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Ventuor%20Components/Model/VentuorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "49063540-F847-4FB5-B01F-1DFC48CDA122 - 2b3ae987dd6ea1ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.VentuorViewModel.cbSaveVentuor(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Ventuor%20Components/Model/VentuorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "236">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -507,8 +476,8 @@
             filePath = "Ventuor/Legacy Auth and Services/Services.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
+            startingLineNumber = "412"
+            endingLineNumber = "412"
             landmarkName = "getSavedVentuors(cb:)"
             landmarkType = "7">
             <Locations>
@@ -555,8 +524,8 @@
             filePath = "Ventuor/Home Components/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "cbVentuorList(_:error:)"
             landmarkType = "7">
             <Locations>
@@ -633,8 +602,8 @@
             filePath = "Ventuor/Home Components/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "HomeViewModel"
             landmarkType = "3">
             <Locations>
@@ -1580,7 +1549,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "EBF799C5-3675-410F-BDA2-122294A72C53"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ventuor/RootScreen.swift"
@@ -2302,6 +2271,38 @@
             endingLineNumber = "157"
             landmarkName = "cbSaveProfileFullname(_:error:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1A083CA0-2746-44C9-B2A4-263F55A5A4A2 - 93e42636026fc8d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.UserProfileModel.cbSaveProfileFullname(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "352">
+               </Location>
+               <Location
+                  uuid = "1A083CA0-2746-44C9-B2A4-263F55A5A4A2 - 93e42636026fc8d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.UserProfileModel.cbSaveProfileFullname(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "408">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2314,10 +2315,72 @@
             filePath = "Ventuor/Legacy Auth and Services/Services.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "526"
-            endingLineNumber = "526"
+            startingLineNumber = "602"
+            endingLineNumber = "602"
             landmarkName = "saveProfileFullName(_:cb:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "83A9D8AC-0AFB-4563-BEF6-190198C34511 - 2d85012af5a1c7d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.Services.saveProfileFullName(_: Swift.String, cb: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Legacy%20Auth%20and%20Services/Services.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "526"
+                  endingLineNumber = "526"
+                  offsetFromSymbolStart = "1352">
+               </Location>
+               <Location
+                  uuid = "83A9D8AC-0AFB-4563-BEF6-190198C34511 - 2d85012af5a1c7d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.Services.saveProfileFullName(_: Swift.String, cb: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Legacy%20Auth%20and%20Services/Services.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "526"
+                  endingLineNumber = "526"
+                  offsetFromSymbolStart = "1388">
+               </Location>
+               <Location
+                  uuid = "83A9D8AC-0AFB-4563-BEF6-190198C34511 - 10a3b423597dfe5a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.Services.getPhotoForPhotoSettings(cb: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Legacy%20Auth%20and%20Services/Services.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "604"
+                  endingLineNumber = "604"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "83A9D8AC-0AFB-4563-BEF6-190198C34511 - 2d85012af5a1dde5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.Services.saveProfileFullName(_: Swift.String, cb: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Legacy%20Auth%20and%20Services/Services.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "602"
+                  endingLineNumber = "602"
+                  offsetFromSymbolStart = "1388">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2334,6 +2397,38 @@
             endingLineNumber = "262"
             landmarkName = "validateSaveEmailCallback(_:error:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BA433190-FE7C-45D0-BD80-1DD403AEB7F5 - 95879b367054383b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.UserProfileModel.validateSaveEmailCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "262"
+                  endingLineNumber = "262"
+                  offsetFromSymbolStart = "1072">
+               </Location>
+               <Location
+                  uuid = "BA433190-FE7C-45D0-BD80-1DD403AEB7F5 - 95879b367054383b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.UserProfileModel.validateSaveEmailCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "262"
+                  endingLineNumber = "262"
+                  offsetFromSymbolStart = "1132">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2350,6 +2445,38 @@
             endingLineNumber = "291"
             landmarkName = "validateSaveUsernameCallback(_:error:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "89310AAD-9DEA-4B11-818D-C22AECEF0699 - 4c7c26f1a732fb30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.UserProfileModel.validateSaveUsernameCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "291"
+                  endingLineNumber = "291"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  uuid = "89310AAD-9DEA-4B11-818D-C22AECEF0699 - 4c7c26f1a732fb30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.UserProfileModel.validateSaveUsernameCallback(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "291"
+                  endingLineNumber = "291"
+                  offsetFromSymbolStart = "388">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2366,6 +2493,38 @@
             endingLineNumber = "327"
             landmarkName = "validateSavePasswordCallback(data:error:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DF33F6FD-7465-439C-896C-FCA9589DC6FB - 655f5d5fb7338f58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.UserProfileModel.validateSavePasswordCallback(data: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "327"
+                  endingLineNumber = "327"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  uuid = "DF33F6FD-7465-439C-896C-FCA9589DC6FB - 655f5d5fb7338f58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.UserProfileModel.validateSavePasswordCallback(data: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "327"
+                  endingLineNumber = "327"
+                  offsetFromSymbolStart = "436">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2633,8 +2792,8 @@
             filePath = "Ventuor/Home Components/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "HomeViewModel"
             landmarkType = "3">
          </BreakpointContent>
@@ -2649,8 +2808,8 @@
             filePath = "Ventuor/Home Components/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "getVentuorNearbyList()"
             landmarkType = "7">
             <Locations>
@@ -2701,6 +2860,38 @@
             endingLineNumber = "16"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "3D5462DE-7F77-4FBE-AE86-3DF90B05A426 - 1ab2d36abd625ec5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Ventuor.VentuorSaveButton.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Ventuor%20Components/VentuorSaveButtons.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "3D5462DE-7F77-4FBE-AE86-3DF90B05A426 - 1ab2d36abd625ec5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Ventuor.VentuorSaveButton.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Ventuor%20Components/VentuorSaveButtons.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "136">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2713,10 +2904,72 @@
             filePath = "Ventuor/Legacy Auth and Services/Services.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "376"
-            endingLineNumber = "376"
+            startingLineNumber = "452"
+            endingLineNumber = "452"
             landmarkName = "saveVentuor(_:title:subtitle1:iconLocation:cb:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2FA0D3C5-2EDF-4B70-8E1C-D02835E70C58 - 73911f8366716f37"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.Services.saveVentuor(_: Swift.String, title: Swift.String, subtitle1: Swift.String, iconLocation: Swift.String, cb: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Legacy%20Auth%20and%20Services/Services.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "376"
+                  endingLineNumber = "376"
+                  offsetFromSymbolStart = "484">
+               </Location>
+               <Location
+                  uuid = "2FA0D3C5-2EDF-4B70-8E1C-D02835E70C58 - 73911f8366716f37"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.Services.saveVentuor(_: Swift.String, title: Swift.String, subtitle1: Swift.String, iconLocation: Swift.String, cb: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Legacy%20Auth%20and%20Services/Services.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "376"
+                  endingLineNumber = "376"
+                  offsetFromSymbolStart = "500">
+               </Location>
+               <Location
+                  uuid = "2FA0D3C5-2EDF-4B70-8E1C-D02835E70C58 - bc01a229621dc969"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.Services.followVentuor(_: Swift.String, title: Swift.String, subtitle1: Swift.String, iconLocation: Swift.String, cb: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Legacy%20Auth%20and%20Services/Services.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "452"
+                  endingLineNumber = "452"
+                  offsetFromSymbolStart = "1264">
+               </Location>
+               <Location
+                  uuid = "2FA0D3C5-2EDF-4B70-8E1C-D02835E70C58 - 73911f836671657b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.Services.saveVentuor(_: Swift.String, title: Swift.String, subtitle1: Swift.String, iconLocation: Swift.String, cb: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Legacy%20Auth%20and%20Services/Services.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "452"
+                  endingLineNumber = "452"
+                  offsetFromSymbolStart = "500">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2729,8 +2982,8 @@
             filePath = "Ventuor/Home Components/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "HomeViewModel"
             landmarkType = "3">
          </BreakpointContent>
@@ -2829,6 +3082,38 @@
             endingLineNumber = "143"
             landmarkName = "refreshUserProfile()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CF167942-46F8-4BC6-A1BC-820AF3EFBE50 - 52ce37e0c0e33bf5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in Ventuor.UserProfileModel.refreshUserProfile() -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "9096">
+               </Location>
+               <Location
+                  uuid = "CF167942-46F8-4BC6-A1BC-820AF3EFBE50 - 52ce37e0c0e33bf5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in Ventuor.UserProfileModel.refreshUserProfile() -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "9132">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2904,8 +3189,8 @@
             filePath = "Ventuor/Home Components/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "HomeViewModel"
             landmarkType = "3">
          </BreakpointContent>
@@ -3198,7 +3483,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A6E0F532-5A48-4D28-8EEA-57A6079E75B5"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ventuor/UserProfile/UserProfileModel.swift"
@@ -3321,7 +3606,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "26B66CF1-618B-444A-972E-C4F3B66977C0"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ventuor/UserProfile/UserProfileModel.swift"
@@ -3361,6 +3646,21 @@
                   startingLineNumber = "412"
                   endingLineNumber = "412"
                   offsetFromSymbolStart = "1400">
+               </Location>
+               <Location
+                  uuid = "26B66CF1-618B-444A-972E-C4F3B66977C0 - 8ae017ca9939836f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.UserProfileModel.addToRecentVentuor(cacheVentuor: Ventuor.CVItem) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "412"
+                  endingLineNumber = "412"
+                  offsetFromSymbolStart = "1424">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3462,7 +3762,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "756EBC59-5E44-4CE8-8196-20289263BDFC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ventuor/VentuorApp.swift"
@@ -3598,6 +3898,21 @@
                   endingLineNumber = "408"
                   offsetFromSymbolStart = "1348">
                </Location>
+               <Location
+                  uuid = "A90B3443-82A6-4F91-A185-F112176224CB - 8ae017ca99398c13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.UserProfileModel.addToRecentVentuor(cacheVentuor: Ventuor.CVItem) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "408"
+                  endingLineNumber = "408"
+                  offsetFromSymbolStart = "1372">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -3699,7 +4014,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "AF2EA2AD-3EC2-4BE9-8B47-B48EE0C4AC5C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ventuor/UserProfile/UserProfileModel.swift"
@@ -3709,6 +4024,434 @@
             endingLineNumber = "97"
             landmarkName = "loadUserProfile(cb:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AF2EA2AD-3EC2-4BE9-8B47-B48EE0C4AC5C - a940fba7c9fb4260"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in Ventuor.UserProfileModel.loadUserProfile(cb: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "284">
+               </Location>
+               <Location
+                  uuid = "AF2EA2AD-3EC2-4BE9-8B47-B48EE0C4AC5C - a940fba7c9fb4260"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in Ventuor.UserProfileModel.loadUserProfile(cb: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/UserProfile/UserProfileModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "320">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B90A52C8-CFE4-4842-A7AE-C3A1A9C08585"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Search/Model/SearchViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "cb(_:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A9BF4322-09E7-4FEC-B549-8BA46CCA97B0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Search/SearchListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B9D438F-1159-4DF1-8698-CDC4AE7FC6B4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Search/Model/SearchViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "cb(_:error:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2B9D438F-1159-4DF1-8698-CDC4AE7FC6B4 - 83bb7eb63e088740"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.SearchViewModel.cb(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Search/Model/SearchViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "1940">
+               </Location>
+               <Location
+                  uuid = "2B9D438F-1159-4DF1-8698-CDC4AE7FC6B4 - 83bb7eb63e088740"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.SearchViewModel.cb(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Search/Model/SearchViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "1500">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "21225903-3943-4E34-BC99-4235DD195D6F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Search/SearchListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "21225903-3943-4E34-BC99-4235DD195D6F - abaac01338305ba4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt;, Ventuor.VentuorTitleOpenClosedTimeframeStatus)&gt; in closure #2 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0 in closure #1 (Swift.Int) -&gt; SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.errorAlert(error: SwiftUI.Binding&lt;Swift.Optional&lt;Swift.Error&gt;&gt;, buttonTitle: Swift.String) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ShapeStyle&gt;(_: &#x3c4;_1_0, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0&gt; in Ventuor.SearchListView.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Search/SearchListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "500">
+               </Location>
+               <Location
+                  uuid = "21225903-3943-4E34-BC99-4235DD195D6F - df1e4c4dfeebb484"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt;, Ventuor.VentuorTitleOpenClosedTimeframeStatus)&gt; in closure #2 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0 in closure #1 (Swift.Int) -&gt; SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.errorAlert(error: SwiftUI.Binding&lt;Swift.Optional&lt;Swift.Error&gt;&gt;, buttonTitle: Swift.String) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ShapeStyle&gt;(_: &#x3c4;_1_0, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0&gt; in Ventuor.SearchListView.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Search/SearchListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "592">
+               </Location>
+               <Location
+                  uuid = "21225903-3943-4E34-BC99-4235DD195D6F - df1e4c4dfeebb4a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt;, Ventuor.VentuorTitleOpenClosedTimeframeStatus)&gt; in closure #2 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0 in closure #1 (Swift.Int) -&gt; SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.errorAlert(error: SwiftUI.Binding&lt;Swift.Optional&lt;Swift.Error&gt;&gt;, buttonTitle: Swift.String) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ShapeStyle&gt;(_: &#x3c4;_1_0, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0&gt; in Ventuor.SearchListView.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Search/SearchListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "2104">
+               </Location>
+               <Location
+                  uuid = "21225903-3943-4E34-BC99-4235DD195D6F - df1e4c4dfeebb4a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt;, Ventuor.VentuorTitleOpenClosedTimeframeStatus)&gt; in closure #2 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0 in closure #1 (Swift.Int) -&gt; SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.errorAlert(error: SwiftUI.Binding&lt;Swift.Optional&lt;Swift.Error&gt;&gt;, buttonTitle: Swift.String) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ShapeStyle&gt;(_: &#x3c4;_1_0, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0&gt; in Ventuor.SearchListView.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Search/SearchListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "2124">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47131109-686E-4C05-8604-51721D64B74E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/HomeViewTab.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDAAC776-E580-44C0-AF83-C1609DD62F48"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Home Components/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "cbYouAreHereVentuorList(_:error:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BDAAC776-E580-44C0-AF83-C1609DD62F48 - 6ddc3dc76d4ab225"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.HomeViewModel.cbYouAreHereVentuorList(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Home%20Components/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  uuid = "BDAAC776-E580-44C0-AF83-C1609DD62F48 - 6ddc3dc76d4ab225"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.HomeViewModel.cbYouAreHereVentuorList(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Home%20Components/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "BDAAC776-E580-44C0-AF83-C1609DD62F48 - 6ddc3dc76d4ab225"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.HomeViewModel.cbYouAreHereVentuorList(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Home%20Components/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "252">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ED98CF09-BBF7-465B-9794-7C06B0B7805B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Home Components/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "cbYouAreHereVentuorList(_:error:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ED98CF09-BBF7-465B-9794-7C06B0B7805B - 6ddc3dc76d4ab3e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.HomeViewModel.cbYouAreHereVentuorList(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Home%20Components/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "1588">
+               </Location>
+               <Location
+                  uuid = "ED98CF09-BBF7-465B-9794-7C06B0B7805B - 6ddc3dc76d4ab3e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.HomeViewModel.cbYouAreHereVentuorList(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Home%20Components/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "1592">
+               </Location>
+               <Location
+                  uuid = "ED98CF09-BBF7-465B-9794-7C06B0B7805B - 6ddc3dc76d4ab3e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.HomeViewModel.cbYouAreHereVentuorList(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Home%20Components/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "1932">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7D025E4-9AED-41DD-B53E-DF6B0507F51D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/HomeViewTab.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "F7D025E4-9AED-41DD-B53E-DF6B0507F51D - e26441a0889363c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;Ventuor.YouAreHereLink&gt;, Ventuor.YouAreHereVentuor, Ventuor.HorizontalViewList, Ventuor.VentuorNearby, Ventuor.VentuorSearchItem, Ventuor.VentuorAdministration)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;Ventuor.YouAreHereLink&gt;, Ventuor.YouAreHereVentuor, Ventuor.HorizontalViewList, Ventuor.VentuorNearby, Ventuor.VentuorSearchItem, Ventuor.VentuorAdministration)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;Ventuor.YouAreHereLink&gt;, Ventuor.YouAreHereVentuor, Ventuor.HorizontalViewList, Ventuor.VentuorNearby, Ventuor.VentuorSearchItem, Ventuor.VentuorAdministration)&gt;&gt;)&gt;&gt; in Ventuor.HomeViewTab.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/HomeViewTab.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "536">
+               </Location>
+               <Location
+                  uuid = "F7D025E4-9AED-41DD-B53E-DF6B0507F51D - 815223b564e85225"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;Ventuor.YouAreHereLink&gt;, Ventuor.HorizontalViewList, Ventuor.VentuorNearby, Ventuor.VentuorSearchItem, Ventuor.VentuorAdministration)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;Ventuor.YouAreHereLink&gt;, Ventuor.HorizontalViewList, Ventuor.VentuorNearby, Ventuor.VentuorSearchItem, Ventuor.VentuorAdministration)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;Ventuor.YouAreHereLink&gt;, Ventuor.HorizontalViewList, Ventuor.VentuorNearby, Ventuor.VentuorSearchItem, Ventuor.VentuorAdministration)&gt;&gt;)&gt;&gt; in Ventuor.HomeViewTab.body.getter : some"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/HomeViewTab.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "512">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B01A09CD-C473-4FFA-81CD-A7C4EF0F08A5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ventuor/Search/Model/SearchViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "cb(_:error:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B01A09CD-C473-4FFA-81CD-A7C4EF0F08A5 - 83bb7eb63e088723"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.SearchViewModel.cb(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Search/Model/SearchViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "1988">
+               </Location>
+               <Location
+                  uuid = "B01A09CD-C473-4FFA-81CD-A7C4EF0F08A5 - 83bb7eb63e088702"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ventuor.SearchViewModel.cb(_: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;__C.NSError&gt;) -&gt; ()"
+                  moduleName = "Ventuor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samdean/myprojects/ventuor/Ventuor-iOS/Ventuor/Search/Model/SearchViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "1988">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

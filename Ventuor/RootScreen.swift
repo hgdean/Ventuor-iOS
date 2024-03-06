@@ -45,5 +45,6 @@ struct RootScreen: View {
 #Preview {
     RootScreen(showIntroScreens: true)
         .environmentObject(Auth.shared)
+        .environmentObject(UserProfileModel.shared)
 }
 

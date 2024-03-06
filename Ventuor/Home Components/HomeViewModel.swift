@@ -10,7 +10,12 @@ import SwiftData
 
 class HomeViewModel: ObservableObject {
     @Published var ventuorList: VentuorList? = nil
-    @Published var displayStatusMessage: String? = nil
+    @Published var ventuors: [VentuorData] = [VentuorData]()
+    @Published var youAreHereVentuorList: [VentuorData] = [VentuorData]()
+    @Published var displayStatusMessage: String = ""
+
+    @Published var isThereSomethingHere: Bool = false
+    @Published var youAreHereListReady: Bool = false
 
     //@Published var savedVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
     //@Published var followingVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
@@ -45,6 +50,7 @@ class HomeViewModel: ObservableObject {
             let response = try JSONDecoder().decode(VentuorList.self, from: data)
             print(response)
             
+            ventuors = response.result?.ventuors ?? []
             ventuorList = response
             ready(ventuors: ventuorList?.result?.ventuors ?? [])
         } catch {
@@ -65,6 +71,46 @@ class HomeViewModel: ObservableObject {
             jsonDecodeVentuorList(data: data!)
         } else {
             print("Error: Data is nil. func cbVentuorList()")
+        }
+    }
+
+    func getYouAreHereVentuorList() {
+        let services = Services(baseURL: API.baseURL + "/mobile/getYouAreHereVentuor")
+        services.getYouAreHereVentuor(cb: cbYouAreHereVentuorList)
+    }
+
+    fileprivate func cbYouAreHereVentuorList(_ data: Data?, error: NSError?) -> Void {
+        if data != nil && !data!.isEmpty {
+            print(String(data: data!, encoding: .utf8)!)
+            do {
+                let response = try JSONDecoder().decode(VentuorList.self, from: data!)
+                print(response)
+                
+                if let ventuors = response.result?.ventuors {
+                    youAreHereVentuorList = ventuors
+                    if ventuors.count > 0 {
+                        isThereSomethingHere = true
+                    }
+                }
+            } catch {
+                fatalError("Could not decode VentuorList: \(error)")
+            }
+        } else {
+            print("Error: Data is nil. func cbYouAreHereVentuorList()")
+        }
+    }
+
+    func getWhatsHereVentuorsList() {
+        initialize()
+        let services = Services(baseURL: API.baseURL + "/mobile/getMobileWhatsHereVentuorsList")
+        services.getMobileWhatsHereVentuorsList(cb: cbWhatsHereVentuorsList)
+    }
+
+    fileprivate func cbWhatsHereVentuorsList(_ data: Data?, error: NSError?) -> Void {
+        if data != nil {
+            print(String(data: data!, encoding: .utf8)!)
+        } else {
+            print("Error: Data is nil. func cbWhatsHereVentuorsList()")
         }
     }
 

@@ -10,7 +10,7 @@ import SwiftUI
 struct VentuorAdminLandingPage: View {
     @State var title: String = ""
     @State private var goodToAdvance: Bool = false
-    @ObservedObject var homeViewModel: HomeViewModel
+    @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
     
     var body: some View {
         NavigationStack() {
@@ -59,7 +59,7 @@ struct VentuorAdminLandingPage: View {
             }
         }
         .navigationDestination(isPresented: $goodToAdvance, destination: {
-            VentuorListView(title: title, homeViewModel: homeViewModel)
+            VentuorDetailListView(title: title, ventuors: $homeViewModel.ventuors, displayStatusMessage: $homeViewModel.displayStatusMessage)
         })
         .navigationTitle("Administration")
     }
@@ -67,4 +67,5 @@ struct VentuorAdminLandingPage: View {
 
 #Preview {
     VentuorAdminLandingPage(homeViewModel: HomeViewModel.sample)
+        .environmentObject(UserProfileModel.shared)
 }

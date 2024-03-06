@@ -107,5 +107,5 @@ func getHeight2(_ index: Int) -> CGFloat {
 }
 
 //#Preview {
-//    VentuorPhotoHGrid()
+//    VentuorPhotoHGrid(photos: <#[ImageFileVO]#>, ventuor: <#VentuorData#>)
 //}

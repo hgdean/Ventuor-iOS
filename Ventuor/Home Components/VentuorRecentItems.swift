@@ -42,4 +42,5 @@ struct VentuorRecentItems: View {
 
 #Preview {
     VentuorRecentItems(homeViewModel: HomeViewModel.sample, ventuorViewModel: VentuorViewModel.sample)
+        .environmentObject(UserProfileModel.shared)
 }

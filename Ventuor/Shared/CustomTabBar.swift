@@ -67,9 +67,10 @@ struct CustomTabBar: View {
     }
 }
 
-//#Preview {
-//    MainTabView3(showIntroScreens: true)
-//}
+#Preview {
+    MainTabView3(showIntroScreens: true)
+        .environmentObject(UserProfileModel.shared)
+}
 
 struct TabBarButton2: View {
     

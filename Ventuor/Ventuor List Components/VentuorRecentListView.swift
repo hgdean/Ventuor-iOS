@@ -19,7 +19,7 @@ struct VentuorRecentListView: View {
     @State var showVentuorPage: Bool = false
     
     var body: some View {
-        let recentVentuors = userProfileModel.userRecentVentuors.getUserVentuors(userKey: Auth.shared.getUserKey()!)
+        let recentVentuors = userProfileModel.userRecentVentuors.getUserVentuors(userKey: Auth.shared.getUserKey() ?? "")
         NavigationStack() {
             let listCount = recentVentuors.item.count
             ScrollView() {

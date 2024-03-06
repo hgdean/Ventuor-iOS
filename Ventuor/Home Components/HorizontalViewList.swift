@@ -197,7 +197,7 @@ struct HorizontalViewList: View {
     
     @ViewBuilder
     func HRecentVentuorList() -> some View {
-        let list = userProfileModel.userRecentVentuors.getUserVentuors(userKey: Auth.shared.getUserKey()!)
+        let list = userProfileModel.userRecentVentuors.getUserVentuors(userKey: Auth.shared.getUserKey() ?? "")
         let listCount = list.item.count
         if listCount == 0 {
             ContentUnavailableView(label: {
@@ -234,7 +234,7 @@ struct HorizontalViewList: View {
         }, label: {
             ZStack() {
                 RoundedRectangle(cornerRadius: 15)
-                    .fill(Color(.ventuorGray))
+                    .fill(Color(.ventuorLightGray))
                 
                 VStack(alignment: .leading, spacing: 10) {
                     

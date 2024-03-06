@@ -282,6 +282,82 @@ class Services : Web {
         }
     }
     
+    func getMobileWhatsHereVentuorsList(cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+        
+        let locationDataManager = LocationDataManager()
+        let lat = locationDataManager.locationManager.location?.coordinate.latitude ?? 0
+        let long = locationDataManager.locationManager.location?.coordinate.longitude ?? 0
+        
+        let isMiles = SettingsInfo.distanceInMiles
+
+        Utils.getLocaleCountryName(latitude: lat, longitude: long) { country in
+            let date = Date()
+            let userKey: String = Auth.shared.getUserKey() ?? ""
+            let json: [String: Any] = [
+                "requestName": "getMobileWhatsHereVentuorsList",
+                "requestParam": [
+                    "latitude": lat,
+                    "longitude": long,
+                    "country": country ?? "",
+                    "category": "",
+                    "searchTerm": "",
+                    "userKey": userKey,
+                    "maxDistance": 0.02,
+                    "isMiles": isMiles,
+                    "date": Utils.getCurrentDate(date),
+                    "day": Utils.getCurrentDay(date),
+                    "time": Utils.getCurrentTime(date)
+                ]]
+            
+            let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+            
+            print(json)
+            print(String(data: jsonData!, encoding: .utf8)!)
+
+            self.post("/mobile/getMobileWhatsHereVentuorsList", data: jsonData, cb: cb)
+        }
+    }
+    
+    func getYouAreHereVentuor(cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+        
+        let locationDataManager = LocationDataManager()
+        let lat = locationDataManager.locationManager.location?.coordinate.latitude ?? 0
+        let long = locationDataManager.locationManager.location?.coordinate.longitude ?? 0
+        
+        let isMiles = SettingsInfo.distanceInMiles
+
+        Utils.getLocaleCountryName(latitude: lat, longitude: long) { country in
+            let date = Date()
+            let userKey: String = Auth.shared.getUserKey() ?? ""
+            
+            let json: [String: Any] = [
+                "requestName": "getYouAreHereVentuor",
+                "requestParam": [
+                    "latitude": lat,
+                    "longitude": long,
+                    "country": country ?? "",
+                    "category": "",
+                    "searchTerm": "",
+                    "userKey": userKey,
+                    "maxDistance": 0.02,
+                    "isMiles": isMiles,
+                    "date": Utils.getCurrentDate(date),
+                    "day": Utils.getCurrentDay(date),
+                    "time": Utils.getCurrentTime(date)
+                ]]
+            
+            let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+            
+            print(json)
+            print(String(data: jsonData!, encoding: .utf8)!)
+
+            self.post("/mobile/getYouAreHereVentuor", data: jsonData, cb: cb)
+        }
+    }
+    
     func getVentuorListInTestMode(cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
         self.authToken = Auth.shared.getAccessToken() ?? ""
         

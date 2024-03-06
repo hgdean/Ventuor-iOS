@@ -27,22 +27,26 @@ struct HomeViewTab: View {
                     .frame(height: 200)
 
                 ScrollView() {
+                    if $homeViewModel.isThereSomethingHere.wrappedValue {
+                        YouAreHereLink(homeViewModel: homeViewModel)
+                    }
+
                     HorizontalViewList()
 
-                    VentuorNearby(homeViewModel: homeViewModel)
+                    VentuorNearby()
 
                     VentuorSearchItem(tabSelection: $tabSelection, activeTab: $activeTab)
                     
-                    VentuorAdministration(homeViewModel: homeViewModel)
+                    VentuorAdministration()
                 
-                    //VentuorRecentItems(homeViewModel: homeViewModel, ventuorViewModel: ventuorViewModel)
-                    
-//                    VentuorRecentSearches()
-                    
+//                    VentuorRecentItems(homeViewModel: homeViewModel, ventuorViewModel: ventuorViewModel)
 //                    VentuorSavedItems(homeViewModel: homeViewModel)
 //                    VentuorFollowingItems(homeViewModel: homeViewModel)
                 }
             }
+        }
+        .onAppear() {
+            homeViewModel.getYouAreHereVentuorList()
         }
     }
 }

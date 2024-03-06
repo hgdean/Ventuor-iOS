@@ -97,4 +97,5 @@ struct LandingView: View {
 
 #Preview {
     LandingView()
+        .environmentObject(UserProfileModel.shared)
 }

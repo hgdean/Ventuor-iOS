@@ -31,4 +31,5 @@ struct VentuorRecentSearches: View {
 
 #Preview {
     VentuorRecentSearches()
+        .environmentObject(UserProfileModel.shared)
 }

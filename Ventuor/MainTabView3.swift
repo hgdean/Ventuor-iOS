@@ -116,4 +116,5 @@ struct MainTabView3: View {
 
 #Preview {
     MainTabView3(showIntroScreens: true)
+        .environmentObject(UserProfileModel.shared)
 }

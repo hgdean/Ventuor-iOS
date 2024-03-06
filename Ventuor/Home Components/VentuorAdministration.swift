@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct VentuorAdministration: View {
-    @State private var goodToAdvance: Bool = false
-    @ObservedObject var homeViewModel: HomeViewModel
     
     var body: some View {
         NavigationStack() {
             NavigationLink {
-                VentuorAdminLandingPage(homeViewModel: homeViewModel)
+                VentuorAdminLandingPage()
                 //.navigationBarBackButtonHidden(false)
             } label: {
                 HStack(spacing: 20) {
@@ -37,5 +35,6 @@ struct VentuorAdministration: View {
 }
 
 #Preview {
-    VentuorAdministration(homeViewModel: HomeViewModel.sample)
+    VentuorAdministration()
+        .environmentObject(UserProfileModel.shared)
 }
