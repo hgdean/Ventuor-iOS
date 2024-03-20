@@ -30,6 +30,7 @@ struct VentuorHoursSheet: View {
         HTMLRender(html: hoursHtml)
             //.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 500, maxHeight: .infinity)
             //.padding()
+            .background(Color.white)
     }
     
 //    var body: some View {
@@ -244,6 +245,6 @@ struct VentuorHoursSheet: View {
 //    }
 }
 
-#Preview {
-    VentuorView(ventuorViewModel: VentuorViewModel.sample)
-}
+//#Preview {
+//    VentuorView(ventuorViewModel: VentuorViewModel.sample)
+//}

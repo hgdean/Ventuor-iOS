@@ -16,13 +16,14 @@ struct ProfileViewTab: View {
                 VStack(spacing: 25) {
                     VStack() {
                         ProfilePhoto()
-                        Text(userProfileModel.userProfileDataModel?.fullname ?? "")
+                        Text(userProfileModel.userProfileDataModel.fullname)
                             .font(.title)
-                        Text(userProfileModel.userProfileDataModel?.email ?? "")
+                        Text(userProfileModel.userProfileDataModel.email)
                             .font(.subheadline)
-                        Text(userProfileModel.userProfileDataModel?.username ?? "")
+                        Text(userProfileModel.userProfileDataModel.username)
                             .font(.subheadline)
                     }
+                    .foregroundColor(.ventuorBlue)
                     VStack(spacing: 0) {
                         AccountLink()
                         PreferencesLink()

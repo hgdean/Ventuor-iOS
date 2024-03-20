@@ -11,7 +11,8 @@ struct VentuorAdminLandingPage: View {
     @State var title: String = ""
     @State private var goodToAdvance: Bool = false
     @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
-    
+    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+
     var body: some View {
         NavigationStack() {
             VStack(spacing: 25) {
@@ -33,7 +34,7 @@ struct VentuorAdminLandingPage: View {
                             .frame(width: 20)
                     }
                     .padding([.leading, .trailing], 15)
-                    .border(width: 1, edges: [.bottom], color: .ventuorGray)
+                    //.border(width: 1, edges: [.bottom], color: .ventuorGray)
                 })
                 
                 Button(action: {
@@ -54,12 +55,16 @@ struct VentuorAdminLandingPage: View {
                             .frame(width: 20)
                     }
                     .padding([.leading, .trailing], 15)
-                    .border(width: 1, edges: [.bottom], color: .ventuorGray)
+                    //.border(width: 1, edges: [.bottom], color: .ventuorGray)
                 })
+                
+                Spacer()
             }
+            .background(Color.white)
+            .padding(.top, 20)
         }
         .navigationDestination(isPresented: $goodToAdvance, destination: {
-            VentuorDetailListView(title: title, ventuors: $homeViewModel.ventuors, displayStatusMessage: $homeViewModel.displayStatusMessage)
+            VentuorDetailListView(ventuorViewModel: ventuorViewModel, title: title, ventuors: $homeViewModel.ventuors, displayStatusMessage: $homeViewModel.displayStatusMessage)
         })
         .navigationTitle("Administration")
     }

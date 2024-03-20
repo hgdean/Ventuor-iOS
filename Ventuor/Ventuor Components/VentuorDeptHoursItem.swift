@@ -25,6 +25,7 @@ struct VentuorDeptHoursItem: View {
                     VStack(alignment: .leading) {
                         let name = departmentHours[index].name ?? ""
                         Text(name + " Hours")
+                            .foregroundColor(.ventuorBlue)
                         Text(departmentHours[index].statusMessage ?? "")
                             .fontWeight(.medium)
                             .font(.caption)
@@ -48,6 +49,7 @@ struct VentuorDeptHoursItem: View {
             VentuorHoursSheet(title: (item.deptHours?.name ?? "") + " Hours",  hoursHtml: item.deptHours?.content ?? "")
                 .presentationDetents([.height(500), .medium, .large])
                 .presentationDragIndicator(.automatic)
+                .background(Color.white)
         })
     }
 }

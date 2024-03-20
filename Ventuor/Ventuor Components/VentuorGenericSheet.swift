@@ -26,8 +26,9 @@ struct VentuorGenericSheet: View {
         .ignoresSafeArea()
 
         HTMLRender(html: Utils().webMetaViewPort + html)
-            //.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 500, maxHeight: .infinity)
-            //.padding()
+//            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 500, maxHeight: .infinity)
+//            .padding()
+            .background(Color.white)
     }
 }
 

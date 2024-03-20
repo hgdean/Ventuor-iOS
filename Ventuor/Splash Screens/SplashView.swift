@@ -21,6 +21,8 @@ struct SplashView: View {
                 .scaledToFit()
                 .frame(width: 200, height: 100)
         }
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        .background(Color.white)
         .onAppear() {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 withAnimation {

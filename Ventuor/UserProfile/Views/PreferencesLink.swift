@@ -21,6 +21,7 @@ struct PreferencesLink: View {
         NavigationStack() {
             NavigationLink {
                 PreferencesView(selection: $distanceMetric)
+                    .background(Color.white)
             } label: {
                 HStack(spacing: 20) {
                     Image(systemName: "checkmark.seal")
@@ -30,6 +31,7 @@ struct PreferencesLink: View {
                     
                     VStack(alignment: .leading) {
                         Text("Preferences")
+                            .foregroundColor(.ventuorBlue)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     

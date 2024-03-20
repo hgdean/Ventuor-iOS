@@ -14,7 +14,8 @@ struct RootScreen: View {
     
     @State var showIntroScreens: Bool
     @AppStorage("shouldShowIntroScreens") var shouldShowIntroScreens: Bool = true
-
+    @AppStorage("searchTerms") var searchTerms: String = ""
+    
     init(showIntroScreens: Bool) {
         self.showIntroScreens = showIntroScreens
     }
@@ -26,6 +27,13 @@ struct RootScreen: View {
                 // MainTabView2()
                 // MainTabView3(showIntroScreens: false)
                 MainTabView4()
+                    .alert(item: $userProfileModel.message) { message in
+                        return Alert(
+                            title: Text(message.title),
+                            message: Text(message.message),
+                            dismissButton: .cancel()
+                        )
+                    }
                     .onAppear() {
                         userProfileModel.loadUserProfile(cb: cbGetUserProfile)
                     }

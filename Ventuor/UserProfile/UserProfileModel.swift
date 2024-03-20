@@ -8,6 +8,13 @@
 import SwiftUI
 import SwiftData
 
+enum UserRole: String, CaseIterable {
+    case ROLE_USER          = "ROLE_USER"           // Desktop/browser only user. User account was created on the browser at app.ventuor.com
+    case ROLE_MOBILE_USER   = "ROLE_MOBILE_USER"    // Mobile app only user. User account was created with mobile app
+    case ROLE_PARTNER_USER  = "ROLE_PARTNER_USER"
+    case ROLE_SUPER_USER    = "ROLE_SUPER_USER"     // Admin user 
+}
+
 protocol AppStorable: Codable {
     // So there's a default value when nothing is in app storage
     init()
@@ -19,6 +26,46 @@ extension AppStorable {
     }
     static func writeToAppStorage(_ data: AppStorage<Data>, newValue: Self) {
         data.wrappedValue = (try? JSONEncoder().encode(newValue)) ?? Data()
+    }
+}
+
+final class RecentSearchTerms: AppStorable {
+    var item: [String : CacheSearchTerms] = [:]
+    
+    func getUserSearchItem(userKey: String) -> CacheSearchTerms {
+        if let ventuors = item[userKey] {
+            return ventuors
+        } else {
+            item[userKey] = CacheSearchTerms()
+            return item[userKey]!
+        }
+    }
+}
+
+final class CacheSearchTerms: Codable {
+    var item: [SearchItem] = []
+    
+    func isUsersVentuor(index: Int, userKey: String, term: String) -> Bool {
+        return item[index].termUserKey == (userKey + term)
+    }
+    
+//    init(item: [SearchItem]) {
+//        self.item = item
+//    }
+}
+
+final class SearchItem: Codable {
+    
+    var termUserKey: String
+    var userKey: String
+    var term: String
+    var updated: Date
+
+    init(userKey: String, term: String) {
+        self.termUserKey = userKey + term
+        self.userKey = userKey
+        self.term = term
+        self.updated = .now
     }
 }
 
@@ -63,6 +110,11 @@ final class CVItem: Codable {
 
 class UserProfileModel: ObservableObject {
     
+    @AppStorage("recent-search-list") private var recentSearchList: Data = Data()
+    private(set) var recentSearchTermListItems: RecentSearchTerms {
+        get { RecentSearchTerms.readFromAppStorage(_recentSearchList) }
+        set { RecentSearchTerms.writeToAppStorage(_recentSearchList, newValue: newValue) }
+    }
     @AppStorage("recent-ventuor-list") private var recentVentuorList: Data = Data()
     private(set) var recentVentuorListItems: RecentVentuor {
         get { RecentVentuor.readFromAppStorage(_recentVentuorList) }
@@ -80,15 +132,18 @@ class UserProfileModel: ObservableObject {
 
     static let shared: UserProfileModel = UserProfileModel()
 
-    var userProfileDataModel: UserProfileDataModel?
+    @ObservedObject var userProfileDataModel: UserProfileDataModel = UserProfileDataModel()
 
     @Published var showNameProfileSheet: Bool = false
     @Published var showEmailProfileSheet: Bool = false
     @Published var showUsernameProfileSheet: Bool = false
     @Published var showPasswordProfileSheet: Bool = false
 
-    var userRecentVentuors: RecentVentuor = RecentVentuor()
-    
+    @Published var userRecentSearchTerms: RecentSearchTerms = RecentSearchTerms()
+    @Published var userRecentVentuors: RecentVentuor = RecentVentuor()
+    @Published var savedVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
+    @Published var followingVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
+
     func loadUserProfile(cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
         
         let services = Services(baseURL: API.baseURL + "/mobile/getProfile")
@@ -101,20 +156,28 @@ class UserProfileModel: ObservableObject {
                     let response = try JSONDecoder().decode(MobileGetProfileResponse.self, from: data!)
                     
                     if let profileDetails = response.result?.profileDetails {
-                        let loadedUserProfile = UserProfileDataModel(data: profileDetails)
-                        if let profileSavedVentuors = response.result?.savedVentuors {
-                            loadedUserProfile.setSavedVentuors(data: profileSavedVentuors)
-                        }
-                        if let profileFollowingVentuors = response.result?.followingVentuors {
-                            loadedUserProfile.setFollowingVentuors(data: profileFollowingVentuors)
-                        }
-                        if !loadedUserProfile.userKey.isEmpty {
-                            self.userProfileDataModel = loadedUserProfile
-                            cb(data, error)
-                        }
+//                        let loadedUserProfile = UserProfileDataModel(data: profileDetails)
+//                        if let profileSavedVentuors = response.result?.savedVentuors {
+//                            loadedUserProfile.setSavedVentuors(data: profileSavedVentuors)
+//                        }
+//                        if let profileFollowingVentuors = response.result?.followingVentuors {
+//                            loadedUserProfile.setFollowingVentuors(data: profileFollowingVentuors)
+//                        }
+//                        if !loadedUserProfile.userKey.isEmpty {
+//                            self.userProfileDataModel.set(data: profileDetails)
+//                            cb(data, error)
+//                        }
+
+                        self.userProfileDataModel.setSavedVentuors(data: response.result?.savedVentuors ?? [])
+                        //self.savedVentuors = response.result?.savedVentuors ?? []
+                        self.userProfileDataModel.setFollowingVentuors(data: response.result?.followingVentuors ?? [])
+                        //self.followingVentuors = response.result?.followingVentuors ?? []
+                        self.userProfileDataModel.set(data: profileDetails)
+                        cb(data, error)
                     }
                 } catch {
-                    fatalError("Could not create UserProfile: \(error)")
+                    self.message = Message(title: "Error", message: "Something went wrong. Server may be offline.")
+                    //fatalError("Could not create UserProfile: \(error)")
                 }
             } else {
                 print("loadUserProfile retrived nil in data.")
@@ -132,16 +195,22 @@ class UserProfileModel: ObservableObject {
                 let response = try JSONDecoder().decode(MobileGetProfileResponse.self, from: data!)
                 
                 if let profileDetails = response.result?.profileDetails {
-                    let loadedUserProfile = UserProfileDataModel(data: profileDetails)
-                    if let profileSavedVentuors = response.result?.savedVentuors {
-                        loadedUserProfile.setSavedVentuors(data: profileSavedVentuors)
-                    }
-                    if let profileFollowingVentuors = response.result?.followingVentuors {
-                        loadedUserProfile.setFollowingVentuors(data: profileFollowingVentuors)
-                    }
-                    if !loadedUserProfile.userKey.isEmpty {
-                        self.userProfileDataModel = loadedUserProfile
-                    }
+//                    let loadedUserProfile = UserProfileDataModel(data: profileDetails)
+//                    if let profileSavedVentuors = response.result?.savedVentuors {
+//                        self.userProfileDataModel.setSavedVentuors(data: profileSavedVentuors)
+//                    }
+//                    if let profileFollowingVentuors = response.result?.followingVentuors {
+//                        self.userProfileDataModel.setFollowingVentuors(data: profileFollowingVentuors)
+//                    }
+//                    if !loadedUserProfile.userKey.isEmpty {
+//                        self.userProfileDataModel.set(data: profileDetails)
+//                    }
+
+                    self.userProfileDataModel.setSavedVentuors(data: response.result?.savedVentuors ?? [])
+                    //self.savedVentuors = response.result?.savedVentuors ?? []
+                    self.userProfileDataModel.setFollowingVentuors(data: response.result?.followingVentuors ?? [])
+                    //self.followingVentuors = response.result?.followingVentuors ?? []
+                    self.userProfileDataModel.set(data: profileDetails)
                 }
             } catch {
                 fatalError("Could not create UserProfile: \(error)")
@@ -404,7 +473,7 @@ class UserProfileModel: ObservableObject {
     func addToRecentVentuor(cacheVentuor: CVItem) {
         let recentVentuors = userRecentVentuors.getUserVentuors(userKey: Auth.shared.getUserKey()!)
         for i in 0..<(recentVentuors.item.count) {
-            if recentVentuors.item[i].ventuorUserKey == Auth.shared.getUserKey()! + ( cacheVentuor.ventuorKey) {
+            if recentVentuors.item[i].ventuorUserKey == Auth.shared.getUserKey()! + cacheVentuor.ventuorKey {
                 recentVentuors.item.remove(at: i)
                 break
             }
@@ -416,12 +485,31 @@ class UserProfileModel: ObservableObject {
         //self.recentVentuorListItems = CacheVentuor() // To erase the recent ventuors
         self.recentVentuorListItems = self.userRecentVentuors
     }
-    
     func loadRecentVentuorsFromStorage() {
         self.userRecentVentuors = self.recentVentuorListItems
     }
+
     
-    
+    func addToRecentSearchTerms(cacheSearchItem: SearchItem) {
+        let recentSearchTerms = userRecentSearchTerms.getUserSearchItem(userKey: Auth.shared.getUserKey()!)
+        for i in 0..<(recentSearchTerms.item.count) {
+            if recentSearchTerms.item[i].termUserKey == Auth.shared.getUserKey()! + cacheSearchItem.term {
+                recentSearchTerms.item.remove(at: i)
+                break
+            }
+        }
+        print(Auth.shared.getUserKey()! + cacheSearchItem.term)
+        recentSearchTerms.item.insert(cacheSearchItem, at: 0)
+    }
+
+    func saveRecentSearchTermsToStorage() {
+        //self.recentVentuorListItems = CacheVentuor() // To erase the recent ventuors
+        self.recentSearchTermListItems = self.userRecentSearchTerms
+    }
+    func loadRecentSearchTermsFromStorage() {
+        self.userRecentSearchTerms = self.recentSearchTermListItems
+    }
+
     
 
     // This is used for error message popups that occurr on the server side.

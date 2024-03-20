@@ -24,14 +24,16 @@ struct MainTabView4: View {
                     .tag(Tab.profile)
                     // Hiding Native Tab Bar
                     .toolbar(.hidden, for: .tabBar)
-                SettingsViewTab()
-                    .tag(Tab.settings)
+                ExploreViewTab(activeTab: $activeTab)
+                    .tag(Tab.explore)
                     // Hiding Native Tab Bar
                     .toolbar(.hidden, for: .tabBar)
-                SearchViewTab()
-                    .tag(Tab.search)
+                    .environmentObject(UserProfileModel.shared)
+                AdminViewTab(activeTab: $activeTab)
+                    .tag(Tab.admin)
                     // Hiding Native Tab Bar
                     .toolbar(.hidden, for: .tabBar)
+                    .environmentObject(UserProfileModel.shared)
             }
             .overlay(alignment: .bottom) {
                 TabBarView(activeTab: $activeTab)

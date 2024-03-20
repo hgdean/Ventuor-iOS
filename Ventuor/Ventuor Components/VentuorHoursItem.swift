@@ -26,6 +26,7 @@ struct VentuorHoursItem: View {
                     
                     VStack(alignment: .leading) {
                         Text("Hours")
+                            .foregroundColor(.ventuorBlue)
                         Text(hoursSplMsg)
                             .fontWeight(.medium)
                             .font(.caption)

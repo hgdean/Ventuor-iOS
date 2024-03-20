@@ -15,7 +15,7 @@ struct HomeViewTab: View {
     @Binding var activeTab: Tab
 
     @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
-    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+    //@ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
     @StateObject var manager = LocationDataManager()
 
     var body: some View {
@@ -27,24 +27,29 @@ struct HomeViewTab: View {
                     .frame(height: 200)
 
                 ScrollView() {
+                    HorizontalViewList(recentVentuors2: userProfileModel.userRecentVentuors.getUserVentuors(userKey: Auth.shared.getUserKey() ?? ""), homeViewModel: homeViewModel)
+                        .onAppear() {
+                            homeViewModel.objectWillChange.send()
+                        }
+
+                    Divider()
+                    
                     if $homeViewModel.isThereSomethingHere.wrappedValue {
                         YouAreHereLink(homeViewModel: homeViewModel)
                     }
 
-                    HorizontalViewList()
-
                     VentuorNearby()
-
-                    VentuorSearchItem(tabSelection: $tabSelection, activeTab: $activeTab)
-                    
-                    VentuorAdministration()
-                
-//                    VentuorRecentItems(homeViewModel: homeViewModel, ventuorViewModel: ventuorViewModel)
-//                    VentuorSavedItems(homeViewModel: homeViewModel)
-//                    VentuorFollowingItems(homeViewModel: homeViewModel)
                 }
             }
+            .background(.white)
         }
+//        .alert(item: $userProfileModel.message) { message in
+//            return Alert(
+//                title: Text(message.title),
+//                message: Text(message.message),
+//                dismissButton: .cancel()
+//            )
+//        }
         .onAppear() {
             homeViewModel.getYouAreHereVentuorList()
         }

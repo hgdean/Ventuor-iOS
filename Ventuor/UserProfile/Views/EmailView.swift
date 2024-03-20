@@ -39,6 +39,7 @@ struct EmailView: View {
                       self.focusedField = .field
                     }
             }
+            .foregroundColor(Color.ventuorBlue)
             .errorAlert(error: $userProfileModel.error)
             .alert(item: $userProfileModel.message) { message in
                 return Alert(
@@ -93,6 +94,7 @@ struct EmailView: View {
             .sheet(isPresented: $userProfileModel.isEmailValid) {
                 ConfirmEmail(isPresented: $isPresented)
                     .presentationDragIndicator(.automatic)
+                    .background(Color.white)
             }
         }
         Spacer()

@@ -10,9 +10,16 @@ import MapKit
 
 struct VentuorMapsItem: View {
     
+    //@State var latitude: Double
+    //@State var longitude: Double
+    
+    @ObservedObject var ventuorViewModel: VentuorViewModel
+
     @State private var showingSheet = false
     
     var body: some View {
+        let latitude = ventuorViewModel.ventuor?.result?.ventuor?.latitude ?? Utils().DEFAULT_HOME_LOCATION_LATITUDE
+        let longitude = ventuorViewModel.ventuor?.result?.ventuor?.longitude ?? Utils().DEFAULT_HOME_LOCATION_LONGITUDE
         Button(action: {
             showingSheet = true
         }, label: {
@@ -31,9 +38,6 @@ struct VentuorMapsItem: View {
             .cornerRadius(10)
         })
         .actionSheet(isPresented: $showingSheet) {
-            let latitude = 45.5088
-            let longitude = -73.554
-            
             let appleURL = "http://maps.apple.com/?daddr=\(latitude),\(longitude)"
             let googleURL = "comgooglemaps://?daddr=\(latitude),\(longitude)&directionsmode=driving"
             let wazeURL = "waze://?ll=\(latitude),\(longitude)&navigate=false"
@@ -65,5 +69,5 @@ struct VentuorMapsItem: View {
     }
 }
 #Preview {
-    VentuorMapsItem()
+    VentuorMapsItem(ventuorViewModel: VentuorViewModel.sample)
 }

@@ -8,8 +8,7 @@
 import SwiftUI
 import SwiftData
 
-@Model
-class UserProfileDataModel {
+class UserProfileDataModel: ObservableObject {
     
     @Attribute(.unique) var userKey: String = ""
     
@@ -28,9 +27,12 @@ class UserProfileDataModel {
     // var homeAddress: Address = Address()
     // var workAddress: Address = Address()
     
-    var savedVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
-    var followingVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
+    @Published var savedVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
+    @Published var followingVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
 
+    init() {
+    }
+    
     init(userKey: String, username: String, fullname: String, countrycode: String, phone: String, email: String, profilePhoto: String, profilePhotoName: String, profilePhotoType: String, roles: [String] = [String](), lastModified: String) {
         self.userKey = userKey
         self.username = username
@@ -48,6 +50,10 @@ class UserProfileDataModel {
     }
     
     init(data: UserProfileDetailsVO) {
+        set(data: data)
+    }
+
+    func set(data: UserProfileDetailsVO) {
         self.userKey = data.userKey ?? ""
         self.username = data.userName ?? ""
         self.fullname = data.fullname ?? ""
@@ -59,11 +65,10 @@ class UserProfileDataModel {
         self.profilePhotoType = data.profilePhotoType ?? ""
         self.roles = data.roles ?? []
         self.lastModified = data.lastModified ?? ""
-        
         // self.homeAddress = Address(data: data.homeAddress ?? UserAddressVO())
         // self.workAddress = Address(data: data.workAddress ?? UserAddressVO())
     }
-    
+
     func setSavedVentuors(data: [SaveFollowVentuor]) {
         self.savedVentuors = data
     }

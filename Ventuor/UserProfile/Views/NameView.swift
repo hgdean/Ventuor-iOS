@@ -35,6 +35,7 @@ struct NameView: View {
                     }
                 
             }
+            .foregroundColor(Color.ventuorBlue)
             .errorAlert(error: $userProfileModel.error)
             .alert(item: $userProfileModel.message) { message in
                 return Alert(

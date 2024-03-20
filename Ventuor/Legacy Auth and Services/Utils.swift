@@ -11,6 +11,9 @@ import CoreLocation
 
 class Utils
 {
+    var DEFAULT_HOME_LOCATION_LATITUDE = 42.5803
+    var DEFAULT_HOME_LOCATION_LONGITUDE = -83.0302
+    
     var webMetaViewPort: String = "<meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>"
     
     class func showMessage(_ message: String, withTitle: String) {

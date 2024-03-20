@@ -13,8 +13,8 @@ protocol LogoImageDownloader {
 }
 
 class DefaultLogoImageDownloader: LogoImageDownloader {
-    let ventuorKey: String
-    let liveMode: Bool
+    @State var ventuorKey: String
+    @State var liveMode: Bool
     
     var cacheKey: String {
         ventuorKey
@@ -45,7 +45,7 @@ class DefaultLogoImageDownloader: LogoImageDownloader {
                         }
                     }
                 } catch {
-                    //fatalError("Could not decode GetVentuorLogoResponseResult: \(error)")
+                    print("Could not decode GetVentuorLogoResponseResult: \(error)")
                 }
             }
         })
@@ -84,6 +84,7 @@ struct RemoteLogoImage: View {
         if let uiImage = self.uiImage {
             Image(uiImage: uiImage)
                 .resizable()
+                .onAppear(perform: getImage)
         } else {
             placeholderImage
                 .resizable()

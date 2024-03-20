@@ -17,6 +17,7 @@ struct EmailLink: View {
                 HStack(spacing: 20) {
                     VStack(alignment: .leading) {
                         Text("Email")
+                            .foregroundColor(.ventuorBlue)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     
@@ -33,9 +34,10 @@ struct EmailLink: View {
             })
             .background(Color(.white))
             .sheet(isPresented: $userProfileModel.showEmailProfileSheet) {
-                EmailView(email: userProfileModel.userProfileDataModel?.email ?? "", 
+                EmailView(email: userProfileModel.userProfileDataModel.email, 
                           isPresented: $userProfileModel.showEmailProfileSheet)
                     .presentationDragIndicator(.automatic)
+                    .background(Color.white)
             }
     }
 }

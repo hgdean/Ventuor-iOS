@@ -41,6 +41,7 @@ struct ConfirmEmail: View {
                         self.focusedField = .field
                     }
             }
+            .foregroundColor(Color.ventuorBlue)
             .errorAlert(error: $userProfileModel.error)
             .alert(item: $userProfileModel.message) { message in
                 return Alert(

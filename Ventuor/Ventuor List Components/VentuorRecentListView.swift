@@ -13,46 +13,50 @@ struct VentuorRecentListView: View {
     @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
 
     var title: String
-    @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
-    @ObservedObject var ventuorViewModel: VentuorViewModel
+    var recentVentuors2: CacheVentuor
+    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
 
+    @ObservedObject var homeViewModel: HomeViewModel
     @State var showVentuorPage: Bool = false
     
     var body: some View {
-        let recentVentuors = userProfileModel.userRecentVentuors.getUserVentuors(userKey: Auth.shared.getUserKey() ?? "")
         NavigationStack() {
-            let listCount = recentVentuors.item.count
+            let listCount = recentVentuors2.item.count
             ScrollView() {
-                VStack(spacing: 10) {
+                VStack(spacing: 2) {
                     ForEach(0..<listCount, id: \.self) { index in
-                        if recentVentuors.item[index].userKey == Auth.shared.getUserKey() {
+                        if recentVentuors2.item[index].userKey == Auth.shared.getUserKey() {
                             Button(action: {
-                                ventuorViewModel.getVentuorState(ventuorKey: recentVentuors.item[index].ventuorKey)
+                                ventuorViewModel.setUserProfileModel(userProfileModel: userProfileModel)
+                                ventuorViewModel.getVentuorState(ventuorKey: recentVentuors2.item[index].ventuorKey)
                             }, label: {
                                 VStack(alignment: .leading, spacing: 8) {         // Main header name / info
                                     
                                     HStack() {
-                                        let ventuorKey = recentVentuors.item[index].ventuorKey
+                                        let ventuorKey = recentVentuors2.item[index].ventuorKey
                                         let liveMode = false
                                         RemoteLogoImage(
-                                            ventuorKey: recentVentuors.item[index].ventuorKey,
+                                            ventuorKey: recentVentuors2.item[index].ventuorKey,
                                             liveMode: liveMode,
                                             placeholderImage: Image("missing"), // Image(systemName: "photo"),
                                             logoImageDownloader: DefaultLogoImageDownloader(ventuorKey: ventuorKey, liveMode: liveMode))
                                         .scaledToFit()
-                                        .frame(width: 60, height: 60)
+                                        .frame(width: 40, height: 40)
                                         .padding(0)
                                         
                                         VStack(alignment: .leading, spacing: 2) {
-                                            Text(recentVentuors.item[index].title)
+                                            Text(recentVentuors2.item[index].title)
                                                 .fontWeight(.regular)
-                                                .font(.title2)
+                                                .font(.title3)
                                                 .padding(0)
-                                            Text(recentVentuors.item[index].subTitle1)
+                                                .foregroundColor(.ventuorBlue)
+                                            Text(recentVentuors2.item[index].subTitle1)
                                                 .padding(.top, -3)
                                                 .padding(.bottom, 2)
-                                                .font(.caption)
                                                 .fontWeight(.medium)
+                                                .foregroundColor(.ventuorBlue)
+                                                .font(.system(size: 12))
+                                                .opacity(0.4)
                                         }
                                         .lineLimit(1)
                                         .padding(.leading, 2)
@@ -72,27 +76,30 @@ struct VentuorRecentListView: View {
                 }
                 .padding(.bottom, 70)
             }
-            .background(Color("ventuor-gray"))
+            .background(Color.ventuorLightGray)
         }
         .navigationDestination(isPresented: $ventuorViewModel.ventuorStateLive, destination: {
             VentuorView(ventuorViewModel: ventuorViewModel)
         })
         .navigationTitle(title)
         .overlay {
-            if recentVentuors.item.count == 0 {
+            if recentVentuors2.item.count == 0 {
                 ContentUnavailableView(label: {
-                    Image(systemName: "tray.fill")
                 }, description: {
-                    Text("Nothing to show")
+                    VStack() {
+                        Image(systemName: "tray.fill")
+                        Text("Nothing to show")
+                    }
+                    .foregroundColor(Color.gray)
                 }, actions: {
                 })
-                .frame(width: UIScreen.main.bounds.width)
+                .background(Color.white)
             }
         }
     }
 }
 
 #Preview {
-    VentuorRecentListView(title: "Test", homeViewModel: HomeViewModel.sample, ventuorViewModel: VentuorViewModel.sample)
+    VentuorRecentListView(title: "Test", recentVentuors2: CacheVentuor(), ventuorViewModel: VentuorViewModel.sample, homeViewModel: HomeViewModel.sample)
         .environmentObject(UserProfileModel.shared)
 }

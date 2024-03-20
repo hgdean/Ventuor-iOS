@@ -10,11 +10,13 @@ import SwiftData
 
 struct HorizontalViewList: View {
     @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
-    
+
+    var recentVentuors2: CacheVentuor
+
     @State private var selectedTab: TabRecentSavedFollow = .recent
     @Environment(\.colorScheme) private var scheme
 
-    @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
+    @ObservedObject var homeViewModel: HomeViewModel
     @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
     
     @State var showVentuorPage: Bool = false
@@ -35,7 +37,7 @@ struct HorizontalViewList: View {
                             .font(.footnote)
                             .fontWeight(.bold)
                     }
-                    .background(Color.black.opacity(0.001))
+                    .background(.ventuorLightGray)
                     .frame(height: 40, alignment: .leading)
                     //                .padding([.top, .bottom], 4)
                     //                .padding([.leading, .trailing], 4)
@@ -60,7 +62,7 @@ struct HorizontalViewList: View {
                             .font(.footnote)
                             .fontWeight(.bold)
                     }
-                    .background(Color.black.opacity(0.001))
+                    .background(.ventuorLightGray)
                     .frame(height: 40, alignment: .leading)
                     //                .padding([.top, .bottom], 4)
                     //                .padding([.leading, .trailing], 4)
@@ -85,7 +87,7 @@ struct HorizontalViewList: View {
                             .font(.footnote)
                             .fontWeight(.bold)
                     }
-                    .background(Color.black.opacity(0.001))
+                    .background(.ventuorLightGray)
                     .frame(height: 40, alignment: .leading)
                     //                .padding([.top, .bottom], 4)
                     //                .padding([.leading, .trailing], 4)
@@ -104,7 +106,8 @@ struct HorizontalViewList: View {
                     switch selectedTab {
                     case .recent:
                         if userProfileModel.userRecentVentuors.item.count > 0 {
-                            NavigationLink(destination: VentuorRecentListView(title: "Recent Ventuors", ventuorViewModel: VentuorViewModel()), label: {
+                            NavigationLink(destination: VentuorRecentListView(title: "Recent Ventuors", 
+                                    recentVentuors2: recentVentuors2, homeViewModel: homeViewModel), label: {
                                 Spacer()
                                 Text("See all")
                                     .foregroundColor(Color(.blue))
@@ -115,7 +118,7 @@ struct HorizontalViewList: View {
                             })
                         }
                     case .saved:
-                        NavigationLink(destination: VentuorCompactListView(title: "Saved Ventuors", savedFollowingVentuors: userProfileModel.userProfileDataModel?.savedVentuors ?? [], homeViewModel: homeViewModel, ventuorViewModel: VentuorViewModel()), label: {
+                        NavigationLink(destination: VentuorCompactListView(title: "Saved Ventuors", savedFollowingVentuors: userProfileModel.userProfileDataModel.savedVentuors, homeViewModel: homeViewModel), label: {
                             Spacer()
                             Text("See all")
                                 .foregroundColor(Color(.blue))
@@ -125,7 +128,7 @@ struct HorizontalViewList: View {
                                 .padding([.top], 8)
                         })
                     case .follow:
-                        NavigationLink(destination: VentuorCompactListView(title: "Following Ventuors", savedFollowingVentuors: userProfileModel.userProfileDataModel?.followingVentuors ?? [], homeViewModel: homeViewModel, ventuorViewModel: VentuorViewModel()), label: {
+                        NavigationLink(destination: VentuorCompactListView(title: "Following Ventuors", savedFollowingVentuors: userProfileModel.userProfileDataModel.followingVentuors, homeViewModel: homeViewModel), label: {
                             Spacer()
                             Text("See all")
                                 .foregroundColor(Color(.blue))
@@ -136,29 +139,27 @@ struct HorizontalViewList: View {
                         })
                     }
                 }
-                
-                
+                .padding(0)
+
                 TabView(selection: self.$selectedTab) {
-                    HRecentVentuorList()
+                    HRecentVentuorList(recentVentuors: recentVentuors2)
                         .tag(TabRecentSavedFollow.recent)
                         .id(TabRecentSavedFollow.recent)
                         .containerRelativeFrame(.horizontal)
-                    HVentuorList(userProfileModel.userProfileDataModel?.savedVentuors ?? [])
+                    HVentuorList(userProfileModel.userProfileDataModel.savedVentuors)
                         .tag(TabRecentSavedFollow.saved)
                         .id(TabRecentSavedFollow.saved)
                         .containerRelativeFrame(.horizontal)
-                    HVentuorList(userProfileModel.userProfileDataModel?.followingVentuors ?? [])
+                    HVentuorList(userProfileModel.userProfileDataModel.followingVentuors)
                         .tag(TabRecentSavedFollow.follow)
                         .id(TabRecentSavedFollow.follow)
                         .containerRelativeFrame(.horizontal)
                 }
-                //.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                //.background(.green)
-                .frame(height: 150)
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .frame(height: 100)
                 .errorAlert(error: $ventuorViewModel.errorVentuorState)
             }
-            //.background(Color.cyan)
-            //.frame(maxHeight: 300)
+            .background(Color.white)
         }
         .navigationDestination(isPresented: $ventuorViewModel.ventuorStateLive, destination: {
             VentuorView(ventuorViewModel: ventuorViewModel)
@@ -170,12 +171,14 @@ struct HorizontalViewList: View {
         let listCount = list.count
         if listCount == 0 {
             ContentUnavailableView(label: {
-                Image(systemName: "tray.fill")
             }, description: {
-                Text("Nothing to show")
+                VStack() {
+                    Image(systemName: "tray.fill")
+                    Text("Nothing to show")
+                }
+                .foregroundColor(Color.gray)
             }, actions: {
             })
-            .frame(width: UIScreen.main.bounds.width)
         } else {
             ScrollView(.horizontal) {
                 // LazyHGrid(rows: Array(repeating: GridItem(.adaptive(minimum: 50, maximum: 50)), count: 1), spacing: 0)
@@ -196,44 +199,43 @@ struct HorizontalViewList: View {
     }
     
     @ViewBuilder
-    func HRecentVentuorList() -> some View {
-        let list = userProfileModel.userRecentVentuors.getUserVentuors(userKey: Auth.shared.getUserKey() ?? "")
-        let listCount = list.item.count
+    func HRecentVentuorList(recentVentuors: CacheVentuor) -> some View {
+        let listCount = recentVentuors.item.count
         if listCount == 0 {
             ContentUnavailableView(label: {
-                Image(systemName: "tray.fill")
             }, description: {
-                Text("Nothing to show")
+                VStack() {
+                    Image(systemName: "tray.fill")
+                    Text("Nothing to show")
+                }
+                .foregroundColor(Color.gray)
             }, actions: {
             })
-            .frame(width: UIScreen.main.bounds.width)
         } else {
             ScrollView(.horizontal) {
-                // LazyHGrid(rows: Array(repeating: GridItem(.adaptive(minimum: 50, maximum: 50)), count: 1), spacing: 0)
                 LazyHGrid(rows: Array(repeating: GridItem(.flexible(minimum: 5, maximum: 5)), count: 1), spacing: 7, content: {
                     ForEach(0..<listCount, id: \.self) { index in
-                        ShowVentuorItem(ventuorKey: list.item[index].ventuorKey, title: list.item[index].title, subTitle1: list.item[index].subTitle1)
+                        ShowVentuorItem(ventuorKey: recentVentuors.item[index].ventuorKey, title: recentVentuors.item[index].title, subTitle1: recentVentuors.item[index].subTitle1)
                     }
                 })
                 .frame(height: 100)
             }
             .padding(.leading, 17)
-            //.background(Color.black)
             //.scrollPosition(id: $selectedTab)
             .scrollIndicators(.hidden)
             //.scrollTargetBehavior(.paging)
             .scrollClipDisabled()
-            
         }
     }
 
     @ViewBuilder
     func ShowVentuorItem(ventuorKey: String, title: String, subTitle1: String) -> some View {
         Button(action: {
+            ventuorViewModel.setUserProfileModel(userProfileModel: userProfileModel)
             ventuorViewModel.getVentuorState(ventuorKey: ventuorKey)
         }, label: {
             ZStack() {
-                RoundedRectangle(cornerRadius: 15)
+                RoundedRectangle(cornerRadius: 25)
                     .fill(Color(.ventuorLightGray))
                 
                 VStack(alignment: .leading, spacing: 10) {
@@ -258,6 +260,7 @@ struct HorizontalViewList: View {
                             .font(.footnote)
                             .fontWeight(.bold)
                             .lineLimit(1)
+                            .foregroundColor(.ventuorBlue)
                     }
                 }
                 .padding([.leading, .trailing], 15)
@@ -270,7 +273,7 @@ struct HorizontalViewList: View {
 }
 
 #Preview {
-    HorizontalViewList(homeViewModel: HomeViewModel.sample, ventuorViewModel: VentuorViewModel.sample)
+    HorizontalViewList(recentVentuors2: UserProfileModel.shared.userRecentVentuors.getUserVentuors(userKey: Auth.shared.getUserKey() ?? ""), homeViewModel: HomeViewModel.sample)
         .environmentObject(UserProfileModel.shared)
 }
 

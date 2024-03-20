@@ -40,12 +40,8 @@ struct MainTabView3: View {
                             .tag(2)
                         // Hiding Native Tab Bar
                             .toolbar(.hidden, for: .tabBar)
-                        SettingsViewTab()
+                        ExploreViewTab(activeTab: $activeTab)
                             .tag(3)
-                        // Hiding Native Tab Bar
-                            .toolbar(.hidden, for: .tabBar)
-                        SearchViewTab()
-                            .tag(4)
                         // Hiding Native Tab Bar
                             .toolbar(.hidden, for: .tabBar)
                         

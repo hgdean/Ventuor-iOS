@@ -24,6 +24,7 @@ struct VentuorPagesItem: View {
                     VStack(alignment: .leading) {
                         let name = pages[index].title ?? ""
                         Text(name)
+                            .foregroundColor(.ventuorBlue)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     

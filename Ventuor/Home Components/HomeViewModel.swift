@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import Network
 
 class HomeViewModel: ObservableObject {
     @Published var ventuorList: VentuorList? = nil
@@ -16,6 +17,8 @@ class HomeViewModel: ObservableObject {
 
     @Published var isThereSomethingHere: Bool = false
     @Published var youAreHereListReady: Bool = false
+
+    @Published var searchResult: Bool = false
 
     //@Published var savedVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
     //@Published var followingVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
@@ -37,6 +40,7 @@ class HomeViewModel: ObservableObject {
             displayStatusMessage = "No available Ventuors to show"
         } else {
             displayStatusMessage = "Ready"
+            searchResult = true
         }
     }
     
@@ -54,7 +58,7 @@ class HomeViewModel: ObservableObject {
             ventuorList = response
             ready(ventuors: ventuorList?.result?.ventuors ?? [])
         } catch {
-            fatalError("Could not decode VentuorList: \(error)")
+            print("Could not decode VentuorList: \(error)")
         }
     }
     
@@ -93,7 +97,8 @@ class HomeViewModel: ObservableObject {
                     }
                 }
             } catch {
-                fatalError("Could not decode VentuorList: \(error)")
+                self.message = Message(title: "Error", message: "Something went wrong. Server may be offline.")
+                //fatalError("Could not decode VentuorList: \(error)")
             }
         } else {
             print("Error: Data is nil. func cbYouAreHereVentuorList()")
@@ -179,4 +184,14 @@ class HomeViewModel: ObservableObject {
     func logout() {
         Auth.shared.logout()
     }
+    
+    // This is used for error message popups that occurr on the server side.
+    // The error messages come from the server, and this is used to display those
+    @Published var message: Message? = nil
+    struct Message: Identifiable {
+        let id = UUID()
+        let title: String
+        let message: String
+    }
+
 }

@@ -25,9 +25,6 @@ struct LandingView: View {
     var body: some View {
         NavigationStack() {
             VStack {
-                Button("Show alert") {
-                    self.message = Message(text: "Hi!")
-                }
                 // image
                 Image("1000x1000 @ 300 res")
                     .resizable()
@@ -78,12 +75,6 @@ struct LandingView: View {
                 }
                 .background(Color("ventuor-gray"))
                 .cornerRadius(13)
-            }
-            .alert(item: $message) { message in
-                Alert(
-                    title: Text(message.text),
-                    dismissButton: .cancel()
-                )
             }
         }
     }

@@ -17,6 +17,7 @@ struct UsernameLink: View {
                 HStack(spacing: 20) {
                     VStack(alignment: .leading) {
                         Text("Username")
+                            .foregroundColor(.ventuorBlue)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     
@@ -33,8 +34,9 @@ struct UsernameLink: View {
             })
             .background(Color(.white))
             .sheet(isPresented: $userProfileModel.showUsernameProfileSheet) {
-                UsernameView(username: userProfileModel.userProfileDataModel?.username ?? "")
+                UsernameView(username: userProfileModel.userProfileDataModel.username)
                     .presentationDragIndicator(.automatic)
+                    .background(Color.white)
             }
     }
 }

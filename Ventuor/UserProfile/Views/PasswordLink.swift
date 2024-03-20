@@ -17,6 +17,7 @@ struct PasswordLink: View {
                 HStack(spacing: 20) {
                     VStack(alignment: .leading) {
                         Text("Password")
+                            .foregroundColor(.ventuorBlue)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     
@@ -35,6 +36,7 @@ struct PasswordLink: View {
             .sheet(isPresented: $userProfileModel.showPasswordProfileSheet) {
                 PasswordView()
                     .presentationDragIndicator(.automatic)
+                    .background(Color.white)
             }
     }
 }

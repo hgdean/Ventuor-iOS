@@ -17,6 +17,7 @@ struct NameLink: View {
                 HStack(spacing: 20) {
                     VStack(alignment: .leading) {
                         Text("Name")
+                            .foregroundColor(.ventuorBlue)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -33,8 +34,9 @@ struct NameLink: View {
             })
             .background(Color(.white))
             .sheet(isPresented: $userProfileModel.showNameProfileSheet) {
-                NameView(fullname: userProfileModel.userProfileDataModel?.fullname ?? "")
+                NameView(fullname: userProfileModel.userProfileDataModel.fullname)
                     .presentationDragIndicator(.automatic)
+                    .background(Color.white)
             }
     }
 }

@@ -36,7 +36,7 @@ struct PasswordView: View {
                     .task {
                         self.focusedField = .field
                     }
-                
+
                 SecureField("New password", text: $newPassword)
                     .autocapitalization(.none)
                     .font(.callout)
@@ -48,6 +48,7 @@ struct PasswordView: View {
                     .padding(.leading, 18)
                     .padding(.trailing, 18)
             }
+            .foregroundColor(Color.ventuorBlue)
             .errorAlert(error: $userProfileModel.error)
             .alert(item: $userProfileModel.message) { message in
                 return Alert(

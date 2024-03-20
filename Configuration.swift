@@ -31,6 +31,6 @@ enum Configuration {
 
 enum API {
     static var baseURL: String {
-        return try! "http://" + Configuration.value(for: "BASE_URL")
+        return try! "https://" + Configuration.value(for: "BASE_URL")
     }
 }

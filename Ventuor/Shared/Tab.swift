@@ -10,8 +10,7 @@ import SwiftUI
 enum Tab: String, CaseIterable {
     case home = "Home"
     case profile = "Profile"
-    case settings = "Settings"
-    case search = "Search"
+    case explore = "Explore"
     case admin = "Admin"
     
     var systemImage: String {
@@ -20,12 +19,10 @@ enum Tab: String, CaseIterable {
             return "house"
         case .profile:
             return "person"
-        case .settings:
-            return "gearshape"
-        case .search:
-            return "magnifyingglass.circle"
+        case .explore:
+            return "safari"
         case .admin:
-            return "archivebox" // building.2.crop.circle storefront.circle folder.badge.gearshape
+            return "storefront.circle" // building.2.crop.circle storefront.circle folder.badge.gearshape person.badge.key
         }
     }
     

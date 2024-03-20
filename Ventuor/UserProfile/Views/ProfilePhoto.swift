@@ -41,7 +41,7 @@ struct ProfilePhoto: View {
                         .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                         .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                         .overlay(Circle().stroke(Color.yellow, lineWidth: 5))
-                        .opacity(0.2)
+                        .opacity(0.6)
                 }
             }
         }
@@ -133,8 +133,8 @@ struct ProfilePhoto: View {
     }
     
     func createImage() {
-        if userProfileModel.userProfileDataModel != nil && userProfileModel.userProfileDataModel?.profilePhoto != "" {
-            let decodedData = Data(base64Encoded: (userProfileModel.userProfileDataModel?.profilePhoto)!, options: Data.Base64DecodingOptions(rawValue: 0))
+        if userProfileModel.userProfileDataModel.profilePhoto != "" {
+            let decodedData = Data(base64Encoded: (userProfileModel.userProfileDataModel.profilePhoto), options: Data.Base64DecodingOptions(rawValue: 0))
             uiImage = UIImage(data: decodedData!) ?? UIImage()
         }
     }

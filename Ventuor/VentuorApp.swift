@@ -17,7 +17,7 @@ struct VentuorApp: App {
 
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            UserProfileDataModel.self
+//            UserProfileDataModel.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -42,9 +42,11 @@ struct VentuorApp: App {
         .modelContainer(sharedModelContainer)
         .onChange(of: scenePhase) {
             if scenePhase == .background {
+                UserProfileModel.shared.saveRecentSearchTermsToStorage()
                 UserProfileModel.shared.saveRecentVentuorsToStorage()
             }
             if scenePhase == .active {
+                UserProfileModel.shared.loadRecentSearchTermsFromStorage()
                 UserProfileModel.shared.loadRecentVentuorsFromStorage()
             }
         }

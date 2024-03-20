@@ -58,7 +58,7 @@ enum ErrorVentuorState: LocalizedError {
 }
 
 class VentuorViewModel: ObservableObject {
-    var userProfileModel: UserProfileModel = UserProfileModel.shared
+    var userProfileModel: UserProfileModel?
 
     var ventuorKey: String = ""
     var title: String = ""
@@ -93,6 +93,10 @@ class VentuorViewModel: ObservableObject {
         default:
             return ErrorVentuorState.NULL
         }
+    }
+    
+    func setUserProfileModel(userProfileModel: UserProfileModel) {
+        self.userProfileModel = userProfileModel
     }
     
     func getVentuorState(ventuorKey: String) {
@@ -156,8 +160,10 @@ class VentuorViewModel: ObservableObject {
     }
 
     fileprivate func updateSavedFollowingButtons() -> Void {
-        isVentuorSavedByUser = updateVentuorSavedFollowedByUser(userProfileModel.userProfileDataModel?.savedVentuors ?? [])
-        isVentuorFollowedByUser = updateVentuorSavedFollowedByUser(userProfileModel.userProfileDataModel?.followingVentuors ?? [])
+        isVentuorSavedByUser = updateVentuorSavedFollowedByUser(userProfileModel!.userProfileDataModel.savedVentuors)
+        //isVentuorSavedByUser = updateVentuorSavedFollowedByUser(userProfileModel.savedVentuors)
+        isVentuorFollowedByUser = updateVentuorSavedFollowedByUser(userProfileModel!.userProfileDataModel.followingVentuors)
+        //isVentuorFollowedByUser = updateVentuorSavedFollowedByUser(userProfileModel.followingVentuors)
     }
 
     fileprivate func cbGetUserProfile(data: Data?, error: NSError?) -> Void {
@@ -165,10 +171,11 @@ class VentuorViewModel: ObservableObject {
     }
 
     func updateUserProfile() {
-        userProfileModel.loadUserProfile(cb: cbGetUserProfile)
+        userProfileModel!.loadUserProfile(cb: cbGetUserProfile)
     }
     
     func saveVentuor(ventuorKey: String, title: String, subtitle1: String, iconLocation: String) {
+        self.ventuorKey = ventuorKey
         let services = Services(baseURL: API.baseURL + "/mobile/saveVentuor")
         services.saveVentuor(ventuorKey, title: title, subtitle1: subtitle1, iconLocation: iconLocation, cb: cbSaveVentuor)
     }
@@ -179,6 +186,7 @@ class VentuorViewModel: ObservableObject {
     }
     
     func unSaveVentuor(ventuorKey: String) {
+        self.ventuorKey = ventuorKey
         let services = Services(baseURL: API.baseURL + "/mobile/unSaveVentuor")
         services.unSaveVentuor(ventuorKey, cb: cbUnsaveVentuor)
     }
@@ -189,6 +197,7 @@ class VentuorViewModel: ObservableObject {
     }
     
     func followVentuor(ventuorKey: String, title: String, subtitle1: String, iconLocation: String) {
+        self.ventuorKey = ventuorKey
         let services = Services(baseURL: API.baseURL + "/mobile/followVentuor")
         services.followVentuor(ventuorKey, title: title, subtitle1: subtitle1, iconLocation: iconLocation, cb: cbFollowVentuor)
     }
@@ -199,6 +208,7 @@ class VentuorViewModel: ObservableObject {
     }
     
     func unFollowVentuor(ventuorKey: String) {
+        self.ventuorKey = ventuorKey
         let services = Services(baseURL: API.baseURL + "/mobile/unFollowVentuor")
         services.unFollowVentuor(ventuorKey, cb: cbunFollowVentuor)
     }
@@ -218,7 +228,7 @@ class VentuorViewModel: ObservableObject {
     }
     
     func addToRecentVentuor() {
-            userProfileModel.addToRecentVentuor(cacheVentuor: CVItem(userKey: Auth.shared.getUserKey()!, ventuorKey: ventuor?.result?.ventuor?.ventuorKey ?? "", title: ventuor?.result?.ventuor?.title ?? "", subTitle1: ventuor?.result?.ventuor?.subTitle1 ?? ""))
+            userProfileModel!.addToRecentVentuor(cacheVentuor: CVItem(userKey: Auth.shared.getUserKey()!, ventuorKey: ventuor?.result?.ventuor?.ventuorKey ?? "", title: ventuor?.result?.ventuor?.title ?? "", subTitle1: ventuor?.result?.ventuor?.subTitle1 ?? ""))
     }
 
 }

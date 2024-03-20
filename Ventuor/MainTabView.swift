@@ -22,12 +22,8 @@ struct MainTabView: View {
                     .tag(Tab.profile)
                     // Hiding Native Tab Bar
                     .toolbar(.hidden, for: .tabBar)
-                SettingsViewTab()
-                    .tag(Tab.settings)
-                    // Hiding Native Tab Bar
-                    .toolbar(.hidden, for: .tabBar)
-                SearchViewTab()
-                    .tag(Tab.search)
+                ExploreViewTab(activeTab: $activeTab)
+                    .tag(Tab.explore)
                     // Hiding Native Tab Bar
                     .toolbar(.hidden, for: .tabBar)
             }

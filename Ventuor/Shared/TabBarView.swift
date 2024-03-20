@@ -15,11 +15,11 @@ struct sideBar1: Identifiable {
     var index: Int
 }
 let sidebar1 = [
-    sideBar1(icon: "house", title: "Home", tab: .home, index: 2),
-    sideBar1(icon: "person", title: "Profile", tab: .profile, index: 4),
-    sideBar1(icon: "gearshape", title: "Settings", tab: .settings, index: 0),
-    sideBar1(icon: "magnifyingglass.circle", title: "Search", tab: .search, index: 1),
-    sideBar1(icon: "archivebox", title: "Admin", tab: .admin, index: 3),
+    sideBar1(icon: "house", title: "Home", tab: .home, index: 0),
+    sideBar1(icon: "person", title: "Profile", tab: .profile, index: 1),
+    sideBar1(icon: "safari", title: "Explore", tab: .explore, index: 2),
+    //sideBar1(icon: "magnifyingglass.circle", title: "Search", tab: .search, index: 1),
+    sideBar1(icon: "building.2", title: "Admin", tab: .admin, index: 3),
     // building.2.crop.circle storefront.circle folder.badge.gearshape
 ]
 
@@ -44,12 +44,12 @@ struct TabBarView: View {
                     }
                 Spacer()
             }
-            .frame(width: 23.3, height: 23)
+            //.frame(width: 23.3, height: 23)
         }
         //.frame(maxWidth: UIScreen.main.bounds.width - 40)
         .frame(height: 70)
-        .background(.ultraThickMaterial)
-        .cornerRadius(20)
+        .background(.ventuorLightGray)
+        //.cornerRadius(20)
     }
 }
 

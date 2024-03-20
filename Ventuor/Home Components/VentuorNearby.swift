@@ -10,7 +10,8 @@ import SwiftUI
 struct VentuorNearby: View {
     @State private var goodToAdvance: Bool = false
     @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
-    
+    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+
     var body: some View {
         NavigationStack() {
             Button(action: {
@@ -20,7 +21,8 @@ struct VentuorNearby: View {
                 HStack(spacing: 20) {
                     Text("Nearby")
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    
+                        .foregroundColor(.ventuorBlue)
+
                     Image(systemName: "chevron.right.circle")
                         .resizable()
                         .scaledToFit()
@@ -34,7 +36,8 @@ struct VentuorNearby: View {
             })
         }
         .navigationDestination(isPresented: $goodToAdvance, destination: {
-            VentuorDetailListView(title: "What's Nearby", ventuors: $homeViewModel.ventuors, displayStatusMessage: $homeViewModel.displayStatusMessage)
+            VentuorDetailListView(ventuorViewModel: ventuorViewModel, title: "What's Nearby", ventuors: $homeViewModel.ventuors, displayStatusMessage: $homeViewModel.displayStatusMessage
+                )
         })
     }
 }

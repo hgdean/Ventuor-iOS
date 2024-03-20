@@ -17,9 +17,7 @@ struct MainTabView2: View {
                 .toolbar(.hidden, for: .tabBar)
             ProfileViewTab().tag(2)
                 .toolbar(.hidden, for: .tabBar)
-            SettingsViewTab().tag(3)
-                .toolbar(.hidden, for: .tabBar)
-            SearchViewTab().tag(4)
+            ExploreViewTab(activeTab: $activeTab).tag(3)
                 .toolbar(.hidden, for: .tabBar)
         }
         .overlay(alignment: .bottom) {

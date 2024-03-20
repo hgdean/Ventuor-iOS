@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct SearchBarView: View {
+    enum FocusField: Hashable {
+      case field
+    }
+    @FocusState private var focusedField: FocusField?
+
     @Binding var searchText: String
     var body: some View {
         VStack() {
@@ -30,22 +35,22 @@ struct SearchBarView: View {
                                 }
                             , alignment: .trailing
                         )
+                        .focused($focusedField, equals: .field)
+                        .task {
+                            self.focusedField = .field
+                        }
+
                 }
                 .padding(.vertical, 10)
                 .padding(.horizontal)
                 
             }
-            //.clipShape(RoundedRectangle(cornerRadius: 15))
-            //.padding()
             .background(
                 RoundedRectangle(cornerRadius: 20)
                     .fill(Color.white)
-                    .shadow(color: Color.black.opacity(0.15),
-                            radius: 10, x: 0, y:0)
+                    .shadow(color: Color.black.opacity(0.15), radius: 1, x: 0, y:0)
                 )
-            .padding()
         }
-        .background(Color.white)
     }
 }
 

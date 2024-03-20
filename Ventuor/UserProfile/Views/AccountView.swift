@@ -29,6 +29,7 @@ struct AccountView: View {
                     Divider()
                     LogoffLink2()
                 }
+                .hidden()
             }
             Spacer()
         }

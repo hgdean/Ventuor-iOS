@@ -13,7 +13,7 @@ struct VentuorCompactListView: View {
     var title: String
     var savedFollowingVentuors: [SaveFollowVentuor]
     @ObservedObject var homeViewModel: HomeViewModel
-    @ObservedObject var ventuorViewModel: VentuorViewModel
+    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
 
     @State var showVentuorPage: Bool = false
 
@@ -21,13 +21,13 @@ struct VentuorCompactListView: View {
         NavigationStack() {
             let listCount = savedFollowingVentuors.count
             ScrollView() {
-                VStack(spacing: 10) {
+                VStack(spacing: 2) {
                     ForEach(0..<listCount, id: \.self) { index in
                         Button(action: {
+                            ventuorViewModel.setUserProfileModel(userProfileModel: userProfileModel)
                             ventuorViewModel.getVentuorState(ventuorKey: savedFollowingVentuors[index].ventuorKey ?? "")
                         }, label: {
                             VStack(alignment: .leading, spacing: 8) {         // Main header name / info
-                                
                                 HStack() {
                                     let ventuorKey = savedFollowingVentuors[index].ventuorKey ?? ""
                                     let liveMode = false
@@ -37,26 +37,28 @@ struct VentuorCompactListView: View {
                                         placeholderImage: Image("missing"), // Image(systemName: "photo"),
                                         logoImageDownloader: DefaultLogoImageDownloader(ventuorKey: ventuorKey, liveMode: liveMode))
                                     .scaledToFit()
-                                    .frame(width: 60, height: 60)
+                                    .frame(width: 40, height: 40)
                                     .padding(0)
-                                    
+
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text(savedFollowingVentuors[index].title ?? "")
                                             .fontWeight(.regular)
-                                            .font(.title2)
+                                            .font(.title3)
                                             .padding(0)
+                                            .foregroundColor(.ventuorBlue)
                                         Text(savedFollowingVentuors[index].subTitle1 ?? "")
                                             .padding(.top, -3)
                                             .padding(.bottom, 2)
-                                            .font(.caption)
                                             .fontWeight(.medium)
+                                            .foregroundColor(.ventuorBlue)
+                                            .font(.system(size: 12))
+                                            .opacity(0.4)
                                     }
                                     .lineLimit(1)
                                     .padding(.leading, 2)
                                     
                                     Spacer()
                                 }
-                                
                             }
                             .padding(10)
                             .background(.white)
@@ -78,18 +80,21 @@ struct VentuorCompactListView: View {
         .overlay {
             if savedFollowingVentuors.count == 0 {
                 ContentUnavailableView(label: {
-                    Image(systemName: "tray.fill")
                 }, description: {
-                    Text("Nothing to show")
+                    VStack() {
+                        Image(systemName: "tray.fill")
+                        Text("Nothing to show")
+                    }
+                    .foregroundColor(Color.gray)
                 }, actions: {
                 })
-                .frame(width: UIScreen.main.bounds.width)
+                .background(Color.white)
             }
         }
     }
 }
 
-//#Preview {
-//    VentuorCompactListView(title: "Test", savedFollowingVentuors: HomeViewModel.sample.savedVentuors, homeViewModel: HomeViewModel.sample, ventuorViewModel: VentuorViewModel.sample)
-//        .environmentObject(UserProfileModel.shared)
-//}
+#Preview {
+    VentuorCompactListView(title: "Test", savedFollowingVentuors: [SaveFollowVentuor](), homeViewModel: HomeViewModel.sample, ventuorViewModel: VentuorViewModel.sample)
+        .environmentObject(UserProfileModel.shared)
+}

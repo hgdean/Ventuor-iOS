@@ -9,9 +9,9 @@ import SwiftUI
 
 struct VentuorDetailListView: View {
     @EnvironmentObject var userProfileModel: UserProfileModel // Can only be used in a View
-
-    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
-
+    @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
+    
+    @ObservedObject var ventuorViewModel: VentuorViewModel
     var title: String
 
     @Binding var ventuors: [VentuorData]
@@ -27,7 +27,10 @@ struct VentuorDetailListView: View {
                     VStack(spacing: 10) {
                         ForEach(0..<listCount, id: \.self) { index in
                             Button(action: {
+                                ventuorViewModel.setUserProfileModel(userProfileModel: userProfileModel)
                                 ventuorViewModel.getVentuorState(ventuorKey: ventuors[index].ventuorKey ?? "")
+                                print(ventuors[index].latitude ?? "")
+                                print(ventuors[index].longitude ?? "")
                             }, label: {
                                 VStack(alignment: .leading, spacing: 8) {         // Main header name / info
                                                                         
@@ -40,7 +43,7 @@ struct VentuorDetailListView: View {
                                             placeholderImage: Image("missing"), // Image(systemName: "photo"),
                                             logoImageDownloader: DefaultLogoImageDownloader(ventuorKey: ventuorKey, liveMode: liveMode))
                                         .scaledToFit()
-                                        .frame(width: 60, height: 60)
+                                        .frame(width: 50, height: 50)
                                         .padding(0)
                                         
                                         VStack(alignment: .leading, spacing: 2) {
@@ -48,11 +51,13 @@ struct VentuorDetailListView: View {
                                                 .fontWeight(.regular)
                                                 .font(.title2)
                                                 .padding(0)
+                                                .foregroundColor(.ventuorBlue)
                                             Text(ventuors[index].subTitle1 ?? "")
                                                 .padding(.top, -3)
                                                 .padding(.bottom, 2)
-                                                .font(.caption)
+                                                .font(.system(size: 12))
                                                 .fontWeight(.medium)
+                                                .foregroundColor(.black)
                                             Text(ventuors[index].subTitle2 ?? "")
                                                 .fontWeight(.light)
                                                 .font(.system(size: 12))
@@ -77,18 +82,18 @@ struct VentuorDetailListView: View {
                                         timeframeStatus: ventuors[index].timeframeStatus ?? "",
                                         timeframeStatusMessage: ventuors[index].timeframeStatusMessage ?? "")
                                 })
-                                .cornerRadius(10)
+                                .cornerRadius(0)
                                 .shadow(color: .ventuorLightGray, radius: 2, x: 1, y: 1)
                             })
                         }
-                        .padding([.leading, .trailing], 12)
+                        .padding([.leading, .trailing], 0)
                         .errorAlert(error: $ventuorViewModel.errorVentuorState)
                     }
                     .padding(.bottom, 70)
                 }
-                .background(Color("ventuor-gray"))
             }
         }
+        .background(Color.white)
         .navigationDestination(isPresented: $ventuorViewModel.ventuorStateLive, destination: {
             VentuorView(ventuorViewModel: ventuorViewModel)
                 .environmentObject(UserProfileModel.shared)
@@ -97,18 +102,22 @@ struct VentuorDetailListView: View {
         .overlay {
             if ventuors.count == 0 {
                 ContentUnavailableView(label: {
-                    Image(systemName: "tray.fill")
                 }, description: {
-                    Text("Nothing to show")
+                    VStack() {
+                        Image(systemName: "tray.fill")
+                        Text("Nothing to show")
+                    }
+                    .foregroundColor(Color.gray)
                 }, actions: {
                 })
-                .frame(width: UIScreen.main.bounds.width)
+                .background(Color.white)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             }
         }
     }
 }
 
 //#Preview {
-//    VentuorDetailListView(ventuors: Binding(projectedValue: [VentuorData](), displayStatusMessage: .constant(""))
+//    VentuorDetailListView(title: "", ventuors: .constant([VentuorData]()), displayStatusMessage: .constant(""))
 //        .environmentObject(UserProfileModel.shared)
 //}

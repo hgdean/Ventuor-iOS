@@ -14,6 +14,7 @@ struct AccountLink: View {
         NavigationStack() {
             NavigationLink {
                 AccountView()
+                    .background(Color.white)
             } label: {
                 HStack(spacing: 20) {
                     Image(systemName: "person.crop.circle.badge")
@@ -23,6 +24,7 @@ struct AccountLink: View {
                     
                     VStack(alignment: .leading) {
                         Text("Account")
+                            .foregroundColor(.ventuorBlue)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     

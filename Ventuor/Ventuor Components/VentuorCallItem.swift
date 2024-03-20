@@ -25,7 +25,8 @@ struct VentuorCallItem: View {
                     let phone = "Call:  " + (countrycode) + " " + (phone)
                     Text(phone)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    
+                        .foregroundColor(.ventuorBlue)
+
                     Image(systemName: "chevron.right.circle")
                         .resizable()
                         .scaledToFit()

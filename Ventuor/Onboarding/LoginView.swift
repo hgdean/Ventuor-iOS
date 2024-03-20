@@ -107,6 +107,13 @@ struct LoginView: View {
                     }
                 }
             }
+            .alert(item: $viewModel.message) { message in
+                return Alert(
+                    title: Text(message.title),
+                    message: Text(message.message),
+                    dismissButton: .cancel()
+                )
+            }
             .sheet(isPresented: $viewModel.showUsernameOrEmailPage, content: {
                 RequestPasswordReset(viewModel: viewModel)
                     .presentationDetents([.height(450)])

@@ -18,12 +18,10 @@ struct VentuorView: View {
     @State var showDeptHoursSheet: DepartmentHours? = nil
 
     @ObservedObject var ventuorViewModel: VentuorViewModel
-    
+
     var body: some View {
-        
         ScrollView() {
             VStack() {
-                
                 VStack() {
                     VStack(alignment: .leading, spacing: 8) {                         // Main header name / info
                         
@@ -42,7 +40,7 @@ struct VentuorView: View {
                                 placeholderImage: Image("missing"), // Image(systemName: "photo"),
                                 logoImageDownloader: DefaultLogoImageDownloader(ventuorKey: ventuorViewModel.ventuorKey, liveMode: ventuorViewModel.liveMode))
                             .scaledToFit()
-                            .frame(width: 70, height: 70)
+                            .frame(width: 50, height: 50)
                             .padding(0)
                             
                             VStack(alignment: .leading, spacing: 2) {
@@ -61,8 +59,9 @@ struct VentuorView: View {
                                     .foregroundColor(.gray)
                                     .padding(0)
                             }
+                            .foregroundColor(.ventuorBlue)
                             .padding(.leading, 5)
-                            .background(.white)
+//                            .background(.white)
                             .lineLimit(1)
                             
                             Spacer()
@@ -85,7 +84,7 @@ struct VentuorView: View {
                 VStack(alignment: .leading) {
                     HStack(spacing: 12) {
 
-                        VentuorMapsItem()
+                        VentuorMapsItem(ventuorViewModel: ventuorViewModel)
 
                         VStack(spacing: 7) {
                             Image("driveW")
@@ -138,6 +137,7 @@ struct VentuorView: View {
                     }
                     .frame(maxWidth: .infinity, minHeight: 70, alignment: .bottomTrailing)
                     .background(Color("ventuor-orange"))
+                    .foregroundColor(.white)
                     .zIndex(-1)
                     .padding(.top, -50)
                     .shadow(radius: 5)
@@ -154,6 +154,7 @@ struct VentuorView: View {
                     let departmentHoursCount = ventuorViewModel.ventuor?.result?.ventuor?.departmentHours?.count ?? 0
                     if departmentHoursCount > 0 {
                         VentuorDeptHoursItem(departmentHours: (ventuorViewModel.ventuor?.result?.ventuor?.departmentHours)!)
+                            .background(Color.white)
                     }
                     
                     HStack(spacing: 20) {
@@ -161,7 +162,7 @@ struct VentuorView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 25, height: 25)
-                            .foregroundColor(.ventuorBlue)
+//                            .foregroundColor(.ventuorBlue)
 
                         VStack(alignment: .leading) {
                             Text(ventuorViewModel.ventuor?.result?.ventuor?.payments ?? "Bitcoin, cash, VISA, MasterCard")
@@ -169,7 +170,6 @@ struct VentuorView: View {
                             Text("Payment types excepted")
                                 .fontWeight(.light)
                                 .font(.caption)
-                                .foregroundColor(.ventuorBlue)
                                 .opacity(0.6)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -178,13 +178,12 @@ struct VentuorView: View {
                             .resizable()
                             .scaledToFit()
                             .padding([.top, .bottom], 20)
-                            .foregroundColor(.ventuorBlue)
                             .opacity(0.3)
                             .frame(width: 20)
                     }
+                    .foregroundColor(.ventuorBlue)
                     .padding([.leading, .trailing], 15)
                     .border(width: 1, edges: [.bottom], color: .ventuorGray)
-
                 }
                 
                 VStack(alignment: .center) {
@@ -283,6 +282,7 @@ struct VentuorView: View {
                     }
                     .padding([.leading, .trailing], 13)
                 }
+                .foregroundColor(.ventuorBlue)
                 .padding(16)
                 
                 let pagesCount = ventuorViewModel.ventuor?.result?.ventuor?.pages?.count ?? 0
@@ -299,6 +299,8 @@ struct VentuorView: View {
             }
             .padding(.bottom, 70)
         }
+        .background(Color.white)
+        .navigationTitle(String("*") + String(ventuorViewModel.ventuor?.result?.ventuor?.ventuorName ?? ""))
     }
 }
 

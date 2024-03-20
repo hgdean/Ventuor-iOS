@@ -9,5 +9,5 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 // Development.xcconfig
-BASE_URL = 192.168.1.39:8080
-//BASE_URL = app.ventuor.com
+//BASE_URL = 192.168.1.39:8080
+BASE_URL = app.ventuor.com
