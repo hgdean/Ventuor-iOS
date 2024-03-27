@@ -141,8 +141,8 @@ class UserProfileModel: ObservableObject {
 
     @Published var userRecentSearchTerms: RecentSearchTerms = RecentSearchTerms()
     @Published var userRecentVentuors: RecentVentuor = RecentVentuor()
-    @Published var savedVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
-    @Published var followingVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
+//    @Published var savedVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
+//    @Published var followingVentuors: [SaveFollowVentuor] = [SaveFollowVentuor]()
 
     func loadUserProfile(cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
         
@@ -503,7 +503,7 @@ class UserProfileModel: ObservableObject {
     }
 
     func saveRecentSearchTermsToStorage() {
-        //self.recentVentuorListItems = CacheVentuor() // To erase the recent ventuors
+//        self.recentSearchTermListItems = RecentSearchTerms() // To erase the recent ventuors
         self.recentSearchTermListItems = self.userRecentSearchTerms
     }
     func loadRecentSearchTermsFromStorage() {

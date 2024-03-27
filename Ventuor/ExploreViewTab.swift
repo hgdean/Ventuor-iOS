@@ -22,7 +22,7 @@ struct ExploreViewTab: View {
     @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
     
     @ObservedObject var searchViewModel: SearchViewModel = SearchViewModel()
-    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel(liveMode: true)
     @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
     
     @State var searchTerm: String = ""
@@ -62,7 +62,7 @@ struct ExploreViewTab: View {
                                     .task {
                                         showSearchResultSheet = false
                                         ventuorViewModel.setUserProfileModel(userProfileModel: userProfileModel)
-                                        ventuorViewModel.getVentuorState(ventuorKey: searchViewModel.ventuors[index].ventuorKey ?? "")
+                                        ventuorViewModel.getVentuorData(ventuorKey: searchViewModel.ventuors[index].ventuorKey ?? "", liveMode: true)
                                     }
                             } label: {
                                 PlaceAnnotationView(ventuorViewModel: ventuorViewModel, ventuor: searchViewModel.ventuors[index], navToShowVentuor: $navToShowVentuor, showSheetForVentuor: $showSheetForVentuor, title: searchViewModel.ventuors[index].title ?? "")
@@ -70,25 +70,6 @@ struct ExploreViewTab: View {
                         } label: {
                             Text(searchViewModel.ventuors[index].title ?? "")
                         }
-                        
-//                        let latitude = homeViewModel.ventuors[index].latitude ?? Utils().DEFAULT_HOME_LOCATION_LATITUDE
-//                        let longitude = homeViewModel.ventuors[index].longitude ?? Utils().DEFAULT_HOME_LOCATION_LONGITUDE
-//                        Annotation(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude)) {
-//                            NavigationLink() {
-//                                VentuorView(ventuorViewModel: ventuorViewModel)
-//                                    .navigationBarTitleDisplayMode(.inline)
-//                                    .environmentObject(UserProfileModel.shared)
-//                                    .task {
-//                                        showSearchResultSheet = false
-//                                        ventuorViewModel.setUserProfileModel(userProfileModel: userProfileModel)
-//                                        ventuorViewModel.getVentuorState(ventuorKey: homeViewModel.ventuors[index].ventuorKey ?? "")
-//                                    }
-//                            } label: {
-//                                PlaceAnnotationView(ventuorViewModel: ventuorViewModel, ventuor: homeViewModel.ventuors[index], navToShowVentuor: $navToShowVentuor, showSheetForVentuor: $showSheetForVentuor, title: homeViewModel.ventuors[index].title ?? "")
-//                            }
-//                        } label: {
-//                            Text(homeViewModel.ventuors[index].title ?? "")
-//                        }
                     }
                 }
                 .mapStyle(.hybrid(elevation: .realistic,
@@ -123,101 +104,96 @@ struct ExploreViewTab: View {
                                     .shadow(radius: 2)
                             })
                             .shadow(color: Color.black.opacity(0.7), radius: 5, x: 5, y:4)
+                            .padding(.bottom, searchViewModel.searchResult ? 10 : 20)
                     })
-                    .sheet(isPresented: $showSearchSheet, 
-                           onDismiss: {
-                                showSearchSheet = false
-                    }) {
-                        VStack(alignment: .leading, spacing: 18) {
-                            SearchBarView(searchText: $searchTerm)
-                                .onSubmit {
-                                    doOnSubmitSearch(term: searchTerm)
-                                }
-                                .padding(.horizontal, 20)
-                                .presentationDragIndicator(.visible)
-                            
-                            ScrollView() {
-                                RecentSearchTermsView(listSearchTerms: userProfileModel.userRecentSearchTerms.getUserSearchItem(userKey: Auth.shared.getUserKey()!))
-                                    .padding(.horizontal, 20)
 
-                                SearchCategoriesView()
-                                    .padding(.top, 25)
-                                    .padding(.horizontal, 20)
-                            }
-                        }
-                        .padding(.top, 30)
-                        .background(Color.white)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                        .presentationDetents([.fraction(0.99)])
-                        .presentationCornerRadius(25)
-                        .presentationBackground(.regularMaterial)
-                        .presentationBackgroundInteraction(.enabled)
-                    }
-                    .sheet(isPresented:
-                        .constant(activeTab == Tab.explore && searchViewModel.searchResult && showSearchResultSheet),
-                           onDismiss: {showSearchResultSheet = false}, content: {
-                        VStack() {
-                            HStack(spacing: 12) {
-                                Circle()
-                                    .fill(Color(.ventuorOrange))
-                                    .frame(height: 30)
-                                    .overlay(content: {
-                                        Image(systemName: "magnifyingglass")
-                                            .font(.caption)
-                                            .fontWeight(.bold)
-                                            .foregroundColor(.white)
-                                            .shadow(radius: 2)
-                                    })
-                                //.shadow(color: Color.black.opacity(0.7), radius: 5, x: 5, y:4)
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text(searchViewModel.searchTerm)
-                                        .fontWeight(.semibold)
-                                        .font(.title3)
-                                        .lineLimit(1)
-                                        .foregroundColor(.ventuorBlue)
-                                    HStack(spacing: 6) {
-                                        Text("22 found")
-                                            .font(.footnote)
-                                            .foregroundColor(.gray)
-                                        //Image(systemName: "circle.fill").font(.system(size: 4)).foregroundColor(.ventuorDarkGray)
-                                    }
-                                }
-                                Spacer()
-                                Text("Clear")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.blue)
-                                    .font(.callout)
-                                    .onTapGesture {
-                                        searchViewModel.searchResult = false
-                                        searchViewModel.ventuors = []
-                                    }
-                            }
-                            .padding([.top, .bottom], 20)
-                            .padding([.leading, .trailing], 20)
-                            
-                            VentuorDetailListView(ventuorViewModel: ventuorViewModel, title: "Search Result", ventuors: $searchViewModel.ventuors, displayStatusMessage: $searchViewModel.displayStatusMessage)
-                            //.padding()
-                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                                .presentationDetents([.height(122), .medium, .fraction(0.99)], selection: $settingsDetentMedium)
-                                .presentationCornerRadius(25)
-                                .presentationBackground(.ventuorLightGray)
-                                .presentationBackgroundInteraction(.enabled)
-                                .bottomMaskForSheet()
-                        }
-                    })
-                    
-                    if searchViewModel.searchResult && !showSearchResultSheet {
+                    if searchViewModel.searchResult {
                         ShowListResultButton(showSearchResultSheet: $showSearchResultSheet, settingsDetentMedium: $settingsDetentMedium)
                     } else {
-                        ShowListResultButton(showSearchResultSheet: $showSearchResultSheet, settingsDetentMedium: $settingsDetentMedium).hidden()
+//                        ShowListResultButton(showSearchResultSheet: $showSearchResultSheet, settingsDetentMedium: $settingsDetentMedium).hidden()
                     }
-                    
-//                    if homeViewModel.searchResult && !showSearchResultSheet {
-//                        ShowListResultButton(showSearchResultSheet: $showSearchResultSheet)
-//                    } else {
-//                        ShowListResultButton(showSearchResultSheet: $showSearchResultSheet).hidden()
-//                    }
                 }
+                .sheet(isPresented: $showSearchSheet,
+                       onDismiss: {
+                            showSearchSheet = false
+                }) {
+                    VStack(alignment: .leading, spacing: 18) {
+                        SearchBarView(searchText: $searchTerm)
+                            .onSubmit {
+                                doOnSubmitSearch(term: searchTerm)
+                            }
+                            .padding(.horizontal, 20)
+                            .presentationDragIndicator(.visible)
+                        
+                        ScrollView() {
+                            RecentSearchTermsView(listSearchTerms: userProfileModel.userRecentSearchTerms.getUserSearchItem(userKey: Auth.shared.getUserKey()!))
+                                .padding(.horizontal, 20)
+
+                            SearchCategoriesView()
+                                .padding(.top, 25)
+                                .padding(.horizontal, 20)
+                        }
+                    }
+                    .padding(.top, 30)
+                    .background(Color.white)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .presentationDetents([.fraction(0.99)])
+                    .presentationCornerRadius(25)
+                    .presentationBackground(.regularMaterial)
+                    .presentationBackgroundInteraction(.enabled)
+                }
+                .sheet(isPresented:
+                    .constant(activeTab == Tab.explore && searchViewModel.searchResult && showSearchResultSheet),
+                       onDismiss: {showSearchResultSheet = false}, content: {
+                    VStack() {
+                        HStack(spacing: 12) {
+                            Circle()
+                                .fill(Color(.ventuorOrange))
+                                .frame(height: 30)
+                                .overlay(content: {
+                                    Image(systemName: "magnifyingglass")
+                                        .font(.caption)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                                        .shadow(radius: 2)
+                                })
+                            //.shadow(color: Color.black.opacity(0.7), radius: 5, x: 5, y:4)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(searchViewModel.searchTerm)
+                                    .fontWeight(.semibold)
+                                    .font(.title3)
+                                    .lineLimit(1)
+                                    .foregroundColor(.ventuorBlue)
+                                HStack(spacing: 6) {
+                                    Text("22 found")
+                                        .font(.footnote)
+                                        .foregroundColor(.gray)
+                                    //Image(systemName: "circle.fill").font(.system(size: 4)).foregroundColor(.ventuorDarkGray)
+                                }
+                            }
+                            Spacer()
+                            Text("Clear")
+                                .fontWeight(.bold)
+                                .foregroundColor(.blue)
+                                .font(.callout)
+                                .onTapGesture {
+                                    searchViewModel.searchResult = false
+                                    searchViewModel.ventuors = []
+                                }
+                        }
+                        .padding([.top, .bottom], 20)
+                        .padding([.leading, .trailing], 20)
+                        
+                        VentuorDetailListView(liveMode: true, ventuorViewModel: ventuorViewModel, title: "Search Result", ventuors: $searchViewModel.ventuors, displayStatusMessage: $searchViewModel.displayStatusMessage)
+                        //.padding()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .presentationDetents([.height(140), .medium, .fraction(0.99)], selection: $settingsDetentMedium)
+                            .presentationCornerRadius(25)
+                            .presentationBackground(.ventuorLightGray)
+                            .presentationBackgroundInteraction(.enabled)
+                            .bottomMaskForSheet()
+                    }
+                })
                 .padding(.bottom, 49)
             }
             .errorAlert(error: $searchViewModel.errorSearchResult)
@@ -474,7 +450,7 @@ struct ShowListResultButton: View {
     
     var body: some View {
         Button(action: {
-            settingsDetentMedium = PresentationDetent.height(122)
+            settingsDetentMedium = PresentationDetent.medium
             showSearchResultSheet = true
         }, label: {
             HStack {

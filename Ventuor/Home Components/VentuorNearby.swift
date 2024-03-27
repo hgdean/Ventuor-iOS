@@ -10,7 +10,7 @@ import SwiftUI
 struct VentuorNearby: View {
     @State private var goodToAdvance: Bool = false
     @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
-    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel(liveMode: true)
 
     var body: some View {
         NavigationStack() {
@@ -36,8 +36,8 @@ struct VentuorNearby: View {
             })
         }
         .navigationDestination(isPresented: $goodToAdvance, destination: {
-            VentuorDetailListView(ventuorViewModel: ventuorViewModel, title: "What's Nearby", ventuors: $homeViewModel.ventuors, displayStatusMessage: $homeViewModel.displayStatusMessage
-                )
+            VentuorDetailListView(liveMode: true, ventuorViewModel: ventuorViewModel, title: "What's Nearby", ventuors: $homeViewModel.ventuors, displayStatusMessage: $homeViewModel.displayStatusMessage)
+                .background(Color.ventuorBackgroundSplash)
         })
     }
 }

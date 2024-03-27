@@ -13,7 +13,7 @@ struct VentuorCompactListView: View {
     var title: String
     var savedFollowingVentuors: [SaveFollowVentuor]
     @ObservedObject var homeViewModel: HomeViewModel
-    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel(liveMode: true)
 
     @State var showVentuorPage: Bool = false
 
@@ -25,17 +25,16 @@ struct VentuorCompactListView: View {
                     ForEach(0..<listCount, id: \.self) { index in
                         Button(action: {
                             ventuorViewModel.setUserProfileModel(userProfileModel: userProfileModel)
-                            ventuorViewModel.getVentuorState(ventuorKey: savedFollowingVentuors[index].ventuorKey ?? "")
+                            ventuorViewModel.getVentuorData(ventuorKey: savedFollowingVentuors[index].ventuorKey ?? "", liveMode: true)
                         }, label: {
                             VStack(alignment: .leading, spacing: 8) {         // Main header name / info
                                 HStack() {
                                     let ventuorKey = savedFollowingVentuors[index].ventuorKey ?? ""
-                                    let liveMode = false
                                     RemoteLogoImage(
                                         ventuorKey: ventuorKey,
-                                        liveMode: liveMode,
+                                        liveMode: true,
                                         placeholderImage: Image("missing"), // Image(systemName: "photo"),
-                                        logoImageDownloader: DefaultLogoImageDownloader(ventuorKey: ventuorKey, liveMode: liveMode))
+                                        logoImageDownloader: DefaultLogoImageDownloader(ventuorKey: ventuorKey, liveMode: true))
                                     .scaledToFit()
                                     .frame(width: 40, height: 40)
                                     .padding(0)
@@ -46,6 +45,7 @@ struct VentuorCompactListView: View {
                                             .font(.title3)
                                             .padding(0)
                                             .foregroundColor(.ventuorBlue)
+                                        
                                         Text(savedFollowingVentuors[index].subTitle1 ?? "")
                                             .padding(.top, -3)
                                             .padding(.bottom, 2)
@@ -88,7 +88,8 @@ struct VentuorCompactListView: View {
                     .foregroundColor(Color.gray)
                 }, actions: {
                 })
-                .background(Color.white)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .background(Color.ventuorBackgroundSplash)
             }
         }
     }

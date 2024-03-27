@@ -58,17 +58,16 @@ enum ErrorVentuorState: LocalizedError {
 }
 
 class VentuorViewModel: ObservableObject {
+    var liveMode: Bool
     var userProfileModel: UserProfileModel?
 
     var ventuorKey: String = ""
     var title: String = ""
     var subTitle1: String = ""
     
-    var liveMode: Bool = true
-    
     @Published var ventuor: Ventuor? = nil
 
-    static var sample = VentuorViewModel()
+    static var sample = VentuorViewModel(liveMode: true)
 
     @Published var ventuorStateLive: Bool = false
     @Published var errorVentuorState: Swift.Error?
@@ -76,7 +75,13 @@ class VentuorViewModel: ObservableObject {
     @Published var isVentuorFollowedByUser: Bool = false
     @Published var isVentuorCheckedinByUser: Bool = false
 
+    @Published var showBulletin: Bool = false
+
     @Published var logo: UIImage?
+    
+    init(liveMode: Bool) {
+        self.liveMode = liveMode
+    }
     
     func whichState(item: String) -> ErrorVentuorState {
         switch item {
@@ -98,11 +103,15 @@ class VentuorViewModel: ObservableObject {
     func setUserProfileModel(userProfileModel: UserProfileModel) {
         self.userProfileModel = userProfileModel
     }
-    
-    func getVentuorState(ventuorKey: String) {
-        self.ventuorKey = ventuorKey
-        let services = Services(baseURL: API.baseURL + "/mobile/getVentuorState")
-        services.getVentuorState(ventuorKey, cb: cbGetVentuorState)
+
+    func getVentuorData(ventuorKey: String, liveMode: Bool) {
+        if self.liveMode {
+            self.ventuorKey = ventuorKey
+            let services = Services(baseURL: API.baseURL + "/mobile/getVentuorState")
+            services.getVentuorState(ventuorKey, cb: cbGetVentuorState)
+        } else {
+            getVentuorDataForAdmin(ventuorKey: ventuorKey, liveMode: liveMode)
+        }
     }
 
     fileprivate func cbGetVentuorState(data: Data?, error: NSError?) -> Void {
@@ -131,10 +140,10 @@ class VentuorViewModel: ObservableObject {
         isVentuorCheckedinByUser = false
 
         let services = Services(baseURL: API.baseURL + "/mobile/getVentuor")
-        services.getVentuorData(ventuorKey: ventuorKey, cb: cb)
+        services.getVentuorData(ventuorKey: ventuorKey, cb: cbGetVentuorData)
     }
     
-    fileprivate func cb(_ data: Data?, error: NSError?) -> Void {
+    fileprivate func cbGetVentuorData(_ data: Data?, error: NSError?) -> Void {
         
         if data != nil {
             print(String(data: data!, encoding: .utf8)!)
@@ -147,12 +156,46 @@ class VentuorViewModel: ObservableObject {
                     self.ventuorKey = ventuorKey
                     self.title = response.result?.ventuor?.title ?? ""
                     self.subTitle1 = response.result?.ventuor?.subTitle1 ?? ""
+                    self.showBulletin = response.result?.ventuor?.bulletin ?? "" != ""
                 }
                 
                 ventuor = response
                 addToRecentVentuor()
                 updateSavedFollowingButtons()
-                //updateUserProfile()
+            } catch {
+                fatalError("Could not decode Ventuor: \(error)")
+            }
+        }
+    }
+
+    func getVentuorDataForAdmin(ventuorKey: String, liveMode: Bool) {
+        ventuor?.result?.ventuor = nil
+        logo = nil
+        isVentuorSavedByUser = false
+        isVentuorFollowedByUser = false
+        isVentuorCheckedinByUser = false
+
+        let services = Services(baseURL: API.baseURL + "/mobile/getVentuor")
+        services.getVentuorDataForAdmin(ventuorKey: ventuorKey, liveMode: liveMode, cb: cbGetVentuorDataForAdmin)
+    }
+    
+    fileprivate func cbGetVentuorDataForAdmin(_ data: Data?, error: NSError?) -> Void {
+        
+        if data != nil {
+            print(String(data: data!, encoding: .utf8)!)
+            
+            do {
+                let response = try JSONDecoder().decode(Ventuor.self, from: data!)
+                print(response)
+
+                if let ventuorKey = response.result?.ventuor?.ventuorKey {
+                    ventuorStateLive = true
+                    self.ventuorKey = ventuorKey
+                    self.title = response.result?.ventuor?.title ?? ""
+                    self.subTitle1 = response.result?.ventuor?.subTitle1 ?? ""
+                    self.showBulletin = response.result?.ventuor?.bulletin ?? "" != ""
+                }
+                ventuor = response
             } catch {
                 fatalError("Could not decode Ventuor: \(error)")
             }
@@ -160,10 +203,12 @@ class VentuorViewModel: ObservableObject {
     }
 
     fileprivate func updateSavedFollowingButtons() -> Void {
-        isVentuorSavedByUser = updateVentuorSavedFollowedByUser(userProfileModel!.userProfileDataModel.savedVentuors)
-        //isVentuorSavedByUser = updateVentuorSavedFollowedByUser(userProfileModel.savedVentuors)
-        isVentuorFollowedByUser = updateVentuorSavedFollowedByUser(userProfileModel!.userProfileDataModel.followingVentuors)
-        //isVentuorFollowedByUser = updateVentuorSavedFollowedByUser(userProfileModel.followingVentuors)
+        if self.liveMode {
+            isVentuorSavedByUser = updateVentuorSavedFollowedByUser(userProfileModel!.userProfileDataModel.savedVentuors)
+            //isVentuorSavedByUser = updateVentuorSavedFollowedByUser(userProfileModel.savedVentuors)
+            isVentuorFollowedByUser = updateVentuorSavedFollowedByUser(userProfileModel!.userProfileDataModel.followingVentuors)
+            //isVentuorFollowedByUser = updateVentuorSavedFollowedByUser(userProfileModel.followingVentuors)
+        }
     }
 
     fileprivate func cbGetUserProfile(data: Data?, error: NSError?) -> Void {
@@ -175,9 +220,11 @@ class VentuorViewModel: ObservableObject {
     }
     
     func saveVentuor(ventuorKey: String, title: String, subtitle1: String, iconLocation: String) {
-        self.ventuorKey = ventuorKey
-        let services = Services(baseURL: API.baseURL + "/mobile/saveVentuor")
-        services.saveVentuor(ventuorKey, title: title, subtitle1: subtitle1, iconLocation: iconLocation, cb: cbSaveVentuor)
+        if self.liveMode {
+            self.ventuorKey = ventuorKey
+            let services = Services(baseURL: API.baseURL + "/mobile/saveVentuor")
+            services.saveVentuor(ventuorKey, title: title, subtitle1: subtitle1, iconLocation: iconLocation, cb: cbSaveVentuor)
+        }
     }
     
     fileprivate func cbSaveVentuor(_ data: Data?, error: NSError?) -> Void {
@@ -186,9 +233,11 @@ class VentuorViewModel: ObservableObject {
     }
     
     func unSaveVentuor(ventuorKey: String) {
-        self.ventuorKey = ventuorKey
-        let services = Services(baseURL: API.baseURL + "/mobile/unSaveVentuor")
-        services.unSaveVentuor(ventuorKey, cb: cbUnsaveVentuor)
+        if self.liveMode {
+            self.ventuorKey = ventuorKey
+            let services = Services(baseURL: API.baseURL + "/mobile/unSaveVentuor")
+            services.unSaveVentuor(ventuorKey, cb: cbUnsaveVentuor)
+        }
     }
     
     fileprivate func cbUnsaveVentuor(_ data: Data?, error: NSError?) -> Void {
@@ -197,9 +246,11 @@ class VentuorViewModel: ObservableObject {
     }
     
     func followVentuor(ventuorKey: String, title: String, subtitle1: String, iconLocation: String) {
-        self.ventuorKey = ventuorKey
-        let services = Services(baseURL: API.baseURL + "/mobile/followVentuor")
-        services.followVentuor(ventuorKey, title: title, subtitle1: subtitle1, iconLocation: iconLocation, cb: cbFollowVentuor)
+        if self.liveMode {
+            self.ventuorKey = ventuorKey
+            let services = Services(baseURL: API.baseURL + "/mobile/followVentuor")
+            services.followVentuor(ventuorKey, title: title, subtitle1: subtitle1, iconLocation: iconLocation, cb: cbFollowVentuor)
+        }
     }
     
     fileprivate func cbFollowVentuor(_ data: Data?, error: NSError?) -> Void {
@@ -208,9 +259,11 @@ class VentuorViewModel: ObservableObject {
     }
     
     func unFollowVentuor(ventuorKey: String) {
-        self.ventuorKey = ventuorKey
-        let services = Services(baseURL: API.baseURL + "/mobile/unFollowVentuor")
-        services.unFollowVentuor(ventuorKey, cb: cbunFollowVentuor)
+        if self.liveMode {
+            self.ventuorKey = ventuorKey
+            let services = Services(baseURL: API.baseURL + "/mobile/unFollowVentuor")
+            services.unFollowVentuor(ventuorKey, cb: cbunFollowVentuor)
+        }
     }
     
     fileprivate func cbunFollowVentuor(_ data: Data?, error: NSError?) -> Void {
@@ -228,7 +281,9 @@ class VentuorViewModel: ObservableObject {
     }
     
     func addToRecentVentuor() {
+        if self.liveMode {
             userProfileModel!.addToRecentVentuor(cacheVentuor: CVItem(userKey: Auth.shared.getUserKey()!, ventuorKey: ventuor?.result?.ventuor?.ventuorKey ?? "", title: ventuor?.result?.ventuor?.title ?? "", subTitle1: ventuor?.result?.ventuor?.subTitle1 ?? ""))
+        }
     }
 
 }

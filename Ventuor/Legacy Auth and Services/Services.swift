@@ -203,8 +203,8 @@ class Services : Web {
         self.authToken = Auth.shared.getAccessToken() ?? ""
         
         let locationDataManager = LocationDataManager()
-        let lat = locationDataManager.locationManager.location?.coordinate.latitude ?? 0
-        let long = locationDataManager.locationManager.location?.coordinate.longitude ?? 0
+        let lat = locationDataManager.locationManager.location?.coordinate.latitude ?? 42.5803
+        let long = locationDataManager.locationManager.location?.coordinate.longitude ?? -83.0302
         
         let category = searchCategory
         let searchTerm = searchTerm
@@ -265,7 +265,7 @@ class Services : Web {
                     "category": "",
                     "searchTerm": "",
                     "userKey": userKey,
-                    "maxDistance": 5000,
+                    "maxDistance": 50,
                     "isMiles": isMiles,
                     "date": Utils.getCurrentDate(date),
                     "day": Utils.getCurrentDay(date),
@@ -324,8 +324,8 @@ class Services : Web {
         self.authToken = Auth.shared.getAccessToken() ?? ""
         
         let locationDataManager = LocationDataManager()
-        let lat = locationDataManager.locationManager.location?.coordinate.latitude ?? 0
-        let long = locationDataManager.locationManager.location?.coordinate.longitude ?? 0
+        let lat = locationDataManager.locationManager.location?.coordinate.latitude ?? 42.5803
+        let long = locationDataManager.locationManager.location?.coordinate.longitude ?? -83.0302
         
         let isMiles = SettingsInfo.distanceInMiles
 
@@ -754,9 +754,59 @@ class Services : Web {
         let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
         print(json)
         print(String(data: jsonData!, encoding: .utf8)!)
-
         
         self.post("/mobile/mobileValidateAndLoginVentuorUser", data: jsonData, cb: cb)
     }
 
+    func getVentuorDataForAdmin(ventuorKey: String, liveMode: Bool, cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+        self.authToken = Auth.shared.getAccessToken() ?? ""
+        
+        let lastUpdatedLocation = CLLocationCoordinate2D()
+        let lat = lastUpdatedLocation.latitude
+        let long = lastUpdatedLocation.longitude
+        
+        let date = Date()
+        
+        let isMiles = SettingsInfo.distanceInMiles
+        
+        let userKey: String = Auth.shared.getUserKey() ?? ""
+        
+        // https://stackoverflow.com/questions/70841197/access-data-of-of-struct-swift
+        let json: [String: Any] = [
+            "requestName": "getVentuorDataForAdmin",
+            "requestParam": [
+                "latitude": lat,
+                "longitude": long,
+                "ventuorKey": ventuorKey,
+                "userKey": userKey,
+                "liveMode": liveMode,
+                "date": Utils.getCurrentDate(date),
+                "day": Utils.getCurrentDay(date),
+                "time": Utils.getCurrentTime(date),
+                "isMiles": isMiles
+            ]
+        ]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+        print(json)
+        print(String(data: jsonData!, encoding: .utf8)!)
+
+        
+        self.post("/mobile/getVentuorDataForAdmin", data: jsonData, cb: cb)
+    }
+    
+//    func getCategoriesCellData(_ cb: @escaping (_ data: Data?, _ err: NSError?) -> Void) {
+//
+//        self.authToken = Auth.shared.getAccessToken() ?? ""
+//
+//        let json: [String: Any] = [
+//            "requestName": "getCategoriesCellData",
+//            "requestParam": Environment().toDictionary()
+//            ]
+//        
+//        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+//        print(json)
+//        print(String(data: jsonData!, encoding: .utf8)!)
+//
+//        self.post("/app/getCategoriesCellData", data: jsonData, cb: cb)
+//    }
 }

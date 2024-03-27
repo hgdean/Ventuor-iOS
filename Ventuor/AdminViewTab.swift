@@ -14,7 +14,7 @@ struct AdminViewTab: View {
     var body: some View {
         NavigationStack() {
             if !userProfileModel.userProfileDataModel.roles.contains(UserRole.ROLE_SUPER_USER.rawValue) {
-                StartViewPage(showAdminStartPage: .constant(true))
+                StartPage(showAdminStartPage: .constant(true))
             } else {
                 VentuorAdminLandingPage()
             }

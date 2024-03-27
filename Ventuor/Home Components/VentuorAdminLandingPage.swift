@@ -11,14 +11,17 @@ struct VentuorAdminLandingPage: View {
     @State var title: String = ""
     @State private var goodToAdvance: Bool = false
     @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
-    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+    //@ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
 
+    @State var liveMode: Bool = true
+    
     var body: some View {
         NavigationStack() {
             VStack(spacing: 25) {
                 Button(action: {
                     goodToAdvance = true
                     title = "Test Ventuors"
+                    liveMode = false
                     homeViewModel.getAdminVentuorListInTest()
                 }, label: {
                     HStack(spacing: 20) {
@@ -40,6 +43,7 @@ struct VentuorAdminLandingPage: View {
                 Button(action: {
                     goodToAdvance = true
                     title = "Live Ventuors"
+                    liveMode = true
                     homeViewModel.getAdminVentuorListInLive()
                 }, label: {
                     HStack(spacing: 20) {
@@ -60,13 +64,16 @@ struct VentuorAdminLandingPage: View {
                 
                 Spacer()
             }
-            .background(Color.white)
+            .background(Color.ventuorBackgroundSplash)
             .padding(.top, 20)
         }
         .navigationDestination(isPresented: $goodToAdvance, destination: {
-            VentuorDetailListView(ventuorViewModel: ventuorViewModel, title: title, ventuors: $homeViewModel.ventuors, displayStatusMessage: $homeViewModel.displayStatusMessage)
+            VentuorDetailListView(liveMode: liveMode, ventuorViewModel: VentuorViewModel(liveMode: liveMode), title: title, ventuors: $homeViewModel.ventuors, displayStatusMessage: $homeViewModel.displayStatusMessage)
+                .background(Color.ventuorBackgroundSplash)
         })
         .navigationTitle("Administration")
+        .foregroundColor(.ventuorBlue)
+        .background(Color.ventuorBackgroundSplash)
     }
 }
 

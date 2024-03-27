@@ -17,7 +17,7 @@ struct HorizontalViewList: View {
     @Environment(\.colorScheme) private var scheme
 
     @ObservedObject var homeViewModel: HomeViewModel
-    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel(liveMode: true)
     
     @State var showVentuorPage: Bool = false
 
@@ -105,38 +105,42 @@ struct HorizontalViewList: View {
                 HStack(spacing: 0) {
                     switch selectedTab {
                     case .recent:
-                        if userProfileModel.userRecentVentuors.item.count > 0 {
-                            NavigationLink(destination: VentuorRecentListView(title: "Recent Ventuors", 
+                        if recentVentuors2.item.count > 0 {
+                            NavigationLink(destination: VentuorRecentListView(title: "Recent Ventuors",
                                     recentVentuors2: recentVentuors2, homeViewModel: homeViewModel), label: {
                                 Spacer()
                                 Text("See all")
                                     .foregroundColor(Color(.blue))
-                                    .font(.callout)
-                                    .fontWeight(.bold)
+                                    .font(.system(size: 13))
+                                    .fontWeight(.heavy)
                                     .padding(.trailing, 26)
                                     .padding([.top], 8)
                             })
                         }
                     case .saved:
-                        NavigationLink(destination: VentuorCompactListView(title: "Saved Ventuors", savedFollowingVentuors: userProfileModel.userProfileDataModel.savedVentuors, homeViewModel: homeViewModel), label: {
-                            Spacer()
-                            Text("See all")
-                                .foregroundColor(Color(.blue))
-                                .font(.callout)
-                                .fontWeight(.bold)
-                                .padding(.trailing, 26)
-                                .padding([.top], 8)
-                        })
+                        if userProfileModel.userProfileDataModel.savedVentuors.count > 0 {
+                            NavigationLink(destination: VentuorCompactListView(title: "Saved Ventuors", savedFollowingVentuors: userProfileModel.userProfileDataModel.savedVentuors, homeViewModel: homeViewModel), label: {
+                                Spacer()
+                                Text("See all")
+                                    .foregroundColor(Color(.blue))
+                                    .font(.system(size: 13))
+                                    .fontWeight(.heavy)
+                                    .padding(.trailing, 26)
+                                    .padding([.top], 8)
+                            })
+                        }
                     case .follow:
-                        NavigationLink(destination: VentuorCompactListView(title: "Following Ventuors", savedFollowingVentuors: userProfileModel.userProfileDataModel.followingVentuors, homeViewModel: homeViewModel), label: {
-                            Spacer()
-                            Text("See all")
-                                .foregroundColor(Color(.blue))
-                                .font(.callout)
-                                .fontWeight(.bold)
-                                .padding(.trailing, 26)
-                                .padding([.top], 8)
-                        })
+                        if userProfileModel.userProfileDataModel.followingVentuors.count > 0 {
+                            NavigationLink(destination: VentuorCompactListView(title: "Following Ventuors", savedFollowingVentuors: userProfileModel.userProfileDataModel.followingVentuors, homeViewModel: homeViewModel), label: {
+                                Spacer()
+                                Text("See all")
+                                    .foregroundColor(Color(.blue))
+                                    .font(.system(size: 13))
+                                    .fontWeight(.heavy)
+                                    .padding(.trailing, 26)
+                                    .padding([.top], 8)
+                            })
+                        }
                     }
                 }
                 .padding(0)
@@ -232,22 +236,20 @@ struct HorizontalViewList: View {
     func ShowVentuorItem(ventuorKey: String, title: String, subTitle1: String) -> some View {
         Button(action: {
             ventuorViewModel.setUserProfileModel(userProfileModel: userProfileModel)
-            ventuorViewModel.getVentuorState(ventuorKey: ventuorKey)
+            ventuorViewModel.getVentuorData(ventuorKey: ventuorKey, liveMode: true)
         }, label: {
             ZStack() {
-                RoundedRectangle(cornerRadius: 25)
+                RoundedRectangle(cornerRadius: 10)
                     .fill(Color(.ventuorLightGray))
                 
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 8) {
                     
                     HStack(alignment: .top, spacing: 0) {
-                        let ventuorKey = ventuorKey
-                        let liveMode = false
                         RemoteLogoImage(
                             ventuorKey: ventuorKey,
-                            liveMode: liveMode,
+                            liveMode: true,
                             placeholderImage: Image("missing"), // Image(systemName: "photo"),
-                            logoImageDownloader: DefaultLogoImageDownloader(ventuorKey: ventuorKey, liveMode: liveMode))
+                            logoImageDownloader: DefaultLogoImageDownloader(ventuorKey: ventuorKey, liveMode: true))
                         .frame(width: 35, height: 35)
                         .clipShape(Circle())
                         
@@ -265,7 +267,7 @@ struct HorizontalViewList: View {
                 }
                 .padding([.leading, .trailing], 15)
                 .padding([.top, .bottom], 15)
-                .frame(maxWidth: 165)
+                .frame(maxWidth: 169)
                 .frame(minWidth: 110)
             }
         })

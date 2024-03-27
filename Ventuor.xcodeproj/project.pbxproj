@@ -74,7 +74,6 @@
 		A025F2D62B7D3EDF00F59AD0 /* RequestPasswordReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025F2D52B7D3EDF00F59AD0 /* RequestPasswordReset.swift */; };
 		A025F2D82B7E8FF000F59AD0 /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025F2D72B7E8FF000F59AD0 /* ResetPassword.swift */; };
 		A027FC522BA9EAD20060E869 /* AdminViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027FC512BA9EAD20060E869 /* AdminViewTab.swift */; };
-		A027FC552BA9EB160060E869 /* StartViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027FC542BA9EB160060E869 /* StartViewPage.swift */; };
 		A04213712B7682440005790C /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04213702B7682440005790C /* NameView.swift */; };
 		A04213732B76B21C0005790C /* NameLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04213722B76B21C0005790C /* NameLink.swift */; };
 		A04213762B76B8BC0005790C /* UserProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04213752B76B8BC0005790C /* UserProfileData.swift */; };
@@ -87,6 +86,8 @@
 		A04213882B7844E30005790C /* PasswordLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04213872B7844E30005790C /* PasswordLink.swift */; };
 		A042138A2B7845970005790C /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04213892B7845970005790C /* PasswordView.swift */; };
 		A045D2B42BA331D1008902AF /* VentuorDetailListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A045D2B32BA331D1008902AF /* VentuorDetailListView.swift */; };
+		A0486B882BACAE0700358E10 /* RecentSearchTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0486B872BACAE0700358E10 /* RecentSearchTextView.swift */; };
+		A0486B8A2BACB24400358E10 /* SearchCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0486B892BACB24400358E10 /* SearchCategoryView.swift */; };
 		A059CAEC2B6878DF002C6996 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A059CAEB2B6878DF002C6996 /* RemoteImage.swift */; };
 		A059CB482B6AC1EA002C6996 /* RemotePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A059CB472B6AC1EA002C6996 /* RemotePhoto.swift */; };
 		A059CB4A2B6AC964002C6996 /* VentuorPhotoHGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A059CB492B6AC964002C6996 /* VentuorPhotoHGrid.swift */; };
@@ -112,6 +113,7 @@
 		A0AF70E02B91253600247DCC /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF70DF2B91253600247DCC /* SearchBarView.swift */; };
 		A0AF70E52B91299100247DCC /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF70E42B91299100247DCC /* SearchViewModel.swift */; };
 		A0AF70E92B922F9E00247DCC /* YouAreHereLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF70E82B922F9E00247DCC /* YouAreHereLink.swift */; };
+		A0BE5DBB2BB3A23D008C42B1 /* StartPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE5DBA2BB3A23D008C42B1 /* StartPage.swift */; };
 		A0CA0B732B61A07D005DC8AD /* TimeframeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA0B722B61A07D005DC8AD /* TimeframeStatus.swift */; };
 		A0CA0B752B61AE9F005DC8AD /* VentuorTimeframeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA0B742B61AE9F005DC8AD /* VentuorTimeframeBanner.swift */; };
 		A0CA0B772B61BC5D005DC8AD /* VentuorTitleOpenClosedTimeframeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA0B762B61BC5D005DC8AD /* VentuorTitleOpenClosedTimeframeStatus.swift */; };
@@ -198,7 +200,6 @@
 		A025F2D52B7D3EDF00F59AD0 /* RequestPasswordReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPasswordReset.swift; sourceTree = "<group>"; };
 		A025F2D72B7E8FF000F59AD0 /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
 		A027FC512BA9EAD20060E869 /* AdminViewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewTab.swift; sourceTree = "<group>"; };
-		A027FC542BA9EB160060E869 /* StartViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewPage.swift; sourceTree = "<group>"; };
 		A04213702B7682440005790C /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		A04213722B76B21C0005790C /* NameLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameLink.swift; sourceTree = "<group>"; };
 		A04213752B76B8BC0005790C /* UserProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileData.swift; sourceTree = "<group>"; };
@@ -211,6 +212,8 @@
 		A04213872B7844E30005790C /* PasswordLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordLink.swift; sourceTree = "<group>"; };
 		A04213892B7845970005790C /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		A045D2B32BA331D1008902AF /* VentuorDetailListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorDetailListView.swift; sourceTree = "<group>"; };
+		A0486B872BACAE0700358E10 /* RecentSearchTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTextView.swift; sourceTree = "<group>"; };
+		A0486B892BACB24400358E10 /* SearchCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryView.swift; sourceTree = "<group>"; };
 		A059CAEB2B6878DF002C6996 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		A059CB472B6AC1EA002C6996 /* RemotePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePhoto.swift; sourceTree = "<group>"; };
 		A059CB492B6AC964002C6996 /* VentuorPhotoHGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorPhotoHGrid.swift; sourceTree = "<group>"; };
@@ -236,6 +239,7 @@
 		A0AF70DF2B91253600247DCC /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		A0AF70E42B91299100247DCC /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		A0AF70E82B922F9E00247DCC /* YouAreHereLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouAreHereLink.swift; sourceTree = "<group>"; };
+		A0BE5DBA2BB3A23D008C42B1 /* StartPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPage.swift; sourceTree = "<group>"; };
 		A0CA0B722B61A07D005DC8AD /* TimeframeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeframeStatus.swift; sourceTree = "<group>"; };
 		A0CA0B742B61AE9F005DC8AD /* VentuorTimeframeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorTimeframeBanner.swift; sourceTree = "<group>"; };
 		A0CA0B762B61BC5D005DC8AD /* VentuorTitleOpenClosedTimeframeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentuorTitleOpenClosedTimeframeStatus.swift; sourceTree = "<group>"; };
@@ -267,7 +271,6 @@
 				133AF0B22B4844C9005557D9 /* Production.xcconfig */,
 				133AF0B12B48444D005557D9 /* Development.xcconfig */,
 				133AF0652B4710FA005557D9 /* Ventuor */,
-				A027FC532BA9EADF0060E869 /* Admin View */,
 				133AF0642B4710FA005557D9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 		133AF0652B4710FA005557D9 /* Ventuor */ = {
 			isa = PBXGroup;
 			children = (
+				A0BE5DB92BB3A1F0008C42B1 /* Admin Components */,
 				A0AF70DE2B91251F00247DCC /* Search */,
 				133AF0B32B484E65005557D9 /* Info.plist */,
 				A059CAEA2B6878C7002C6996 /* Remote Image */,
@@ -447,6 +451,8 @@
 				A0ED23A82B6BE34100912CDB /* CircleAnimation.swift */,
 				A0ED23A62B6BE2F300912CDB /* TabBarView.swift */,
 				A07D21A52B87C5830044D4A7 /* TabRecentSavedFollow.swift */,
+				A0486B872BACAE0700358E10 /* RecentSearchTextView.swift */,
+				A0486B892BACB24400358E10 /* SearchCategoryView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -498,14 +504,6 @@
 				131F6E3B2B5073B600F81D50 /* VentuorViewModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		A027FC532BA9EADF0060E869 /* Admin View */ = {
-			isa = PBXGroup;
-			children = (
-				A027FC542BA9EB160060E869 /* StartViewPage.swift */,
-			);
-			path = "Admin View";
 			sourceTree = "<group>";
 		};
 		A042136F2B7682240005790C /* Views */ = {
@@ -595,6 +593,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A0BE5DB92BB3A1F0008C42B1 /* Admin Components */ = {
+			isa = PBXGroup;
+			children = (
+				A0BE5DBA2BB3A23D008C42B1 /* StartPage.swift */,
+			);
+			path = "Admin Components";
+			sourceTree = "<group>";
+		};
 		A0FE1C532BA763DF00C8FBC8 /* RecentSearchTerms */ = {
 			isa = PBXGroup;
 			children = (
@@ -679,7 +685,7 @@
 				13F8EB062B53388500BABF60 /* VentuorWebsiteItem.swift in Sources */,
 				131F6E3C2B5073B600F81D50 /* VentuorViewModel.swift in Sources */,
 				A0AF70E92B922F9E00247DCC /* YouAreHereLink.swift in Sources */,
-				A027FC552BA9EB160060E869 /* StartViewPage.swift in Sources */,
+				A0486B8A2BACB24400358E10 /* SearchCategoryView.swift in Sources */,
 				13F8EB022B53347500BABF60 /* VentuorYouTubeItem.swift in Sources */,
 				133AF0AA2B476334005557D9 /* SignupEmail.swift in Sources */,
 				A0FF87DC2B6163EC00271F5B /* MainTabView.swift in Sources */,
@@ -748,8 +754,10 @@
 				A0ED23AF2B6C577C00912CDB /* VentuorCompactListView.swift in Sources */,
 				A078D8C22B646424003850E4 /* VentuorShareButton.swift in Sources */,
 				13565A2D2B58763500780A8B /* VentuorListData.swift in Sources */,
+				A0486B882BACAE0700358E10 /* RecentSearchTextView.swift in Sources */,
 				A07D212E2B7FA6660044D4A7 /* PreferencesLink.swift in Sources */,
 				133AF0912B4760FA005557D9 /* LoginView.swift in Sources */,
+				A0BE5DBB2BB3A23D008C42B1 /* StartPage.swift in Sources */,
 				A04213712B7682440005790C /* NameView.swift in Sources */,
 				A0ED23AB2B6BEA9D00912CDB /* MainTabView4.swift in Sources */,
 				A025F2D82B7E8FF000F59AD0 /* ResetPassword.swift in Sources */,
@@ -922,25 +930,31 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1000;
 				DEVELOPMENT_ASSET_PATHS = "\"Ventuor/Preview Content\"";
-				DEVELOPMENT_TEAM = CFVBF94NY7;
+				DEVELOPMENT_TEAM = 4BSKSR5GPQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Ventuor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Ventuor;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app needs to capture your picture for your profile image";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow Ventuor app to access your location for optimal performance.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ventuor requires your location to work properly.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ventuorglobal.Ventuor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ventuor.Ventuor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -958,25 +972,31 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1000;
 				DEVELOPMENT_ASSET_PATHS = "\"Ventuor/Preview Content\"";
-				DEVELOPMENT_TEAM = CFVBF94NY7;
+				DEVELOPMENT_TEAM = 4BSKSR5GPQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Ventuor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Ventuor;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app needs to capture your picture for your profile image";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow Ventuor app to access your location for optimal performance.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ventuor requires your location to work properly.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ventuorglobal.Ventuor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ventuor.Ventuor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

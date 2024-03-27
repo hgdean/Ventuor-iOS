@@ -10,7 +10,7 @@ import SwiftUI
 struct YouAreHereLink: View {
     @State private var goodToAdvance: Bool = false
     @ObservedObject var homeViewModel: HomeViewModel
-    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel()
+    @ObservedObject var ventuorViewModel: VentuorViewModel = VentuorViewModel(liveMode: true)
 
     var body: some View {
         NavigationStack() {
@@ -35,8 +35,8 @@ struct YouAreHereLink: View {
             })
         }
         .navigationDestination(isPresented: $goodToAdvance, destination: {
-            VentuorDetailListView(ventuorViewModel: ventuorViewModel, title: "You are here..", ventuors: $homeViewModel.youAreHereVentuorList, displayStatusMessage: .constant("Ready"))
-                .background(Color.blue)
+            VentuorDetailListView(liveMode: true, ventuorViewModel: ventuorViewModel, title: "You are here..", ventuors: $homeViewModel.youAreHereVentuorList, displayStatusMessage: .constant("Ready"))
+                .background(Color.ventuorBackgroundSplash)
         })
     }
 }
